@@ -2,12 +2,12 @@
 lab:
   title: " 12 - 服务终结点和安全存储"
   module: Module 03 - Secure data and applications
-ms.openlocfilehash: 094c35e70258656693d64a816b9ed9382eade199
-ms.sourcegitcommit: 7c5e8e9a86553c6bd9b9a6651b60c6cb9676f0ff
+ms.openlocfilehash: 0acabbcd42c40f70028c6ae2fd37723f557d1d05
+ms.sourcegitcommit: f79ec6b574e76cda7aa1ba459e8c2f6b5d807ee2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/18/2022
-ms.locfileid: "147168503"
+ms.lasthandoff: 04/08/2022
+ms.locfileid: "141569245"
 ---
 # <a name="lab-12-service-endpoints-and-securing-storage"></a>实验室 12：服务终结点和保护存储
 # <a name="student-lab-manual"></a>学生实验室手册
@@ -139,7 +139,7 @@ ms.locfileid: "147168503"
     |源服务标记|**VirtualNetwork**|
     |源端口范围|**\***|
     |目标|**服务标记**|
-    |目标服务标记|**存储**|
+    ||目标服务标记**|**存储**|
     |目标端口范围|**\***|
     |协议|**任意**|
     |操作|**允许**|
@@ -158,7 +158,7 @@ ms.locfileid: "147168503"
     |源服务标记|**VirtualNetwork**|
     |源端口范围|**\***|
     |目标|**服务标记**|
-    |目标服务标记|**Internet**|
+    ||目标服务标记**|**Internet**|
     |目标端口范围|**\***|
     |协议|**任意**|
     |操作|**拒绝**|
@@ -178,7 +178,7 @@ ms.locfileid: "147168503"
     |源|**任意**|
     |源端口范围|**\***|
     |目标|**服务标记**|
-    |目标服务标记|**VirtualNetwork**|
+    ||目标服务标记**|**VirtualNetwork**|
     |目标端口范围|**3389**|
     |协议|**TCP**|
     |操作|**允许**|
@@ -195,7 +195,7 @@ ms.locfileid: "147168503"
     |---|---|
     |虚拟网络|**myVirtualNetwork**|
     |子网|**专用**|
-    
+
 #### <a name="task-4-create-a-storage-account-with-a-file-share"></a>任务 4：使用文件共享创建存储帐户
 
 在此任务中，你将创建一个具有文件共享的存储帐户并获取存储帐户密钥。  
@@ -247,7 +247,7 @@ ms.locfileid: "147168503"
 
 14. 导航回“存储帐户”边栏选项卡，然后在“安全 + 网络”部分，单击“网络”。
 
-15. 在“防火墙和虚拟网”边栏选项卡下，选择“已从所选虚拟网络和 IP 地址启用”选项并单击“+ 添加现有虚拟网络”链接  。 
+15. 在“防火墙和虚拟网”边栏选项卡下，选择“已选定网络”选项，然后单击“+添加现有虚拟网络”链接。 
 
 16. 在“添加网络”边栏选项卡上，指定以下设置：
 
