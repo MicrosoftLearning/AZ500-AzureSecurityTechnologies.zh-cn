@@ -2,12 +2,12 @@
 lab:
   title: 01 - 基于角色的访问控制
   module: Module 01 - Manage Identity and Access
-ms.openlocfilehash: da0086efa92f860f38d3bade2b18dfbcca84884c
-ms.sourcegitcommit: ff9f02863c270d4261acd5a77e8e29cf241679c5
+ms.openlocfilehash: 156b27cdbdd97656e8ccd85c4ed3656c0db91937
+ms.sourcegitcommit: 46495f1eba96da4be553aff5b7521e7ab62f50b8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/11/2022
-ms.locfileid: "139714072"
+ms.lasthandoff: 06/03/2022
+ms.locfileid: "146032705"
 ---
 # <a name="lab-01-role-based-access-control"></a>实验室 01：基于角色的访问控制
 # <a name="student-lab-manual"></a>学生实验室手册
@@ -247,7 +247,7 @@ ms.locfileid: "139714072"
 4. 在“Cloud Shell”窗格内的 Bash 会话中，运行以下命令以获得 Dylan Williams 用户帐户的 ObjectId 属性： 
 
     ```cli
-    OBJECTID=$(echo $USER | jq '.[].objectId' | tr -d '"')
+    OBJECTID=$(echo $USER | jq '.[].id' | tr -d '"')
     ```
 
 5. 在“Cloud Shell”窗格内的 Bash 会话中，运行以下命令以将 Dylan 用户帐户添加到服务台组： 
@@ -311,7 +311,7 @@ ms.locfileid: "139714072"
    |分配访问权限（在“成员”窗格下）|用户、组或服务主体|
    |选择（+ 选择成员）|服务台|
 
-5. 单击“查看 + 分配”以创建角色分配。
+5. 单击“查看 + 分配”两次以创建角色分配。
 
 6. 在“访问控制(IAM)”边栏选项卡上，选择“角色分配”。
 
