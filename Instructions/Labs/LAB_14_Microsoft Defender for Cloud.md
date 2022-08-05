@@ -2,12 +2,12 @@
 lab:
   title: 14 - Microsoft Defender for Cloud
   module: Module 04 - Microsoft Defender for Cloud
-ms.openlocfilehash: 6ec274b75692321577c8966e07349211209eaa02
-ms.sourcegitcommit: a8470295248a6363987bd5ea47154fe39f8535c3
+ms.openlocfilehash: 647e2dc79012d6fedca9da9a78f6006f64be093b
+ms.sourcegitcommit: 18d4f5ccc60ae6d43b27e8b7d4d3ef7f68a02e93
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/09/2022
-ms.locfileid: "139703586"
+ms.lasthandoff: 04/06/2022
+ms.locfileid: "141483499"
 ---
 # <a name="lab-14-microsoft-defender-for-cloud"></a>实验室 14：Microsoft Defender for Cloud
 # <a name="student-lab-manual"></a>学生实验室手册
@@ -53,52 +53,52 @@ ms.locfileid: "139703586"
 
 2. 在 Azure 门户中，在 Azure 门户页面顶部的“搜索资源、服务和文档”文本框中，键入“Microsoft Defender for Cloud”，然后按 Enter 键  。
 
-3. 如果之前没有完成，请在“Microsoft Defender for Cloud \| 开始”边栏选项卡上，单击“升级” 。
+3. 如果之前没有完成，请在“Microsoft Defender for Cloud | 开始”边栏选项卡上，单击“升级” 。
      
-4. 如果之前没有完成，请在“Microsoft Defender for Cloud \| 开始”边栏选项卡上，在“安装代理”选项卡中，向下滚动并单击“安装代理”  。
+4. 如果之前没有完成，请在“Microsoft Defender for Cloud | 开始”边栏选项卡上，在“安装代理”选项卡中，向下滚动并单击“安装代理”  。
 
-5. 在“Microsoft Defender for Cloud \| 开始”边栏选项卡的“升级”选项卡上，在“选择具有增强安全功能的工作区”部分，通过选择你的 Log Analytics 工作区来启用“Microsoft Defender 计划”   。 
+5. 在“Microsoft Defender for Cloud | 开始”边栏选项卡的“升级”选项卡上，在“选择具有增强安全功能的工作区”部分，通过选择你的 Log Analytics 工作区来启用“Microsoft Defender 计划”   。 
 
     >**注意**：查看 Microsoft Defender 计划中提供的所有功能。 
 
-6. 在“Defender 计划”边栏选项卡上，选择“启用所有 Microsoft Defender for Cloud 计划”，然后单击“保存”  。
+6. 导航到“Microsoft Defender for Cloud”，然后在左侧垂直菜单栏中的“管理”设置下，单击“环境设置” 。
 
-7. 导航到“Microsoft Defender for Cloud”，然后在左侧垂直菜单栏中的“管理”设置下，单击“环境设置” 。
+7. 在“Microsoft Defender for Cloud | 环境设置”边栏选项卡上，单击相关订阅。 
 
-8. 在“Microsoft Defender for Cloud | 环境设置”边栏选项卡上，单击相关订阅。 
+8. 在“Defender 计划”边栏选项卡上，选择“启用所有 Microsoft Defender for Cloud 计划”，然后单击“保存”  。
 
-9. 在“设置 | Defender 计划”边栏选项卡上，在左侧垂直菜单栏中，单击“自动预配” 。
+9. 在“设置 | Defender 计划”边栏选项卡上，在左侧垂直菜单栏中，单击“自动预配” 。 
 
 10. 在“设置 | 自动预配”边栏选项卡上，确保将第一个项“适用于 Azure VM 的 Log Analytics 代理”的“自动预配”设置为“开”  。
 
-11. 在“设置 \| 工作流自动化”边栏选项卡上，单击“+ 添加工作流自动化” 。
-
-12. 在“添加工作流程自动化”边栏选项卡中查看可用的设置。 
+11. 在“设置 | 工作流程自动化”边栏选项卡中，查看可用的设置。 
 
     >**注意**：你可以触发基于威胁检测警报和 Microsoft Defender for Cloud 建议的操作。 你还可以配置基于 Logic 应用程序的操作。 
-
-13. 在“添加工作流程自动化”边栏选项卡，单击“取消”。
+    
+12. 在“添加工作流程自动化”边栏选项卡中，查看可用的设置。
 
     >**注意**：Microsoft Defender for Cloud 提供许多有关虚拟机的见解，包括系统更新状态、OS 安全配置和终结点保护。
 
-14. 导航回“Microsoft Defender for Cloud \| 环境设置”边栏选项卡，展开订阅，然后单击表示你在上一个实验室中创建的 Log Analytics 工作区的条目。
+13. 在“添加工作流程自动化”边栏选项卡，单击“取消”。
 
-15. 在“设置 \| Defender 计划”边栏选项卡上，确保已选中“启用所有 Microsoft Defender for Cloud 计划”，然后单击“保存”  。
+14. 导航回“Microsoft Defender for Cloud | 环境设置”边栏选项卡，展开订阅，然后单击表示你在上一个实验室中创建的 Log Analytics 工作区的条目。
 
-16. 从“Microsoft Defender for Cloud \| 设置”边栏选项卡中选择“数据收集” 。 依次选择“所有事件”和“保存” 。
+15. 在“设置 | Defender 计划”边栏选项卡上，确保已选中“启用所有 Microsoft Defender for Cloud 计划”，然后单击“保存”  。
+
+16. 从“Microsoft Defender for Cloud | 设置”边栏选项卡中选择“数据收集” 。 依次选择“所有事件”和“保存” 。
 
 
 #### <a name="task-2-review-the-microsoft-defender-for-cloud-recommendation"></a>任务 2：查看 Microsoft Defender for Cloud 建议
 
 在此任务中，你将查看 Microsoft Defender for Cloud 建议。 
 
-1. 在 Azure 门户中，导航回“Microsoft Defender For Cloud \| 概述”边栏选项卡。 
+1. 在 Azure 门户中，导航回“Microsoft Defender For Cloud | 概述”边栏选项卡。 
 
-2. 在“Microsoft Defender For Cloud \| 概述”边栏选项卡上，查看“安全功能分数”磁贴 。
+2. 在“Microsoft Defender For Cloud | 概述”边栏选项卡上，查看“安全功能分数”磁贴 。
 
     >**注意**：记录当前分数（如果有）。
 
-3. 导航回“Microsoft Defender For Cloud \| 概述”边栏选项卡，选择“已评估资源” 。
+3. 导航回“Microsoft Defender For Cloud | 概述”边栏选项卡，选择“已评估资源” 。
 
 4. 在“清单”边栏选项卡上，选择“myVM”条目 。
 
@@ -111,7 +111,7 @@ ms.locfileid: "139703586"
 
 在此任务中，你将实施 Microsoft Defender for Cloud 建议，在虚拟机上启用“实时 VM 访问”。 
 
-1. 在 Azure 门户中，导航回“Microsoft Defender For Cloud \| 概述”边栏选项卡，并选择“云安全”磁贴下的“工作负载保护”  。
+1. 在 Azure 门户中，导航回“Microsoft Defender For Cloud | 概述”边栏选项卡，并选择“云安全”磁贴下的“工作负载保护”  。
 
 2. 在“工作负载保护”边栏选项卡的“高级防护”部分，单击“实时 VM 访问”磁贴，然后在“实时 VM 访问”边栏选项卡上单击“尝试实时 VM 访问”    。
 

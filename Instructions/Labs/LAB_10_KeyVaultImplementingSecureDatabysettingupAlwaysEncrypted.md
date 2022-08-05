@@ -2,12 +2,12 @@
 lab:
   title: 10 - 密钥保管库（通过设置 Always Encrypted 来实现安全数据）
   module: Module 03 - Secure Data and Applications
-ms.openlocfilehash: aa30698684cad8837b95fe823ce16a4043b63e5c
-ms.sourcegitcommit: 2f08105eaaf0413d3ec3c12a3b078678151fd211
+ms.openlocfilehash: c31dd6e930e0f1d1b82e7c6ea502bb6fa51a7dd7
+ms.sourcegitcommit: 967cb50981ef07d731dd7548845a38385b3fb7fb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2022
-ms.locfileid: "141368703"
+ms.lasthandoff: 05/31/2022
+ms.locfileid: "145955378"
 ---
 # <a name="lab-10-key-vault-implementing-secure-data-by-setting-up-always-encrypted"></a>实验室 10：密钥保管库（通过设置 Always Encrypted 来实现安全数据）
 # <a name="student-lab-manual"></a>学生实验室手册
@@ -133,7 +133,7 @@ ms.locfileid: "141368703"
     |设置|值|
     |----|----|
     |从模板配置（可选）|密钥、机密和证书管理|
-    |密钥权限|单击“全选”会导致“选中 16 个”权限（确保“轮换策略操作”的权限处于未选中状态） |
+    |密钥权限|单击“全选”会导致“选中 17 个”权限（确保“轮换策略操作”的权限处于未选中状态） |
     |机密权限|单击“全选”会导致总计“已选 8 个”权限|
     |证书权限|单击“全选”，总共会选中 16 个权限|
     |选择主体|单击“未选择”，在“主体”边栏选项卡上，选择你的用户帐户，然后单击“选择”|
@@ -315,7 +315,7 @@ ms.locfileid: "141368703"
    
 4. 记录 ADO.NET 连接字符串。 稍后需要用到此值。
 
-    >**注意**：使用连接字符串时，请确保将 `{your_password}` 占位符替换为 Pa55w.rd1234。
+    >**注意**：使用连接字符串时，请确保将 `{your_password}` 占位符替换为你在练习 1 中为部署配置的密码。
 
 #### <a name="task-4-log-on-to-the-azure-vm-running-visual-studio-2019-and-sql-management-studio-2018"></a>任务 4：登录到运行 Visual Studio 2019 和 SQL Management Studio 2018 的 Azure VM
 
@@ -402,7 +402,7 @@ ms.locfileid: "141368703"
 
 14. 在“列选择”页面，选择“SSN”和“Birthdate”列，将“SSN”列的加密类型设置为“确定”，将“Birthdate”列的加密类型设置为“随机”，然后单击“下一步”。
 
-    >**注意**：执行加密时，如果引发了与 Rotary(Microsoft.SQLServer.Management.ServiceManagement) 相关的类似“调用目标引发了异常”的任何错误，请确保“轮换策略操作”的“密钥权限”值处于未选中状态，如果不在 Azure 门户中，请导航到“密钥保管库” >> “访问策略” >> “密钥权限”>> 取消选中“轮换策略操作” 下的所有值。 
+    >**注意**：执行加密时，如果引发了与 Rotary(Microsoft.SQLServer.Management.ServiceManagement) 相关的类似“调用目标引发了异常”的任何错误，请确保“轮换策略操作”的“密钥权限”值处于未选中状态，如果不在 Azure 门户中，请导航到“密钥保管库” >> “访问策略” >> “密钥权限”>> 取消选中“轮换策略操作”下的所有值 >> 在“特权密钥操作”下 >> 取消选中“发布”           。
 
 15. 在“主密钥配置”页面上，选择“Azure 密钥保管库”，单击“登录”，当系统出现提示时，使用本实验室前面部分中用于预配 Azure 密钥保管库实例的用户帐户进行验证，确保该密钥保管库显示在“选择一个 Azure 密钥保管库”下拉列表中，然后单击“下一步”。
 
@@ -469,7 +469,7 @@ ms.locfileid: "141368703"
 
 14. 在 Visual Studio 控制台中，单击“开始”按钮以启动控制台应用程序的构建并开启它。
 
-15. 该应用程序将启动“命令提示符”窗口。 当提示你输入密码时，键入“Pa55w.rd1234”以连接到 Azure SQL 数据库。 
+15. 该应用程序将启动“命令提示符”窗口。 当系统提示输入密码时，请键入在练习 1 的部署中指定的密码以连接到 Azure SQL 数据库。 
 
 16. 让控制台应用保持运行，然后切换到“SQL Management Studio”控制台。 
 

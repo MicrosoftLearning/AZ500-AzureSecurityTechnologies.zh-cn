@@ -2,12 +2,12 @@
 lab:
   title: 01 - 基于角色的访问控制
   module: Module 01 - Manage Identity and Access
-ms.openlocfilehash: 156b27cdbdd97656e8ccd85c4ed3656c0db91937
-ms.sourcegitcommit: 46495f1eba96da4be553aff5b7521e7ab62f50b8
+ms.openlocfilehash: 9ddbfd416d9897bcdf891c9c9265d8205277c176
+ms.sourcegitcommit: 79ca7b110859fe71a3849a28fdc781cad95d1567
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/03/2022
-ms.locfileid: "146032705"
+ms.lasthandoff: 06/15/2022
+ms.locfileid: "146381336"
 ---
 # <a name="lab-01-role-based-access-control"></a>实验室 01：基于角色的访问控制
 # <a name="student-lab-manual"></a>学生实验室手册
@@ -25,7 +25,7 @@ ms.locfileid: "146032705"
 
 ## <a name="lab-objectives"></a>实验室目标
 
-在本实验室中，你将完成以下练习
+在本实验室中，你将成功完成以下练习：
 
 - 练习 1：使用用户帐户以组成员 Joseph Price 身份创建高级管理员组（Azure 门户）。 
 - 练习 2：使用用户帐户 Isabel Garcia 作为组成员 (PowerShell) 创建初级管理员组。

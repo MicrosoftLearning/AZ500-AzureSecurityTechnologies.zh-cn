@@ -3,11 +3,11 @@ lab:
   title: 15 - Microsoft Sentinel
   module: Module 04 - Manage Security Operations
 ms.openlocfilehash: 63a24bbc17b846d3587cf3fb83ab46b7235d5fcd
-ms.sourcegitcommit: 18aa464705a8f1e78ccbbb82d5d8f57a830b6cea
+ms.sourcegitcommit: 2f08105eaaf0413d3ec3c12a3b078678151fd211
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/16/2022
-ms.locfileid: "140666111"
+ms.lasthandoff: 04/04/2022
+ms.locfileid: "141368801"
 ---
 # <a name="lab-15-microsoft-sentinel"></a>实验室 15：Microsoft Sentinel
 # <a name="student-lab-manual"></a>学生实验室手册
@@ -34,7 +34,7 @@ ms.locfileid: "140666111"
 
 ![image](https://user-images.githubusercontent.com/91347931/157538440-4953be73-90be-4edd-bd23-b678326ba637.png)
 
-## <a name="instructions"></a>Instructions
+## <a name="instructions"></a>说明
 
 ## <a name="lab-files"></a>实验室文件：
 
@@ -147,7 +147,7 @@ ms.locfileid: "140666111"
 
     |设置|值|
     |---|---|
-    |订阅|将在此实验室中使用的 Azure 订阅的名称|
+    |订阅|你在此实验室中使用的 Azure 订阅的名称|
     |资源组|AZ500LAB131415|
     |位置|**（美国）美国东部**|
     |Playbook 名称|更改事件严重性|

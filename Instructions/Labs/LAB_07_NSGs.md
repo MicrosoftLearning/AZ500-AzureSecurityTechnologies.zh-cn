@@ -2,12 +2,12 @@
 lab:
   title: 07 - 网络安全组和应用程序安全组
   module: Module 02 - Implement Platform Protection
-ms.openlocfilehash: e33f0a1f5c30a86d2b2a47069c6f4d759d60e782
-ms.sourcegitcommit: a8470295248a6363987bd5ea47154fe39f8535c3
+ms.openlocfilehash: d7cfed1e861215cf32c3b51c4a07aa6886575000
+ms.sourcegitcommit: 2f08105eaaf0413d3ec3c12a3b078678151fd211
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/09/2022
-ms.locfileid: "139703490"
+ms.lasthandoff: 04/04/2022
+ms.locfileid: "141368696"
 ---
 # <a name="lab-07-network-security-groups-and-application-security-groups"></a>实验室 07：网络安全组和应用程序安全组
 # <a name="student-lab-manual"></a>学生实验室手册
@@ -197,7 +197,7 @@ ms.locfileid: "139703490"
 
 1. 在 Azure 门户页面顶部的“搜索资源、服务和文档”文本框中，键入“虚拟机”，然后按 Enter 键  。
 
-2. 在“虚拟机”边栏选项卡上，单击“+ 创建”，然后在下拉列表中单击“+ 虚拟机”。
+2. 在“虚拟机”边栏选项卡上，单击“+ 创建”，然后在下拉列表中单击“+ Azure 虚拟机”  。
 
 3. 在“创建虚拟机”边栏选项卡的“基本信息”选项卡上，指定以下设置（将其他设置保留为默认值） ：
 
@@ -207,10 +207,10 @@ ms.locfileid: "139703490"
    |资源组|AZ500LAB07|
    |虚拟机名称|**myVmWeb**|
    |区域|（美国）美国东部|
-   |Image|Windows Server 2022 Datacenter - Gen2|
+   |映像|**Windows Server 2022 Datacenter：Azure 版本 - Gen2**|
    |大小|Standard D2s v3|
    |用户名|**学生**|
-   |密码|请再次使用在模块 6 实验室（练习 1，任务 2）中创建的密码|
+   |密码|请使用在实验室 04 > 练习 1 > 任务 1 > 步骤 9 中创建的个人密码。|
    |确认密码|重新键入密码|
    |公共入站端口|**无**|
    |是否要使用现有的 Windows Server 许可证 |**否**|
@@ -235,7 +235,7 @@ ms.locfileid: "139703490"
 
 在此任务中，将创建用作管理服务器的虚拟机。
 
-1. 在 Azure 门户中，导航回“虚拟机”边栏选项卡上，单击“+ 创建”，然后在下拉列表中单击“+ 虚拟机”。
+1. 在 Azure 门户中，导航回“虚拟机”边栏选项卡上，单击“+ 创建”，然后在下拉列表中单击“+ Azure 虚拟机”  。
 
 2. 在“创建虚拟机”边栏选项卡的“基本信息”选项卡上，指定以下设置（将其他设置保留为默认值） ：
 
@@ -245,10 +245,10 @@ ms.locfileid: "139703490"
    |资源组|AZ500LAB07|
    |虚拟机名称|myVMMgmt|
    |区域|（美国）美国东部|
-   |映像|Windows Server 2022 Datacenter - Gen 2|
+   |映像|**Windows Server 2022 Datacenter：Azure 版本 - Gen 2**|
    |大小|Standard D2s v3|
    |用户名|**学生**|
-   |密码|请再次使用在模块 6 实验室（练习 1，任务 2）中创建的密码|
+   |密码|请使用在实验室 04 > 练习 1 > 任务 1 > 步骤 9 中创建的个人密码。|
    |公共入站端口|**无**|
    |已拥有 Windows Server 许可证|**否**|
 
@@ -301,7 +301,7 @@ ms.locfileid: "139703490"
    |设置|值|
    |---|---|
    |用户名|**学生**|
-   |密码|请再次使用在模块 6 实验室（练习 1，任务 2）中创建的密码|
+   |密码|请使用在实验室 04 > 练习 1 > 任务 1 > 步骤 9 中创建的个人密码。|
 
     >**注意**：验证并确认远程桌面连接成功。 至此，你已经确认可以通过远程桌面连接到 myVMMgmt。
 

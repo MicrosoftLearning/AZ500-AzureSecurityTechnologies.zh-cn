@@ -2,12 +2,12 @@
 lab:
   title: 06 - 实现目录同步
   module: Module 01 - Manage Identity and Access
-ms.openlocfilehash: 00c359e1875ab915ab697d8ed33e36d956540529
-ms.sourcegitcommit: 1da29a6d959a7f91dbbcbabf5ec06869c98fc1f1
+ms.openlocfilehash: 9403e136799cd27b91f27c5d8d268ab0aec3f7c5
+ms.sourcegitcommit: 79ca7b110859fe71a3849a28fdc781cad95d1567
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/30/2022
-ms.locfileid: "141267256"
+ms.lasthandoff: 06/15/2022
+ms.locfileid: "146381345"
 ---
 # <a name="lab-06-implement-directory-synchronization"></a>实验室 6：实现目录同步
 # <a name="student-lab-manual"></a>学生实验室手册
@@ -123,7 +123,7 @@ ms.locfileid: "141267256"
 
 2. 在显示当前 Azure AD 租户“概述”的边栏选项卡上，单击“管理租户”，然后在下一个屏幕上，单击“+ 创建”。
 
-3. 在“创建目录”边栏选项卡的“基本信息”选项卡上，确保选中“Azure Active Directory”选项，然后单击“下一步: 配置 >”。
+3. 在“创建租户”边栏选项卡的“基本信息”选项卡上，确保选中“Azure Active Directory”选项，然后单击“下一步:配置 >”。
 
 4. 在“创建目录”边栏选项卡的“配置”选项卡上，指定以下设置：
 

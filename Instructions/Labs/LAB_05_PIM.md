@@ -2,12 +2,12 @@
 lab:
   title: 05 - Azure AD Privileged Identity Management
   module: Module 01 - Manage Identity and Access
-ms.openlocfilehash: f0fc7615d2e2e3a26782366d7a630ed9984bd3f0
-ms.sourcegitcommit: a8470295248a6363987bd5ea47154fe39f8535c3
+ms.openlocfilehash: 6ef7c51d334587e5e4e7116194fa46f2eb5d1df0
+ms.sourcegitcommit: 1da29a6d959a7f91dbbcbabf5ec06869c98fc1f1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/09/2022
-ms.locfileid: "139703526"
+ms.lasthandoff: 03/30/2022
+ms.locfileid: "141267268"
 ---
 # <a name="lab-05-azure-ad-privileged-identity-management"></a>实验室 05：Azure AD Privileged Identity Management
 # <a name="student-lab-manual"></a>学生实验室手册
@@ -372,7 +372,7 @@ ms.locfileid: "139703526"
 
 9. 在“Azure Active Directory Premium P2 - 许可用户”边栏选项卡上，选中你为其分配了“Azure Active Directory Premium P2”许可证的用户帐户的复选框 。 单击顶部窗格中的“删除许可证”，在系统提示确认时，选择“是” 。
 
-10. 在 Azure 门户中，导航到“用户 - 所有用户(预览)”边栏选项卡，单击表示“aaduser1”用户帐户的条目，在“aaduser1 - 个人资料”边栏选项卡上，单击“删除”，然后在系统提示确认时，选择“是”    。
+10. 在 Azure 门户中，导航到“用户”-“所有用户”边栏选项卡，单击表示 aaduser1 用户帐户的条目，在“aaduser1”-“个人资料”边栏选项卡上，单击“删除”，然后在提示确认时，选择“是”。
 
 11. 重复相同的步骤以删除你创建的其余用户帐户。
 

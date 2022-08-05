@@ -2,12 +2,12 @@
 lab:
   title: 04 - MFA、条件访问和 AAD 标识保护
   module: Module 01 - Manage Identity and Access
-ms.openlocfilehash: c4b21d80083316c681f5916c5fe75973220695d1
-ms.sourcegitcommit: a8470295248a6363987bd5ea47154fe39f8535c3
+ms.openlocfilehash: f63f8a24c0d9b7c870967ee8c83292bd80b617f9
+ms.sourcegitcommit: 2f08105eaaf0413d3ec3c12a3b078678151fd211
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/09/2022
-ms.locfileid: "139703520"
+ms.lasthandoff: 04/04/2022
+ms.locfileid: "141368698"
 ---
 # <a name="lab-04-mfa-conditional-access-and-aad-identity-protection"></a>实验室 04：MFA、条件访问和 AAD 标识保护
 # <a name="student-lab-manual"></a>学生实验室手册
@@ -80,6 +80,8 @@ ms.locfileid: "139703520"
 
 9. 在“自定义部署”边栏选项卡上，确保已配置以下设置（其他设置保留默认值）：
 
+>**注意**：你将需要创建一个唯一的密码，用于在课程的其余部分创建 VM（虚拟机）。 密码长度必须至少为 12 个字符，且符合规定的复杂性要求（密码必须具有以下各项中的 3 项：1 个小写字符、1 个大写字符、1 个数字和 1 个特殊字符）。 [VM 密码要求](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/faq#what-are-the-password-requirements-when-creating-a-vm-)。 请记下此密码。
+
    |设置|值|
    |---|---|
    |订阅|将在此实验室中使用的 Azure 订阅的名称|
@@ -88,10 +90,10 @@ ms.locfileid: "139703520"
    |VM 大小|**Standard_D2s_v3**|
    |VM 名称|az500-04-vm1|
    |管理员用户名|**学生**|
-   |管理员密码|**Pa55w.rd1234**|
+   |管理员密码|**请创建自己的密码并记录它以供将来参考。系统将提示输入所需实验室访问权限的密码。**|
    |虚拟网络名称|az500-04-vnet1|
 
-    >**注意**：若要确定可在其中预配 Azure VM 的 Azure 区域，请参阅 [https://azure.microsoft.com/en-us/regions/offers/](https://azure.microsoft.com/en-us/regions/offers/)
+    >**Note**: To identify Azure regions where you can provision Azure VMs, refer to [**https://azure.microsoft.com/en-us/regions/offers/**](https://azure.microsoft.com/en-us/regions/offers/)
 
 10. 单击“查看 + 创建”，然后单击“创建” 。
 
@@ -162,7 +164,7 @@ ms.locfileid: "139703520"
 
 1. 导航回 **AdatumLab500-04** Azure Active Directory 边栏选项卡，然后在“管理”部分，单击“用户”。
 
-2. 在“用户 \| 所有用户(预览)”边栏选项卡上，单击“+ 新建用户”。 
+2. 在“用户 \| 所有用户”边栏选项卡上，单击“+ 新建用户” 。 
 
 3. 在“新建用户”边栏选项卡上，确保选择“创建用户”选项，并指定以下设置（保留所有其他设置的默认值），然后单击“创建”：
 
@@ -179,7 +181,7 @@ ms.locfileid: "139703520"
 
     >**注意**：记录用户密码。 稍后需要在本实验室用到它。 
 
-4. 返回到“用户 \| 所有用户(预览)”边栏选项卡上，单击“+ 新建用户”。 
+4. 返回到“用户 \| 所有用户”边栏选项卡上，单击“+ 新建用户” 。 
 
 5. 在“新建用户”边栏选项卡中，确保已选择“创建用户”选项，并指定以下设置（将所有其他设置保留为默认值）：
 
@@ -194,7 +196,7 @@ ms.locfileid: "139703520"
 
     >**注意**：记录完整的用户名和密码。
 
-6. 返回到“用户 \| 所有用户(预览)”边栏选项卡上，单击“+ 新建用户”。 
+6. 返回到“用户 \| 所有用户”边栏选项卡上，单击“+ 新建用户” 。 
 
 7. 单击“新建用户”，完成新用户配置设置，然后单击“创建”。
 
@@ -215,7 +217,7 @@ ms.locfileid: "139703520"
 
 在此任务中，你将为每个用户分配 Azure Active Directory Premium P2 许可证。
 
-1. 在“用户 \| 所有用户(预览)”边栏选项卡上，单击代表你的用户帐户的条目。 
+1. 在“用户 \| 所有用户”边栏选项卡上，单击代表你的用户帐户的条目。 
 
 2. 在显示用户帐户属性的边栏选项卡上，单击“编辑”。  验证使用位置是否设置为“美国”，如果未设置，则设置使用位置，然后单击“保存”。
 
@@ -431,7 +433,7 @@ ms.locfileid: "139703520"
 
 3. 在“安全 \| 开始”边栏选项卡的“保护”部分，单击“标识保护”。
 
-4. 在“标识保护 \| 概述”边栏选项卡上，查看“保护”、“报告”和“通知”选项。 
+4. 在“标识保护 \| 概述”边栏选项卡上，查看“检测到的新风险用户”和“检测到的新风险登录”图表以及其他有关风险用户的信息  。 
 
 #### <a name="task-2-configure-a-user-risk-policy"></a>任务 2：配置用户风险策略
 
@@ -484,7 +486,7 @@ ms.locfileid: "139703520"
    |设置|值|
    |---|---|
    |用户名|**学生**|
-   |密码|**Pa55w.rd1234**|
+   |密码|请使用在实验室 04 > 练习 1 > 任务 1 > 步骤 9 中创建的个人密码。|
 
     >**注意**：等待加载远程桌面会话和服务器管理器。  
 

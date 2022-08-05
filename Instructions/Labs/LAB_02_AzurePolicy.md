@@ -2,12 +2,12 @@
 lab:
   title: 02 - Azure Policy
   module: Module 01 - Manage Identity and Access
-ms.openlocfilehash: a28872fa69650b18226d3da63cac7d5a0632fb43
-ms.sourcegitcommit: a8470295248a6363987bd5ea47154fe39f8535c3
+ms.openlocfilehash: d49ce05e4620310d45317fe582bddb3aa511430b
+ms.sourcegitcommit: 967cb50981ef07d731dd7548845a38385b3fb7fb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/09/2022
-ms.locfileid: "139703568"
+ms.lasthandoff: 05/31/2022
+ms.locfileid: "145955386"
 ---
 # <a name="lab-02-azure-policy"></a>实验室 02：Azure Policy
 # <a name="student-lab-manual"></a>学生实验室手册
@@ -161,5 +161,12 @@ ms.locfileid: "139703568"
     ```powershell
     Remove-AzResourceGroup -Name "AZ500LAB02" -Force -AsJob
     ```
-
 1.  关闭 Cloud Shell 窗格。 
+  
+1. 在 Azure 门户中，在 Azure 门户页面顶部的“搜索资源、服务和文档”文本框中键入“策略”，然后按“Enter”键。
+
+1. 在“创作”部分，选择“分配”。
+
+1. 在分配列表中，选择你在本实验室中创建的“允许位置”策略的名称。
+
+1. 在策略分配上，选择“删除分配”，然后选择“是” 。

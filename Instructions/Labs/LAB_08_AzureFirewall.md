@@ -2,12 +2,12 @@
 lab:
   title: 08 - Azure 防火墙
   module: Module 02 - Implement Platform Protection
-ms.openlocfilehash: cb13c319b70c994bed74b1079bc4ad8fe6209361
-ms.sourcegitcommit: a8470295248a6363987bd5ea47154fe39f8535c3
+ms.openlocfilehash: 1657a251f1355150d6386f8793825369be955705
+ms.sourcegitcommit: e9389f8de66fec6d456a3f303bd350e380df7ff2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/09/2022
-ms.locfileid: "139703508"
+ms.lasthandoff: 04/04/2022
+ms.locfileid: "141371914"
 ---
 # <a name="lab-08-azure-firewall"></a>实验室 08：Azure 防火墙
 # <a name="student-lab-manual"></a>学生实验室手册
@@ -167,13 +167,14 @@ ms.locfileid: "139703508"
    |设置|值|
    |---|---|
    |路由名称|FW-DG|
-   |地址前缀|**0.0.0.0/0**
+   |地址前缀源|**IP 地址**|
+   |源 IP 地址/CIDR 范围|**0.0.0.0/0**
    |下一跃点类型|**虚拟设备**|
    |下一跃点地址|你在上一个任务中标识的防火墙专用 IP 地址|
 
     >**注意**：Azure 防火墙实际上是一项托管服务，但是在这种情况下虚拟设备可以运行。
     
-11.  单击“确定”以添加路由。 
+11.  单击“添加”以添加路由。 
 
 
 #### <a name="task-4-configure-an-application-rule"></a>任务 4：配置应用程序规则

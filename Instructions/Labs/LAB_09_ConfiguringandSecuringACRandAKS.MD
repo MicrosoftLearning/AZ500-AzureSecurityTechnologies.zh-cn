@@ -2,12 +2,12 @@
 lab:
   title: 09 - 配置和保护 ACR 和 AKS
   module: Module 02 - Implement Platform Protection
-ms.openlocfilehash: 062531406ffcfac6e4c8e279c24cbb1959eebc43
-ms.sourcegitcommit: 2f08105eaaf0413d3ec3c12a3b078678151fd211
+ms.openlocfilehash: 167dca080d65d97997b3a884015bfa2228c17a23
+ms.sourcegitcommit: 967cb50981ef07d731dd7548845a38385b3fb7fb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2022
-ms.locfileid: "141368685"
+ms.lasthandoff: 05/31/2022
+ms.locfileid: "145955414"
 ---
 # <a name="lab-09-configuring-and-securing-acr-and-aks"></a>实验室 09：配置和保护 ACR 和 AKS
 # <a name="student-lab-manual"></a>学生实验室手册
@@ -148,6 +148,7 @@ ms.locfileid: "141368685"
     |Kubernetes 群集名称|MyKubernetesCluster|
     |区域|**（美国）美国东部**|
     |可用性区域 |无 |
+    |缩放方法|**手动**|
     |节点计数|**1**|
 
 4. 单击“下一步:节点池 >”，然后在“创建 Kubernetes 群集”边栏选项卡的“节点池”选项卡上，指定以下设置（将其他设置保留为默认值）：

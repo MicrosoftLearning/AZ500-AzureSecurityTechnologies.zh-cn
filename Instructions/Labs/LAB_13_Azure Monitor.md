@@ -2,12 +2,12 @@
 lab:
   title: 13 - Azure Monitor
   module: Module 04 - Manage security operations
-ms.openlocfilehash: df6fbcf475fe0a5cefec130ab713f92997dcf206
-ms.sourcegitcommit: 022221e69467f2fdccf2e02bb54e6ec395570668
+ms.openlocfilehash: e51e88d55193532e3c91c485d0a247b5e686a48f
+ms.sourcegitcommit: 7c5e8e9a86553c6bd9b9a6651b60c6cb9676f0ff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/21/2022
-ms.locfileid: "143988956"
+ms.lasthandoff: 07/18/2022
+ms.locfileid: "147168494"
 ---
 # <a name="lab-13-azure-monitor"></a>实验室 13：Azure Monitor
 # <a name="student-lab-manual"></a>学生实验室手册
@@ -158,7 +158,7 @@ ms.locfileid: "143988956"
 6. 单击“Windows 性能计数器”，再单击“+ 添加性能计数器”，查看可用性能计数器的列表，然后添加以下计数器 ：
 
     - 内存(\*)\可用内存(MB)
-    - 处理(\*)\%处理器时间
+    - Process(\*)\\% Processor Time
     - 适用于 Windows 的事件跟踪\总内存使用量 --- 非分页池
     - 适用于 Windows 的事件跟踪\总内存使用量 --- 分页池
 
