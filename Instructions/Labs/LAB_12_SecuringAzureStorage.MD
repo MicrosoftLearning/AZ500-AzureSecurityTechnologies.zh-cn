@@ -2,12 +2,12 @@
 lab:
   title: " 12 - 服务终结点和安全存储"
   module: Module 03 - Secure data and applications
-ms.openlocfilehash: d47890d94d7f1a008024ebedf5154d487cb35792
-ms.sourcegitcommit: 967cb50981ef07d731dd7548845a38385b3fb7fb
+ms.openlocfilehash: 96c1073571e40558a102d2fd661b6b4e3b4f48d7
+ms.sourcegitcommit: 5eaa012a52e6f14e499393257855d314a720a668
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2022
-ms.locfileid: "145955405"
+ms.lasthandoff: 08/31/2022
+ms.locfileid: "147717264"
 ---
 # <a name="lab-12-service-endpoints-and-securing-storage"></a>实验室 12：服务终结点和保护存储
 # <a name="student-lab-manual"></a>学生实验室手册
@@ -43,10 +43,11 @@ ms.locfileid: "145955405"
 - 任务 1：创建虚拟网络
 - 任务 2：将子网添加到虚拟网络并配置存储终结点
 - 任务 3：配置网络安全组以限制对子网的访问
-- 任务 4：使用文件共享创建存储帐户
-- 任务 5：将虚拟机部署到指定的子网中
-- 任务 6：测试来自专用子网的存储连接，以确认允许访问
-- 任务 7：测试来自公共子网的存储连接，以确认访问被拒绝 
+- 任务 4：配置网络安全组以支持公共子网上的 rdp
+- 任务 5：使用文件共享创建存储帐户
+- 任务 6：将虚拟机部署到指定的子网中
+- 任务 7：测试来自专用子网的存储连接，以确认允许访问
+- 任务 8：测试来自公共子网的存储连接，以确认访问被拒绝 
 
 #### <a name="task-1-create-a-virtual-network"></a>任务 1：创建虚拟网络
 
@@ -196,7 +197,57 @@ ms.locfileid: "145955405"
     |虚拟网络|**myVirtualNetwork**|
     |子网|**专用**|
 
-#### <a name="task-4-create-a-storage-account-with-a-file-share"></a>任务 4：使用文件共享创建存储帐户
+#### <a name="task-4-configure-a-network-security-group-to-allow-rdp-on-the-public-subnet"></a>任务 4：配置网络安全组以支持公共子网上的 rdp
+
+在本任务中，将创建使用一个入站安全规则 (RDP) 的网络安全组。 并将网络安全组与公共子网相关联。 这可支持 RDP 访问公共 VM。
+
+1. 在 Azure 门户页面顶部的“搜索资源、服务和文档”文本框中，键入“网络安全组”，然后按 Enter 键  。
+
+2. 在“网络安全组”边栏选项卡中，单击“+ 创建”。
+
+3. 在“创建网络安全组”边栏选项卡的“基本”选项卡中，指定以下设置： 
+
+    |设置|值|
+    |---|---|
+    |订阅|你在此实验室中使用的 Azure 订阅的名称|
+    |资源组|AZ500LAB12|
+    |名称|myNsgPublic|
+    |区域|**美国东部**|
+
+4. 依次单击“查看 + 创建”、“创建”。 
+
+    >**注意**：在接下来的步骤中，你将创建一个允许与 Azure 存储服务进行通信的出站安全规则。 
+
+5. 在 Azure 门户中，导航回“网络安全组”边栏选项卡，并单击“myNsgPublic”条目 。
+
+6. 在“myNsgPublic”边栏选项卡上的“设置”部分，单击“入站安全规则”，然后单击“+ 添加”   。
+
+7. 在“添加入站安全规则”边栏选项卡上，请指定以下设置（将所有其他值保留为其默认值）： 
+
+    |设置|值|
+    |---|---|
+    |源|**任意**|
+    |源端口范围|**\***|
+    |目标|**服务标记**|
+    |目标服务标记|**VirtualNetwork**|
+    |目标端口范围|**3389**|
+    |协议|**TCP**|
+    |操作|**允许**|
+    |优先级|**1200**|                                                    
+    |名称|**Allow-RDP-All**|
+
+8. 在“添加入站安全规则”边栏选项卡上，单击“添加”以创建新的入站规则 。 
+
+    >注意：现在要将网络安全组与专用子网关联。
+
+9. 在“子网”边栏选项卡中，选择“+ 关联”并在“关联子网”部分指定以下设置，然后单击“确定”：
+
+    |设置|值|
+    |---|---|
+    |虚拟网络|**myVirtualNetwork**|
+    |子网|**公共**|
+    
+#### <a name="task-5-create-a-storage-account-with-a-file-share"></a>任务 5：使用文件共享创建存储帐户
 
 在此任务中，你将创建一个具有文件共享的存储帐户并获取存储帐户密钥。  
 
@@ -263,7 +314,7 @@ ms.locfileid: "145955405"
 
     >**注意**：至此，你已在实验室中配置虚拟网络、网络安全组和具有文件共享的存储帐户。 
 
-#### <a name="task-5-deploy-virtual-machines-into-the-designated-subnets"></a>任务 5：将虚拟机部署到指定的子网中
+#### <a name="task-6-deploy-virtual-machines-into-the-designated-subnets"></a>任务 6：将虚拟机部署到指定的子网中
 
 在此任务中，你将创建两个虚拟机，一个在专用子网中，一个在公共子网中。 
 
@@ -341,7 +392,7 @@ ms.locfileid: "145955405"
 
     >**注意**：myVMPrivate Azure VM 部署完成后就可以继续下一个任务。
 
-#### <a name="task-6-test-the-storage-connection-from-the-private-subnet-to-confirm-that-access-is-allowed"></a>任务 6：测试来自专用子网的存储连接，以确认允许访问
+#### <a name="task-7-test-the-storage-connection-from-the-private-subnet-to-confirm-that-access-is-allowed"></a>任务 7：测试来自专用子网的存储连接，以确认允许访问
 
 在此任务中，你将通过远程桌面连接到 myVMPrivate 虚拟机，并将驱动器映射到文件共享。 
 
@@ -393,7 +444,7 @@ ms.locfileid: "145955405"
 
     >**注意**：至此，你已确认专用子网中的虚拟机可以访问存储帐户。 
 
-####  <a name="task-7-test-the-storage-connection-from-the-public-subnet-to-confirm-that-access-is-denied"></a>任务 7：测试来自公共子网的存储连接，以确认访问被拒绝 
+####  <a name="task-8-test-the-storage-connection-from-the-public-subnet-to-confirm-that-access-is-denied"></a>任务 8：测试来自公共子网的存储连接，以确认访问被拒绝 
 
 1. 导航回“虚拟机”边栏选项卡。 
 
@@ -426,7 +477,7 @@ ms.locfileid: "145955405"
     Test-NetConnection -ComputerName www.bing.com -Port 80
     ```
 
-    >**注意**：测试将成功，因为没有与公共子网关联的网络安全组。
+    >注意：测试将成功，因为公共子网上没有拒绝 Internet 的出站安全规则。
 
 8. 终止与 myVMPublic Azure VM 的远程桌面会话。
 
@@ -448,4 +499,4 @@ ms.locfileid: "145955405"
     ```
 
 4.  关闭 Cloud Shell 窗格。 
- 
+
