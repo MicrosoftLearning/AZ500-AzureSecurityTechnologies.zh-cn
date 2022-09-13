@@ -2,12 +2,12 @@
 lab:
   title: 15 - Microsoft Sentinel
   module: Module 04 - Manage Security Operations
-ms.openlocfilehash: 63a24bbc17b846d3587cf3fb83ab46b7235d5fcd
-ms.sourcegitcommit: 2f08105eaaf0413d3ec3c12a3b078678151fd211
+ms.openlocfilehash: 147bb0c8f6637393087c5a913f5c9bd8ca380866
+ms.sourcegitcommit: 3c178de473f4f986a3a7ea1d03c9f5ce699a05a4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2022
-ms.locfileid: "141368801"
+ms.lasthandoff: 09/09/2022
+ms.locfileid: "147871960"
 ---
 # <a name="lab-15-microsoft-sentinel"></a>实验室 15：Microsoft Sentinel
 # <a name="student-lab-manual"></a>学生实验室手册
@@ -217,7 +217,7 @@ ms.locfileid: "141368801"
 
 9. 在“分析规则向导 - 新建规则”边栏选项卡的“事件设置”选项卡上，接受默认设置，然后单击“下一步:自动响应 >”。 
 
-10. 在“分析规则向导 - 新建规则”边栏选项卡的“自动响应”选项卡上，在“警报自动化”下拉列表中，选中“Change-Incident-Severity”条目旁边的复选框，然后单击“下一步:查看 >”。 
+10. 在“分析规则向导 - 新建规则”边栏选项卡的“自动响应”选项卡上，在“警报自动化(经典)”下拉列表中，选中“Change-Incident-Severity”条目旁边的复选框，然后单击“下一步:查看 >”。 
 
 11. 在“分析规则向导 - 新建规则”边栏选项卡的“查看并创建”选项卡上，单击“创建”。
 

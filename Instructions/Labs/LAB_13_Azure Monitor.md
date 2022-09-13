@@ -2,12 +2,12 @@
 lab:
   title: 13 - Azure Monitor
   module: Module 04 - Manage security operations
-ms.openlocfilehash: e51e88d55193532e3c91c485d0a247b5e686a48f
-ms.sourcegitcommit: 7c5e8e9a86553c6bd9b9a6651b60c6cb9676f0ff
+ms.openlocfilehash: d7418287b895ccb5af66f01b499181b321e2bc36
+ms.sourcegitcommit: 3c178de473f4f986a3a7ea1d03c9f5ce699a05a4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/18/2022
-ms.locfileid: "147168494"
+ms.lasthandoff: 09/09/2022
+ms.locfileid: "147871969"
 ---
 # <a name="lab-13-azure-monitor"></a>实验室 13：Azure Monitor
 # <a name="student-lab-manual"></a>学生实验室手册
@@ -145,7 +145,7 @@ ms.locfileid: "147168494"
 
 1. 在 Azure 门户中，导航回到在本练习前面创建的 Log Analytics 工作区。
 
-2. 在“Log Analytics 工作区”边栏选项卡上，单击“设置”部分中的“代理配置”。
+2. 在“Log Analytics 工作区”边栏选项卡上，单击“设置”部分中的“旧版代理管理”。
 
 3. 在“代理配置”边栏选项卡上查看可配置的设置，包括 Windows 事件日志、Windows 性能计数器、Linux 性能计数器、IIS 日志和 Syslog。 
 
