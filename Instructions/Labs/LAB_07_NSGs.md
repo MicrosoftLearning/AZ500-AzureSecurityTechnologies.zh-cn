@@ -2,19 +2,14 @@
 lab:
   title: 07 - 网络安全组和应用程序安全组
   module: Module 02 - Implement Platform Protection
-ms.openlocfilehash: d7cfed1e861215cf32c3b51c4a07aa6886575000
-ms.sourcegitcommit: 2f08105eaaf0413d3ec3c12a3b078678151fd211
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2022
-ms.locfileid: "141368696"
 ---
+
 # <a name="lab-07-network-security-groups-and-application-security-groups"></a>实验室 07：网络安全组和应用程序安全组
 # <a name="student-lab-manual"></a>学生实验室手册
 
 ## <a name="lab-scenario"></a>实验室方案
 
-你被要求实现组织的虚拟网络基础结构，并进行测试以确保其正常运行。 具体而言：
+You have been asked to implement your organization's virtual networking infrastructure and test to ensure it is working correctly. In particular:
 
 - 该组织有两组服务器：Web 服务器和管理服务器。
 - 每组服务器应位于其自己的应用程序安全组中。 
@@ -22,7 +17,7 @@ ms.locfileid: "141368696"
 - 从 Internet 访问时，Web 服务器应显示 IIS 网页。 
 - 应使用网络安全组规则来控制网络访问。 
 
-> 对于本实验室中的所有资源，我们使用“美国东部”区域。 请与讲师确认这是课堂上所使用的区域。 
+> For all the resources in this lab, we are using the <bpt id="p1">**</bpt>East US<ept id="p1">**</ept> region. Verify with your instructor this is the region to use for class. 
 
 ## <a name="lab-objectives"></a>实验室目标
 
@@ -41,7 +36,7 @@ ms.locfileid: "141368696"
 
 ### <a name="estimated-timing-20-minutes"></a>预计用时：20 分钟
 
-> 对于本实验室中的所有资源，我们使用“美国东部”区域。 与你的教师确认这是你上课时使用的区域。 
+> For all the resources in this lab, we are using the <bpt id="p1">**</bpt>East (US)<ept id="p1">**</ept> region. Verify with your instructor this is region to use for you class. 
 
 在本练习中，你将完成以下任务：
 
@@ -272,7 +267,7 @@ ms.locfileid: "141368696"
 
 #### <a name="task-3-associate-each-virtual-machines-network-interface-to-its-application-security-group"></a>任务 3：将每个虚拟机网络接口与其应用程序安全组相关联。
 
-在此任务中，你会将每个虚拟机网络接口与相应的应用程序安全组关联。 myVMWeb 虚拟机接口将与 myAsgWebServers ASG 关联。 myVMMgmt 虚拟机接口将与 myAsgMgmtServers ASG 关联。 
+In this task, you will associate each virtual machines network interface with the corresponding application security group. The myVMWeb virtual machine interface will be associated to the myAsgWebServers ASG. The myVMMgmt virtual machine interface will be associated to the myAsgMgmtServers ASG. 
 
 1. 在 Azure 门户中，导航回“虚拟机”边栏选项卡，并验证两个虚拟机是否都已列出并显示“正在运行”状态。
 
@@ -290,20 +285,20 @@ ms.locfileid: "141368696"
 
 #### <a name="task-4-test-the-network-traffic-filtering"></a>任务 4：测试网络流量筛选
 
-在此任务中，将测试网络流量筛选器。 你应该能够通过 RDP 连接 myVMMgmnt 虚拟机。 应该能够从 Internet 连接到 myVMWeb 虚拟机并查看默认的 IIS 网页。  
+In this task, you will test the network traffic filters. You should be able to RDP into the myVMMgmnt virtual machine. You should be able to connect from the internet to the myVMWeb virtual machine and view the default IIS web page.  
 
 1. 导航回“myVMMgmt”虚拟机边栏选项卡。
 
 2. 在“myVMMgmt”边栏选项卡上单击“连接”，然后在下拉菜单中单击“RDP”。 
 
-3. 单击“下载 RDP 文件”，并使用该文件通过远程桌面连接到 myVMMgmt Azure VM。 收到身份验证提示时，请提供以下凭据：
+3. 你被要求实现组织的虚拟网络基础结构，并进行测试以确保其正常运行。
 
    |设置|值|
    |---|---|
    |用户名|**学生**|
    |密码|请使用在实验室 04 > 练习 1 > 任务 1 > 步骤 9 中创建的个人密码。|
 
-    >**注意**：验证并确认远程桌面连接成功。 至此，你已经确认可以通过远程桌面连接到 myVMMgmt。
+    >具体而言：
 
 4. 在 Azure 门户中，导航到“myVMWeb”虚拟机边栏选项卡。
 
@@ -315,7 +310,7 @@ ms.locfileid: "141368696"
     Install-WindowsFeature -name Web-Server -IncludeManagementTools
     ```
 
-    >备注：请等待安装完成。 这可能需要几分钟。 此时，可以验证是否能够通过 HTTP/HTTPS 访问 myVMWeb。
+    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Wait for the installation to complete. This might take a couple of minutes. At that point, you can verify that myVMWeb can be accessed via HTTP/HTTPS.
 
 7. 在 Azure 门户中，导航回“myVMWeb”边栏选项卡。
 
@@ -323,15 +318,15 @@ ms.locfileid: "141368696"
 
 9. 打开另一个浏览器选项卡，然后导航到上一步中确定的 IP 地址。
 
-    >**注意**：浏览器页面应该显示默认的 IIS 欢迎页面，因为根据 myAsgWebServers 应用程序安全组的设置，允许端口 80 从 Internet 入站。 myVMWeb Azure VM 的网络接口与该应用程序安全组关联。 
+    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: The browser page should display the default IIS welcome page because port 80 is allowed inbound from the internet based on the setting of the <bpt id="p2">**</bpt>myAsgWebServers<ept id="p2">**</ept> application security group. The network interface of the myVMWeb Azure VM is associated with that application security group. 
 
 > 结果：你已验证 NSG 和 ASG 配置正在生效，并且流量正在得到正确管理。 
 
 **清理资源**
 
-> 记得删除所有不再使用的新建 Azure 资源。 删除未使用的资源，确保不产生意外成本。 
+> Remember to remove any newly created Azure resources that you no longer use. Removing unused resources ensures you will not incur unexpected costs. 
 
-1. 单击 Azure 门户右上角的第一个图标，打开 Cloud Shell。 如果出现提示，请选择“PowerShell”和“创建存储” 。
+1. Open the Cloud Shell by clicking the first icon in the top right of the Azure Portal. If prompted, select <bpt id="p1">**</bpt>PowerShell<ept id="p1">**</ept> and <bpt id="p2">**</bpt>Create storage<ept id="p2">**</ept>.
 
 2. 确保在“Cloud Shell”窗格左上角的下拉菜单中选中“PowerShell”。
 

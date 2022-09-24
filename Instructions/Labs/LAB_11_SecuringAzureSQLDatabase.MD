@@ -2,25 +2,20 @@
 lab:
   title: 11 - 保护 Azure SQL 数据库
   module: Module 03 - Secure data and applications
-ms.openlocfilehash: 1112086c681d4d81e186ad87a8a01085f42f8490
-ms.sourcegitcommit: a8470295248a6363987bd5ea47154fe39f8535c3
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 03/09/2022
-ms.locfileid: "139703478"
 ---
+
 # <a name="lab-11-securing-azure-sql-database"></a>实验室 11：保护 Azure SQL 数据库
 # <a name="student-lab-manual"></a>学生实验室手册
 
 ## <a name="lab-scenario"></a>实验室方案
 
-你需要查看 Azure SQL 数据库的安全功能。 具体来说，你感兴趣的是：
+You have been asked to review security features for Azure SQL database. Specifically, you are interested in:
 
 - 防范诸如 SQL 注入和数据外泄之类的攻击。 
 - 能够发现数据库信息并将其分类为机密等类别。 
 - 能够审核数据库服务器和数据库查询以及日志事件。 
 
-> 对于本实验室中的所有资源，我们使用“美国东部”区域。 请与讲师确认这是课堂上所使用的区域。 
+> For all the resources in this lab, we are using the <bpt id="p1">**</bpt>East US<ept id="p1">**</ept> region. Verify with your instructor this is the region to use for class. 
 
 ## <a name="lab-objectives"></a>实验室目标
 
@@ -32,7 +27,7 @@ ms.locfileid: "139703478"
 
 ![image](https://user-images.githubusercontent.com/91347931/157533836-7250fa58-a109-4882-a55b-d3fa3baf34ab.png)
 
-## <a name="instructions"></a>说明
+## <a name="instructions"></a>Instructions
 
 ## <a name="lab-files"></a>实验室文件：
 
@@ -87,7 +82,7 @@ ms.locfileid: "139703478"
 
 3. 在“AZ500LAB11”边栏选项卡中，单击表示新创建的 SQL Server 的条目。
 
-4. 在“SQL Server”边栏选项卡的“安全性”部分中，单击“Microsoft Defender for Cloud”。 滚动到“开始”页底部，然后选择“升级”。 在“安装代理”选项卡上，选择“安装代理”。
+4. On the SQL server blade, in the <bpt id="p1">**</bpt>Security<ept id="p1">**</ept> section, click <bpt id="p2">**</bpt>Microsoft Defender for Cloud<ept id="p2">**</ept>. Scroll to the bottom of the <bpt id="p1">**</bpt>Getting started<ept id="p1">**</ept> page and select <bpt id="p2">**</bpt>Upgrade<ept id="p2">**</ept>. On the <bpt id="p1">**</bpt>Install agents<ept id="p1">**</ept> tab select <bpt id="p2">**</bpt>Install agents<ept id="p2">**</ept>.
 
 5. 在“SQL Server”边栏选项卡的“安全性”部分中，单击“Microsoft Defender for Cloud”，选择“启用 Microsoft Defender for SQL”。
 
@@ -101,7 +96,7 @@ ms.locfileid: "139703478"
 
 8. 返回到“Microsoft Defender for Cloud”边栏选项卡，查看“建议”和“安全警报”。
 
-      >**注意**：建议可能需要 10-15 分钟才能显示在“Microsoft Defender for Cloud”边栏选项卡上。 不要等待，继续下一个任务，完成所有剩余任务后再回到此边栏选项卡。
+      ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: It may take 10-15 minutes for recommendations to appear on the <bpt id="p2">**</bpt>Microsoft Defender for Cloud<ept id="p2">**</ept> blade. Rather than waiting, proceed to the next task but consider returning to this blade once you complete all the remaining tasks.
 
 
 #### <a name="task-3-configure-data-classification"></a>任务 3：配置数据分类
@@ -142,7 +137,7 @@ ms.locfileid: "139703478"
 
 2. 在“SQL Server”边栏选项卡上的“安全”部分，单击“审核”。
 
-    >**注意**：这是服务器级别审核。 默认审核设置包括针对数据库执行的所有查询和存储过程，以及成功和失败的登录。
+    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: This is server level auditing. The default auditing settings include all the queries and stored procedures executed against the database, as well as successful and failed logins.
 
 3. 将“启用 Azure SQL 审核”开关设置为“开”以启用审核。 
 
@@ -160,7 +155,7 @@ ms.locfileid: "139703478"
 
 9. 在“审核”边栏选项卡上，单击“保存”以保存审核设置。 
 
-    >**注意**：如果收到有关无效存储容器路径的错误消息，则可能尚未预配存储帐户。 等待几分钟，单击“存储帐户”，在“选择存储帐户”边栏选项卡中，选择新创建的存储帐户，然后返回到“审核”边栏选项卡，单击“保存”。
+    >你需要查看 Azure SQL 数据库的安全功能。
 
 10. 在“服务器”边栏选项卡上的“设置”部分，单击“SQL 数据库”。
 
@@ -168,9 +163,9 @@ ms.locfileid: "139703478"
 
 12. 在 AZ500LabDb SQL 数据库边栏选项卡上的“安全”部分，单击“审核”。 
 
-    >**注意**：这是数据库级别审核。 服务器级审核已启用。 
+    >具体来说，你感兴趣的是： 
   
-    >**注意**：审核可以写入 Azure 存储帐户、Log Analytics 工作区或事件中心。 你可以配置这些选项的任意组合。
+    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Audits can be written to an Azure storage account, to a Log Analytics workspace, or to the Event Hub. You can configure any combination of these options.
 
     >**注意**：如果在服务器上启用基于存储的审核，则无论数据库设置如何，该审核将始终应用于数据库。
 
@@ -185,9 +180,9 @@ ms.locfileid: "139703478"
 
 **清理资源**
 
-> 记得删除所有不再使用的新建 Azure 资源。 删除未使用的资源，确保不产生意外成本。 
+> Remember to remove any newly created Azure resources that you no longer use. Removing unused resources ensures you will not incur unexpected costs. 
 
-1. 在 Azure 门户中，通过单击 Azure 门户右上角的第一个图标打开 Cloud Shell。 如果出现提示，请单击“PowerShell”和“创建存储”。
+1. In the Azure portal, open the Cloud Shell by clicking the first icon in the top right of the Azure Portal. If prompted, click <bpt id="p1">**</bpt>PowerShell<ept id="p1">**</ept> and <bpt id="p2">**</bpt>Create storage<ept id="p2">**</ept>.
 
 2. 确保在“Cloud Shell”窗格左上角的下拉菜单中选中“PowerShell”。
 

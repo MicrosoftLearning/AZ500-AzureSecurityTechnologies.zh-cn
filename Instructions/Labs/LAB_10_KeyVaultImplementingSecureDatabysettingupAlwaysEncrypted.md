@@ -2,24 +2,19 @@
 lab:
   title: 10 - 密钥保管库（通过设置 Always Encrypted 来实现安全数据）
   module: Module 03 - Secure Data and Applications
-ms.openlocfilehash: c31dd6e930e0f1d1b82e7c6ea502bb6fa51a7dd7
-ms.sourcegitcommit: 967cb50981ef07d731dd7548845a38385b3fb7fb
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2022
-ms.locfileid: "145955378"
 ---
+
 # <a name="lab-10-key-vault-implementing-secure-data-by-setting-up-always-encrypted"></a>实验室 10：密钥保管库（通过设置 Always Encrypted 来实现安全数据）
 # <a name="student-lab-manual"></a>学生实验室手册
 
 ## <a name="lab-scenario"></a>实验室方案
 
-你被要求创建一个概念证明应用程序，该应用程序将利用 Azure SQL 数据库对 Always Encrypted 功能的支持。 此方案中使用的所有机密和密钥应存储在密钥保管库中。 应在 Azure Active Directory（Azure AD）中注册该应用程序，以增强其安全状况。 为了实现这些目标，概念证明应包括：
+You have been asked to create a proof of concept application that makes use of the Azure SQL Database support for Always Encrypted functionality. All of the secrets and keys used in this scenario should be stored in Key Vault. The application should be registered in Azure Active Directory (Azure AD) in order to enhance its security posture. To accomplish these objectives, the proof of concept should include:
 
 - 创建 Azure 密钥保管库并在保管库中存储密钥和机密。
 - 创建一个 SQL 数据库并使用 Always Encrypted 加密数据库表中的列内容。
 
->**注意**：对于本实验室中的所有资源，我们使用“美国东部”区域。 请与讲师确认这是课堂上所使用的区域。 
+><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: For all the resources in this lab, we are using the <bpt id="p2">**</bpt>East US<ept id="p2">**</ept> region. Verify with your instructor this is the region to use for class. 
 
 为了始终专注于与构建此概念验证相关的 Azure 的安全性，将从自动化 ARM 模板部署开始，使用 Visual Studio 2019 和 SQL Server Management Studio 2018 设置虚拟机。
 
@@ -36,7 +31,7 @@ ms.locfileid: "145955378"
 
 ![image](https://user-images.githubusercontent.com/91347931/157532938-c724cc40-f64f-4d69-9e91-d75344c5e0a2.png)
 
-## <a name="instructions"></a>说明
+## <a name="instructions"></a>Instructions
 
 ## <a name="lab-files"></a>实验室文件：
 
@@ -86,11 +81,11 @@ ms.locfileid: "145955378"
 
     >**注意**：这将启动本实验室所需的 Azure VM 和 Azure SQL 数据库的部署。 
 
-    >**注意**：不要等待 ARM 模板部署完成，而是继续下一个练习。 该部署可能需要 20-25 分钟。 
+    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Do not wait for the ARM template deployment to be completed, but instead continue to the next exercise. The deployment might take between <bpt id="p1">**</bpt>20-25 minutes<ept id="p1">**</ept>. 
 
 ### <a name="exercise-2-configure-the-key-vault-resource-with-a-key-and-a-secret"></a>练习 2：使用密钥和机密配置密钥保管库资源
 
->**注意**：对于本实验室中的所有资源，我们使用“美国东部”区域。 与你的教师确认这是你上课时使用的区域。 
+><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: For all the resources in this lab, we are using the <bpt id="p2">**</bpt>East (US)<ept id="p2">**</ept> region. Verify with your instructor this is region to use for you class. 
 
 在本练习中，你将完成以下任务：
 
@@ -100,13 +95,13 @@ ms.locfileid: "145955378"
 
 #### <a name="task-1-create-and-configure-a-key-vault"></a>任务 1：创建并配置密钥保管库。
 
-在此任务中，你将创建 Azure 密钥保管库资源， 还将配置 Azure 密钥保管库权限。
+In this task, you will create an Azure Key Vault resource. You will also configure the Azure Key Vault permissions.
 
-1. 单击 Azure 门户右上角的第一个图标（搜索栏旁边），打开 Cloud Shell。 如果出现提示，请选择“PowerShell”和“创建存储” 。
+1. 你被要求创建一个概念证明应用程序，该应用程序将利用 Azure SQL 数据库对 Always Encrypted 功能的支持。
 
 2. 确保在“Cloud Shell”窗格左上角的下拉菜单中选中“PowerShell”。
 
-3. 在“Cloud Shell”窗格的 PowerShell 会话中，运行以下命令，以在资源组 AZ500LAB10 中创建 Azure 密钥保管库。 （如果在任务 1 中为此实验室的资源组选择了另一个名称，则也要对此任务使用该名称）。 密钥保管库名称必须是唯一的。 记住所选择的名称。 整个实验室都需要它。  
+3. 此方案中使用的所有机密和密钥应存储在密钥保管库中。  
 
     ```powershell
     $kvName = 'az500kv' + $(Get-Random)
@@ -116,7 +111,7 @@ ms.locfileid: "145955378"
     New-AzKeyVault -VaultName $kvName -ResourceGroupName 'AZ500LAB10' -Location $location
     ```
 
-    >**注意**：最后一条命令的输出将显示保管库名称和保管库 URI。 保管库 URI 的格式为 `https://<vault_name>.vault.azure.net/`
+    >应在 Azure Active Directory（Azure AD）中注册该应用程序，以增强其安全状况。
 
 4. 关闭 Cloud Shell 窗格。 
 
@@ -178,7 +173,7 @@ ms.locfileid: "145955378"
 
     >**注意**：检查有关你创建的密钥的信息。
 
-    >**注意**：你可以使用密钥标识符来引用任何密钥。 若要获取最新版本，请引用 `https://<key_vault_name>.vault.azure.net/keys/MyLabKey`，或通过 `https://<key_vault_name>.vault.azure.net/keys/MyLabKey/<key_version>` 获取具体版本
+    >为了实现这些目标，概念证明应包括：
 
 
 #### <a name="task-3-add-a-secret-to-key-vault"></a>任务 3：向密钥保管库添加机密
@@ -229,7 +224,7 @@ ms.locfileid: "145955378"
 
 #### <a name="task-1-enable-a-client-application-to-access-the-azure-sql-database-service"></a>任务 1：启用客户端应用程序访问 Azure SQL 数据库服务。 
 
-在此任务中，可启用客户端应用程序访问 Azure SQL 数据库服务。 通过设置所需的身份验证并获取验证应用程序所需的应用程序 ID 和密钥来完成此操作。 T
+In this task, you will enable a client application to access the Azure SQL Database service. This will be done by setting up the required authentication and acquiring the Application ID and Secret that you will need to authenticate your application. T
 
 1. 在 Azure 门户页面顶部的“搜索资源、服务和文档”文本框中，键入“应用注册” 然后按“Enter” 键。
 
@@ -248,7 +243,7 @@ ms.locfileid: "145955378"
 
 5. 在“sqlApp”边栏选项卡上，找到“应用程序(客户端) ID”的值。 
 
-    >**注意**：记下此值。 稍后在下一个任务中将用到它。
+    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Record this value. You will need it in the next task.
 
 6. 在“sqlApp”边栏选项卡的“管理”部分，单击“证书和机密”。
 
@@ -265,9 +260,9 @@ ms.locfileid: "145955378"
 
 10. 在“sqlApp | 证书和机密”边栏选项卡上，确定“Key1”的值。
 
-    >**注意**：记下此值。 稍后在下一个任务中将用到它。 
+    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Record this value. You will need it in the next task. 
 
-    >**注意**：请确保在离开边栏选项卡之前复制该值。 完成后，将不再可能检索其明文值。
+    >**注意**：对于本实验室中的所有资源，我们使用“美国东部”区域。
 
 
 #### <a name="task-2-create-a-policy-allowing-the-application-access-to-the-key-vault"></a>任务 2：创建一个允许应用程序访问密钥保管库的策略。
@@ -301,39 +296,39 @@ ms.locfileid: "145955378"
 
 #### <a name="task-3-retrieve-sql-azure-database-adonet-connection-string"></a>任务 3：检索 SQL Azure 数据库 ADO.NET 连接字符串 
 
-练习 1 中的 ARM 模板部署预配了一个 Azure SQL Server 实例和一个名为“医疗”的 Azure SQL 数据库。 你将使用新的表结构更新空数据库资源，并选择数据列进行加密
+请与讲师确认这是课堂上所使用的区域。
 
 1. 在 Azure 门户页面顶部的“搜索资源、服务和文档”文本框中，键入“SQL 数据库”，然后按 Enter 键。
 
 2. 在 SQL 数据库列表中，单击“medical(<randomsqlservername>)”条目。
 
-    >**注意**：如果找不到数据库，则可能意味着在练习 1 中启动的部署尚未完成。 可以通过浏览到 Azure 资源组“AZ500LAB10”（或所选名称）并从“设置”窗格中选择“部署”来对此进行验证。  
+    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: If the database cannot be found, this likely means the deployment you initiated in Exercise 1 has not completed yet. You can validate this by browsing to the Azure Resource Group "AZ500LAB10" (or the name you chose), and selecting <bpt id="p1">**</bpt>Deployments<ept id="p1">**</ept> from the Settings pane.  
 
 3. 在 SQL 数据库边栏选项卡的“设置”部分，单击“连接字符串”。 
 
     >**注意**：该接口包括 ADO.NET、JDBC、ODBC、PHP 和 Go 的连接字符串。 
    
-4. 记录 ADO.NET 连接字符串。 稍后需要用到此值。
+4. Record the <bpt id="p1">**</bpt>ADO.NET Connection String<ept id="p1">**</ept>. You will need it later.
 
     >**注意**：使用连接字符串时，请确保将 `{your_password}` 占位符替换为你在练习 1 中为部署配置的密码。
 
 #### <a name="task-4-log-on-to-the-azure-vm-running-visual-studio-2019-and-sql-management-studio-2018"></a>任务 4：登录到运行 Visual Studio 2019 和 SQL Management Studio 2018 的 Azure VM
 
-在此任务中，登录到 Azure VM，这是在练习 1 中启动的部署。 此 Azure VM 托管 Visual Studio 2019 和 SQL Server Management Studio 2018。
+In this task, you log on to the Azure VM, which deployment you initiated in Exercise 1. This Azure VM hosts Visual Studio 2019 and SQL Server Management Studio 2018.
 
     >**Note**: Before you proceed with this task, ensure that the deployment you initiated in the first exercise has completed successfully. You can validate this by navigating to the blade of the Azure resource group "Az500Lab10" (or other name you chose) and selecting **Deployments** from the Settings pane.  
 
 1. 在 Azure 门户页面顶部的“搜索资源、服务和文档”文本框中，键入“虚拟机”，然后按 Enter 键。
 
-2. 在显示的虚拟机列表中，选择 az500-10-vm1 条目。 在 az500-10-vm1 边栏选项卡上的“基本”窗格上，记下“公共 IP 地址”。 稍后你将用到它。 
+2. In the list of Virtual Machines shown, select the <bpt id="p1">**</bpt>az500-10-vm1<ept id="p1">**</ept> entry. On the <bpt id="p1">**</bpt>az500-10-vm1<ept id="p1">**</ept> blade, on the <bpt id="p2">**</bpt>Essentials<ept id="p2">**</ept> pane, take note of the <bpt id="p3">**</bpt>Public IP address<ept id="p3">**</ept>. You will use this later. 
 
 #### <a name="task-5-create-a-table-in-the-sql-database-and-select-data-columns-for-encryption"></a>任务 5：在 SQL 数据库中创建一个表，然后选择要加密的数据列
 
-在此任务中，你将使用 SQL Server Management Studio 连接到 SQL 数据库并创建表， 随后使用 Azure 密钥保管库中自动生成的密钥对两个数据列进行加密。 
+In this task, you will connect to the SQL Database with SQL Server Management Studio and create a table. You will then encrypt two data columns using an autogenerated key from the Azure Key Vault. 
 
 1. 在 Azure 门户中，导航到“医疗”SQL 数据库的边栏选项卡，在“概要”部分，标识服务器名称（复制到剪贴板），然后在工具栏中单击“设置服务器防火墙”。  
 
-    >**注意**：记录服务器名称。 此任务稍后需要服务器名称。
+    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Record the server name. You will need the server name later in this task.
 
 2. 在“防火墙设置”边栏选项卡上，向下滚动到“规则名称”，然后指定以下设置： 
 
@@ -349,14 +344,14 @@ ms.locfileid: "145955378"
 
 4. 导航回“az500-10-vm1”边栏选项卡，单击“概述”，再单击“连接”，然后在下拉菜单中单击“RDP”。 
 
-5. 请单击“下载 RDP 文件”，并通过远程桌面将其连接到 az500-10-vm1 Azure VM。 收到身份验证提示时，请提供以下凭据：
+5. Click <bpt id="p1">**</bpt>Download RDP File<ept id="p1">**</ept> and use it to connect to the <bpt id="p2">**</bpt>az500-10-vm1<ept id="p2">**</ept> Azure VM via Remote Desktop. When prompted to authenticate, provide the following credntials:
 
     |设置|值|
     |---|---|
     |用户名|**学生**|
     |密码|请使用在实验室 04 > 练习 1 > 任务 1 > 步骤 9 中创建的个人密码。|
 
-    >**注意**：等待加载远程桌面会话和服务器管理器。 关闭服务器管理器。 
+    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Wait for the Remote Desktop session and <bpt id="p2">**</bpt>Server Manager<ept id="p2">**</ept> to load. Close Server Manager. 
 
     >**注意**：本实验室中的其余步骤在 az500-10-vm1 Azure VM 的远程桌面会话中执行。 
 
@@ -378,7 +373,7 @@ ms.locfileid: "145955378"
 
 10. 在“对象资源管理器”窗格，右键单击“医疗”数据库，然后单击“新查询”。
 
-11. 将以下代码粘贴到查询窗口中，然后单击“执行” 。 这将创建一个患者表。
+11. Paste the following code into the query window and click <bpt id="p1">**</bpt>Execute<ept id="p1">**</ept>. This will create a <bpt id="p1">**</bpt>Patients<ept id="p1">**</ept> table.
 
      ```sql
      CREATE TABLE [dbo].[Patients](
@@ -408,7 +403,7 @@ ms.locfileid: "145955378"
 
 16. 在“运行设置”页面，单击“下一步”。
     
-17. 在“摘要”页面上，单击“完成”以继续进行加密。 出现提示时，使用你之前在本实验室中用于预配 Azure 密钥保管库实例的相同用户帐户再次登录。
+17. On the <bpt id="p1">**</bpt>Summary<ept id="p1">**</ept> page, click <bpt id="p2">**</bpt>Finish<ept id="p2">**</ept> to proceed with the encryption. When prompted, sign in again by using the same user account you used to provision the Azure Key Vault instance earlier in this lab.
 
 18. 加密过程完成后，在“结果”页面上，单击“关闭”。
 
@@ -461,7 +456,7 @@ ms.locfileid: "145955378"
 
 10. 返回到 RDP 会话，然后在 Visual Studio 控制台的“解决方案资源管理器”窗口，单击“Program.cs”并将其内容替换为复制到剪贴板中的代码 。
 
-11. 在 Visual Studio 窗口的“Program.cs”窗格中的第 15 行，用你之前在本实验室中记录的 Azure SQL 数据库“ADO.NET”连接字符串替换 `<connection string noted earlier>` 占位符。 在连接字符串中，用 `Pa55w.rd1234` 替换 `{your_password}` 占位符。 如果将字符串保存在实验室计算机上，可能需要离开 RDP 会话来复制 ADO 字符串，然后返回到 Azure 虚拟机将其粘贴到其中。
+11. In the Visual Studio window, in the <bpt id="p1">**</bpt>Program.cs<ept id="p1">**</ept> pane, in line 15, replace the <ph id="ph1">`&lt;connection string noted earlier&gt;`</ph> placeholder with the Azure SQL database <bpt id="p2">**</bpt>ADO.NET<ept id="p2">**</ept> connection string you recorded earlier in the lab. In the connection string, replace the <ph id="ph1">`{your_password}`</ph> placehodler, with <ph id="ph2">`Pa55w.rd1234`</ph>. If you saved the string on the lab computer, you may need to leave the RDP session to copy the ADO string, then return to the Azure virtual machine to paste it in.
 
 12. 在 Visual Studio 窗口的“Program.cs”窗格中的第 16 行，用你之前在实验室中记录的注册应用的“应用程序(客户端) ID”值替换 `<client id noted earlier>` 占位符。 
 
@@ -469,7 +464,7 @@ ms.locfileid: "145955378"
 
 14. 在 Visual Studio 控制台中，单击“开始”按钮以启动控制台应用程序的构建并开启它。
 
-15. 该应用程序将启动“命令提示符”窗口。 当系统提示输入密码时，请键入在练习 1 的部署中指定的密码以连接到 Azure SQL 数据库。 
+15. The application will start a Command Prompt window. When prompted for password, type the password that you specified in the deployment in Exercise 1 to connect to Azure SQL Database. 
 
 16. 让控制台应用保持运行，然后切换到“SQL Management Studio”控制台。 
 
@@ -481,7 +476,7 @@ ms.locfileid: "145955378"
     SELECT FirstName, LastName, SSN, BirthDate FROM Patients;
     ```
 
-19. 返回到控制台应用程序，此处会提示你输入有效的 SSN。 这将查询数据的加密列。 在“命令提示符”处，键入以下内容，然后按 Enter 键：
+19. Switch back to the console application where you are prompted to enter a valid SSN. This will query the encrypted column for the data. At the Command Prompt, type the following and press the Enter key:
 
     ```cmd
     999-99-0003
@@ -493,7 +488,7 @@ ms.locfileid: "145955378"
 
 **清理资源**
 
-> 记得删除所有不再使用的新建 Azure 资源。 删除未使用的资源，确保不产生意外成本。
+> Remember to remove any newly created Azure resources that you no longer use. Removing unused resources ensures you will not incur unexpected costs.
 
 1. 在 Azure 门户中，通过单击 Azure 门户右上角的第一个图标打开 Cloud Shell。 
 

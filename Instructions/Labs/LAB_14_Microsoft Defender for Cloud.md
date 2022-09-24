@@ -2,26 +2,21 @@
 lab:
   title: 14 - Microsoft Defender for Cloud
   module: Module 04 - Microsoft Defender for Cloud
-ms.openlocfilehash: 647e2dc79012d6fedca9da9a78f6006f64be093b
-ms.sourcegitcommit: 18d4f5ccc60ae6d43b27e8b7d4d3ef7f68a02e93
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 04/06/2022
-ms.locfileid: "141483499"
 ---
+
 # <a name="lab-14-microsoft-defender-for-cloud"></a>实验室 14：Microsoft Defender for Cloud
 # <a name="student-lab-manual"></a>学生实验室手册
 
 ## <a name="lab-scenario"></a>实验室方案
 
-你需要创建基于 Microsoft Defender for Cloud 的环境的概念证明。 具体来说，你需要：
+You have been asked to create a proof of concept of Microsoft Defender for Cloud-based environment. Specifically, you want to:
 
 - 配置 Microsoft Defender for Cloud 以监视虚拟机。
 - 查看适用于虚拟机的 Microsoft Defender for Cloud 建议。
 - 实现有关来宾配置和实时 VM 访问的建议。 
 - 查看如何使用安全功能分数来确定创建更安全的基础结构的进度。
 
-> 对于本实验室中的所有资源，我们使用“美国东部”区域。 请与讲师确认这是课堂上所使用的区域。 
+> For all the resources in this lab, we are using the <bpt id="p1">**</bpt>East US<ept id="p1">**</ept> region. Verify with your instructor this is the region to use for class. 
 
 ## <a name="lab-objectives"></a>实验室目标
 
@@ -73,7 +68,7 @@ ms.locfileid: "141483499"
 
 11. 在“设置 | 工作流程自动化”边栏选项卡中，查看可用的设置。 
 
-    >**注意**：你可以触发基于威胁检测警报和 Microsoft Defender for Cloud 建议的操作。 你还可以配置基于 Logic 应用程序的操作。 
+    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: You can trigger actions based threat detection alerts and Microsoft Defender for Cloud recommendations. You can also configure an action based on Logic apps. 
     
 12. 在“添加工作流程自动化”边栏选项卡中，查看可用的设置。
 
@@ -85,7 +80,7 @@ ms.locfileid: "141483499"
 
 15. 在“设置 | Defender 计划”边栏选项卡上，确保已选中“启用所有 Microsoft Defender for Cloud 计划”，然后单击“保存”  。
 
-16. 从“Microsoft Defender for Cloud | 设置”边栏选项卡中选择“数据收集” 。 依次选择“所有事件”和“保存” 。
+16. Select <bpt id="p1">**</bpt>Data collection<ept id="p1">**</ept> from the <bpt id="p2">**</bpt>Microsoft Defender for Cloud | Settings<ept id="p2">**</ept> blade. Select <bpt id="p1">**</bpt>All Events<ept id="p1">**</ept> and <bpt id="p2">**</bpt>Save<ept id="p2">**</ept>.
 
 
 #### <a name="task-2-review-the-microsoft-defender-for-cloud-recommendation"></a>任务 2：查看 Microsoft Defender for Cloud 建议
@@ -115,7 +110,7 @@ ms.locfileid: "141483499"
 
 2. 在“工作负载保护”边栏选项卡的“高级防护”部分，单击“实时 VM 访问”磁贴，然后在“实时 VM 访问”边栏选项卡上单击“尝试实时 VM 访问”    。
 
-    >**注意**：如果未列出 VM，请导航到“虚拟机”边栏选项卡并单击“配置”，然后单击“实时 VM 访问”下的“启用实时 VM”选项   。 重复上述步骤，导航回“Microsoft Defender for Cloud”并刷新页面，此时将显示 VM。
+    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: If the VMs are not listed, navigate to <bpt id="p2">**</bpt>Virtual Machine<ept id="p2">**</ept> blade and click the <bpt id="p3">**</bpt>Configuration<ept id="p3">**</ept>, Click the <bpt id="p4">**</bpt>Enable the Just-in-time VMs<ept id="p4">**</ept> option under the <bpt id="p5">**</bpt>Just-in-time Vm's access<ept id="p5">**</ept>. Repeat the above step to navigate back to the <bpt id="p1">**</bpt>Microsoft Defender for Cloud<ept id="p1">**</ept> and refresh the page, the VM will appear.
 
 3. 在“实时 VM 访问”上，选择“未配置”，然后单击“myVM”条目  。
 
@@ -129,7 +124,7 @@ ms.locfileid: "141483499"
 
     >**注意**：可以通过单击工具栏中的“通知”图标并查看“通知”边栏选项卡来监视配置进度。 
 
-    >**注意**：安全分数需要一些时间才能体现本实验室中的建议实现情况。 定期检查安全功能分数，以确定实施这些功能的影响。 
+    >你需要创建基于 Microsoft Defender for Cloud 的环境的概念证明。 
 
 > 结果：你已经载入 Microsoft Defender for Cloud 并已实施虚拟机建议。 
 

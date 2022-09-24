@@ -2,26 +2,21 @@
 lab:
   title: 01 - 基于角色的访问控制
   module: Module 01 - Manage Identity and Access
-ms.openlocfilehash: 9ddbfd416d9897bcdf891c9c9265d8205277c176
-ms.sourcegitcommit: 79ca7b110859fe71a3849a28fdc781cad95d1567
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 06/15/2022
-ms.locfileid: "146381336"
 ---
+
 # <a name="lab-01-role-based-access-control"></a>实验室 01：基于角色的访问控制
 # <a name="student-lab-manual"></a>学生实验室手册
 
 ## <a name="lab-scenario"></a>实验室方案
 
-你需要创建一个显示如何创建 Azure 用户和组的概念证明。 此外，如何使用基于角色的访问控制将角色分配给组。 具体而言，需要：
+You have been asked to create a proof of concept showing how Azure users and groups are created. Also, how role-based access control is used to assign roles to groups. Specifically, you need to:
 
 - 创建一个高级管理员组，其中包含 Joseph Price 的用户帐户作为该组的成员。
 - 创建一个初级管理员组，其中包含 Isabel Garcia 的用户帐户作为该组的成员。
 - 创建一个服务台组，其中包含 Dylan Williams 用户帐户作为该组的成员。
 - 将虚拟机参与者角色分配给“服务台”组。 
 
-> 对于本实验室中的所有资源，我们使用“美国东部”区域。 请与讲师确认这是课堂上所使用的区域。 
+> For all the resources in this lab, we are using the <bpt id="p1">**</bpt>East US<ept id="p1">**</ept> region. Verify with your instructor this is the region to use for class. 
 
 ## <a name="lab-objectives"></a>实验室目标
 
@@ -68,7 +63,7 @@ ms.locfileid: "146381336"
 
 5. 单击“用户名”旁边的复制图标以复制完整用户。
 
-6. 确保选中“自动生成密码”，然后选择“显示密码”复选框以识别自动生成的密码。 需要将此密码以及用户名提供给 Joseph。 
+6. Ensure that the <bpt id="p1">**</bpt>Auto-generate<ept id="p1">**</ept> password is selected, select the <bpt id="p2">**</bpt>Show password<ept id="p2">**</ept> checkbox to identify the automatically generated password. You would need to provide this password, along with the user name to Joseph. 
 
 7. 单击“创建”。
 
@@ -111,11 +106,11 @@ ms.locfileid: "146381336"
 
 在此任务中，你将使用 PowerShell 为 Isabel Garcia 创建一个用户帐户。
 
-1. 单击 Azure 门户右上角的第一个图标，打开 Cloud Shell。 如果出现提示，请选择“PowerShell”和“创建存储” 。
+1. Open the Cloud Shell by clicking the first icon in the top right of the Azure Portal. If prompted, select <bpt id="p1">**</bpt>PowerShell<ept id="p1">**</ept> and <bpt id="p2">**</bpt>Create storage<ept id="p2">**</ept>.
 
 2. 确保在“Cloud Shell”窗格左上角的下拉菜单中选中“PowerShell”。
 
-   >**注意**：要将复制文本粘贴到 Cloud Shell 中，请在窗格窗口中右键单击并选择“粘贴”。 或者，可以使用 Shift + Insert 组合键。
+   ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: To paste copied text into the Cloud Shell, right-click within the pane window and select <bpt id="p2">**</bpt>Paste<ept id="p2">**</ept>. Alternatively, you can use the <bpt id="p1">**</bpt>Shift+Insert<ept id="p1">**</ept> key combination.
 
 3. 在“Cloud Shell”窗格内的 PowerShell 会话中，运行以下命令以创建密码配置文件对象：
 
@@ -210,7 +205,7 @@ ms.locfileid: "146381336"
     DOMAINNAME=$(az ad signed-in-user show --query 'userPrincipalName' | cut -d '@' -f 2 | sed 's/\"//')
     ```
 
-3. 在“Cloud Shell”窗格内的 Bash 会话中，运行以下命令以创建 Dylan Williams 用户。 使用 yourdomain。
+3. 你需要创建一个显示如何创建 Azure 用户和组的概念证明。
  
     ```cli
     az ad user create --display-name "Dylan Williams" --password "Pa55w.rd1234" --user-principal-name Dylan@$DOMAINNAME
@@ -290,7 +285,7 @@ ms.locfileid: "146381336"
 
 3. 单击“查看 + 创建”，然后选择“创建” 。
 
-   >**注意**：等待资源组以便部署。 使用“通知”图标（右上角）跟踪部署状态的进度。
+   >此外，如何使用基于角色的访问控制将角色分配给组。
 
 4. 返回“资源组”边栏选项卡，刷新页面并验证新资源组是否出现在资源组列表中。
 
@@ -327,7 +322,7 @@ ms.locfileid: "146381336"
 
 **清理资源**
 
-> 记得删除所有不再使用的新建 Azure 资源。 删除未使用的资源，确保不产生意外成本。
+> 具体而言，需要：
 
 1. 在 Azure 门户中，通过单击 Azure 门户右上角的第一个图标打开 Cloud Shell。 
 

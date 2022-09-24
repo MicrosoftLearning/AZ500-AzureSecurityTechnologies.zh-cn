@@ -2,25 +2,20 @@
 lab:
   title: 04 - MFA、条件访问和 AAD 标识保护
   module: Module 01 - Manage Identity and Access
-ms.openlocfilehash: f63f8a24c0d9b7c870967ee8c83292bd80b617f9
-ms.sourcegitcommit: 2f08105eaaf0413d3ec3c12a3b078678151fd211
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2022
-ms.locfileid: "141368698"
 ---
+
 # <a name="lab-04-mfa-conditional-access-and-aad-identity-protection"></a>实验室 04：MFA、条件访问和 AAD 标识保护
 # <a name="student-lab-manual"></a>学生实验室手册
 
 ## <a name="lab-scenario"></a>实验室方案
 
-你需要创建增强 Azure Active Directory (Azure AD) 身份验证的功能的概念证明。 具体来说，你要评估：
+You have been asked to create a proof of concept of features that enhance Azure Active Directory (Azure AD) authentication. Specifically, you want to evaluate:
 
 - Azure AD 多重身份验证
 - Azure AD 条件访问
 - Azure AD 标识保护
 
-> 对于本实验室中的所有资源，我们使用“美国东部”区域。 请与讲师确认这是课堂上所使用的区域。 
+> For all the resources in this lab, we are using the <bpt id="p1">**</bpt>East US<ept id="p1">**</ept> region. Verify with your instructor this is the region to use for class. 
 
 ## <a name="lab-objectives"></a>实验室目标
 
@@ -52,7 +47,7 @@ ms.locfileid: "141368698"
 
 #### <a name="task-1-deploy-an-azure-vm-by-using-an-azure-resource-manager-template"></a>任务 1：使用 Azure 资源管理器模板部署 Azure VM
 
-在本任务中，你将使用 ARM 模板创建一个虚拟机。 该虚拟机将在本实验室的上一个练习中使用。 
+In this task, you will create a virtual machine by using an ARM template. This virtual machine will be used in the last exercise for this lab. 
 
 1. 登录到 Azure 门户 `https://portal.azure.com/`。
 
@@ -80,7 +75,7 @@ ms.locfileid: "141368698"
 
 9. 在“自定义部署”边栏选项卡上，确保已配置以下设置（其他设置保留默认值）：
 
->**注意**：你将需要创建一个唯一的密码，用于在课程的其余部分创建 VM（虚拟机）。 密码长度必须至少为 12 个字符，且符合规定的复杂性要求（密码必须具有以下各项中的 3 项：1 个小写字符、1 个大写字符、1 个数字和 1 个特殊字符）。 [VM 密码要求](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/faq#what-are-the-password-requirements-when-creating-a-vm-)。 请记下此密码。
+><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: You will need to create a unique password that will be used for creating VMs (virtual machines) for the rest of the course. The password must be at least 12 characters long and meet the defined complexity requirements (Password must have 3 of the following: 1 lower case character, 1 upper case character, 1 number, and 1 special character). <bpt id="p1">[</bpt>VM password requirements<ept id="p1">](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/faq#what-are-the-password-requirements-when-creating-a-vm-)</ept>. Please make a note of the password.
 
    |设置|值|
    |---|---|
@@ -97,7 +92,7 @@ ms.locfileid: "141368698"
 
 10. 单击“查看 + 创建”，然后单击“创建” 。
 
-    >**注意**：不要等待部署完成，而是继续执行下一个练习。 你将在本实验室的最后一个练习中使用此部署中包含的虚拟机。
+    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Do not wait for the deployment to complete but proceed to the next exercise. You will use the virtual machine included in this deployment in the last exercise of this lab.
 
 > 结果：你已启动将在本实验室的下一个练习中使用的 Azure VM az500-vm1 的模板部署。
 
@@ -133,12 +128,12 @@ ms.locfileid: "141368698"
    |初始域名|由字母和数字组合组成的唯一名称|
    |国家或地区|**美国**|
 
-    >**注意**：记录初始域名。 本实验室中稍后会用到它。
+    >你需要创建增强 Azure Active Directory (Azure AD) 身份验证的功能的概念证明。
 
 5. 单击“查看 + 创建”，然后单击“创建”。
 6. 在“帮助我们证明你不是机器人”边栏选项卡上添加验证码，然后单击“提交”按钮 。 
 
-    >**注意**：等待新租户完成创建。 使用“通知”图标监视部署状态。 
+    >具体来说，你要评估： 
 
 
 #### <a name="task-2-activate-azure-ad-premium-p2-trial"></a>任务 2：激活 Azure AD Premium P2 试用版
@@ -151,7 +146,7 @@ ms.locfileid: "141368698"
 
     >**注意**：如果 AdatumLab500-04 条目未出现在“目录 + 订阅”筛选器列表中，则可能需要你刷新浏览器窗口。
 
-3. 在 Azure 门户页面顶部的“搜索资源、服务和文档”文本框中，键入“Azure Active Directory”，然后按 Enter 键。 在“AdatumLab500-04”边栏选项卡上，在“管理”部分，单击“许可证”。
+3. In the Azure portal, in the <bpt id="p1">**</bpt>Search resources, services, and docs<ept id="p1">**</ept> text box at the top of the Azure portal page, type <bpt id="p2">**</bpt>Azure Active Directory<ept id="p2">**</ept> and press the <bpt id="p3">**</bpt>Enter<ept id="p3">**</ept> key. On the <bpt id="p1">**</bpt>AdatumLab500-04<ept id="p1">**</ept> blade, in the <bpt id="p2">**</bpt>Manage<ept id="p2">**</ept> section, click <bpt id="p3">**</bpt>Licenses<ept id="p3">**</ept>.
 
 4. 在“许可证 \| 概述”边栏选项卡的“管理”部分，单击“所有产品”，然后单击“+ 试用/购买”。
 
@@ -160,7 +155,7 @@ ms.locfileid: "141368698"
 
 #### <a name="task-3-create-azure-ad-users-and-groups"></a>任务 3：创建 Azure AD 用户和组。
 
-在此任务中，你将创建三个用户：aaduser1（全局管理员）、aaduser2（用户）和 aaduser3（用户）。 你将需要每个用户的主体名称和密码来执行后续任务。 
+In this task, you will create three users: aaduser1 (Global Admin), aaduser2 (user), and aaduser3 (user). You will need each user's principal name and password for later tasks. 
 
 1. 导航回 **AdatumLab500-04** Azure Active Directory 边栏选项卡，然后在“管理”部分，单击“用户”。
 
@@ -177,9 +172,9 @@ ms.locfileid: "141368698"
    |角色|单击“用户”，再单击“全局管理员”，然后单击“选择”|
    |使用位置|**美国**|  
 
-    >**注意**：记录完整的用户名。 你可以通过单击显示域名的下拉列表右侧的“复制到剪贴板”按钮来复制其值。 
+    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Record the full user name. You can copy its value by clicking the <bpt id="p1">**</bpt>Copy to clipboard<ept id="p1">**</ept> button on the right hand side of the drop-down list displaying the domain name. 
 
-    >**注意**：记录用户密码。 稍后需要在本实验室用到它。 
+    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Record the user's password. You will need this later in this lab. 
 
 4. 返回到“用户 \| 所有用户”边栏选项卡上，单击“+ 新建用户” 。 
 
@@ -219,7 +214,7 @@ ms.locfileid: "141368698"
 
 1. 在“用户 \| 所有用户”边栏选项卡上，单击代表你的用户帐户的条目。 
 
-2. 在显示用户帐户属性的边栏选项卡上，单击“编辑”。  验证使用位置是否设置为“美国”，如果未设置，则设置使用位置，然后单击“保存”。
+2. 对于本实验室中的所有资源，我们使用“美国东部”区域。
 
 3. 导航回 **AdatumLab500-04** Azure Active Directory 边栏选项卡的“管理”部分，并单击“许可证”。
 
@@ -231,9 +226,9 @@ ms.locfileid: "141368698"
 
 7. 返回到“分配许可证”边栏选项卡，单击“分配选项”，确保已启用所有选项，单击“查看 + 分配”，然后单击“分配”   。
 
-8. 从 Azure 门户注销，然后使用同一帐户重新登录。 必须执行此步骤才能使许可证分配生效。
+8. 请与讲师确认这是课堂上所使用的区域。
 
-    >**注意**：此时，你已将 Azure Active Directory Premium P2 许可证分配给了本实验室中将要使用的所有用户帐户。 请务必先注销，然后再重新登录。 
+    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: At this point, you assigned Azure Active Directory Premium P2 licenses to all user accounts you will be using in this lab. Be sure to sign out and then sign back in. 
 
 #### <a name="task-5-configure-azure-mfa-settings"></a>任务 5：配置 Azure MFA 设置。
 
@@ -251,11 +246,11 @@ ms.locfileid: "141368698"
 
     >**注意**：将会打开一个新的浏览器选项卡，显示“多重身份验证”页面。
 
-5. 在“多重身份验证”页面上，单击“服务设置”选项卡。查看“验证选项”。 注意，“向电话发送的文本信息”、 “通过移动应用发送的通知”和“移动应用或硬件标志提供的验证码”已启用。 单击“保存”，然后单击“关闭”。
+5. On the <bpt id="p1">**</bpt>multi-factor authentication<ept id="p1">**</ept> page, click the <bpt id="p2">**</bpt>service settings<ept id="p2">**</ept> tab. Review <bpt id="p3">**</bpt>verification options<ept id="p3">**</ept>. Note that <bpt id="p1">**</bpt>Text message to phone<ept id="p1">**</ept>, <bpt id="p2">**</bpt>Notification through mobile app<ept id="p2">**</ept>, and <bpt id="p3">**</bpt>Verification code from mobile app or hardware token<ept id="p3">**</ept> are enabled. Click <bpt id="p1">**</bpt>Save<ept id="p1">**</ept> and then click <bpt id="p2">**</bpt>close<ept id="p2">**</ept>.
 
 6. 切换到“用户”选项卡，依次单击 **aaduser1** 条目和“启用”链接，然后在出现提示时单击“启用多重身份验证”。
 
-7. 注意，**aaduser1** 的“多重身份验证状态”列现在 **已启用**。
+7. 注意，**aaduser1** 的“多重身份验证状态”列现在**已启用**。
 
 8. 单击 aaduser1 并注意，此时你还有“强制”选项。 
 
@@ -285,9 +280,9 @@ ms.locfileid: "141368698"
 
     >**注意**：至此，你已经为 aaduser1 启用了 MFA，并设置了欺诈警报设置。 
 
-14. 导航回 AdatumLab500-04 Azure Active Directory 租户边栏选项卡，在“管理”部分中，单击“属性”，然后单击边栏选项卡底部的“管理安全默认值”链接，在“启用安全默认值”边栏选项卡上，单击“否”。 选择“我的组织正在使用条件访问”作为原因，然后单击“保存”。
+14. Navigate back to the <bpt id="p1">**</bpt>AdatumLab500-04<ept id="p1">**</ept> Azure Active Directory tenant blade, in the <bpt id="p2">**</bpt>Manage<ept id="p2">**</ept> section, click <bpt id="p3">**</bpt>Properties<ept id="p3">**</ept>, next click the <bpt id="p4">**</bpt>Manage Security defaults<ept id="p4">**</ept> link at the bottom of the blade, on the <bpt id="p5">**</bpt>Enable Security Defaults<ept id="p5">**</ept> blade, click <bpt id="p6">**</bpt>No<ept id="p6">**</ept>. Select <bpt id="p1">**</bpt>My Organization is using Conditonal Access<ept id="p1">**</ept> as the reason and and then click <bpt id="p2">**</bpt>Save<ept id="p2">**</ept>.
 
-    >**注意**：确保已登录 AdatumLab500-4b Azure AD 租户。 你可以使用“目录 + 订阅”筛选器在 Azure AD 租户之间切换。 确保以在 Azure AD 租户中具有全局管理员角色的用户身份登录。
+    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Ensure that you are signed-in to the <bpt id="p2">**</bpt>AdatumLab500-04<ept id="p2">**</ept> Azure AD tenant. You can use the <bpt id="p1">**</bpt>Directory + subscription<ept id="p1">**</ept> filter to switch between Azure AD tenants. Ensure you are signed in as a user with the Global Administrator role in the Azure AD tenant.
 
 #### <a name="task-6-validate-mfa-configuration"></a>任务 6：验证 MFA 配置
 
@@ -297,7 +292,7 @@ ms.locfileid: "141368698"
 
 2. 导航到 Azure 门户，并使用 aaduser1 用户帐户登录。 
 
-    >**注意**：若要登录，需提供 aaduser1 用户帐户的完全限定名称，包括你在本实验室前面记录的 Azure AD 租户 DNS 域名。 该用户名的格式为 aaduser1@`<your_tenant_name>`.onmicrosoft.com，其中 `<your_tenant_name>` 占位符代表你唯一的 Azure AD 租户名称。 
+    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: To sign in you will need to provide a fully qualified name of the <bpt id="p2">**</bpt>aaduser1<ept id="p2">**</ept> user account, including the Azure AD tenant DNS domain name, which you recorded earlier in this lab. This user name is in the format aaduser1@<ph id="ph1">`&lt;your_tenant_name&gt;`</ph>.onmicrosoft.com, where <ph id="ph2">`&lt;your_tenant_name&gt;`</ph> is the placeholder representing your unique Azure AD tenant name. 
 
 3. 出现提示时，在“需要更多信息”对话框中，单击“下一步”。
 
@@ -311,9 +306,9 @@ ms.locfileid: "141368698"
 
 7. 在“保护帐户安全”页面，确保验证成功并单击“下一步”。
 
-8. 在“保护帐户安全”页面上，单击“我想使用其他方法”，从下拉列表中选择“电子邮件”，单击“确认”，提供要使用的电子邮件地址，然后单击“下一步”    。 收到相应的电子邮件后，找到电子邮件正文中的代码，提供此代码，然后单击“完成”。
+8. On the <bpt id="p1">**</bpt>Keep your account secure<ept id="p1">**</ept> page, click <bpt id="p2">**</bpt>I want to use a different method<ept id="p2">**</ept>, select <bpt id="p3">**</bpt>Email<ept id="p3">**</ept> from the drop down list, click <bpt id="p4">**</bpt>Confirm<ept id="p4">**</ept>, provide the  email address you intend to use, and click <bpt id="p5">**</bpt>Next<ept id="p5">**</ept>. Once you receive the corresponding email, identify the code in the email body, provide it, and then click <bpt id="p1">**</bpt>Done<ept id="p1">**</ept>.
 
-9. 出现提示时，请更改密码。 确保记录新密码。
+9. When prompted, change your password. Make sure to record the new password.
 
 10. 验证你是否已成功登录 Azure 门户。
 
@@ -347,7 +342,7 @@ ms.locfileid: "141368698"
 
    - 在“名称”文本框中，键入“AZ500Policy1”
     
-   - 单击“已选择用户或工作负载标识”。 在右侧的“此策略的适用对象”>>“用户和组”>>“包含”下 >> 启用“选择用户和组”>> 选中“用户和组”复选框，在“选择”边栏选项卡中，单击“aaduser2”，然后单击“选择”。
+   - Click <bpt id="p1">**</bpt>Users or workload identities selected<ept id="p1">**</ept>. On the right side under the What does this policy apply to &gt;&gt; Users and groups &gt;&gt; Include &gt;&gt; Enable <bpt id="p1">**</bpt>Select users and groups<ept id="p1">**</ept> &gt;&gt; select the <bpt id="p2">**</bpt>Users and Groups<ept id="p2">**</ept> checkbox, on the <bpt id="p3">**</bpt>Select<ept id="p3">**</ept> blade, click <bpt id="p4">**</bpt>aaduser2<ept id="p4">**</ept>, and click <bpt id="p5">**</bpt>Select<ept id="p5">**</ept>.
     
    - 单击“云应用或操作”，再单击“选择应用”，然后在“选择”边栏选项卡上，单击“Microsoft Azure 管理”，然后单击“选择”。 
 
@@ -363,13 +358,13 @@ ms.locfileid: "141368698"
     
    - 将“启用策略”设置为“开启”。
 
-6. 在“新建”边栏选项卡中，单击“创建”。 
+6. 在“新建”边栏选项卡中，单击“创建”。******** 
 
     >**注意**：此时，你已拥有需要 MFA 以登录 Azure 门户的条件访问策略。 
 
 #### <a name="task-2---test-the-conditional-access-policy"></a>任务 2 - 测试条件访问策略。
 
-在此任务中，你将作为 aaduser2 登录 Azure 门户，并验证是否需要 MFA。 在继续下一个练习之前，你还将删除此策略。 
+In this task, you will sign in to the Azure portal as <bpt id="p1">**</bpt>aaduser2<ept id="p1">**</ept> and verify MFA is required. You will also delete the policy before continuing on to the next exercise. 
 
 1. 打开 InPrivate Microsoft Edge 窗口。
 
@@ -389,7 +384,7 @@ ms.locfileid: "141368698"
 
 8. 在“保护帐户安全”页面，单击“完成”。
 
-9. 出现提示时，请更改密码。 确保记录新密码。
+9. When prompted, change your password. Make sure to record the new password.
 
 10. 验证你是否已成功登录 Azure 门户。
 
@@ -427,7 +422,7 @@ ms.locfileid: "141368698"
 
 1. 如果需要，登录到 Azure 门户 `https://portal.azure.com/`。
 
-    >**注意**：确保已登录 AdatumLab500-4b Azure AD 租户。 你可以使用“目录 + 订阅”筛选器在 Azure AD 租户之间切换。 确保以在 Azure AD 租户中具有全局管理员角色的用户身份登录。
+    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Ensure that you are signed-in to the <bpt id="p2">**</bpt>AdatumLab500-04<ept id="p2">**</ept> Azure AD tenant. You can use the <bpt id="p1">**</bpt>Directory + subscription<ept id="p1">**</ept> filter to switch between Azure AD tenants. Ensure you are signed in as a user with the Global Administrator role in the Azure AD tenant.
 
 2. 在“AdatumLab500-04”边栏选项卡上的“管理”部分，单击“安全”。
 
@@ -471,7 +466,7 @@ ms.locfileid: "141368698"
 
 #### <a name="task-4-simulate-risk-events-against-the-azure-ad-identity-protection-policies"></a>任务 4：根据 Azure AD 标识保护策略模拟风险事件 
 
-> 在开始此任务之前，请确保已完成在练习 1 中启动的模板部署。 部署包括名为 az500-04-vm1 的 Azure VM。 
+> Before you start this task, ensure that the template deployment you started in Exercise 1 has completed. The deployment includes an Azure VM named <bpt id="p1">**</bpt>az500-04-vm1<ept id="p1">**</ept>. 
 
 1. 在 Azure 门户中，将“目录 + 订阅”筛选器设置为与你在其中部署 az500-04-vm1 Azure VM 的 Azure 订阅相关联的 Azure AD 租户。
 
@@ -481,7 +476,7 @@ ms.locfileid: "141368698"
 
 4. 在“az500-04-vm1”边栏选项卡，单击“连接”，然后在下拉菜单中单击“RDP”。 
 
-5. 单击“下载 RDP 文件”并通过远程桌面将其连接到 az500-04-vm1 Azure VM。 收到身份验证提示时，请提供以下凭据：
+5. Click <bpt id="p1">**</bpt>Download RDP File<ept id="p1">**</ept> and use it to connect to the <bpt id="p2">**</bpt>az500-04-vm1<ept id="p2">**</ept> Azure VM via Remote Desktop. When prompted to authenticate, provide the following credntials:
 
    |设置|值|
    |---|---|
@@ -506,11 +501,11 @@ ms.locfileid: "141368698"
 
 12. 出现提示时，尝试使用 **aaduser3** 帐户登录。 
 
-    >**注意**：将会显示“你的登录已被阻止”消息。 这是意料之中的，因为此帐户没有配置多重身份验证，多重身份验证是必需的，因为使用 ToR 浏览器会增加登录风险。
+    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: You will be presented with the message <bpt id="p2">**</bpt>Your sign-in was blocked<ept id="p2">**</ept>. This is expected, since this account is not configured with multi-factor authentication, which is required due to increased sign-in risk associated with the use of ToR Browser.
 
 13. 使用“注销并使用另一个帐户登录”选项或选择后退箭头，可以使用之前在本实验室中为多重身份验证创建和配置的帐户 aaduser1 登录。
 
-    >**注意**：这一次，将会显示“检测到可疑活动”消息。 同样，这也是意料之中的，因为此帐户配置了多重身份验证。 考虑到使用 ToR 浏览器增加的登录风险，请务必进行多重身份验证。
+    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: This time, you will be presented with the <bpt id="p2">**</bpt>Suspicious activity detected<ept id="p2">**</ept> message. Again, this is expected, since this account is configured with multi-factor authentiation. Considering the increased sign-in risk associated with the use of ToR Browser, you will have to use multi-factor authentication.
 
 14. 使用“验证”选项并指定是否要通过短信或电话来验证你的身份。
 
