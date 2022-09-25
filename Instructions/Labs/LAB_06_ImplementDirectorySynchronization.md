@@ -2,25 +2,20 @@
 lab:
   title: 06 - 实现目录同步
   module: Module 01 - Manage Identity and Access
-ms.openlocfilehash: 9403e136799cd27b91f27c5d8d268ab0aec3f7c5
-ms.sourcegitcommit: 79ca7b110859fe71a3849a28fdc781cad95d1567
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 06/15/2022
-ms.locfileid: "146381345"
 ---
+
 # <a name="lab-06-implement-directory-synchronization"></a>实验室 6：实现目录同步
 # <a name="student-lab-manual"></a>学生实验室手册
 
 ## <a name="lab-scenario"></a>实验室方案
 
-你需要创建一个概念证明，以演示如何将本地 Active Directory 域服务 (AD DS) 环境与 Azure Active Directory (Azure AD) 租户集成。 具体来说，你需要：
+You have been asked to create a proof of concept demonstrating how to integrate on-premises Active Directory Domain Services (AD DS) environment with an Azure Active Directory (Azure AD) tenant. Specifically, you want to:
 
 - 通过部署托管 AD DS 域控制器的 Azure VM 来实现单域 AD DS 林
 - 创建和配置 Azure AD 租户
 - 将 AD DS 林与 Azure AD 租户同步
 
-> 对于本实验室中的所有资源，我们使用“美国东部”区域。 请与讲师确认这是课堂上所使用的区域。 
+> For all the resources in this lab, we are using the <bpt id="p1">**</bpt>East US<ept id="p1">**</ept> region. Verify with your instructor this is the region to use for class. 
 
 ## <a name="lab-objectives"></a>实验室目标
 
@@ -53,7 +48,7 @@ ms.locfileid: "146381345"
 
     >**注意**：使用此实验室使用的 Azure 订阅中具有所有者或参与者角色的帐户登录 Azure 门户。
 
-2. 单击 Azure 门户右上角的第一个图标，打开 Cloud Shell。 如果出现提示，请单击“PowerShell”和“创建存储”。
+2. Open the Cloud Shell by clicking the first icon in the top right of the Azure Portal. If prompted, click <bpt id="p1">**</bpt>PowerShell<ept id="p1">**</ept> and <bpt id="p2">**</bpt>Create storage<ept id="p2">**</ept>.
 
 3. 确保在“Cloud Shell”窗格左上角的下拉菜单中选中“PowerShell”。
 
@@ -63,13 +58,13 @@ ms.locfileid: "146381345"
     Test-AzDnsAvailability -DomainNameLabel <custom-label> -Location '<location>'
     ```
 
-    >**注意**：将 `<custom-label>` 占位符替换为可能是全局唯一的有效 DNS 名称。 将 `<location>` 占位符替换为要将 Azure VM 部署到其中的区域的名称，该 Azure VM 将托管在本实验室中使用的 Active Directory 域控制器。
+    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Replace the <ph id="ph1">`&lt;custom-label&gt;`</ph> placeholder with a valid DNS name that is likely to be globally unique. Replace the <ph id="ph1">`&lt;location&gt;`</ph> placeholder with the name of the region into which you want to deploy the Azure VM that will host the Active Directory domain controller you will use in this lab.
 
     >**注意**：若要确定可在其中预配 Azure VM 的 Azure 区域，请参阅 [https://azure.microsoft.com/en-us/regions/offers/](https://azure.microsoft.com/en-us/regions/offers/)
 
-5. 验证命令是否返回 True。 如果不是，使用不同的 `<custom-label>` 值重新运行相同的命令，直到命令返回 True。
+5. Verify that the command returned <bpt id="p1">**</bpt>True<ept id="p1">**</ept>. If not, rerun the same command with a different value of the <ph id="ph1">`&lt;custom-label&gt;`</ph> until the command returns <bpt id="p1">**</bpt>True<ept id="p1">**</ept>.
 
-6. 记录返回正确结果的 `<custom-label>` 的值。 稍后在下一个任务中将用到它。
+6. 你需要创建一个概念证明，以演示如何将本地 Active Directory 域服务 (AD DS) 环境与 Azure Active Directory (Azure AD) 租户集成。
 
 7. 关闭 Cloud Shell。
 
@@ -79,7 +74,7 @@ ms.locfileid: "146381345"
 
 1. 在同一浏览器窗口中，打开另一个浏览器标签页，并导航到 https://github.com/Azure/azure-quickstart-templates/tree/master/application-workloads/active-directory/active-directory-new-domain。
 
-2. 在“新建 Windows VM 并新建 AD 林、域和 DC”页面上，单击“部署到 Azure”。 这会自动将浏览器重定向到 Azure 门户中的“使用新的 AD 林创建 Azure VM”边栏选项卡。
+2. 具体来说，你需要：
 
 3. 在“使用新的 AD 林创建 Azure VM”边栏选项卡中，单击“编辑参数”。
 
@@ -100,7 +95,7 @@ ms.locfileid: "146381345"
 
 6. 在“使用新的 AD 林创建 Azure VM”边栏选项卡中，单击“查看 + 创建”，然后单击“创建”。
 
-    >**注意**：请勿等待部署完成，而是继续进行下一个练习。 部署可能需要大约 15 分钟。 在本实验室的第三个练习中，你将使用此任务中部署的虚拟机。
+    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Do not wait for the deployment to complete but instead proceed to the next exercise. The deployment might take about 15 minutes. You will use the virtual machine deployed in this task in the third exercise of this lab.
 
 > 结果：完成此练习后，你已经启动了 Azure VM 的部署，该 Azure VM 将使用 Azure 资源管理器模板来托管 Active Directory 域控制器
 
@@ -133,13 +128,13 @@ ms.locfileid: "146381345"
    |初始域名|由字母和数字组合组成的唯一名称|
    |国家或地区|**美国**|
 
-    >**注意**：记录初始域名。 本实验室中稍后会用到它。
+    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Record the initial domain name. You will need it later in this lab.
 
-    >**注意**：“初始域名”文本框中的绿色复选标记将指示你键入的域名是否有效且唯一。 （记录初始域名以供以后使用）。
+    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: The green check mark in the <bpt id="p2">**</bpt>Initial domain name<ept id="p2">**</ept> text box will indicate whether the domain name you typed in is valid and unique. (Record your initial domain name for later use).
 
 5. 依次单击“查看 + 创建”、“创建”。 
 
-    >**注意**：等待新租户完成创建。 使用“通知”图标监视部署状态。 
+    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Wait for the new tenant to be created. Use the <bpt id="p1">**</bpt>Notification<ept id="p1">**</ept> icon to monitor the deployment status. 
 
 #### <a name="task-2-add-a-custom-dns-name-to-the-new-azure-ad-tenant"></a>任务 2：将自定义 DNS 名称添加到新的 Azure AD 租户
 
@@ -159,7 +154,7 @@ ms.locfileid: "146381345"
 
 6. 在“adatum.com”边栏选项卡中，查看执行 Azure AD 域名验证所需的信息，然后选择“删除”两次。 
 
-    >**注意**：由于你没有 adatum.com DNS 域名，因此无法完成验证过程。 这不会阻止你将 adatum.com AD DS 域与 Azure AD 租户同步。 为此，你将使用 Azure AD 租户的初始 DNS 名称（其名称以 **onmicrosoft.com** 后缀结尾），该名称在上一个任务中已标识。 但是，请记住，Active Directory 域的 DNS 域名和 Azure AD 租户的 DNS 名称因此将有所不同。 这意味着，Adatum 用户在登录 AD DS 域和登录 Azure AD 租户时需要使用不同的名称。
+    >对于本实验室中的所有资源，我们使用“美国东部”区域。
 
 #### <a name="task-3-create-an-azure-ad-user-with-the-global-administrator-role"></a>任务 3：使用全局管理员角色创建 Azure AD 用户
 
@@ -180,17 +175,17 @@ ms.locfileid: "146381345"
    |角色|单击“用户”，再单击“全局管理员”，然后单击“选择”|
    |使用位置|**美国**|  
 
-    >**注意**：记录完整的用户名。 你可以通过单击显示域名的下拉列表右侧的“复制到剪贴板”按钮来复制其值。 
+    >请与讲师确认这是课堂上所使用的区域。 
 
-    >**注意**：记录用户密码。 稍后需要在本实验室用到它。 
+    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Record the user's password. You will need this later in this lab. 
 
     >**注意**：要实现 Azure AD Connect，需要具有全局管理员角色的 Azure AD 用户。
 
 4. 打开 InPrivate 浏览器窗口。
 
-5. 导航到 Azure 门户，并使用 syncadmin 用户帐户登录。 出现提示时，将你之前在此任务中记录的密码更改为 Pa55w.rd1234。
+5. Navigate to the Azure portal and sign in using the <bpt id="p1">**</bpt>syncadmin<ept id="p1">**</ept> user account. When prompted, change the password you recorded earlier in this task to <bpt id="p1">**</bpt>Pa55w.rd1234<ept id="p1">**</ept>.
 
-    >**注意**：要登录，你需要提供 syncadmin 用户帐户完全限定的名称，包括你此前在此任务中记录的 Azure AD 租户 DNS 域名。 该用户名的格式为 syncadmin@`<your_tenant_name>`.onmicrosoft.com，其中 `<your_tenant_name>` 占位符代表你唯一的 Azure AD 租户名称。 
+    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: To sign in you will need to provide a fully qualified name of the <bpt id="p2">**</bpt>syncadmin<ept id="p2">**</ept> user account, including the Azure AD tenant DNS domain name, which you recorded earlier in this task. This user name is in the format syncadmin@<ph id="ph1">`&lt;your_tenant_name&gt;`</ph>.onmicrosoft.com, where <ph id="ph2">`&lt;your_tenant_name&gt;`</ph> is the placeholder representing your unique Azure AD tenant name. 
 
 6. 以 syncadmin 用户名注销并关闭 InPrivate 浏览器窗口。
 
@@ -221,7 +216,7 @@ ms.locfileid: "146381345"
 
 4. 在“adVM”边栏选项卡中，单击“连接”，然后在下拉菜单中单击“RDP”。 
 
-5. 在“IP 地址”参数中，选择“负载均衡器公共 IP 地址”，然后单击“下载 RDP 文件”并使用它通过远程桌面连接到 adVM Azure VM。 收到身份验证提示时，请提供以下凭据：
+5. In the <bpt id="p1">**</bpt>IP address<ept id="p1">**</ept> parameter, select <bpt id="p2">**</bpt>Load balancer public IP address<ept id="p2">**</ept>, then click <bpt id="p3">**</bpt>Download RDP File<ept id="p3">**</ept> and use it to connect to the <bpt id="p4">**</bpt>adVM<ept id="p4">**</ept> Azure VM via Remote Desktop. When prompted to authenticate, provide the following credntials:
 
    |设置|值|
    |---|---|
@@ -262,13 +257,13 @@ ms.locfileid: "146381345"
 
 在此任务中，你将在虚拟机上安装 AD Connect。 
 
-1. 在与 adVM 的远程桌面会话中，使用 Microsoft Edge 导航到 Azure 门户 (https://portal.azure.com)，然后使用你在上一个练习中创建的 syncadmin 用户帐户登录。 出现提示时，请指定你记录的完整用户名以及“Pa55w.rd1234”密码。
+1. Within the Remote Desktop session to <bpt id="p1">**</bpt>adVM<ept id="p1">**</ept>, use Microsoft Edge to navigate to the Azure portal at <bpt id="p2">**</bpt><ph id="ph1">https://portal.azure.com</ph><ept id="p2">**</ept>, and sign in by using the <bpt id="p3">**</bpt>syncadmin<ept id="p3">**</ept> user account you created the previous exercise. When prompted, specify the full user name you recorded and the <bpt id="p1">**</bpt>Pa55w.rd1234<ept id="p1">**</ept> password.
 
 2. 在 Azure 门户页面顶部的“搜索资源、服务和文档”文本框中，键入“Azure Active Directory”，然后按 Enter 键。
 
 3. 在 Azure 门户的“AdatumSync \| 概述”边栏选项卡中，单击“Azure AD Connect”。
 
-4. 在“AdatumSync \| Azure AD Connect”边栏选项卡中，单击“下载 Azure AD Connect”链接。 你将被重定向到“Microsoft Azure Active Directory Connect”下载页面。
+4. On the <bpt id="p1">**</bpt>AdatumSync <ph id="ph1">\|</ph> Azure AD Connect<ept id="p1">**</ept> blade, click the <bpt id="p2">**</bpt>Download Azure AD Connect<ept id="p2">**</ept> link. You will be redirected to the <bpt id="p1">**</bpt>Microsoft Azure Active Directory Connect<ept id="p1">**</ept> download page.
 
 5. 在“Microsoft Azure Active Directory Connect”下载页面，单击“下载”。
 
@@ -299,7 +294,7 @@ ms.locfileid: "146381345"
 
     >**注意**：如前所述，这是预料中的，因为你无法验证自定义的 Azure AD DNS 域 adatum.com。
 
-16. 在“域和 OU 筛选”页上，单击选项“同步所选域和 OU”，这将选中域名“adatum.com”，展开“adatum.com”以查看 ToSync。 清除所有复选框，仅选中 ToSync OU 旁边的复选框，然后单击“下一步”。
+16. On the <bpt id="p1">**</bpt>Domain and OU filtering<ept id="p1">**</ept> page, click the option <bpt id="p2">**</bpt>Sync selected domains and OUs<ept id="p2">**</ept>, domain name <bpt id="p3">**</bpt>adatum.com<ept id="p3">**</ept> will be checked, expand the <bpt id="p4">**</bpt>adatum.com<ept id="p4">**</ept> to view the <bpt id="p5">**</bpt>ToSync<ept id="p5">**</ept>. Clear all checkboxes, click only the checkbox next to the <bpt id="p1">**</bpt>ToSync<ept id="p1">**</ept> OU, and click <bpt id="p2">**</bpt>Next<ept id="p2">**</ept>.
 
 17. 在“唯一标识用户”页面上，接受默认设置，然后单击“下一步”。
 
@@ -380,7 +375,7 @@ ms.locfileid: "146381345"
     ```powershell
     (Get-MSOLCompanyInformation).DirectorySynchronizationEnabled
     ```
-    >**注意**：结果应为 `False`。 如果不是这样，请等待一分钟，然后重新运行该命令。
+    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: The result should be <ph id="ph1">`False`</ph>. If that is not the case, wait a minute and re-run the command.
 
     >**注意**：接下来，删除 Azure 资源
 6. 关闭远程桌面会话。
@@ -400,7 +395,7 @@ ms.locfileid: "146381345"
 
     >**注意**：最后，删除 Azure AD 租户
     
-    >备注 2：删除租户将变得非常困难，因此绝不会意外或恶意地完成此过程。  这意味着在本实验室中删除租户通常不起作用。  虽然我们在此处提供了删除租户的步骤，但在完成本实验室时对此不作要求。 如果你在实际中需要删除租户，DOCS.Microsoft.com 上的文章可为你提供帮助。
+    ><bpt id="p1">**</bpt>Note 2<ept id="p1">**</ept>: Deleting a tenant is meant to be a very hard process, so it can never accidentally or maliciously be done.  That means that removing the tenant as part of this lab often does not work.  While we have the steps here to delete the tenant, it is not required to consider yourself as completing this lab. If you ever have a need to remove a tenant in the real world, there are articles on DOCS.Microsoft.com to help you.
 
 12. 返回 Azure 门户，使用目录 + 订阅筛选器切换到 AdatumSync Azure Active Directory 租户。
 

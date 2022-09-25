@@ -2,25 +2,20 @@
 lab:
   title: 03 - 资源管理器锁
   module: Module 01 - Manage Identity and Access
-ms.openlocfilehash: 54375454646bdcf0586b249f65349691c3a3b9c3
-ms.sourcegitcommit: a8470295248a6363987bd5ea47154fe39f8535c3
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 03/09/2022
-ms.locfileid: "139703532"
 ---
+
 # <a name="lab-03-resource-manager-locks"></a>实验室 03：资源管理器锁定
 # <a name="student-lab-manual"></a>学生实验室手册
 
 ## <a name="lab-scenario"></a>实验室方案 
 
-你需要创建概念证明，展示如何使用资源锁来防止意外删除或更改。 具体而言，需要：
+You have been asked to create a proof of concept showing how resource locks can be used to prevent accidental deletion or changes. Specifically, you need to:
 
 - 创建一个只读锁
 
 - 创建一个删除锁
 
-> 对于本实验室中的所有资源，我们使用“美国东部”区域。 请与讲师确认这是课堂上所使用的区域。 
+> For all the resources in this lab, we are using the <bpt id="p1">**</bpt>East US<ept id="p1">**</ept> region. Verify with your instructor this is the region to use for class. 
  
 ## <a name="lab-objectives"></a>实验室目标
 
@@ -54,7 +49,7 @@ ms.locfileid: "139703532"
 
     >**注意**：使用此实验室使用的 Azure 订阅中具有所有者或参与者角色的帐户登录 Azure 门户。
 
-1. 单击 Azure 门户右上角的第一个图标，打开 Cloud Shell。 如果出现提示，请选择“PowerShell”和“创建存储” 。
+1. Open the Cloud Shell by clicking the first icon in the top right of the Azure Portal. If prompted, select <bpt id="p1">**</bpt>PowerShell<ept id="p1">**</ept> and <bpt id="p2">**</bpt>Create storage<ept id="p2">**</ept>.
 
 1. 确保在“Cloud Shell”窗格左上角的下拉菜单中选中“PowerShell”。
 
@@ -70,13 +65,13 @@ ms.locfileid: "139703532"
     New-AzStorageAccount -ResourceGroupName AZ500LAB03 -Name (Get-Random -Maximum 999999999999999) -Location  EastUS -SkuName Standard_LRS -Kind StorageV2 
     ```
 
-   >**注意**：等待存储帐户创建。 这可能需要几分钟。 
+   ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>:  Wait until the storage account is created. This might take a couple of minutes. 
 
 1. 关闭 Cloud Shell 窗格。
 
 #### <a name="task-2-add-a-readonly-lock-on-the-storage-account"></a>任务 2：在存储帐户上添加一个只读锁。 
 
-在此任务中，你将向存储帐户添加只读锁。 这将保护资源，使其免遭意外删除或修改。 
+In this task, you will add a read only lock to the storage account. This will protect the resource from accidental deletion or modification. 
 
 1. 在 Azure 门户页面顶部的“搜索资源、服务和文档”文本框中，键入“资源组”，然后按 Enter 键  。
 
@@ -142,7 +137,7 @@ ms.locfileid: "139703532"
 
 #### <a name="task-5-test-the-delete-lock"></a>任务 5：测试删除锁。
 
-在此任务中将测试删除锁。 应该能够修改存储帐户，但不能删除。 
+你需要创建概念证明，展示如何使用资源锁来防止意外删除或更改。 
 
 1. 在存储帐户边栏选项卡的“设置”部分，单击“配置”。
 
@@ -160,15 +155,15 @@ ms.locfileid: "139703532"
 
    >**注意**：你现在已经验证了“删除”锁将允许配置更改，但会停止意外删除。
 
-   >**注意**：通过使用资源锁，你可以实现额外的防护措施，以防止意外或恶意更改和/或删除最重要的资源。 具有“所有者”角色的任何用户都可以删除资源锁，但需要自觉努力。 锁是基于角色的访问控制的补充。 
+   >具体而言，需要： 
 
 > 结果：在本练习中，你学习了使用资源管理器锁来保护资源免受修改和意外删除。
 
 **清理资源**
 
-> 记得删除所有不再使用的新建 Azure 资源。 删除未使用的资源，确保不产生意外成本。
+> Remember to remove any newly created Azure resources that you no longer use. Removing unused resources ensures you will not incur unexpected costs.
 
-1. 在 Azure 门户中，通过单击 Azure 门户右上角的第一个图标打开 Cloud Shell。 如果出现提示，单击“重新连接”。
+1. In the Azure portal, open the Cloud Shell by clicking the first icon in the top right of the Azure Portal. If prompted, click <bpt id="p1">**</bpt>Reconnect<ept id="p1">**</ept>.
 
 1. 在“Cloud Shell”窗格中的 PowerShell 会话中，运行以下命令以删除删除锁：
 

@@ -2,19 +2,14 @@
 lab:
   title: 08 - Azure 防火墙
   module: Module 02 - Implement Platform Protection
-ms.openlocfilehash: 1657a251f1355150d6386f8793825369be955705
-ms.sourcegitcommit: e9389f8de66fec6d456a3f303bd350e380df7ff2
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2022
-ms.locfileid: "141371914"
 ---
+
 # <a name="lab-08-azure-firewall"></a>实验室 08：Azure 防火墙
 # <a name="student-lab-manual"></a>学生实验室手册
 
 ## <a name="lab-scenario"></a>实验室方案
 
-已要求你安装 Azure 防火墙。 帮助你组织控制进出站网络访问，而这是整个网络安全计划的重要组成部分。 具体来说，你想创建和测试以下基础结构组件：
+You have been asked to install Azure Firewall. This will help your organization control inbound and outbound network access which is an important part of an overall network security plan. Specifically, you would like to create and test the following infrastructure components:
 
 - 具有工作负载子网和跳转主机子网的虚拟网络。
 - 一个虚拟机代表对应的子网。 
@@ -22,7 +17,7 @@ ms.locfileid: "141371914"
 - 仅允许 www.bing.com 出站流量的防火墙应用程序规则。 
 - 允许外部 DNS 服务器查找的防火墙网络规则。
 
-> 对于本实验室中的所有资源，我们使用“美国东部”区域。 请与讲师确认这是课堂上所使用的区域。 
+> For all the resources in this lab, we are using the <bpt id="p1">**</bpt>East US<ept id="p1">**</ept> region. Verify with your instructor this is the region to use for class. 
 
 ## <a name="lab-objectives"></a>实验室目标
 
@@ -34,7 +29,7 @@ ms.locfileid: "141371914"
 
 ![image](https://user-images.githubusercontent.com/91347931/157529954-a1bc434b-2eca-41c1-b875-1f0c977d5e20.png)
 
-## <a name="instructions"></a>说明
+## <a name="instructions"></a>Instructions
 
 ## <a name="lab-files"></a>实验室文件：
 
@@ -44,7 +39,7 @@ ms.locfileid: "141371914"
 
 ### <a name="estimated-timing-40-minutes"></a>预计用时：40 分钟
 
-> 对于本实验室中的所有资源，我们使用“美国东部”区域。 与你的教师确认这是你上课时使用的区域。 
+> For all the resources in this lab, we are using the <bpt id="p1">**</bpt>East (US)<ept id="p1">**</ept> region. Verify with your instructor this is region to use for you class. 
 
 在本练习中，你将完成以下任务：
 
@@ -60,7 +55,7 @@ ms.locfileid: "141371914"
 
 在此任务中将检查并部署实验室环境。 
 
-在本任务中，你将使用 ARM 模板创建一个虚拟机。 该虚拟机将在本实验室的上一个练习中使用。 
+In this task, you will create a virtual machine by using an ARM template. This virtual machine will be used in the last exercise for this lab. 
 
 1. 登录到 Azure 门户 `https://portal.azure.com/`。
 
@@ -88,7 +83,7 @@ ms.locfileid: "141371914"
 
 7. 单击“查看 + 创建”，然后单击“创建” 。
 
-    >备注：请等待部署完成。 这大约需要 2 分钟。 
+    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Wait for the deployment to complete. This should take about 2 minutes. 
 
 #### <a name="task-2-deploy-the-azure-firewall"></a>任务 2：部署 Azure 防火墙
 
@@ -100,7 +95,7 @@ ms.locfileid: "141371914"
 
 3. 在“创建防火墙”边栏选项卡上，找到“基本信息”选项卡，请指定以下设置（将其他设置保留为默认值）：
 
-   |设置|值|
+   |设置|Value|
    |---|---|
    |资源组|AZ500LAB08|
    |名称|**Test-FW01**|
@@ -112,13 +107,13 @@ ms.locfileid: "141371914"
 
 4. 依次单击“查看 + 创建”、“创建”。  
 
-    >备注：请等待部署完成。 这大约需要 5 分钟。 
+    >已要求你安装 Azure 防火墙。 
 
 5. 在 Azure 门户页面顶部的“搜索资源、服务和文档”文本框中，键入“资源组”，然后按 Enter 键  。
 
 6. 在“资源组”边栏选项卡上，在资源组列表中，单击“AZ500LAB08”条目。
 
-    >**注意**：在“AZ500LAB08”资源组边栏选项卡上，查看资源列表。 你可以按“类型”排序 。
+    >帮助你组织控制进出站网络访问，而这是整个网络安全计划的重要组成部分。
 
 7. 在资源列表中，单击代表“Test-FW01”防火墙的条目。
 
@@ -129,7 +124,7 @@ ms.locfileid: "141371914"
 
 #### <a name="task-3-create-a-default-route"></a>任务 3：创建一个默认路由
 
-在此任务中，你将为“Workload-SN”子网创建默认路由。 此路由将配置通过防火墙的出站流量。
+具体来说，你想创建和测试以下基础结构组件：
 
 1. 在 Azure 门户中，在 Azure 门户页面顶部的“搜索资源、服务和文档”文本框中，键入“路由表”，然后按 Enter 键。
 
@@ -137,7 +132,7 @@ ms.locfileid: "141371914"
 
 3. 在“创建路由表”边栏选项卡上，指定以下设置：
 
-   |设置|值|
+   |设置|Value|
    |---|---|
    |资源组|AZ500LAB08|
    |区域| **美国东部**|
@@ -151,7 +146,7 @@ ms.locfileid: "141371914"
 
 7. 在“关联子网”边栏选项卡上，指定以下设置：
 
-   |设置|值|
+   |设置|Value|
    |---|---|
    |虚拟网络|**Test-FW-VN**|
    |子网|**Workload-SN**|
@@ -164,7 +159,7 @@ ms.locfileid: "141371914"
 
 10. 在“添加路由”边栏选项卡中，指定以下设置：  
 
-   |设置|值|
+   |设置|Value|
    |---|---|
    |路由名称|FW-DG|
    |地址前缀源|**IP 地址**|
@@ -197,7 +192,7 @@ ms.locfileid: "141371914"
 
 5. 在“添加应用程序规则集合”边栏选项卡上，在“目标FQDN”部分创建新的条目，其具有以下设置（将其他设置保留为默认值）：
 
-   |设置|值|
+   |设置|Value|
    |---|---|
    |name|AllowGH|
    |源类型|**IP 地址**|
@@ -207,7 +202,7 @@ ms.locfileid: "141371914"
 
 6. 单击“添加”，添加基于目标 FQDN 的应用程序规则。
 
-    >**注意**：Azure 防火墙包含默认情况下允许基础架构 FQDN 的内置规则集合。 这些 FQDN 特定于平台，不能用于其他目的。 
+    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Azure Firewall includes a built-in rule collection for infrastructure FQDNs that are allowed by default. These FQDNs are specific for the platform and can't be used for other purposes. 
 
 #### <a name="task-5-configure-a-network-rule"></a>任务 5：配置网络规则
 
@@ -219,7 +214,7 @@ ms.locfileid: "141371914"
 
 3. 在“添加网络规则集合”边栏选项卡上，指定以下设置（将其他设置保留为默认值）：
 
-   |设置|值|
+   |设置|Value|
    |---|---|
    |名称|Net-Coll01|
    |优先度|**200**|
@@ -227,7 +222,7 @@ ms.locfileid: "141371914"
 
 4. 在“添加网络规则集合”边栏选项卡上的“IP 地址”部分，使用以下设置创建新的条目（其他设置保留为默认值）：
 
-   |设置|值|
+   |设置|Value|
    |---|---|
    |名称|AllowDNS|
    |协议|**UDP**|
@@ -243,7 +238,7 @@ ms.locfileid: "141371914"
 
 #### <a name="task-6-configure-the-virtual-machine-dns-servers"></a>任务 6：配置虚拟机 DNS 服务器
 
-在此任务中，你将为虚拟机配置主要和辅助 DNS 地址。 这不是防火墙要求。 
+In this task, you will configure the primary and secondary DNS addresses for the virtual machine. This is not a firewall requirement. 
 
 1. 在 Azure 门户中，导航回 AZ500LAB08 资源组。
 
@@ -271,7 +266,7 @@ ms.locfileid: "141371914"
 
 3. 在“Srv-Jump”边栏选项卡，单击“连接”然后在下拉菜单中，单击“RDP”。 
 
-4. 单击“下载RDP文件” 并使用它，通过远程桌面，连接到“Srv-Jump” Azure VM。 收到身份验证提示时，请提供以下凭据：
+4. Click <bpt id="p1">**</bpt>Download RDP File<ept id="p1">**</ept> and use it to connect to the <bpt id="p2">**</bpt>Srv-Jump<ept id="p2">**</ept> Azure VM via Remote Desktop. When prompted to authenticate, provide the following credntials:
 
    |设置|值|
    |---|---|
@@ -280,7 +275,7 @@ ms.locfileid: "141371914"
 
     >**注意**：在 Srv-Jump Azure VM 远程桌面会话中，执行以下步骤。 
 
-    >**注意**：你将连接到 Srv-Work 虚拟机。 这样做是为了让我们可以测试访问 bing.com 网站的能力。  
+    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: You will connect to the <bpt id="p2">**</bpt>Srv-Work<ept id="p2">**</ept> virtual machine. This is being done so we can test the ability to access the bing.com website.  
 
 5. 在 Srv-Jump 的远程桌面会话中，右键单击“开始”，在右键菜单中，单击“运行” ，在“运行” 对话框，运行以下命令连接到 Srv-Work。 
 
@@ -303,7 +298,7 @@ ms.locfileid: "141371914"
 
 9. 在“Srv-Work”远程桌面会话中，启动 Internet Explorer 并浏览到 `https://www.bing.com`。 
 
-    >**注意**：该网站应成功显示。 防火墙允许你访问。
+    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: The website should successfully display. The firewall allows you access.
 
 10. 浏览到 **`http://www.microsoft.com/`**
 
@@ -315,9 +310,9 @@ ms.locfileid: "141371914"
 
 **清理资源**
 
-> 记得删除所有不再使用的新建 Azure 资源。 删除未使用的资源，确保不产生意外成本。 
+> Remember to remove any newly created Azure resources that you no longer use. Removing unused resources ensures you will not incur unexpected costs. 
 
-1. 在 Azure 门户中，通过单击 Azure 门户右上角的第一个图标打开 Cloud Shell。 如果出现提示，请单击“PowerShell”和“创建存储”。
+1. 对于本实验室中的所有资源，我们使用“美国东部”区域。
 
 2. 确保在“Cloud Shell”窗格左上角的下拉菜单中选中“PowerShell”。
 

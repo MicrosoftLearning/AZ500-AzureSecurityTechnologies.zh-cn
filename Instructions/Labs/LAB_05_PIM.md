@@ -2,28 +2,23 @@
 lab:
   title: 05 - Azure AD Privileged Identity Management
   module: Module 01 - Manage Identity and Access
-ms.openlocfilehash: 6ef7c51d334587e5e4e7116194fa46f2eb5d1df0
-ms.sourcegitcommit: 1da29a6d959a7f91dbbcbabf5ec06869c98fc1f1
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 03/30/2022
-ms.locfileid: "141267268"
 ---
+
 # <a name="lab-05-azure-ad-privileged-identity-management"></a>实验室 05：Azure AD Privileged Identity Management
 # <a name="student-lab-manual"></a>学生实验室手册
 
 ## <a name="lab-scenario"></a>实验室方案
 
-你需要创建一个概念证明，使用 Azure Privileged Identity Management (PIM) 来实现实时管理，并控制可以执行特权操作的用户数量。 具体要求是：
+You have been asked to create a proof of concept that uses Azure Privileged Identity Management (PIM) to enable just-in-time administration and control the number of users who can perform privileged operations. The specific requirements are:
 
 - 创建 aaduser2 Azure AD 用户到安全管理员角色的永久分配。 
 - 将 Azure AD 用户 aaduser2 配置为有资格担任计费管理员和全局读取者角色。
 - 配置全局读取器角色激活，以要求审批 aaduser3 Azure AD 用户
 - 配置对全局读取者角色的访问评审并审查审核功能。
 
-> 对于本实验室中的所有资源，我们使用“美国东部”区域。 请与讲师确认这是课堂上所使用的区域。 
+> For all the resources in this lab, we are using the <bpt id="p1">**</bpt>East US<ept id="p1">**</ept> region. Verify with your instructor this is the region to use for class. 
 
-> 在继续之前，请确保已完成“实验室 04：MFA、条件访问和 AAD 标识保护。 你将需要 Azure AD 租户 AdatumLab500-04 以及用户帐户 aaduser1、aaduser2 和 aaduser3。
+> Before you proceed, ensure that you have completed Lab 04: MFA, Conditional Access and AAD Identity Protection . You will need the Azure AD tenant, AdatumLab500-04, and the aaduser1, aaduser2, and aaduser3 user accounts.
 
 ## <a name="lab-objectives"></a>实验室目标
 
@@ -55,7 +50,7 @@ ms.locfileid: "141267268"
 
 1. 登录到 Azure 门户 `https://portal.azure.com/`。
 
-    >**注意**：确保已登录 AdatumLab500-4b Azure AD 租户。 你可以使用“目录 + 订阅”筛选器在 Azure AD 租户之间切换。 务必以具有全局管理员角色的用户身份登录。
+    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Ensure that you are signed-in to the <bpt id="p2">**</bpt>AdatumLab500-04<ept id="p2">**</ept> Azure AD tenant. You can use the <bpt id="p1">**</bpt>Directory + subscription<ept id="p1">**</ept> filter to switch between Azure AD tenants. Ensure you are signed in as a user with the Global Administrator role.
     
     >**注意**：如果你仍然未看到 AdatumLab500-04 条目，请单击“切换目录”链接，选择 AdatumLab500-04 行并单击“切换”按钮。
 
@@ -137,7 +132,7 @@ ms.locfileid: "141267268"
 
 7. 查看“分配类型”设置，并单击“分配”。
 
-8. 在“分配”页的“符合条件的分配”选项卡上，为“aaduser2”分配选择“更新”   。 选择“永久符合条件”，然后选择“保存” 。
+8. On the <bpt id="p1">**</bpt>Assignments<ept id="p1">**</ept> page on the <bpt id="p2">**</bpt>Eligible Assignments<ept id="p2">**</ept> tab, select <bpt id="p3">**</bpt>Update<ept id="p3">**</ept> for the <bpt id="p4">**</bpt>aaduser2<ept id="p4">**</ept> assignment. Select <bpt id="p1">**</bpt>Permanently Eligible<ept id="p1">**</ept> and <bpt id="p2">**</bpt>Save<ept id="p2">**</ept>.
 
     >**注意**：用户 aaduser2 现在永久符合安全管理员角色的条件。
     
@@ -158,7 +153,7 @@ ms.locfileid: "141267268"
 
 2. 在 InPrivate 浏览器窗口中，导航到 Azure 门户并使用 aaduser2 用户帐户登录。
 
-    >**注意**：若要登录，需要提供 aaduser2 用户帐户的完全限定的名称，包括之前在本实验室中记录的 Azure AD 租户 DNS 域名。 该用户名的格式为 aaduser2@`<your_tenant_name>`.onmicrosoft.com，其中 `<your_tenant_name>` 占位符代表你唯一的 Azure AD 租户名称。 
+    >你需要创建一个概念证明，使用 Azure Privileged Identity Management (PIM) 来实现实时管理，并控制可以执行特权操作的用户数量。 
 
 3. 在 Azure 门户页面顶部的“搜索资源、服务和文档”文本框中，键入“Azure AD Privileged Identity Management”，然后按 Enter 键。
 
@@ -233,7 +228,7 @@ ms.locfileid: "141267268"
 
 15. 在“批准请求 \| Azure AD 角色”边栏选项卡的“请求激活角色”部分中，选择表示由“aaduser2”向“全局读取者”角色发出的角色激活请求的条目的复选框   。
 
-16. 单击“批准”。 在“审批请求”边栏选项卡上的“理由”文本框中键入激活原因，记下开始和结束时间，然后单击“确认”。 
+16. 具体要求是： 
 
     >**注意**：你还可以选择拒绝请求。
 
@@ -264,11 +259,11 @@ ms.locfileid: "141267268"
 
 #### <a name="task-1-configure-security-alerts-for-azure-ad-directory-roles-in-pim"></a>任务 1：在 PIM 中为 Azure AD 目录角色配置安全警报
 
-在此任务中，将减少与“过期”角色分配相关的风险。 为此，将通过创建 PIM 访问评审来确保分配的角色仍然有效。 具体来说，将审查全局读取者角色。 
+In this task, you will reduce the risk associated with "stale" role assignments. You will do this by creating a PIM access review to ensure that assigned roles are still valid. Specifically, you will review the Global Reader role. 
 
 1. 使用帐户登录到 Azure 门户 `https://portal.azure.com/`。
 
-    >**注意**：确保已登录 AdatumLab500-4b Azure AD 租户。 你可以使用“目录 + 订阅”筛选器在 Azure AD 租户之间切换。 务必以具有全局管理员角色的用户身份登录。
+    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Ensure that you are signed-in to the <bpt id="p2">**</bpt>AdatumLab500-04<ept id="p2">**</ept> Azure AD tenant. You can use the <bpt id="p1">**</bpt>Directory + subscription<ept id="p1">**</ept> filter to switch between Azure AD tenants. Ensure you are signed in as a user with the Global Administrator role.
     
     >**注意**：如果你仍然未看到 AdatumLab500-04 条目，请单击“切换目录”链接，选择 AdatumLab500-04 行并单击“切换”按钮。
 
@@ -296,13 +291,13 @@ ms.locfileid: "141267268"
 
 8. 在“创建访问评审”边栏选项卡上，单击“开始”：
  
-    >**注意**：该评审大约需要一分钟才能部署完成并显示在“AdatumLab500-04 \| 访问评审”边栏选项卡上。 可能需要刷新网页。 评审状态为“活动”。 
+    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: It will take about a minute for the review to deploy and appear on the <bpt id="p2">**</bpt>AdatumLab500-04 <ph id="ph1">\|</ph> Access reviews<ept id="p2">**</ept> blade. You might have to refresh the web page. The review status will be <bpt id="p1">**</bpt>Active<ept id="p1">**</ept>. 
 
 9. 在“AdatumLab500-04 \| 访问评审”边栏选项卡上的“全局读取者评审”标题下，单击“全局读取者”条目  。 
 
 10. 在“全局读取者评审”边栏选项卡上，检查“概述”页面，并注意“进度”图显示了“未评审”类别中的单个用户。 
 
-11. 在“全局读取者评审”边栏选项卡的“管理”部分，单击“结果”。 请注意，aaduser2 被列为有权访问此角色。
+11. On the <bpt id="p1">**</bpt>Global Reader Review<ept id="p1">**</ept> blade, in the <bpt id="p2">**</bpt>Manage<ept id="p2">**</ept> section, click <bpt id="p3">**</bpt>Results<ept id="p3">**</ept>. Note that aaduser2 is listed as having access to this role.
 
 12. 单击 aaduser2 行上的“查看”以查看详细的审核日志，其中包含代表涉及该用户的 PIM 活动的条目。
 
@@ -318,7 +313,7 @@ ms.locfileid: "141267268"
 
 18. 在“AdatumLab500-04 \| 快速启动”边栏选项卡上的“管理”部分，单击“访问评审”  。
 
-19. 选择代表“全局读取者”评审的条目。 请注意“进度”图已更新以显示你的评审。 
+19. Select the entry representing the <bpt id="p1">**</bpt>Global Reader<ept id="p1">**</ept> review. Note that the <bpt id="p1">**</bpt>Progress<ept id="p1">**</ept> chart has been updated to show your review. 
 
 #### <a name="task-2-review-pim-alerts-summary-information-and-detailed-audit-information"></a>任务 2：查看 PIM 警报、摘要信息和详细的审核信息。 
 
@@ -328,7 +323,7 @@ ms.locfileid: "141267268"
 
 2. 在“AdatumLab500-04 \| 快速入门”边栏选项卡上，在“管理”部分，单击“警报”，然后单击“设置”   。
 
-3. 在“警报设置”边栏选项卡上，查看预配置的警报和风险级别。 单击任何一个以获取更多详细信息。 
+3. 对于本实验室中的所有资源，我们使用“美国东部”区域。 
 
 4. 返回到“AdatumLab500-04 \| 快速启动”边栏选项卡，然后单击“概述” 。 
 
@@ -344,13 +339,13 @@ ms.locfileid: "141267268"
 
 **清理资源**
 
-> 记得删除所有不再使用的新建 Azure 资源。 删除未使用的资源，确保不产生意外成本。 
+> 请与讲师确认这是课堂上所使用的区域。 
 
 1. 在 Azure 门户中，将“目录 + 订阅”筛选器设置为与你在其中部署 az500-04-vm1 Azure VM 的 Azure 订阅相关联的 Azure AD 租户。
 
     >**注意**：如果你未看到主 Azure AD 租户条目，请单击“切换目录”链接，选择主租户行并单击“切换”按钮。
 
-2. 在 Azure 门户中，通过单击 Azure 门户右上角的第一个图标打开 Cloud Shell。 如果出现提示，请单击“PowerShell”和“创建存储”。
+2. In the Azure portal, open the Cloud Shell by clicking the first icon in the top right of the Azure Portal. If prompted, click <bpt id="p1">**</bpt>PowerShell<ept id="p1">**</ept> and <bpt id="p2">**</bpt>Create storage<ept id="p2">**</ept>.
 
 3. 确保在“Cloud Shell”窗格左上角的下拉菜单中选中“PowerShell”。
 
@@ -370,18 +365,18 @@ ms.locfileid: "141267268"
 
     >**注意**：在实验室 4 - 练习 2 - 任务 4 中，“向 Azure AD 用户分配 Azure AD Premium P2 许可证”是向用户“aaduser1”、“aaduser2”和“aaduser3”分配高级许可证，请确保从分配的用户中删除这些许可证 
 
-9. 在“Azure Active Directory Premium P2 - 许可用户”边栏选项卡上，选中你为其分配了“Azure Active Directory Premium P2”许可证的用户帐户的复选框 。 单击顶部窗格中的“删除许可证”，在系统提示确认时，选择“是” 。
+9. 在继续之前，请确保已完成“实验室 04：MFA、条件访问和 AAD 标识保护。
 
 10. 在 Azure 门户中，导航到“用户”-“所有用户”边栏选项卡，单击表示 aaduser1 用户帐户的条目，在“aaduser1”-“个人资料”边栏选项卡上，单击“删除”，然后在提示确认时，选择“是”。
 
 11. 重复相同的步骤以删除你创建的其余用户帐户。
 
-12. 导航到 Azure AD 租户的“AdatumLab500-04 - 概述”边栏选项卡，选择“管理租户”，然后在下一个屏幕上，选中“AdatumLab500-04”旁边的复选框，然后选择“删除”   。 在“删除租户‘AdatumLab500-04’”边栏选项卡上，选择“获取删除 Azure 资源的权限”链接，在 Azure Active Directory 的“属性”边栏选项卡上，将“Azure 资源的访问管理”设置为“是”，然后选择“保存”     。
+12. 你将需要 Azure AD 租户 AdatumLab500-04 以及用户帐户 aaduser1、aaduser2 和 aaduser3。
 
 13. 从 Azure 门户注销并重新登录。 
 
 14. 导航回“删除目录‘AdatumLab500-04’”边栏选项卡，然后单击“删除” 。
 
-    >**注意**：仍然无法删除租户，并引发错误“删除所有基于许可证和订阅”，这可能是由于已链接到租户的任何订阅所导致的。 此处，“免费高级 P2 许可证”可能会引发验证错误。 为解决此问题，可以从 M365 管理员>>“你的产品”中，以及从“业务应用商店”门户中，使用全局管理员 ID 删除 Premium P2 许可证的试用订阅 。 另请注意，删除租户需要更多时间。 检查订阅的结束日期，试用期结束后，重新访问 Azure Active Directory，然后尝试删除租户。    
+    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Still not able to delete the tenant and throwing an error <bpt id="p2">**</bpt>Delete all license-based and subscriptions<ept id="p2">**</ept>, then it might be due to any subscriptions that have been linked to the tenant. Here <bpt id="p1">**</bpt>Free Premium P2 license<ept id="p1">**</ept> could be throwing the validation error. Deleting the trial subscription of the Premium P2 License using the Global admin id from the M365 admin&gt;&gt; <bpt id="p1">**</bpt>Your Products<ept id="p1">**</ept> and from the <bpt id="p2">**</bpt>Business Store<ept id="p2">**</ept> portal would solve this issue. Also note that deleting the tenant takes more time. Check the End date of the subscription, once after the end of the trial period, revisit the Azure Active directory and then try to delete the tenant.    
 
 > 有关此任务的任何其他信息，请参阅 [https://docs.microsoft.com/en-us/azure/active-directory/users-groups-roles/directory-delete-howto](https://docs.microsoft.com/en-us/azure/active-directory/users-groups-roles/directory-delete-howto)
