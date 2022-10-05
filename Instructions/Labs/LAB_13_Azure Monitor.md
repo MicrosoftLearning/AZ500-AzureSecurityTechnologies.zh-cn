@@ -2,25 +2,20 @@
 lab:
   title: 13 - Azure Monitor
   module: Module 04 - Manage security operations
-ms.openlocfilehash: d7418287b895ccb5af66f01b499181b321e2bc36
-ms.sourcegitcommit: 3c178de473f4f986a3a7ea1d03c9f5ce699a05a4
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2022
-ms.locfileid: "147871969"
 ---
+
 # <a name="lab-13-azure-monitor"></a>实验室 13：Azure Monitor
 # <a name="student-lab-manual"></a>学生实验室手册
 
 ## <a name="lab-scenario"></a>实验室方案
 
-你需要创建监视虚拟机性能的概念证明。 具体来说，你需要：
+You have been asked to create a proof of concept of monitoring virtual machine performance. Specifically, you want to:
 
 - 配置虚拟机，以便可以收集遥测和日志。
 - 显示可以收集哪些遥测和日志。
 - 显示如何使用和查询数据。 
 
-> 对于本实验室中的所有资源，我们使用“美国东部”区域。 请与讲师确认这是课堂上所使用的区域。 
+> For all the resources in this lab, we are using the <bpt id="p1">**</bpt>East US<ept id="p1">**</ept> region. Verify with your instructor this is the region to use for class. 
 
 ## <a name="lab-objectives"></a>实验室目标
 
@@ -52,7 +47,7 @@ ms.locfileid: "147871969"
 
     >**注意**：使用此实验室使用的 Azure 订阅中具有所有者或参与者角色的帐户登录 Azure 门户。
 
-2. 单击 Azure 门户右上角的第一个图标，打开 Cloud Shell。 如果出现提示，请选择“PowerShell”和“创建存储” 。
+2. Open the Cloud Shell by clicking the first icon in the top right of the Azure Portal. If prompted, select <bpt id="p1">**</bpt>PowerShell<ept id="p1">**</ept> and <bpt id="p2">**</bpt>Create storage<ept id="p2">**</ept>.
 
 3. 确保在“Cloud Shell”窗格左上角的下拉菜单中选中“PowerShell”。
 
@@ -66,7 +61,7 @@ ms.locfileid: "147871969"
 
 5. 在 Cloud Shell 窗格内的 PowerShell 会话中运行下列命令，创建新的 Azure 虚拟机。 
 
-    >注意：New-AzVm 命令在 Azure CLI 版本 4.24 中不起作用，Microsoft 目前正在调查是否有解决方法。  本实验室中的解决方法是，安装并恢复到不受此问题影响的 Az.Compute 版本 4.23.0。
+    ><bpt id="p1">**</bpt>Attention<ept id="p1">**</ept>: The New-AzVm command doesn't work in the Azure CLI version 4.24 and Microsoft is currently investigating for resolution.  The work around in this lab is to install and revert back to Az.Compute version 4.23.0, which is unaffected by this issue.
    
     >说明：恢复到 Az.Compute 版本 4.23.0 
   
@@ -106,7 +101,7 @@ ms.locfileid: "147871969"
 
 1. 在 Azure 门户页面顶部的“搜索资源、服务和文档”文本框中，键入“Log Analytics 工作区”，然后按“Enter”键。
 
-2. 在“Log Analytics 工作区”边栏选项卡上，单击“+ 创建” 。
+2. 在“Log Analytics 工作区”边栏选项卡上，单击“+ 创建” **** 。
 
 3. 在“创建 Log Analytics 工作区”边栏选项卡的“基本设置”选项卡上，指定以下设置（其他设置保留默认值） ：
 
@@ -123,7 +118,7 @@ ms.locfileid: "147871969"
 
 #### <a name="task-3-enable-the-log-analytics-virtual-machine-extension"></a>任务 3：启用 Log Analytics 虚拟机扩展
 
-在此任务中，你将启用 Log Analytics 虚拟机扩展。 此扩展在 Windows 和 Linux 虚拟机上安装 Log Analytics 代理。 此代理从虚拟机收集数据，并将其传输到你指定的 Log Analytics 工作区。 安装代理后，它将自动升级，以确保你始终拥有最新的功能和修补程序。 
+In this task, you will enable the Log Analytics virtual machine extension. This extension installs the Log Analytics agent on Windows and Linux virtual machines. This agent collects data from the virtual machine and transfers it to the Log Analytics workspace that you designate. Once the agent is installed it will be automatically upgraded ensuring you always have the latest features and fixes. 
 
 1. 在 Azure 门户中，导航回“Log Analytics 工作区”边栏选项卡，然后在工作区列表中，单击表示你在上一个任务中创建的工作区的条目。
 
@@ -137,11 +132,11 @@ ms.locfileid: "147871969"
 
 5. 等待虚拟机连接到 Log Analytics 工作区。
 
-    >**注意**：这可能需要几分钟的时间。 “myVM”边栏选项卡上显示的“状态”将从“正在连接”变为“此工作区”。 
+    >你需要创建监视虚拟机性能的概念证明。 
 
 #### <a name="task-4-collect-virtual-machine-event-and-performance-data"></a>任务 4：收集虚拟机事件和性能数据
 
-在此任务中要配置 Windows 系统日志和几个常见性能计数器的集合。 还将查看其他可用资源。
+具体来说，你需要：
 
 1. 在 Azure 门户中，导航回到在本练习前面创建的 Log Analytics 工作区。
 
@@ -151,7 +146,7 @@ ms.locfileid: "147871969"
 
 4. 确保选中“Windows 事件日志”，单击“+ 添加 Windows 事件日志”，然后在事件日志类型列表中选择“系统”  。
 
-    >**注意**：这是将事件日志添加到工作区的方式。 其他选择包括“硬件事件”或“密钥管理服务”等。  
+    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: This is how you add event logs to the workspace. Other choices include, for example, <bpt id="p1">**</bpt>Hardware events<ept id="p1">**</ept> or <bpt id="p2">**</bpt>Key Management Service<ept id="p2">**</ept>.  
 
 5. 取消勾选“信息”复选框，将“错误”和“警告”复选框保留为选中状态  。
 
@@ -180,17 +175,17 @@ ms.locfileid: "147871969"
     
 5. 查看预定义查询列表，选择“内存和 CPU 使用情况”，然后单击相应的“运行”按钮 。
 
-    >**注意**：你可以从查询虚拟机可用内存开始。 如果没有任何结果，请检查范围是否设置为虚拟机
+    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: You can start with the query <bpt id="p2">**</bpt>Virtual machine available memory<ept id="p2">**</ept>. If you don't get any results check the scope is set to virtual machine
 
 6. 该查询将在新的查询选项卡中自动打开。 
 
-    >**注意**：Log Analytics 使用 Kusto 查询语言。 你可以自定义现有查询或创建自己的查询。 
+    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Log Analytics uses the Kusto query language. You can customize the existing queries or create your own. 
 
-    >**注意**：所选查询的结果将自动显示在查询窗格下方。 要重新运行查询，请单击“运行”。
+    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: The results of the query you selected are automatically displayed below the query pane. To re-run the query, click <bpt id="p1">**</bpt>Run<ept id="p1">**</ept>.
 
     >**注意**：由于此虚拟机是刚刚创建的，因此可能还没有任何数据。 
 
-    >**注意**：你可以选择以不同的格式显示数据。 你还可以选择根据查询结果创建警报规则。
+    >对于本实验室中的所有资源，我们使用“美国东部”区域。
 
     >**注意**：可使用以下步骤在本实验室前面部分部署的 Azure VM 上生成一些额外的负载：
 
@@ -204,7 +199,7 @@ ms.locfileid: "147871969"
        goto loop
        ```
        
-    4. 切换回“Log Analytics”边栏选项卡，并重新运行查询。 可能需要等待几分钟来完成数据收集过程，然后再次重新运行查询。
+    4. 请与讲师确认这是课堂上所使用的区域。
 
 > 结果：你使用 Log Analytics 工作区配置了数据源和查询日志。 
 

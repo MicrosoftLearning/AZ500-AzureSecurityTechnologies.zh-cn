@@ -2,24 +2,19 @@
 lab:
   title: 02 - Azure Policy
   module: Module 01 - Manage Identity and Access
-ms.openlocfilehash: d49ce05e4620310d45317fe582bddb3aa511430b
-ms.sourcegitcommit: 967cb50981ef07d731dd7548845a38385b3fb7fb
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2022
-ms.locfileid: "145955386"
 ---
+
 # <a name="lab-02-azure-policy"></a>实验室 02：Azure Policy
 # <a name="student-lab-manual"></a>学生实验室手册
 
 ## <a name="lab-scenario"></a>实验室方案
 
-你需要创建一个显示如何使用 Azure Policy 的概念证明。 具体而言，需要：
+You have been asked to create a proof of concept showing how Azure policy can be used. Specifically, you need to:
 
 - 创建“允许的位置”策略，以确保仅在特定区域中创建资源。
 - 测试以确保仅在允许的位置创建资源
 
-> 对于本实验室中的所有资源，我们使用“美国东部”区域。 请与讲师确认这是课堂上所使用的区域。 
+> For all the resources in this lab, we are using the <bpt id="p1">**</bpt>East US<ept id="p1">**</ept> region. Verify with your instructor this is the region to use for class. 
 
 ## <a name="lab-objectives"></a>实验室目标
 
@@ -51,7 +46,7 @@ ms.locfileid: "145955386"
 
     >**注意**：使用此实验室使用的 Azure 订阅中具有所有者或参与者角色的帐户登录 Azure 门户。
 
-1. 单击 Azure 门户右上角的第一个图标，打开 Cloud Shell。 如果出现提示，请选择“PowerShell”和“创建存储” 。
+1. Open the Cloud Shell by clicking the first icon in the top right of the Azure Portal. If prompted, select <bpt id="p1">**</bpt>PowerShell<ept id="p1">**</ept> and <bpt id="p2">**</bpt>Create storage<ept id="p2">**</ept>.
 
 1. 确保在“Cloud Shell”窗格左上角的下拉菜单中选中“PowerShell”。
 
@@ -75,17 +70,17 @@ ms.locfileid: "145955386"
 
 1. 在 Azure 门户中，在 Azure 门户页面顶部的“搜索资源、服务和文档”文本框中键入“策略”，然后按“Enter”键。
 
-1. 在“策略”边栏选项卡上的“创作”部分，选择“定义”。
+1. 在“策略”边栏选项卡上的“创作”部分，选择“定义”  **** 。
 
-1. 花些时间浏览内置定义。 使用“类别”下拉菜单筛选策略列表。
+1. Take a minute to browse the built-in definitions. Use the <bpt id="p1">**</bpt>Category<ept id="p1">**</ept> drop-down to filter the list of policies.
 
 1. 在“搜索”文本框 中，键入“允许位置”。 
 
-   >**注意**：“允许位置”策略可限制资源位置，而非资源组位置。 要限制资源组的位置，可以使用“资源组的允许位置”策略。
+   ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: The <bpt id="p2">**</bpt>Allowed locations<ept id="p2">**</ept> policy allows you to restrict location of resources, not resource groups. To restrict locations of resource groups, you can use the <bpt id="p1">**</bpt>Allowed locations for resource groups<ept id="p1">**</ept> policy.
 
-1. 单击“允许的位置”策略定义以显示其详细信息。 
+1. 单击“允许位置”策略定义以显示其详细信息 ****  。 
 
-   >**注意**：此策略定义将一组位置作为参数。 策略规则是“if-then”语句。 “if”子句检查资源位置是否包含在参数列表中，如果否，则“then”子句拒绝创建资源，或者将现有资源标记为不合规。
+   >你需要创建一个显示如何使用 Azure Policy 的概念证明。
 
 1. 在“允许位置”边栏选项卡上，单击“分配”。
 
@@ -106,17 +101,17 @@ ms.locfileid: "145955386"
    |说明|对于 AZ500LAB02，仅允许在英国南部创建资源|
    |策略强制执行|**已启用**|
 
-1. 单击“下一步”。
+1. 单击“下一步” **** 。
 
-1. 在“允许的位置”边栏选项卡的“参数”选项卡上 ，在“允许的位置”下拉列表中选择“英国南部”作为唯一允许的位置。 
+1. 在“允许位置”边栏选项卡的“参数”选项卡上，在“允许位置”下拉列表中选择“英国南部”作为唯一的允许位置    。 
 
-   >**注意**：可以选择多个位置。 如果该策略需要一组不同的参数，则此选项卡将提供上述选项。 
+   >具体而言，需要： 
 
-1. 单击“查看 + 创建”，再单击“创建”来创建策略分配。 
+1. 单击“查看 + 创建”，再单击“创建”来创建策略分配 ****  ****  。 
 
    >**注意**：你会看到一条表示分配已成功的通知，此分配可能需要 30 分钟左右才能完成。
 
-   >**注意**：Azure Policy 分配最长可能需要 30 分钟才能生效的原因是必须全局复制。 通常这只需要几分钟。  如果下一个任务失败，只需等待几分钟，然后再次尝试其步骤。
+   ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: The reason the Azure policy assignment might take up to 30 minutes to take effect is that is has to replicate globally. Typically this takes only a few minutes.  If the next task fails, simply wait a few minutes and attempt its steps again.
 
 #### <a name="task-3-test-the-allowed-locations-policy-assignment"></a>任务 3：测试“允许位置”策略分配。
 
@@ -124,11 +119,11 @@ ms.locfileid: "145955386"
 
 1. 在 Azure 门户页面顶部的“搜索资源、服务和文档”文本框中键入“虚拟网络”，然后按 Enter 键  。
 
-1. 在“虚拟网络”边栏选项卡上，单击“+ 创建” 。
+1. 在“虚拟网络”边栏选项卡上，单击“+ 创建” **** 。
 
-   >**注意**：首先，你将尝试在美国东部创建虚拟网络。 由于这不是允许的位置，因此应阻止该请求。 
+   ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: First, you will try to create a virtual network in East US. Since this is not an allowed location, the request should be blocked. 
 
-1. 在“创建虚拟网络”边栏选项卡的“基本信息”选项卡上 ，指定以下设置（其他设置保留默认值）：
+1. 在“创建虚拟网络”边栏选项卡的“基本信息”选项卡上，指定以下设置（其他设置保留默认值）  ：
 
     |设置|值|
     |---|---|
@@ -136,25 +131,25 @@ ms.locfileid: "145955386"
     |名称|myVNet|
     |区域|**（美国）美国东部**|
 
-1. 单击“查看 + 创建”。 
+1. 单击“查看 + 创建” **** 。 
 
-1. 在“创建虚拟网络”边栏选项卡的“查看 + 创建”选项卡上，请注意“验证失败”消息。 
+1. 在“创建虚拟网络”边栏选项卡的“查看 + 创建”选项卡上，请注意“验证失败”消息  。 
 
     > **注意**：如果未出现“验证失败”警告，请单击“上一步”，然后再等待几分钟时间。
 
-1. 在“基本信息”选项卡上，单击错误消息链接，打开“策略分配”边栏选项卡。 你将看到限制位置的策略分配。
+1. On the <bpt id="p1">**</bpt>Basics<ept id="p1">**</ept> tab, click the error message link to open the <bpt id="p2">**</bpt>Policy Assignment<ept id="p2">**</ept> blade. You will see the policy assignment that restricts the location.
 
 1. 关闭“策略分配”边栏选项卡，然后在“创建虚拟网络”边栏选项卡上，单击“基本信息”选项卡，然后在“区域”下拉列表中选择“(欧洲)英国南部”。
 
-1. 单击“查看 + 创建”，确认验证通过，然后单击“创建”，确认是否成功创建虚拟网络。 
+1. 单击“查看 + 创建”，确认验证是否通过，然后单击“创建”，确认是否成功创建虚拟网络 **** 。 
 
 > 练习结果：在本练习中，你学习了如何通过选择内置策略定义并将其分配给资源组来应用 Azure Policy。
 
 **清理资源**
 
-> 记得删除所有不再使用的新建 Azure 资源。 删除未使用的资源，确保不产生意外成本。
+> 对于本实验室中的所有资源，我们使用“美国东部”区域。
 
-1. 在 Azure 门户中，通过单击 Azure 门户右上角的第一个图标打开 Cloud Shell。 如果出现提示，单击“重新连接”。
+1. 请与讲师确认这是课堂上所使用的区域。
 
 1. 在“Cloud Shell”窗格中的 PowerShell 会话中，运行以下命令删除在此实验室中创建的资源组：
   
