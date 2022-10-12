@@ -9,14 +9,14 @@ lab:
 
 ## <a name="lab-scenario"></a>实验室方案
 
-You have been asked to deploy a proof of concept with Azure Container Registry and Azure Kubernetes Service. Specifically, the proof of concept should demonstrate:
+你需要使用 Azure 容器注册表和 Azure Kubernetes 服务部署概念证明。 具体而言，概念证明应证明：
 
 - 使用 Dockerfile 生成映像。
 - 使用 Azure 容器注册表存储映像。
 - 配置 Azure Kubernetes 服务。
 - 在内部和外部保护和访问容器应用程序。 
 
-> For all the resources in this lab, we are using the <bpt id="p1">**</bpt>East US<ept id="p1">**</ept> region. Verify with your instructor this is the region to use for class. 
+> 对于本实验室中的所有资源，我们使用“美国东部”区域。 请与讲师确认这是课堂上所使用的区域。 
 
 ## <a name="lab-objectives"></a>实验室目标
 
@@ -39,7 +39,7 @@ You have been asked to deploy a proof of concept with Azure Container Registry a
 
 ### <a name="estimated-timing-45-minutes"></a>预计用时：45 分钟
 
-> For all the resources in this lab, we are using the <bpt id="p1">**</bpt>East (US)<ept id="p1">**</ept> region. Verify with your instructor this is region to use for you class. 
+> 对于本实验室中的所有资源，我们使用“美国东部”区域。 与你的教师确认这是你上课时使用的区域。 
 
 在本练习中，你将完成以下任务：
 
@@ -60,7 +60,7 @@ You have been asked to deploy a proof of concept with Azure Container Registry a
 
     >**注意**：使用帐户登录到 Azure 门户，该帐户在你用于此实验室的 Azure 订阅中具有所有者或参与者角色，并且在与该订阅关联的 Azure AD 租户中具有全局管理员角色。
 
-2. In the Azure portal, open the Cloud Shell by clicking the first icon in the top right of the Azure Portal. If prompted, click <bpt id="p1">**</bpt>Bash<ept id="p1">**</ept> and <bpt id="p2">**</bpt>Create storage<ept id="p2">**</ept>.
+2. 在 Azure 门户中，通过单击 Azure 门户右上角的第一个图标打开 Cloud Shell。 出现提示时，单击“Bash”和“创建存储”。
 
 3. 确保在 Cloud Shell 窗格左上角的下拉菜单中选中“Bash”。
 
@@ -88,7 +88,7 @@ You have been asked to deploy a proof of concept with Azure Container Registry a
     az acr list --resource-group AZ500LAB09
     ```
 
-    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Record the name of the ACR. You will need it in the next task.
+    >**注意**：记录 ACR 的名称。 稍后在下一个任务中将用到它。
 
 #### <a name="task-2-create-a-dockerfile-build-a-container-and-push-it-to-azure-container-registry"></a>任务 2：创建 Dockerfile、构建容器并将其推送到 Azure 容器注册表
 
@@ -102,7 +102,7 @@ You have been asked to deploy a proof of concept with Azure Container Registry a
 
 2. 在 Cloud Shell 窗格中的 Bash 会话中，运行以下命令以从 Dockerfile 生成映像，并将该映像推送到新的 ACR。 
 
-    >你需要使用 Azure 容器注册表和 Azure Kubernetes 服务部署概念证明。 
+    >**注意**：命令行末尾的末尾句点是必需的。 它将当前目录指定为 Dockerfile 的位置。 
 
     ```sh
     ACRNAME=$(az acr list --resource-group AZ500LAB09 --query '[].{Name:name}' --output tsv)
@@ -110,7 +110,7 @@ You have been asked to deploy a proof of concept with Azure Container Registry a
     az acr build --resource-group AZ500LAB09 --image sample/nginx:v1 --registry $ACRNAME --file Dockerfile .
     ```
 
-    >具体而言，概念证明应证明：
+    >**注意**：等到命令成功完成。 这可能需要大约 2 分钟。
 
 3. 关闭 Cloud Shell 窗格。
 
@@ -134,7 +134,7 @@ You have been asked to deploy a proof of concept with Azure Container Registry a
 
 2. 在“Kubernetes 服务”边栏选项卡上，单击“+ 创建”，然后在下拉菜单中单击“+ 创建 Kubernetes 群集”
 
-3. On the <bpt id="p1">**</bpt>Basics<ept id="p1">**</ept> tab of the <bpt id="p2">**</bpt>Create Kubernetes cluster<ept id="p2">**</ept> blade, select <bpt id="p3">**</bpt>Cluster preset configuration<ept id="p3">**</ept>, select <bpt id="p4">**</bpt>Dev/Test ($)<ept id="p4">**</ept>. Now specify the following settings (leave others with their default values):
+3. 在“创建 Kubernetes 群集”边栏选项卡的“基本信息”选项卡上，选择“群集预设配置”，然后选择“开发/测试($)”   。 现在指定以下设置（将其他设置保留为默认值）：
 
     |设置|值|
     |----|----|
@@ -161,19 +161,19 @@ You have been asked to deploy a proof of concept with Azure Container Registry a
     |网络配置|**Azure CNI**|
     |DNS 名称前缀|**保留默认值**|
 
-    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: AKS can be configured as a private cluster. This assigns a private IP to the API server to ensure network traffic between your API server and your node pools remains on the private network only. For more information, visit <bpt id="p1">[</bpt>Create a private Azure Kubernetes Service cluster<ept id="p1">](https://docs.microsoft.com/en-us/azure/aks/private-clusters)</ept> page.
+    >**注意**：可将 AKS 配置为专用群集。 这会将专用 IP 分配给 API 服务器，以确保 API 服务器与节点池之间的网络流量仅保留在专用网络上。 有关更多信息，请访问[创建专用 Azure Kubernetes 服务群集](https://docs.microsoft.com/en-us/azure/aks/private-clusters)页。
 
 7. 单击“下一步:集成 >”，然后在“创建 Kubernetes 群集”边栏选项卡的“集成”选项卡上，将“容器监视”设置为“禁用”。 
 
-    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: In production scenarios, you would want to enable monitoring. Monitoring is disabled in this case since it is not covered in the lab. 
+    >**注意**：在生产方案中，你需要启用监视。 在这种情况下，由于实验室未涵盖监视，因此禁用监视。 
 
 8. 单击“查看 + 创建”，然后单击“创建”。
 
-    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Wait for the deployment to complete. This might take about 10 minutes.
+    >备注：请等待部署完成。 这可能需要大约 10 分钟。
 
 9. 部署完成后，在 Azure 门户页面顶部的“搜索资源、服务和文档”文本框中，键入“资源组”，然后按 Enter 键  。
 
-10. On the <bpt id="p1">**</bpt>Resource groups<ept id="p1">**</ept> blade, in the listing of resource groups, note a new resource group named <bpt id="p2">**</bpt>MC_AZ500LAB09_MyKubernetesCluster_eastus<ept id="p2">**</ept> that holds components of the AKS Nodes. Review resources in this resource group. 
+10. 在“资源组”边栏选项卡的资源组列表中，请注意一个名为“MC_AZ500LAB09_MyKubernetesCluster_eastus”的新资源组，它包含 AKS 节点的组件。 查看此资源组中的资源。 
     
 11. 导航回“资源组”边栏选项卡，然后单击“AZ500LAB09”条目。 
 
@@ -233,7 +233,7 @@ You have been asked to deploy a proof of concept with Azure Container Registry a
 
 在此任务中，你将下载清单文件、编辑 YAML 文件，并将更改应用到群集。 
 
-1. 对于本实验室中的所有资源，我们使用“美国东部”区域。
+1. 在 Cloud Shell 窗格内的 Bash 会话中，单击“上传/下载文件”图标，在下拉菜单中，单击“上传”，在“打开”对话框中，导航到你下载实验室文件的位置，选择 \\Allfiles\\Labs\\09\\nginxexternal.yaml，然后单击“打开”。 接下来，选择 \\Allfiles\\Labs\\09\\nginxinternal.yaml，然后单击“打开”。
 
 2. 在“Cloud Shell”窗格的 Bash 会话中，运行以下命令以标识 Azure 容器注册表实例的名称：
 
@@ -241,7 +241,7 @@ You have been asked to deploy a proof of concept with Azure Container Registry a
     echo $ACRNAME
     ```
 
-    >请与讲师确认这是课堂上所使用的区域。
+    >**注意**：记录 Azure 容器注册表实例名称。 你将在此任务的后面部分使用它。
 
 3. 在 Cloud Shell 窗格中的 Bash 会话中，运行以下命令以打开 nginxexternal.yaml 文件，以便你可以编辑其内容。 
 
@@ -278,11 +278,11 @@ You have been asked to deploy a proof of concept with Azure Container Registry a
     kubectl get service nginxexternal
     ```
 
-2. In the Bash session within the Cloud Shell pane, review the output and record the value in the External-IP column. You will need it in the next step. 
+2. 在 Cloud Shell 窗格中的 Bash 会话中，查看输出并将值记录在外部 IP 列中。 在下一步中将要使用它。 
 
 3. 打开新的浏览器标签页，浏览到你在上一步中标识的 IP 地址。
 
-4. Ensure the <bpt id="p1">**</bpt>Welcome to nginx!<ept id="p1">**</ept> page displays. 
+4. 确保显示“欢迎使用 nginx!” 页面。 
 
 #### <a name="task-7-deploy-an-internal-service-to-aks"></a>任务 7：将内部服务部署到 AKS
 
@@ -319,9 +319,9 @@ You have been asked to deploy a proof of concept with Azure Container Registry a
     kubectl get service nginxinternal
     ```
 
-7. In the Bash session within the Cloud Shell pane, review the output. The External-IP is, in this case, a private IP address. If it is in a <bpt id="p1">**</bpt>Pending<ept id="p1">**</ept> state then run the previous command again.
+7. 在“Cloud Shell”窗格中的 Bash 会话中查看输出。 在这种情况下，外部 IP 是专用 IP 地址。 如果它处于“挂起”状态，则再次运行上述命令。
 
-    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Record this IP address. You will need it in the next task. 
+    >**注意**：记录此 IP 地址。 稍后在下一个任务中将用到它。 
 
     >**注意**：要访问内部服务终结点，需要以交互方式连接到群集中运行的其中一个 Pod。 
 
@@ -360,7 +360,7 @@ You have been asked to deploy a proof of concept with Azure Container Registry a
 
 **清理资源**
 
-> Remember to remove any newly created Azure resources that you no longer use. Removing unused resources ensures you will not incur unexpected costs.
+> 记得删除所有不再使用的新建 Azure 资源。 删除未使用的资源，确保不产生意外成本。
 
 1. 在 Azure 门户中，通过单击 Azure 门户右上角的第一个图标打开 Cloud Shell。 
 

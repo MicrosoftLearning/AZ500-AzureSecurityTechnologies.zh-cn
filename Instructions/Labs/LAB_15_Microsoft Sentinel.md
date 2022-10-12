@@ -11,13 +11,13 @@ lab:
 
 **注意：** Azure Sentinel 现更名为 Microsoft Sentinel 
 
-You have been asked to create a proof of concept of Microsoft Sentinel-based threat detection and response. Specifically, you want to:
+你需要创建基于 Microsoft Sentinel 的威胁检测和响应的概念证明。 具体来说，你需要：
 
 - 开始从 Azure 活动和 Microsoft Defender for Cloud 收集数据。
 - 添加内置和自定义警报 
 - 查看如何使用 playbook 自动对事件做出反应。
 
-> For all the resources in this lab, we are using the <bpt id="p1">**</bpt>East US<ept id="p1">**</ept> region. Verify with your instructor this is the region to use for class. 
+> 对于本实验室中的所有资源，我们使用“美国东部”区域。 请与讲师确认这是课堂上所使用的区域。 
 
 ## <a name="lab-objectives"></a>实验室目标
 
@@ -29,7 +29,7 @@ You have been asked to create a proof of concept of Microsoft Sentinel-based thr
 
 ![image](https://user-images.githubusercontent.com/91347931/157538440-4953be73-90be-4edd-bd23-b678326ba637.png)
 
-## <a name="instructions"></a>Instructions
+## <a name="instructions"></a>说明
 
 ## <a name="lab-files"></a>实验室文件：
 
@@ -58,13 +58,13 @@ You have been asked to create a proof of concept of Microsoft Sentinel-based thr
 
 2. 在 Azure 门户中，在 Azure 门户页面顶部的“搜索资源、服务和文档”文本框中，键入“Microsoft Sentinel”，然后按 Enter 键。
 
-    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: If this is your first attempt to action Microsoft Sentinel in the Azure dashboard complete the following step(s): In the Azure portal, in the <bpt id="p2">**</bpt>Search resources,  services, and docs<ept id="p2">**</ept> text box at the top of the Azure portal page, type <bpt id="p3">**</bpt>Microsoft Sentinel<ept id="p3">**</ept> and press the <bpt id="p4">**</bpt>Enter<ept id="p4">**</ept> key. Select <bpt id="p1">**</bpt>Microsoft Sentinel<ept id="p1">**</ept> from the <bpt id="p2">**</bpt>Services<ept id="p2">**</ept> view.
+    >**注意**：如果这是你第一次在 Azure 仪表板中操作 Microsoft Sentinel，请完成以下步骤：在 Azure 门户中，在 Azure 门户页面顶部的“搜索资源、服务和文档”文本框中，键入“Microsoft Sentinel”，然后按 Enter 键。 从“服务”视图中选择“Microsoft Sentinel”。
   
 3. 在“Microsoft Sentinel”边栏选项卡上，单击“+ 创建”。
 
 4. 在“将 Microsoft Sentinel 添加到工作区”边栏选项卡上，选择你在 Azure Monitor 实验室中创建的 Log Analytics 工作区，然后单击“添加”。
 
-    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Microsoft Sentinel has very specific requirements for workspaces. For example, workspaces created by Microsoft Defender for Cloud can not be used. Read more at <bpt id="p1">[</bpt>Quickstart: On-board Azure Sentinel<ept id="p1">](https://docs.microsoft.com/en-us/azure/sentinel/quickstart-onboard)</ept>
+    >**注意**：Microsoft Sentinel 对工作区有非常具体的要求。 例如，不能使用由 Microsoft Defender for Cloud 创建的工作区。 有关更多内容，请访问[快速入门：加入 Azure Sentinel](https://docs.microsoft.com/en-us/azure/sentinel/quickstart-onboard)
     
 #### <a name="task-2-configure-microsoft-sentinel-to-use-the-azure-activity-data-connector"></a>任务 2：配置 Microsoft Sentinel 以使用 Azure 活动数据连接器。 
 
@@ -74,21 +74,21 @@ You have been asked to create a proof of concept of Microsoft Sentinel-based thr
 
 2. 在“Microsoft Sentinel \| 数据连接器”边栏选项卡上，查看可用连接器的列表，在搜索栏中键入“Azure”，选择代表“Azure 活动”连接器的条目（如果需要，可使用“\<<”隐藏左侧的菜单栏），查看其描述和状态，然后单击“打开连接器页面”。
 
-3. On the <bpt id="p1">**</bpt>Azure Activity<ept id="p1">**</ept> blade the <bpt id="p2">**</bpt>Instructions<ept id="p2">**</ept> tab should be selected, note the <bpt id="p3">**</bpt>Prerequisites<ept id="p3">**</ept> and scroll down to the <bpt id="p4">**</bpt>Configuration<ept id="p4">**</ept>. Take note of the information describing the connector update. Your Azure Pass subscription never used the legacy connection method so you can skip step 1 (the <bpt id="p1">**</bpt>Disconnect All<ept id="p1">**</ept> button will be grayed out) and proceed to step 2.
+3. 在“Azure 活动”边栏选项卡上，“说明”选项卡应处于选中状态，注意“先决条件”并向下滚动到“配置”   。 记下描述连接器更新的信息。 Azure Pass 订阅从未使用过旧的连接方法，因此可以跳过第 1 步（“全部断开”按钮将灰显），然后继续第 2 步。
 
 4. 在第 2 步“通过诊断设置新管道来连接订阅”中，查看“启动 Azure Policy 分配向导并按步骤操作”说明，然后单击“启动 Azure Policy 分配向导\>”。
 
-5. On the <bpt id="p1">**</bpt>Configure Azure Activity logs to stream to specified Log Analytics workspace<ept id="p1">**</ept> (Assign Policy page) <bpt id="p2">**</bpt>Basics<ept id="p2">**</ept> tab, click the <bpt id="p3">**</bpt>Scope elipsis (...)<ept id="p3">**</ept> button. In the <bpt id="p1">**</bpt>Scope<ept id="p1">**</ept> page choose your Azure Pass subscription from the drop-down subscription list and click the <bpt id="p2">**</bpt>Select<ept id="p2">**</ept> button at the bottom of the page.
+5. 在“将 Azure 活动日志配置为流式传输到指定 Log Analytics 工作区”（“分配策略”页面）的“基本设置”选项卡上，单击“范围(…)”按钮  。 在“范围”页面中，从下拉订阅列表中选择你的 Azure Pass 订阅，然后单击页面底部的“选择”按钮 。
 
     >**注意**：请勿选择资源组
 
-6. 你需要创建基于 Microsoft Sentinel 的威胁检测和响应的概念证明。
+6. 单击“基本设置”选项卡底部的“下一步”按钮，进入“参数”选项卡  。在“参数”选项卡上，单击“主要 Log Analytics 工作区(…)”按钮 。 在“主要 Log Analytics 工作区”页面中，确保已选中 Azure Pass 订阅，并使用“工作区”下拉列表选择用于 Sentinel 的 Log Analytics 工作区 。 完成操作后，单击页面底部的“选择”按钮。
 
-7. 具体来说，你需要：
+7. 单击“参数”选项卡底部的“下一步”按钮，进入“修正”选项卡  。在“修正”选项卡上选择“创建修正任务”复选框 。 这将启用“待修正策略”下拉列表中的“将 Azure 活动日志配置为流式传输到指定 Log Analytics 工作区”。 在“系统分配的标识位置”下拉列表中，选择你先前为 Log Analytics 工作区选择的区域（例如美国东部）。
 
 8. 单击“修正”选项卡底部的“下一步”按钮，进入“不合规消息”选项卡  。如果需要，输入一条不合规消息（这是可选操作），然后单击“不合规消息”选项卡底部的“查看 + 创建”按钮 。
 
-9. Click the <bpt id="p1">**</bpt>Create<ept id="p1">**</ept> button. You should observe three succeeded status messages: <bpt id="p1">**</bpt>Creating policy assignment succeeded, Role Assignments creation succeeded, and Remediation task creation succeeded<ept id="p1">**</ept>.
+9. 单击“创建”按钮。 你应该会看到三条显示成功的状态消息：“成功创建策略分配”、“成功创建角色分配”和“成功创建修正任务”。
 
     >**注意**：你可以检查显示为钟形图标的通知来验证这三个任务是否成功。
 
@@ -104,9 +104,9 @@ You have been asked to create a proof of concept of Microsoft Sentinel-based thr
 
 2. 在“Microsoft Sentinel \| 分析”边栏选项卡上，单击“规则模板”选项卡。 
 
-    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Review the types of rules you can create. Each rule is associated with a specific Data Source.
+    >**注意**：查看你可以创建的规则类型。 每个规则都与一个特定的数据源关联。
 
-3. In the listing of rule templates, type <bpt id="p1">**</bpt>Suspicious<ept id="p1">**</ept> into the search bar form and click the <bpt id="p2">**</bpt>Suspicious number of resource creation or deployment<ept id="p2">**</ept> entry associated with the <bpt id="p3">**</bpt>Azure Activity<ept id="p3">**</ept> data source. And then, in the pane displaying the rule template properties, click <bpt id="p1">**</bpt>Create rule<ept id="p1">**</ept> (scroll to the right of the page if needed).
+3. 在规则模板列表中，在搜索栏窗体中键入“可疑”，然后单击与“Azure 活动”数据源关联的“资源创建或部署的数量可疑”条目。 然后，在显示规则模板属性的窗格中，单击“创建规则”（根据需要滚动到页面右侧）。
 
     >**注意**：此规则具有中等严重性。 
 
@@ -126,7 +126,7 @@ You have been asked to create a proof of concept of Microsoft Sentinel-based thr
 
 #### <a name="task-4-create-a-playbook"></a>任务 4：创建 Playbook
 
-In this task, you will create a playbook. A security playbook is a collection of tasks that can be invoked by Microsoft Sentinel in response to an alert. 
+在此任务中，你将创建 Playbook。 安全剧本是由 Microsoft Sentinel 调用以响应警报的任务集合。 
 
 1. 在 Azure 门户页面顶部的“搜索资源、服务和文档”文本框中，键入“部署自定义模板”，然后按 Enter 键  。
 
@@ -160,7 +160,7 @@ In this task, you will create a playbook. A security playbook is a collection of
 
 10. 在“Change-Incident-Severity”边栏选项卡上，单击“编辑”。
 
-    >对于本实验室中的所有资源，我们使用“美国东部”区域。
+    >**注意**：在“逻辑应用设计器”边栏选项卡中，四个连接中的每一个连接都显示一条警告。 这意味着，每个连接都需要检查和配置。
 
 11. 在“逻辑应用设计器”边栏选项卡上，单击第一个连接步骤。
 
@@ -203,7 +203,7 @@ In this task, you will create a playbook. A security playbook is a collection of
 
     >**注意**：此规则标识删除实时 VM 访问策略。
 
-    >请与讲师确认这是课堂上所使用的区域。 
+    >备注：如果收到分析错误，表明 Intellisense 可能已在查询中添加了值。 确保查询匹配，否则将查询粘贴到记事本中，然后从记事本粘贴到规则查询中。 
 
 
 7. 在“分析规则向导” - “新建规则”边栏选项卡的“设置规则逻辑”选项卡上，在“查询计划”部分，将“每运行一次查询”设置为“5 分钟”。
@@ -216,19 +216,19 @@ In this task, you will create a playbook. A security playbook is a collection of
 
 11. 在“分析规则向导 - 新建规则”边栏选项卡的“查看并创建”选项卡上，单击“创建”。
 
-    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: You now have a new active rule called <bpt id="p2">**</bpt>Playbook Demo<ept id="p2">**</ept>. If an event identified by the rue logic occurs, it will result in a medium severity alert, which will generate a corresponding incident.
+    >**注意**：你现在有一个名为 Playbook 演示的新可用规则。 如果发生由规则逻辑识别的事件，则将导致中等严重性警报，并生成相应的事件。
 
 #### <a name="task-6-invoke-an-incident-and-review-the-associated-actions"></a>任务 6：调用事件并查看关联操作。
 
 1. 在 Azure 门户中，导航到“Microsoft Defender For Cloud \| 概述”边栏选项卡。
 
-    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Check your secure score. By now it should have updated. 
+    >**注意**：查看你的安全分数。 现在它应该已经更新了。 
 
 2. 在“Microsoft Defender for Cloud \| 工作负载保护”边栏选项卡上，单击“高级保护”下的“实时 VM 访问”部分。
 
 3. 在“Microsoft Defender for Cloud \| 实时 VM 访问”边栏选项卡上，在引用 myVM 虚拟机的行的右侧，单击“省略号”按钮，单击“删除”，然后单击“是”。
 
-    ><bpt id="p1">**</bpt>Note:<ept id="p1">**</ept> If the VM is not listed in the <bpt id="p2">**</bpt>Just-in-time VMs<ept id="p2">**</ept>, navigate to <bpt id="p3">**</bpt>Virutal Machine<ept id="p3">**</ept> blade and click the <bpt id="p4">**</bpt>Configuration<ept id="p4">**</ept>, Click the <bpt id="p5">**</bpt>Enable the Just-in-time VMs<ept id="p5">**</ept> option under the <bpt id="p6">**</bpt>Just-in-time Vm's access<ept id="p6">**</ept>. Repeat the above step to navigate back to the <bpt id="p1">**</bpt>Microsoft Defender for Cloud<ept id="p1">**</ept> and refresh the page, the VM will appear.
+    >**注意：** 如果 VM 未在“实时 VM”中列出，请导航到“虚拟机”边栏选项卡并单击“配置”，然后单击“实时 VM 访问”下的“启用实时 VM”选项。 重复上述步骤，导航回“Microsoft Defender for Cloud”并刷新页面，此时将显示 VM。
 
 4. 在 Azure 门户中，在 Azure 门户页面顶部的“搜索资源、服务和文档”文本框中键入“活动日志”，然后按 Enter 键。
 
@@ -240,7 +240,7 @@ In this task, you will create a playbook. A security playbook is a collection of
 
 7. 在“Microsoft Sentinel \| 概述”边栏选项卡上，查看仪表板，并验证它是否显示与删除实时 VM 访问策略相对应的警报。
 
-    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: It can take up to 5 minutes for alerts to appear on the <bpt id="p2">**</bpt>Microsoft Sentinel <ph id="ph1">\|</ph> Overview<ept id="p2">**</ept> blade. If you are not seeing an alert at that point, run the query rule referenced in the previous task to verify that the Just In Time access policy deletion activity has been propagated to the Log Analytics workspace associated with your Microsoft Sentinel instance. If that is not the case, re-create the Just in time VM access policy and delete it again.
+    >**注意**：警报可能需要 5 分钟的时间才会在“Microsoft Sentinel \| 概述”边栏选项卡中显示。 如果届时没有看到警报，请运行上一个任务中引用的查询规则，以验证实时访问策略删除活动是否已传播到与 Microsoft Sentinel 实例关联的 Log Analytics 工作区中。 如果没有，请重新创建实时 VM 访问策略，然后再次将其删除。
 
 8. 在“Microsoft Sentinel \| 概述”边栏选项卡上的“威胁管理”部分中，单击“事件”。
 
@@ -248,7 +248,7 @@ In this task, you will create a playbook. A security playbook is a collection of
 
     >**注意**：事件可能需要 5 分钟的时间才会在“Microsoft Sentinel \| 事件”边栏选项卡中显示。 
 
-    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Review the <bpt id="p2">**</bpt>Microsoft Sentinel <ph id="ph1">\|</ph> Playbooks<ept id="p2">**</ept> blade. You will find there the count of succesfull and failed runs.
+    >**注意**：查看“Microsoft Sentinel \| playbook”边栏选项卡。 你会在那里发现成功运行和失败运行的计数。
 
     >**注意**：你可以选择为事件分配不同的严重性级别和状态。
 
@@ -256,9 +256,9 @@ In this task, you will create a playbook. A security playbook is a collection of
 
 **清理资源**
 
-> Remember to remove any newly created Azure resources that you no longer use. Removing unused resources ensures you will not incur unexpected costs. 
+> 记得删除所有不再使用的新建 Azure 资源。 删除未使用的资源，确保不产生意外成本。 
 
-1. In the Azure portal, open the Cloud Shell by clicking the first icon in the top right of the Azure Portal. If prompted, click <bpt id="p1">**</bpt>PowerShell<ept id="p1">**</ept> and <bpt id="p2">**</bpt>Create storage<ept id="p2">**</ept>.
+1. 在 Azure 门户中，通过单击 Azure 门户右上角的第一个图标打开 Cloud Shell。 如果出现提示，请单击“PowerShell”和“创建存储”。
 
 2. 确保在“Cloud Shell”窗格左上角的下拉菜单中选中“PowerShell”。
 
