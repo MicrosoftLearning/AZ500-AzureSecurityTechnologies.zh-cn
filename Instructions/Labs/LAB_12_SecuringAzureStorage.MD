@@ -9,13 +9,13 @@ lab:
 
 ## <a name="lab-scenario"></a>实验室方案
 
-You have been asked to create a proof of concept to demonstrate securing Azure file shares. Specifically, you want to:
+你需要创建一个概念证明来演示如何保护 Azure 文件共享。 具体来说，你需要：
     
 - 创建一个存储终结点，以便发往 Azure 存储的流量始终留在 Azure 主干网络内。
 - 配置该存储终结点，以便仅来自特定子网的资源可以访问存储。
 - 确认特定子网之外的资源无法访问存储。 
 
-> For all the resources in this lab, we are using the <bpt id="p1">**</bpt>East US<ept id="p1">**</ept> region. Verify with your instructor this is the region to use for class. 
+> 对于本实验室中的所有资源，我们使用“美国东部”区域。 请与讲师确认这是课堂上所使用的区域。 
 
 ## <a name="lab-objectives"></a>实验室目标
 
@@ -78,7 +78,7 @@ You have been asked to create a proof of concept to demonstrate securing Azure f
 
 #### <a name="task-2-add-a-subnet-to-the-virtual-network-and-configure-a-storage-endpoint"></a>任务 2：将子网添加到虚拟网络并配置存储终结点
 
-In this task, you will create another subnet and enable a service endpoint on that subnet. Service endpoints are enabled per service, per subnet. 
+在此任务中，你将创建另一个子网并在该子网上启用服务终结点。 每个服务、每个子网均启用服务终结点。 
 
 1. 在 Azure 门户中，导航回“虚拟网络”边栏选项卡。
 
@@ -102,7 +102,7 @@ In this task, you will create another subnet and enable a service endpoint on th
     
 #### <a name="task-3-configure-a-network-security-group-to-restrict-access-to-the-subnet"></a>任务 3：配置网络安全组以限制对子网的访问
 
-In this task, you will create a network security group with two outbound security rules (Storage and internet) and one inbound security rule (RDP). You will also associate the network security group with the Private subnet. This will restrict outbound traffic from Azure VMs connected to that subnet.
+在此任务中，你将创建一个网络安全组，其中包含两个出站安全规则（存储和 Internet）和一个入站安全规则 (RDP)。 你还将网络安全组与专用子网相关联。 这将限制来自连接到该子网的 Azure VM 的出站流量。
 
 1. 在 Azure 门户页面顶部的“搜索资源、服务和文档”文本框中，键入“网络安全组”，然后按 Enter 键  。
 
@@ -158,12 +158,12 @@ In this task, you will create a network security group with two outbound securit
     |目标端口范围|**\***|
     |协议|**任意**|
     |操作|**拒绝**|
-    |优先级|1100|
+    |优先级|**1.10.0**|
     |名称|**Deny-Internet-All**|
 
     >**注意**：此规则将替代所有网络安全组中允许出站 Internet 通信的默认规则。 
 
-    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: In the next steps, you will create an inbound security rule that allows Remote Desktop Protocol (RDP) traffic to the subnet. The rule overrides a default security rule that denies all inbound traffic from the internet. Remote Desktop connections are allowed to the subnet so that connectivity can be tested in a later step.
+    >**注意**：在接下来的步骤中，你将创建一个允许远程桌面协议 (RDP) 流量流向子网的入站安全规则。 该规则将替代拒绝来自 Internet 的所有入站流量的默认安全规则。 允许远程桌面连接到子网，以便在接下来的步骤中测试连接性。
 
 12. 在“myNsgPrivate”边栏选项卡上的“设置”部分，单击“入站安全规则”，然后单击“+添加”。
 
@@ -194,7 +194,7 @@ In this task, you will create a network security group with two outbound securit
 
 #### <a name="task-4-configure-a-network-security-group-to-allow-rdp-on-the-public-subnet"></a>任务 4：配置网络安全组以支持公共子网上的 rdp
 
-你需要创建一个概念证明来演示如何保护 Azure 文件共享。
+在本任务中，将创建使用一个入站安全规则 (RDP) 的网络安全组。 并将网络安全组与公共子网相关联。 这可支持 RDP 访问公共 VM。
 
 1. 在 Azure 门户页面顶部的“搜索资源、服务和文档”文本框中，键入“网络安全组”，然后按 Enter 键  。
 
@@ -263,7 +263,7 @@ In this task, you will create a network security group with two outbound securit
 
 4. 在“创建存储帐户”边栏选项卡的“基本信息”选项卡中，单击“查看 + 创建”，等待验证过程完成，然后单击“创建”。
 
-    >具体来说，你需要：
+    >**注意**：请等待存储帐户创建完成。 这大约需要 2 分钟。
 
 5. 在 Azure 门户页面顶部的“搜索资源、服务和文档”文本框中，键入“资源组”，然后按 Enter 键  。
 
@@ -289,7 +289,7 @@ In this task, you will create a network security group with two outbound securit
 
 13. 在“连接”边栏选项卡上，在“窗口”选项卡中，将创建 Z 驱动器映射的 PowerShell 脚本复制到文件共享。 
 
-    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Record this script. You will need this in a later in this lab in order to map the file share from the Azure virtual machine on the <bpt id="p1">**</bpt>Private<ept id="p1">**</ept> subnet.
+    >**注意**：记录此脚本。 在本实验室的后面部分中，你将需要此文件，以便从专用子网上的 Azure 虚拟机映射文件共享。
 
 14. 导航回“存储帐户”边栏选项卡，然后在“安全 + 网络”部分，单击“网络”。
 
@@ -397,7 +397,7 @@ In this task, you will create a network security group with two outbound securit
 
 3. 在“myVMPrivate”边栏选项卡上，单击“连接”，然后在下拉菜单中，单击“RDP”。 
 
-4. Click <bpt id="p1">**</bpt>Download RDP File<ept id="p1">**</ept> and use it to connect to the <bpt id="p2">**</bpt>myVMPrivate<ept id="p2">**</ept> Azure VM via Remote Desktop. When prompted to authenticate, provide the following credntials:
+4. 单击“下载 RDP 文件”，并通过远程桌面将其连接到 myVMPrivate Azure VM。 收到身份验证提示时，请提供以下凭据：
 
     |设置|值|
     |---|---|
@@ -410,7 +410,7 @@ In this task, you will create a network security group with two outbound securit
 
 5. 在与 myVMPrivate 的远程桌面会话中，单击“启动”，然后单击“Windows PowerShell ISE”。
 
-6. Within the <bpt id="p1">**</bpt>Windows PowerShell ISE<ept id="p1">**</ept> window, open the <bpt id="p2">**</bpt>Script<ept id="p2">**</ept> pane, then paste and run the PowerShell script that you recorded earlier in this lab. The script has the following format:
+6. 在 Windows PowerShell ISE 窗口中，打开“脚本”窗格，然后粘贴并运行你在本实验室初期记录的 PowerShell 脚本。 该脚本具有以下格式：
 
     ```powershell
     $connectTestResult = Test-NetConnection -ComputerName <storage_account_name>.file.core.windows.net -Port 445
@@ -447,7 +447,7 @@ In this task, you will create a network security group with two outbound securit
 
 3. 在“myVMPublic”边栏选项卡上，单击“连接”，然后在下拉菜单中，单击“RDP”。 
 
-4. Click <bpt id="p1">**</bpt>Download RDP File<ept id="p1">**</ept> and use it to connect to the <bpt id="p2">**</bpt>myVMPublic<ept id="p2">**</ept> Azure VM via Remote Desktop. When prompted to authenticate, provide the following credntials:
+4. 单击“下载 RDP 文件”，并通过远程桌面将其连接到 myVMPublic Azure VM。 收到身份验证提示时，请提供以下凭据：
 
     |设置|值|
     |---|---|
@@ -464,7 +464,7 @@ In this task, you will create a network security group with two outbound securit
 
     >**注意**：这次会收到“New-PSDrive: 访问被拒绝”错误。 
 
-    >对于本实验室中的所有资源，我们使用“美国东部”区域。
+    >**注意**：访问被拒绝，因为 myVmPublic 虚拟机部署在公共子网。 公共子网没有为 Azure 存储启用的服务终结点。 该存储帐户仅允许通过专用子网进行网络访问。
 
 7. 接下来，在 Windows PowerShell ISE 控制台的“控制台”窗格中运行以下命令，以确认虚拟机有到 Internet 的出站连接： 
 
@@ -481,9 +481,9 @@ In this task, you will create a network security group with two outbound securit
 
 **清理资源**
 
-> 请与讲师确认这是课堂上所使用的区域。 
+> 记得删除所有不再使用的新建 Azure 资源。 删除未使用的资源，确保不产生意外成本。 
 
-1. Open the Cloud Shell by clicking the first icon in the top right of the Azure Portal. If prompted, select <bpt id="p1">**</bpt>PowerShell<ept id="p1">**</ept> and <bpt id="p2">**</bpt>Create storage<ept id="p2">**</ept>.
+1. 单击 Azure 门户右上角的第一个图标，打开 Cloud Shell。 如果出现提示，请选择“PowerShell”和“创建存储” 。
 
 2. 确保在“Cloud Shell”窗格左上角的下拉菜单中选中“PowerShell”。
 
