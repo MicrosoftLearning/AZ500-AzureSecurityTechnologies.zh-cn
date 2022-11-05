@@ -158,7 +158,7 @@ lab:
     |目标端口范围|**\***|
     |协议|**任意**|
     |操作|**拒绝**|
-    |优先级|**1.10.0**|
+    |优先级|1100|
     |名称|**Deny-Internet-All**|
 
     >**注意**：此规则将替代所有网络安全组中允许出站 Internet 通信的默认规则。 
@@ -331,7 +331,7 @@ lab:
     |用户名|localadmin|
     |密码|请使用在实验室 04 > 练习 1 > 任务 1 > 步骤 9 中创建的个人密码。|
     |公共入站端口|**无**|
-    |已拥有 Windows Server 许可证|**否**|
+    |已拥有 Windows Server 许可证|**未选定**|
 
     >**注意**：对于公共入站端口，我们将依赖于预先创建的 NSG。 
 
@@ -366,7 +366,7 @@ lab:
     |用户名|localadmin|
     |密码|请使用在实验室 04 > 练习 1 > 任务 1 > 步骤 9 中创建的个人密码。|
     |公共入站端口|**无**|
-    |已拥有 Windows Server 许可证|**否**|
+    |已拥有 Windows Server 许可证|**未选定**|
 
     >**注意**：对于公共入站端口，我们将依赖于预先创建的 NSG。 
 
@@ -423,7 +423,7 @@ lab:
        Write-Error -Message "Unable to reach the Azure storage account via port 445. Check to make sure your organization or ISP is not blocking port 445, or use Azure P2S VPN, Azure S2S VPN, or Express Route to tunnel SMB traffic over a different port."
     }
     ```
-    >**注意**：占位符 `<storage-account-name>` 代表托管文件共享的存储帐户的名称，而 `<storage_account_name>` 代表它的主键
+    >**注意**：占位符 `<storage_account_name>` 代表托管文件共享的存储帐户的名称，而 `<storage_account_key>` 代表它的主键
 
 7. 启动“文件资源管理器”，并验证是否已成功创建 Z: 驱动器映射。
 

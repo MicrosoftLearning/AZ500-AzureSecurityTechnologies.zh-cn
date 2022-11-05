@@ -31,7 +31,7 @@ lab:
 
 ![image](https://user-images.githubusercontent.com/91347931/157532938-c724cc40-f64f-4d69-9e91-d75344c5e0a2.png)
 
-## <a name="instructions"></a>Instructions
+## <a name="instructions"></a>说明
 
 ## <a name="lab-files"></a>实验室文件：
 
@@ -121,7 +121,7 @@ lab:
 
 7. 在“资源组”边栏选项卡上，单击表示新创建的密钥保管库的条目。 
 
-8. 在“密钥保管库”边栏选项卡上的“设置”部分，单击“访问策略”，再单击“+ 添加访问策略”。
+8. 在“Key Vault”边栏选项卡上的“概述”部分，单击“访问策略”，然后单击“+ 添加访问策略”  。
 
 9. 在“添加访问策略”边栏选项卡上，指定以下设置（所有其他设置保留默认值）： 
 
