@@ -77,11 +77,11 @@ lab:
 
 >**注意**：你将需要创建一个唯一的密码，用于在课程的其余部分创建 VM（虚拟机）。 密码长度必须至少为 12 个字符，且符合规定的复杂性要求（密码必须具有以下各项中的 3 项：1 个小写字符、1 个大写字符、1 个数字和 1 个特殊字符）。 [VM 密码要求](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/faq#what-are-the-password-requirements-when-creating-a-vm-)。 请记下此密码。
 
-   |设置|值|
+   |设置|Value|
    |---|---|
    |订阅|将在此实验室中使用的 Azure 订阅的名称|
    |资源组|单击“新建”并键入名称“AZ500LAB04”|
-   |位置|**（美国）美国东部**|
+   |位置|**美国东部**|
    |VM 大小|**Standard_D2s_v3**|
    |VM 名称|az500-04-vm1|
    |管理员用户名|**学生**|
