@@ -141,7 +141,7 @@ lab:
     |虚拟网络|**myVirtualNetwork**|
     |子网|**default**|
 
-#### <a name="task-4-create-inbound-nsg-security-rules-to-all-traffic-to-web-servers-and-rdp-to-the-servers"></a>任务 4：为所有到 Web 服务器的流量和到管理服务器的 RDP 创建入站 NSG 安全规则。 
+#### <a name="task-4-create-inbound-nsg-security-rules-to-all-traffic-to-web-servers-and-rdp-to-the-management-servers"></a>任务 4：为所有到 Web 服务器的流量和到服务器的 RDP 创建入站 NSG 安全规则。 
 
 1. 在“myNsg”边栏选项卡中的“设置”部分，单击“入站安全规则”。
 
@@ -218,7 +218,7 @@ lab:
 
 6. 在“NIC 网络安全组”下，选择“无”。
 
-7. 单击“下一步:管理 >”，在“创建虚拟机”边栏选项卡的“管理”选项卡上，验证以下设置：
+7. 单击“下一步:管理 >”，在“创建虚拟机”边栏选项卡的“监控”选项卡上，单击“下一步:监控 >”，验证以下设置   ：
 
    |设置|值|
    |---|---|
@@ -255,7 +255,7 @@ lab:
 
 5. 在“NIC 网络安全组”下，选择“无”。
 
-6. 单击“下一步:管理 >”，在“创建虚拟机”边栏选项卡的“管理”选项卡上，验证以下设置：
+6. 单击“下一步:管理 >”，在“创建虚拟机”边栏选项卡的“监控”选项卡上，单击“下一步:监控 >”，验证以下设置   ：
 
    |设置|值|
    |---|---|

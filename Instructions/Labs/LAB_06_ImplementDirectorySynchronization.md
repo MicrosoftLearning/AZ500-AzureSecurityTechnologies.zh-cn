@@ -189,7 +189,7 @@ lab:
 
 6. 以 syncadmin 用户名注销并关闭 InPrivate 浏览器窗口。
 
-> **Result**：完成此练习后，你已创建 Azure AD 租户，为新的 Azure AD 租户添加了自定义 DNS 名称，并创建了具有全局管理员角色的 Azure AD 用户。
+> 结果：完成此练习后，你已创建 Azure AD 租户，了解了如何为新的 Azure AD 租户添加自定义 DNS 名称，并创建了具有全局管理员角色的 Azure AD 用户。
 
 
 ### <a name="exercise-3-synchronize-active-directory-forest-with-an-azure-active-directory-tenant"></a>练习 3：同步 Active Directory 林和 Azure Active Directory 租户
