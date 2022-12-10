@@ -31,7 +31,7 @@ lab:
 
 ![image](https://user-images.githubusercontent.com/91347931/157532938-c724cc40-f64f-4d69-9e91-d75344c5e0a2.png)
 
-## <a name="instructions"></a>说明
+## <a name="instructions"></a>Instructions
 
 ## <a name="lab-files"></a>实验室文件：
 
@@ -65,7 +65,7 @@ lab:
 
 6. 在“自定义部署”边栏选项卡的“部署范围”下，请确保已配置以下设置（将其他设置保留为默认值）：
 
-   |设置|Value|
+   |设置|值|
    |---|---|
    |订阅|将在此实验室中使用的 Azure 订阅的名称|
    |资源组|单击“新建”并键入名称“AZ500LAB10”|
@@ -234,7 +234,7 @@ lab:
 
 3. 在“注册应用程序”边栏选项卡，指定以下设置（所有其他设置保留为默认值）：
 
-    |设置|Value|
+    |设置|值|
     |----|----|
     |名称|sqlApp|
     |重定向 URI（可选）|Web 和 https://sqlapp |
@@ -253,7 +253,7 @@ lab:
 
 8. 在“添加客户端机密”窗格中，指定以下设置：
 
-    |设置|Value|
+    |设置|值|
     |----|----|
     |说明|**Key1**|
     |Expires|**12 个月**|
