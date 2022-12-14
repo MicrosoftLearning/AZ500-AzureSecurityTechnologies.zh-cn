@@ -60,28 +60,13 @@ lab:
 
 7. 在“Microsoft Defender for Cloud \| 环境设置”边栏选项卡上，单击相关订阅。 
 
-8. 在“Defender 计划”边栏选项卡上，选择“启用所有 Microsoft Defender for Cloud 计划”，然后单击“保存”  。
+8. 在“Defender 计划”边栏选项卡上，选择“启用所有 Microsoft Defender for Cloud 计划”。 。
 
-9. 在“设置 \| Defender 计划”边栏选项卡上，在左侧垂直菜单中单击“自动预配”。  
+9. 导航回“Microsoft Defender for Cloud \| 环境设置”边栏选项卡，展开订阅，然后单击表示你在上一个实验室中创建的 Log Analytics 工作区的条目。
 
-10. 在“设置 \| 自动预配”边栏选项卡上，确保将第一个项“适用于 Azure VM 的 Log Analytics 代理”的“自动预配”设置为“开”。  
+10. 在“设置”\|“Defender 计划”边栏选项卡上，确保选择“启用所有 Microsoft Defender for Cloud 计划”。 。
 
-11. 在“设置 \| 工作流程自动化”边栏选项卡中，查看可用的设置。 
-
-    >**注意**：你可以触发基于威胁检测警报和 Microsoft Defender for Cloud 建议的操作。 你还可以配置基于 Logic 应用程序的操作。 
-    
-12. 在“添加工作流程自动化”边栏选项卡中，查看可用的设置。
-
-    >**注意**：Microsoft Defender for Cloud 提供许多有关虚拟机的见解，包括系统更新状态、OS 安全配置和终结点保护。
-
-13. 在“添加工作流程自动化”边栏选项卡，单击“取消”。
-
-14. 导航回“Microsoft Defender for Cloud \| 环境设置”边栏选项卡，展开订阅，然后单击表示你在上一个实验室中创建的 Log Analytics 工作区的条目。
-
-15. 在“设置 \| Defender 计划”边栏选项卡上，确保已选中“启用所有 Microsoft Defender for Cloud 计划”，然后单击“保存”  。
-
-16. 从“Microsoft Defender for Cloud \| 设置”边栏选项卡中选择“数据收集” 。 依次选择“所有事件”和“保存” 。
-
+11. 从“Microsoft Defender for Cloud \| 设置”边栏选项卡中选择“数据收集” 。 依次选择“所有事件”和“保存” 。
 
 #### <a name="task-2-review-the-microsoft-defender-for-cloud-recommendation"></a>任务 2：查看 Microsoft Defender for Cloud 建议
 
@@ -101,22 +86,19 @@ lab:
     
 5. 在“资源运行状况”边栏选项卡的“建议”选项卡上，查看针对 myVM 的建议列表  。
 
-
 #### <a name="task-3-implement-the-microsoft-defender-for-cloud-recommendation-to-enable-just-in-time-vm-access"></a>任务 3：实施 Microsoft Defender for Cloud 建议，以启用“实时 VM 访问”
 
 在此任务中，你将实施 Microsoft Defender for Cloud 建议，在虚拟机上启用“实时 VM 访问”。 
 
-1. 在 Azure 门户中，导航回“Microsoft Defender For Cloud \| 概述”边栏选项卡，并选择“云安全”磁贴下的“工作负载保护”  。
+1. 在 Azure 门户中，导航回“Microsoft Defender For Cloud | 概述”边栏选项卡，并选择“云安全”磁贴下的“工作负载保护”  。
 
-2. 在“工作负载保护”边栏选项卡的“高级防护”部分，单击“实时 VM 访问”磁贴，然后在“实时 VM 访问”边栏选项卡上单击“尝试实时 VM 访问”    。
+2. 在“工作负载保护”边栏选项卡的“高级防护”部分，单击“实时 VM 访问”边栏选项卡上的“实时 VM 访问”磁贴   。
 
-    >**注意**：如果未列出 VM，请导航到“虚拟机”边栏选项卡并单击“配置”，然后单击“实时 VM 访问”下的“启用实时 VM”选项   。 重复上述步骤，导航回“Microsoft Defender for Cloud”并刷新页面，此时将显示 VM。
+3. 在“实时 VM 访问”边栏选项卡上的“虚拟机”部分下，选择“未配置”，然后单击“myVM”条目   。
 
-3. 在“实时 VM 访问”上，选择“未配置”，然后单击“myVM”条目  。
+4. 单击“虚拟机”部分最右侧的“在 1 VM 上启用 JIT”选项。 
 
     >**注意**：你可能需要等待几分钟才能使用 myVM 条目。
-
-4. 选择“在 VM 1 上启用 JIT”。
 
 5. 在“JIT VM 访问配置”边栏选项卡上，在引用端口 22 的行的最右边，单击省略号按钮，然后单击“删除”。
 
