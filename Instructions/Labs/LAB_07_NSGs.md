@@ -141,7 +141,7 @@ lab:
     |虚拟网络|**myVirtualNetwork**|
     |子网|**default**|
 
-#### <a name="task-4-create-inbound-nsg-security-rules-to-all-traffic-to-web-servers-and-rdp-to-the-management-servers"></a>任务 4：为所有到 Web 服务器的流量和到服务器的 RDP 创建入站 NSG 安全规则。 
+#### <a name="task-4-create-inbound-nsg-security-rules-to-all-traffic-to-web-servers-and-rdp-to-the-servers"></a>任务 4：为所有到 Web 服务器的流量和到服务器的 RDP 创建入站 NSG 安全规则。 
 
 1. 在“myNsg”边栏选项卡中的“设置”部分，单击“入站安全规则”。
 

@@ -57,7 +57,12 @@ lab:
 
     ```powershell
     New-AzResourceGroup -Name AZ500LAB03 -Location 'EastUS'
+    
+    Confirm
+    Provided resource group already exists. Are you sure you want to update it?
+    [Y] Yes [N] No [S] Suspend [?] Help (default is "Y"): Y
     ```
+1. 在“Cloud Shell”窗格内的 PowerShell 会话中，键入“Y”并按 Enter 键。
 
 1. 在 Cloud Shell 窗格内的 PowerShell 会话中，运行以下命令以在新创建的资源组中创建存储帐户：
     

@@ -30,7 +30,7 @@ lab:
 
 ![image](https://user-images.githubusercontent.com/91347931/157518628-8b4a9efe-0086-4ec0-825e-3d062748fa63.png)
 
-## <a name="instructions"></a>Instructions
+## <a name="instructions"></a>说明
 
 ## <a name="lab-files"></a>实验室文件：
 

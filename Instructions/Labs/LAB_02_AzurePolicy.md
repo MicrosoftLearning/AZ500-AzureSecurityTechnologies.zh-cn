@@ -54,7 +54,12 @@ lab:
 
     ```powershell
     New-AzResourceGroup -Name AZ500LAB02 -Location 'East US'
+    
+    Confirm
+    Provided resource group already exists. Are you sure you want to update it?
+    [Y] Yes [N] No [S] Suspend [?] Help (default is "Y"): Y
     ```
+1. 在“Cloud Shell”窗格内的 PowerShell 会话中，键入“Y”并按 Enter 键。
 
 1. 在“Cloud Shell”窗格内的 PowerShell 会话中，运行以下命令列出资源组以验证是否创建了新资源组：
 
@@ -129,7 +134,7 @@ lab:
     |---|---|
     |资源组|AZ500LAB02|
     |名称|myVNet|
-    |区域|**（美国）美国东部**|
+    |区域|**美国东部**|
 
 1. 单击“查看 + 创建” **** 。 
 
@@ -139,7 +144,7 @@ lab:
 
 1. 在“基本信息”选项卡上，单击错误消息链接，打开“策略分配”边栏选项卡。 你将看到限制位置的策略分配。
 
-1. 关闭“策略分配”边栏选项卡，然后在“创建虚拟网络”边栏选项卡上，单击“基本信息”选项卡，然后在“区域”下拉列表中选择“(欧洲)英国南部”。
+1. 关闭“策略分配”边栏选项卡，然后在“创建虚拟网络”边栏选项卡上，单击“基本信息”选项卡，然后在“区域”下拉列表中选择“英国南部”    。
 
 1. 单击“查看 + 创建”，确认验证是否通过，然后单击“创建”，确认是否成功创建虚拟网络 **** 。 
 

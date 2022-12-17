@@ -61,23 +61,10 @@ lab:
 
 5. 在 Cloud Shell 窗格内的 PowerShell 会话中运行下列命令，创建新的 Azure 虚拟机。 
 
-    >注意：New-AzVm 命令在 Azure CLI 版本 4.24 中不起作用，Microsoft 目前正在调查是否有解决方法。  本实验室中的解决方法是，安装并恢复到不受此问题影响的 Az.Compute 版本 4.23.0。
-   
-    >说明：恢复到 Az.Compute 版本 4.23.0 
-  
-   #### <a name="step-1-download-the-working-version-of-the-module-4230-into-your-cloud-shell-session"></a>步骤 1：将模块的工作版本 (4.23.0) 下载到 Cloud Shell 会话中 
-   **类型**：Install-Module -Name Az.Compute -Force -RequiredVersion 4.23.0
-
-   #### <a name="step-2-start-a-new-powershell-session-that-will-allow-the-azcompute-assembly-version-to-be-loaded"></a>步骤 2：启动新的 PowerShell 会话，将允许加载 Az.Compute 程序集版本 
-   类型：pwsh
-
-   #### <a name="step-3-verify-that-version-4230-is-loaded"></a>步骤 3：验证版本 4.23.0 是否已加载
-   **类型**：Get-Module -Name Az.Compute
-   
     ```powershell
-    New-AzVm -ResourceGroupName "AZ500LAB131415" -Name "myVM" -Location 'EastUS' -VirtualNetworkName "myVnet" -SubnetName "mySubnet" -SecurityGroupName   "myNetworkSecurityGroup" -PublicIpAddressName "myPublicIpAddress" -OpenPorts 80,3389
+    New-AzVm -ResourceGroupName "AZ500LAB131415" -Name "myVM" -Location 'EastUS' -VirtualNetworkName "myVnet" -SubnetName "mySubnet" -SecurityGroupName   "myNetworkSecurityGroup" -PublicIpAddressName "myPublicIpAddress" -PublicIpSku Standard -OpenPorts 80,3389 -Size Standard_DS1_v2 
     ```
-
+    
 6.  当提示输入凭据时：
 
     |设置|值|
@@ -110,7 +97,7 @@ lab:
     |订阅|你在此实验室中使用的 Azure 订阅的名称|
     |资源组|AZ500LAB131415|
     |名称|任何有效的全局唯一名称|
-    |区域|**（美国）美国东部**|
+    |区域|**美国东部**|
 
 4. 选择“查看 + 创建”  。
 
