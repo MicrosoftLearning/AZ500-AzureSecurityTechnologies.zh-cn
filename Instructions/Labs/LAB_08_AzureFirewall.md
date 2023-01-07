@@ -29,7 +29,7 @@ lab:
 
 ![image](https://user-images.githubusercontent.com/91347931/157529954-a1bc434b-2eca-41c1-b875-1f0c977d5e20.png)
 
-## <a name="instructions"></a>Instructions
+## <a name="instructions"></a>说明
 
 ## <a name="lab-files"></a>实验室文件：
 
@@ -67,7 +67,7 @@ lab:
 
 4. 在“编辑模板”边栏选项卡中，单击“加载文件”，找到 \\Allfiles\\Labs\\08\\template.json 文件，并单击“打开”。
 
-    >**注意**：查看模板的内容，注意它部署了一个托管 Windows Server 2019 数据中心的 Azure VM。
+    >注意：查看模板的内容，注意它部署了一个托管 Windows Server 2016 Datacenter 的 Azure VM。
 
 5. 在“编辑模板”边栏选项卡上，单击“保存”。
 
