@@ -4,10 +4,10 @@ lab:
   module: Module 01 - Manage Identity and Access
 ---
 
-# <a name="lab-03-resource-manager-locks"></a>实验室 03：资源管理器锁定
-# <a name="student-lab-manual"></a>学生实验室手册
+# 实验室 03：资源管理器锁定
+# 学生实验室手册
 
-## <a name="lab-scenario"></a>实验室方案 
+## 实验室方案 
 
 你需要创建概念证明，展示如何使用资源锁来防止意外删除或更改。 具体而言，需要：
 
@@ -17,21 +17,21 @@ lab:
 
 > 对于本实验室中的所有资源，我们使用“美国东部”区域。 请与讲师确认这是课堂上所使用的区域。 
  
-## <a name="lab-objectives"></a>实验室目标
+## 实验室目标
 
 在本实验室中，你将完成以下练习：
 
 - 练习 1：资源管理器锁定
 
-## <a name="resource-manager-locks-diagram"></a>资源管理器锁示意图
+## 资源管理器锁示意图
 
 ![image](https://user-images.githubusercontent.com/91347931/157514986-1bf6a9ea-4c7f-4487-bcd7-542648f8dc95.png)
 
-## <a name="instructions"></a>说明
+## 说明
 
-### <a name="exercise-1-resource-manager-locks"></a>练习 1：资源管理器锁定
+### 练习 1：资源管理器锁定
 
-#### <a name="estimated-timing-20-minutes"></a>预计用时：20 分钟
+#### 预计用时：20 分钟
 
 在本练习中，你将完成以下任务：
 
@@ -41,7 +41,7 @@ lab:
 - 任务 4：删除只读锁并创建一个删除锁。
 - 任务 5：测试删除锁。
 
-#### <a name="task-1-create-a-resource-group-with-a-storage-account"></a>任务 1：创建具有存储帐户的资源组。
+#### 任务 1：创建具有存储帐户的资源组。
 
 在此任务中，你将为实验室创建资源组和存储账户。 
 
@@ -74,7 +74,7 @@ lab:
 
 1. 关闭 Cloud Shell 窗格。
 
-#### <a name="task-2-add-a-readonly-lock-on-the-storage-account"></a>任务 2：在存储帐户上添加一个只读锁。 
+#### 任务 2：在存储帐户上添加一个只读锁。 
 
 在此任务中，你将向存储帐户添加只读锁。 这将保护资源，使其免遭意外删除或修改。 
 
@@ -97,7 +97,7 @@ lab:
 
    >**注意**：现在，可以防止意外删除和修改存储帐户。
 
-#### <a name="task-3-test-the-readonly-lock"></a>任务 3：测试只读锁 
+#### 任务 3：测试只读锁 
 
 1. 在存储帐户边栏选项卡的“设置”部分，单击“配置”。
 
@@ -121,7 +121,7 @@ lab:
 
    >**注意**：现在，已确认只读锁将阻止意外删除和修改资源。
 
-#### <a name="task-4-remove-the-readonly-lock-and-create-a-delete-lock"></a>任务 4：删除只读锁并创建一个删除锁。
+#### 任务 4：删除只读锁并创建一个删除锁。
 
 在此任务中，从存储帐户中删除只读锁并创建一个删除锁。 
 
@@ -140,7 +140,7 @@ lab:
 
 1. 单击 **“确定”** 。 
 
-#### <a name="task-5-test-the-delete-lock"></a>任务 5：测试删除锁。
+#### 任务 5：测试删除锁。
 
 在此任务中将测试删除锁。 应该能够修改存储帐户，但不能删除。 
 
@@ -151,8 +151,6 @@ lab:
    >**注意**：这次更改应该会成功。
 
 1. 在“存储帐户”边栏选项卡上，选择“概述”，并在“概述”边栏选项卡，单击“删除”。
-
-1. 在“删除存储帐户”边栏选项卡上，键入打算删除的存储帐户名称以确认，然后单击“删除”。
 
 1. 查看类似于以下文本的通知： 
 

@@ -4,10 +4,10 @@ lab:
   module: Module 01 - Manage Identity and Access
 ---
 
-# <a name="lab-05-azure-ad-privileged-identity-management"></a>实验室 05：Azure AD Privileged Identity Management
-# <a name="student-lab-manual"></a>学生实验室手册
+# 实验室 05：Azure AD Privileged Identity Management
+# 学生实验室手册
 
-## <a name="lab-scenario"></a>实验室方案
+## 实验室方案
 
 你需要创建一个概念证明，使用 Azure Privileged Identity Management (PIM) 来实现实时管理，并控制可以执行特权操作的用户数量。 具体要求是：
 
@@ -20,7 +20,7 @@ lab:
 
 > 在继续之前，请确保已完成“实验室 04：MFA、条件访问和 AAD 标识保护。 你将需要 Azure AD 租户 AdatumLab500-04 以及用户帐户 aaduser1、aaduser2 和 aaduser3。
 
-## <a name="lab-objectives"></a>实验室目标
+## 实验室目标
 
 在本实验室中，你将成功完成以下练习：
 
@@ -28,15 +28,15 @@ lab:
 - 练习 2：激活 PIM 角色，无论经过审批与否。
 - 练习 3：创建访问评审并审查 PIM 审核功能。
 
-## <a name="azure-ad-privileged-identity-management-diagram"></a>Azure AD Privileged Identity Management 示意图
+## Azure AD Privileged Identity Management 示意图
 
 ![image](https://user-images.githubusercontent.com/91347931/157522920-264ce57e-5c55-4a9d-8f35-e046e1a1e219.png)
 
-## <a name="instructions"></a>说明
+## 说明
 
-### <a name="exercise-1---configure-pim-users-and-roles"></a>练习 1 - 配置 PIM 用户和角色
+### 练习 1 - 配置 PIM 用户和角色
 
-#### <a name="estimated-timing-15-minutes"></a>预计用时：15 分钟
+#### 预计用时：15 分钟
 
 在本练习中，你将完成以下任务：
 
@@ -44,7 +44,7 @@ lab:
 - 任务 2：配置角色以要求审批才能激活和添加符合条件的成员。
 - 任务 3：将用户永久分配至角色。 
 
-#### <a name="task-1-make-a-user-eligible-for-a-role"></a>任务 1：确保用户有资格担任相关角色
+#### 任务 1：确保用户有资格担任相关角色
 
 在此任务中，你将使一个用户符合 Azure AD 目录角色的条件。
 
@@ -78,7 +78,7 @@ lab:
 
     >**注意**：登录期间，aaduser2 符合使用计费管理员角色的条件。 
 
-#### <a name="task-2-configure-a-role-to-require-approval-to-activate-and-add-an-eligible-member"></a>任务 2：配置角色，使其需要审批才能激活和添加符合条件的成员
+#### 任务 2：配置角色，使其需要审批才能激活和添加符合条件的成员
 
 1. 在 Azure 门户中，导航回“Privileged Identity Management”边栏选项卡，并单击“Azure AD 角色” 。
 
@@ -116,7 +116,7 @@ lab:
 
     >**注意**：用户 aaduser2 符合全局读取者角色的条件。 
  
-#### <a name="task-3-give-a-user-permanent-assignment-to-a-role"></a>任务 3：将用户永久分配至角色。
+#### 任务 3：将用户永久分配至角色。
 
 1. 在 Azure 门户中，导航回“Privileged Identity Management”边栏选项卡，并单击“Azure AD 角色” 。
 
@@ -136,16 +136,16 @@ lab:
 
     >**注意**：用户 aaduser2 现在永久符合安全管理员角色的条件。
     
-### <a name="exercise-2---activate-pim-roles-with-and-without-approval"></a>练习 2 - 在经过审批和未经审批的情况下激活 PIM 角色
+### 练习 2 - 在经过审批和未经审批的情况下激活 PIM 角色
 
-#### <a name="estimated-timing-15-minutes"></a>预计用时：15 分钟
+#### 预计用时：15 分钟
 
 在本练习中，你将完成以下任务：
 
 - 任务 1：激活不需要审批的角色。 
 - 任务 2：激活需要审批的角色。 
 
-#### <a name="task-1-activate-a-role-that-does-not-require-approval"></a>任务 1：激活不需要审批的角色。
+#### 任务 1：激活不需要审批的角色。
 
 在此任务中，将激活一个不需要审批的角色。
 
@@ -184,7 +184,7 @@ lab:
 12.  在“停用 - 计费管理员”边栏选项卡上，再次单击“停用”以进行确认。
 
 
-#### <a name="task-2-activate-a-role-that-requires-approval"></a>任务 2：激活需要审批的角色。 
+#### 任务 2：激活需要审批的角色。 
 
 在此任务中，将激活需要审批的角色。
 
@@ -248,16 +248,16 @@ lab:
 
 > 结果：你已经练习过在经过审批和未经审批的情况下激活 PIM 角色。 
 
-### <a name="exercise-3---create-an-access-review-and-review-pim-auditing-features"></a>练习 3 - 创建访问评审并查看 PIM 审核功能
+### 练习 3 - 创建访问评审并查看 PIM 审核功能
 
-#### <a name="estimated-timing-10-minutes"></a>预计用时：10 分钟
+#### 预计用时：10 分钟
 
 在本练习中，你将完成以下任务：
 
 - 任务 1：在 PIM 中为 Azure AD 目录角色配置安全警报
 - 任务 2：查看 PIM 警报、摘要信息和详细的审核信息
 
-#### <a name="task-1-configure-security-alerts-for-azure-ad-directory-roles-in-pim"></a>任务 1：在 PIM 中为 Azure AD 目录角色配置安全警报
+#### 任务 1：在 PIM 中为 Azure AD 目录角色配置安全警报
 
 在此任务中，将减少与“过期”角色分配相关的风险。 为此，将通过创建 PIM 访问评审来确保分配的角色仍然有效。 具体来说，将审查全局读取者角色。 
 
@@ -315,7 +315,7 @@ lab:
 
 19. 选择代表“全局读取者”评审的条目。 请注意“进度”图已更新以显示你的评审。 
 
-#### <a name="task-2-review-pim-alerts-summary-information-and-detailed-audit-information"></a>任务 2：查看 PIM 警报、摘要信息和详细的审核信息。 
+#### 任务 2：查看 PIM 警报、摘要信息和详细的审核信息。 
 
 在此任务中，你将查看 PIM 警报、摘要信息和详细的审核信息。 
 

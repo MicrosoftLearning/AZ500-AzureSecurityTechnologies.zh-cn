@@ -4,10 +4,10 @@ lab:
   module: Module 02 - Implement Platform Protection
 ---
 
-# <a name="lab-08-azure-firewall"></a>实验室 08：Azure 防火墙
-# <a name="student-lab-manual"></a>学生实验室手册
+# 实验室 08：Azure 防火墙
+# 学生实验室手册
 
-## <a name="lab-scenario"></a>实验室方案
+## 实验室方案
 
 已要求你安装 Azure 防火墙。 帮助你组织控制进出站网络访问，而这是整个网络安全计划的重要组成部分。 具体来说，你想创建和测试以下基础结构组件：
 
@@ -19,25 +19,25 @@ lab:
 
 > 对于本实验室中的所有资源，我们使用“美国东部”区域。 请与讲师确认这是课堂上所使用的区域。 
 
-## <a name="lab-objectives"></a>实验室目标
+## 实验室目标
 
 在本实验室中，你将完成以下练习：
 
 - 练习 1：部署和测试 Azure 防火墙
 
-## <a name="azure-firewall-diagram"></a>Azure 防火墙示意图
+## Azure 防火墙示意图
 
 ![image](https://user-images.githubusercontent.com/91347931/157529954-a1bc434b-2eca-41c1-b875-1f0c977d5e20.png)
 
-## <a name="instructions"></a>说明
+## Instructions
 
-## <a name="lab-files"></a>实验室文件：
+## 实验室文件：
 
 - \\Allfiles\\Labs\\08\\template.json
 
-### <a name="exercise-1-deploy-and-test-an-azure-firewall"></a>练习 1：部署和测试 Azure 防火墙
+### 练习 1：部署和测试 Azure 防火墙
 
-### <a name="estimated-timing-40-minutes"></a>预计用时：40 分钟
+### 预计用时：40 分钟
 
 > 对于本实验室中的所有资源，我们使用“美国东部”区域。 与你的教师确认这是你上课时使用的区域。 
 
@@ -51,7 +51,7 @@ lab:
 - 任务 6：配置 DNS 服务器。
 - 任务 7：测试防火墙。 
 
-#### <a name="task-1-use-a-template-to-deploy-the-lab-environment"></a>任务 1：使用模板部署实验室环境。 
+#### 任务 1：使用模板部署实验室环境。 
 
 在此任务中将检查并部署实验室环境。 
 
@@ -85,7 +85,7 @@ lab:
 
     >备注：请等待部署完成。 这大约需要 2 分钟。 
 
-#### <a name="task-2-deploy-the-azure-firewall"></a>任务 2：部署 Azure 防火墙
+#### 任务 2：部署 Azure 防火墙
 
 在此任务中，你需要在虚拟网络中部署 Azure 防火墙 。 
 
@@ -100,7 +100,7 @@ lab:
    |资源组|AZ500LAB08|
    |名称|**Test-FW01**|
    |区域|**（美国）美国东部**|
-   |防火墙层|**标准**|
+   |防火墙 SKU|**标准**|
    |防火墙管理|使用“防火墙规则(经典)”来管理此防火墙|
    |选择虚拟网络|单击“使用现有”选项，然后在下拉列表中选择“Test-FW-VN”|
    |公共 IP 地址|单击“添加新的”，键入名称“TEST-FW-PIP”，然后单击“确定”|
@@ -122,7 +122,7 @@ lab:
     >**注意**：你将需要在下一个任务中使用此信息。
 
 
-#### <a name="task-3-create-a-default-route"></a>任务 3：创建一个默认路由
+#### 任务 3：创建一个默认路由
 
 在此任务中，你将为“Workload-SN”子网创建默认路由。 此路由将配置通过防火墙的出站流量。
 
@@ -172,7 +172,7 @@ lab:
 11.  单击“添加”以添加路由。 
 
 
-#### <a name="task-4-configure-an-application-rule"></a>任务 4：配置应用程序规则
+#### 任务 4：配置应用程序规则
 
 在此任务中，你将创建一个应用程序规则，允许到 `www.bing.com` 的出站访问。
 
@@ -204,7 +204,7 @@ lab:
 
     >**注意**：Azure 防火墙包含默认情况下允许基础架构 FQDN 的内置规则集合。 这些 FQDN 特定于平台，不能用于其他目的。 
 
-#### <a name="task-5-configure-a-network-rule"></a>任务 5：配置网络规则
+#### 任务 5：配置网络规则
 
 在此任务中，你将创建一个网络规则，允许出站访问端口 53 (DNS) 上的两个 IP 地址。
 
@@ -236,7 +236,7 @@ lab:
 
     >**注意**：在这种情况下使用的目标地址是已知的公共 DNS 服务器。 
 
-#### <a name="task-6-configure-the-virtual-machine-dns-servers"></a>任务 6：配置虚拟机 DNS 服务器
+#### 任务 6：配置虚拟机 DNS 服务器
 
 在此任务中，你将为虚拟机配置主要和辅助 DNS 地址。 这不是防火墙要求。 
 
@@ -256,7 +256,7 @@ lab:
 
     >**注意**：更新网络接口的 DNS 服务器将自动重新启动该接口所连接的虚拟机，如果适用，还会重新启动相同可用性集中的其他虚拟机。
 
-#### <a name="task-7-test-the-firewall"></a>任务 7：测试防火墙
+#### 任务 7：测试防火墙
 
 在此任务中，你将测试防火墙，确认其是否按预期工作。
 
