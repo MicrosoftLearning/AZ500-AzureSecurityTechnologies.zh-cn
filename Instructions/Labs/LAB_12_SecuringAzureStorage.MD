@@ -4,10 +4,10 @@ lab:
   module: Module 03 - Secure data and applications
 ---
 
-# <a name="lab-12-service-endpoints-and-securing-storage"></a>实验室 12：服务终结点和保护存储
-# <a name="student-lab-manual"></a>学生实验室手册
+# 实验室 12：服务终结点和保护存储
+# 学生实验室手册
 
-## <a name="lab-scenario"></a>实验室方案
+## 实验室方案
 
 你需要创建一个概念证明来演示如何保护 Azure 文件共享。 具体来说，你需要：
     
@@ -17,21 +17,21 @@ lab:
 
 > 对于本实验室中的所有资源，我们使用“美国东部”区域。 请与讲师确认这是课堂上所使用的区域。 
 
-## <a name="lab-objectives"></a>实验室目标
+## 实验室目标
 
 在本实验室中，你将完成以下练习：
 
 - 练习 1：服务终结点和安全存储
 
-## <a name="service-endpoints-and-securing-storage-diagram"></a>服务终结点和安全存储示意图
+## 服务终结点和安全存储示意图
 
 ![image](https://user-images.githubusercontent.com/91347931/157534883-29664a05-85d1-4c70-99a7-f16d2360755d.png)
 
-## <a name="instructions"></a>说明
+## 说明
 
-### <a name="exercise-1-service-endpoints-and-security-storage"></a>练习 1：服务终结点和安全存储
+### 练习 1：服务终结点和安全存储
 
-### <a name="estimated-timing-45-minutes"></a>预计用时：45 分钟
+### 预计用时：45 分钟
 
 在本练习中，你将完成以下任务：
 
@@ -44,7 +44,7 @@ lab:
 - 任务 7：测试来自专用子网的存储连接，以确认允许访问
 - 任务 8：测试来自公共子网的存储连接，以确认访问被拒绝 
 
-#### <a name="task-1-create-a-virtual-network"></a>任务 1：创建虚拟网络
+#### 任务 1：创建虚拟网络
 
 在此任务中，你将创建一个虚拟网络。
 
@@ -58,7 +58,7 @@ lab:
 
 4. 在“创建虚拟网络”边栏选项卡的“基本信息”选项卡上，指定以下设置（其他设置保留默认值），然后单击“下一步:   IP 地址”：
 
-    |设置|值|
+    |设置|Value|
     |---|---|
     |订阅|你在此实验室中使用的 Azure 订阅的名称|
     |资源组|单击“新建”并键入名称 AZ500LAB12|
@@ -76,7 +76,7 @@ lab:
 
 7. 在“创建虚拟网络”边栏选项卡的“查看 + 创建”选项卡中，单击“创建”。
 
-#### <a name="task-2-add-a-subnet-to-the-virtual-network-and-configure-a-storage-endpoint"></a>任务 2：将子网添加到虚拟网络并配置存储终结点
+#### 任务 2：将子网添加到虚拟网络并配置存储终结点
 
 在此任务中，你将创建另一个子网并在该子网上启用服务终结点。 每个服务、每个子网均启用服务终结点。 
 
@@ -100,7 +100,7 @@ lab:
 
     >**注意**：虚拟网络现在有两个子网：公用和专用。 
     
-#### <a name="task-3-configure-a-network-security-group-to-restrict-access-to-the-subnet"></a>任务 3：配置网络安全组以限制对子网的访问
+#### 任务 3：配置网络安全组以限制对子网的访问
 
 在此任务中，你将创建一个网络安全组，其中包含两个出站安全规则（存储和 Internet）和一个入站安全规则 (RDP)。 你还将网络安全组与专用子网相关联。 这将限制来自连接到该子网的 Azure VM 的出站流量。
 
@@ -110,7 +110,7 @@ lab:
 
 3. 在“创建网络安全组”边栏选项卡的“基本”选项卡中，指定以下设置： 
 
-    |设置|值|
+    |设置|Value|
     |---|---|
     |订阅|你在此实验室中使用的 Azure 订阅的名称|
     |资源组|AZ500LAB12|
@@ -129,7 +129,7 @@ lab:
 
 8. 在“添加出站安全规则”边栏选项卡上，请指定以下设置以显式允许到 Azure 存储的出站流量（将所有其他值保留为其默认设置）： 
 
-    |设置|值|
+    |设置|Value|
     |---|---|
     |源|**服务标记**|
     |源服务标记|**VirtualNetwork**|
@@ -192,7 +192,7 @@ lab:
     |虚拟网络|**myVirtualNetwork**|
     |子网|**专用**|
 
-#### <a name="task-4-configure-a-network-security-group-to-allow-rdp-on-the-public-subnet"></a>任务 4：配置网络安全组以支持公共子网上的 rdp
+#### 任务 4：配置网络安全组以支持公共子网上的 rdp
 
 在本任务中，将创建使用一个入站安全规则 (RDP) 的网络安全组。 并将网络安全组与公共子网相关联。 这可支持 RDP 访问公共 VM。
 
@@ -242,7 +242,7 @@ lab:
     |虚拟网络|**myVirtualNetwork**|
     |子网|**公共**|
     
-#### <a name="task-5-create-a-storage-account-with-a-file-share"></a>任务 5：使用文件共享创建存储帐户
+#### 任务 5：使用文件共享创建存储帐户
 
 在此任务中，你将创建一个具有文件共享的存储帐户并获取存储帐户密钥。  
 
@@ -309,7 +309,7 @@ lab:
 
     >**注意**：至此，你已在实验室中配置虚拟网络、网络安全组和具有文件共享的存储帐户。 
 
-#### <a name="task-6-deploy-virtual-machines-into-the-designated-subnets"></a>任务 6：将虚拟机部署到指定的子网中
+#### 任务 6：将虚拟机部署到指定的子网中
 
 在此任务中，你将创建两个虚拟机，一个在专用子网中，一个在公共子网中。 
 
@@ -387,7 +387,7 @@ lab:
 
     >**注意**：myVMPrivate Azure VM 部署完成后就可以继续下一个任务。
 
-#### <a name="task-7-test-the-storage-connection-from-the-private-subnet-to-confirm-that-access-is-allowed"></a>任务 7：测试来自专用子网的存储连接，以确认允许访问
+#### 任务 7：测试来自专用子网的存储连接，以确认允许访问
 
 在此任务中，你将通过远程桌面连接到 myVMPrivate 虚拟机，并将驱动器映射到文件共享。 
 
@@ -439,7 +439,7 @@ lab:
 
     >**注意**：至此，你已确认专用子网中的虚拟机可以访问存储帐户。 
 
-####  <a name="task-8-test-the-storage-connection-from-the-public-subnet-to-confirm-that-access-is-denied"></a>任务 8：测试来自公共子网的存储连接，以确认访问被拒绝 
+####  任务 8：测试来自公共子网的存储连接，以确认访问被拒绝 
 
 1. 导航回“虚拟机”边栏选项卡。 
 
