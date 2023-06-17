@@ -4,10 +4,10 @@ lab:
   module: Module 04 - Manage Security Operations
 ---
 
-# <a name="lab-15-microsoft-sentinel"></a>实验室 15：Microsoft Sentinel
-# <a name="student-lab-manual"></a>学生实验室手册
+# 实验室 15：Microsoft Sentinel
+# 学生实验室手册
 
-## <a name="lab-scenario"></a>实验室方案
+## 实验室方案
 
 **注意：** Azure Sentinel 现更名为 Microsoft Sentinel 
 
@@ -19,25 +19,25 @@ lab:
 
 > 对于本实验室中的所有资源，我们使用“美国东部”区域。 请与讲师确认这是课堂上所使用的区域。 
 
-## <a name="lab-objectives"></a>实验室目标
+## 实验室目标
 
 在本实验室中，你将完成以下练习：
 
 - 练习 1：实现 Microsoft Sentinel
 
-## <a name="microsoft-sentinel-diagram"></a>Microsoft Sentinel 示意图
+## Microsoft Sentinel 示意图
 
 ![image](https://user-images.githubusercontent.com/91347931/157538440-4953be73-90be-4edd-bd23-b678326ba637.png)
 
-## <a name="instructions"></a>Instructions
+## Instructions
 
-## <a name="lab-files"></a>实验室文件：
+## 实验室文件：
 
 - \\Allfiles\\Labs\\15\\changeincidentseverity.json
 
-### <a name="exercise-1-implement-microsoft-sentinel"></a>练习 1：实现 Microsoft Sentinel
+### 练习 1：实现 Microsoft Sentinel
 
-### <a name="estimated-timing-30-minutes"></a>预计用时：30 分钟
+### 预计用时：30 分钟
 
 在本练习中，你将完成以下任务：
 
@@ -48,7 +48,7 @@ lab:
 - 任务 5：创建自定义警报，并将 Playbook 配置为自动响应。
 - 任务 6：调用事件并查看关联操作。
 
-#### <a name="task-1-on-board-azure-sentinel"></a>任务 1：加入 Azure Sentinel
+#### 任务 1：加入 Azure Sentinel
 
 在此任务中，你将加入 Microsoft Sentinel 并连接 Log Analytics 工作区。 
 
@@ -66,7 +66,7 @@ lab:
 
     >**注意**：Microsoft Sentinel 对工作区有非常具体的要求。 例如，不能使用由 Microsoft Defender for Cloud 创建的工作区。 有关更多内容，请访问[快速入门：加入 Azure Sentinel](https://docs.microsoft.com/en-us/azure/sentinel/quickstart-onboard)
     
-#### <a name="task-2-configure-microsoft-sentinel-to-use-the-azure-activity-data-connector"></a>任务 2：配置 Microsoft Sentinel 以使用 Azure 活动数据连接器。 
+#### 任务 2：配置 Microsoft Sentinel 以使用 Azure 活动数据连接器。 
 
 在此任务中，你将配置 Sentinel 以使用 Azure 活动数据连接器。  
 
@@ -96,7 +96,7 @@ lab:
 
     >**注意**：可能需要等待 15 分钟以上，“状态”才会显示“已连接”并且图形显示“数据已接收”。
 
-#### <a name="task-3-create-a-rule-that-uses-the-azure-activity-data-connector"></a>任务 3：创建一个使用 Azure 活动数据连接器的规则。 
+#### 任务 3：创建一个使用 Azure 活动数据连接器的规则。 
 
 在此任务中，你将查看并创建一个使用 Azure 活动数据连接器的规则。 
 
@@ -124,7 +124,7 @@ lab:
 
     >**注意**：你现在有一个可用规则。
 
-#### <a name="task-4-create-a-playbook"></a>任务 4：创建 Playbook
+#### 任务 4：创建 Playbook
 
 在此任务中，你将创建 Playbook。 安全剧本是由 Microsoft Sentinel 调用以响应警报的任务集合。 
 
@@ -176,7 +176,7 @@ lab:
 
 16. 在“逻辑应用设计器”边栏选项卡上，单击“保存”保存更改。
 
-#### <a name="task-5-create-a-custom-alert-and-configure-a-playbook-as-an-automated-response"></a>任务 5：创建自定义警报并将 playbook 配置为自动响应
+#### 任务 5：创建自定义警报并将 playbook 配置为自动响应
 
 1. 在 Azure 门户中，导航回“Microsoft Sentinel \| 概述”边栏选项卡。
 
@@ -218,7 +218,7 @@ lab:
 
     >**注意**：你现在有一个名为 Playbook 演示的新可用规则。 如果发生由规则逻辑识别的事件，则将导致中等严重性警报，并生成相应的事件。
 
-#### <a name="task-6-invoke-an-incident-and-review-the-associated-actions"></a>任务 6：调用事件并查看关联操作。
+#### 任务 6：调用事件并查看关联操作。
 
 1. 在 Azure 门户中，导航到“Microsoft Defender For Cloud \| 概述”边栏选项卡。
 

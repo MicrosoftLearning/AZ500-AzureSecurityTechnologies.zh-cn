@@ -4,10 +4,10 @@ lab:
   module: Module 01 - Manage Identity and Access
 ---
 
-# <a name="lab-02-azure-policy"></a>实验室 02：Azure Policy
-# <a name="student-lab-manual"></a>学生实验室手册
+# 实验室 02：Azure Policy
+# 学生实验室手册
 
-## <a name="lab-scenario"></a>实验室方案
+## 实验室方案
 
 你需要创建一个显示如何使用 Azure Policy 的概念证明。 具体而言，需要：
 
@@ -16,21 +16,21 @@ lab:
 
 > 对于本实验室中的所有资源，我们使用“美国东部”区域。 请与讲师确认这是课堂上所使用的区域。 
 
-## <a name="lab-objectives"></a>实验室目标
+## 实验室目标
 
 在本实验室中将完成以下任务：
 
 - 练习 1：实现 Azure Policy。 
 
-## <a name="azure-policy-diagram"></a>Azure Policy 示意图
+## Azure Policy 示意图
 
 ![image](https://user-images.githubusercontent.com/91347931/157511920-19c1f06c-86bd-440d-80ac-d96aa27aefff.png)
 
-## <a name="instructions"></a>说明
+## 说明
 
-### <a name="exercise-1-implement-azure-policy"></a>练习 1：实现 Azure Policy
+### 练习 1：实现 Azure Policy
 
-#### <a name="estimated-timing-20-minutes"></a>预计用时：20 分钟
+#### 预计用时：20 分钟
 
 在本练习中，你将完成以下任务：
 
@@ -38,7 +38,7 @@ lab:
 - 任务 2：创建“允许位置”策略分配。
 - 任务 3：验证“允许的位置”策略分配是否正常工作。 
 
-#### <a name="task-1-create-a-resource-group-for-the-lab"></a>任务 1：为本实验室创建资源组。 
+#### 任务 1：为本实验室创建资源组。 
 
 在此任务中，你将为本实验室创建一个资源组。 
 
@@ -69,7 +69,7 @@ lab:
 
 1. 关闭 Cloud Shell。
 
-#### <a name="task-2-create-an-allowed-locations-policy-assignment"></a>任务 2：创建“允许位置”策略分配。
+#### 任务 2：创建“允许位置”策略分配。
 
 在此任务中，你将创建“允许位置”策略分配，并指定该策略可以使用哪个 Azure 区域。 
 
@@ -118,7 +118,7 @@ lab:
 
    >**注意**：Azure Policy 分配最长可能需要 30 分钟才能生效的原因是必须全局复制。 通常这只需要几分钟。  如果下一个任务失败，只需等待几分钟，然后再次尝试其步骤。
 
-#### <a name="task-3-test-the-allowed-locations-policy-assignment"></a>任务 3：测试“允许位置”策略分配。
+#### 任务 3：测试“允许位置”策略分配。
 
 在此任务中，你将测试“允许位置”策略分配。 
 

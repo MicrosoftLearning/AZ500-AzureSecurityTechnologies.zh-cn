@@ -4,10 +4,10 @@ lab:
   module: Module 01 - Manage Identity and Access
 ---
 
-# <a name="lab-01-role-based-access-control"></a>实验室 01：基于角色的访问控制
-# <a name="student-lab-manual"></a>学生实验室手册
+# 实验室 01：基于角色的访问控制
+# 学生实验室手册
 
-## <a name="lab-scenario"></a>实验室方案
+## 实验室方案
 
 你需要创建一个显示如何创建 Azure 用户和组的概念证明。 此外，如何使用基于角色的访问控制将角色分配给组。 具体而言，需要：
 
@@ -18,7 +18,7 @@ lab:
 
 > 对于本实验室中的所有资源，我们使用“美国东部”区域。 请与讲师确认这是课堂上所使用的区域。 
 
-## <a name="lab-objectives"></a>实验室目标
+## 实验室目标
 
 在本实验室中，你将成功完成以下练习：
 
@@ -27,22 +27,22 @@ lab:
 - 练习 3：创建服务台组，以用户 Dylan Williams 作为其组成员 (Azure CLI) 。 
 - 练习 4：将虚拟机参与者角色分配给“服务台”组。
 
-## <a name="role-based-access-control-architecture-diagram"></a>基于角色的访问控制体系结构示意图
+## 基于角色的访问控制体系结构示意图
 
 ![image](https://user-images.githubusercontent.com/91347931/157751243-5aa6e521-9bc1-40af-839b-4fd9927479d7.png)
 
-## <a name="instructions"></a>Instructions
+## Instructions
 
-### <a name="exercise-1-create-the-senior-admins-group-with-the-user-account-joseph-price-as-its-member"></a>练习 1：创建高级管理员组，以用户帐户 Joseph Price 作为其组成员。 
+### 练习 1：创建高级管理员组，以用户帐户 Joseph Price 作为其组成员。 
 
-#### <a name="estimated-timing-10-minutes"></a>预计用时：10 分钟
+#### 预计用时：10 分钟
 
 在本练习中，你将完成以下任务：
 
 - 任务 1：使用 Azure 门户为 Joseph Price 创建一个存储帐户。
 - 任务 2：使用 Azure 门户创建高级管理员组，并将 Joseph Price 用户帐户添加到该组。
 
-#### <a name="task-1-use-the-azure-portal-to-create-a-user-account-for-joseph-price"></a>任务 1：使用 Azure 门户为 Joseph Price 创建一个存储帐户 
+#### 任务 1：使用 Azure 门户为 Joseph Price 创建一个存储帐户 
 
 在此任务中，你将为 Joseph Price 创建一个用户帐户。 
 
@@ -69,7 +69,7 @@ lab:
 
 8. 刷新“用户 \| 全部用户”边栏选项卡，验证新用户是否已在 Azure AD 租户中创建。
 
-#### <a name="task2-use-the-azure-portal-to-create-a-senior-admins-group-and-add-the-user-account-of-joseph-price-to-the-group"></a>任务 2：使用 Azure 门户创建高级管理员组，并将 Joseph Price 用户帐户添加到该组。
+#### 任务 2：使用 Azure 门户创建高级管理员组，并将 Joseph Price 用户帐户添加到该组。
 
 在此任务中，你将创建高级管理员组，并将 Joseph Price 用户帐户添加到该组中，然后将其配置为组所有者。
 
@@ -93,16 +93,16 @@ lab:
 
 > 结果：你使用 Azure 门户创建了一个用户和一个组，并将该用户分配给了该组。 
 
-### <a name="exercise-2-create-a-junior-admins-group-containing-the-user-account-of-isabel-garcia-as-its-member"></a>练习 2：创建一个初级管理员组，其中包含 Isabel Garcia 的用户帐户作为该组的成员。
+### 练习 2：创建一个初级管理员组，其中包含 Isabel Garcia 的用户帐户作为该组的成员。
 
-#### <a name="estimated-timing-10-minutes"></a>预计用时：10 分钟
+#### 预计用时：10 分钟
 
 在本练习中，你将完成以下任务：
 
 - 任务 1：使用 PowerShell 为 Isabel Garcia 创建一个用户帐户。
 - 任务 2：使用 PowerShell 创建初级管理员组，并将 Isabel Garcia 用户帐户添加到该组。 
 
-#### <a name="task-1-use-powershell-to-create-a-user-account-for-isabel-garcia"></a>任务 1：使用 PowerShell 为 Isabel Garcia 创建一个用户帐户。
+#### 任务 1：使用 PowerShell 为 Isabel Garcia 创建一个用户帐户。
 
 在此任务中，你将使用 PowerShell 为 Isabel Garcia 创建一个用户帐户。
 
@@ -147,7 +147,7 @@ lab:
     Get-AzureADUser 
     ```
 
-#### <a name="task2-use-powershell-to-create-the-junior-admins-group-and-add-the-user-account-of-isabel-garcia-to-the-group"></a>任务 2：使用 PowerShell 创建初级管理员组，并将 Isabel Garcia 用户帐户添加到该组。
+#### 任务 2：使用 PowerShell 创建初级管理员组，并将 Isabel Garcia 用户帐户添加到该组。
 
 在此任务中，你将创建初级管理员组，并使用 PowerShell 将 Isabel Garcia 用户帐户添加到该组。
 
@@ -184,16 +184,16 @@ lab:
 > 结果：你使用 PowerShell 创建了一个用户帐户和一个组帐户，并将该用户帐户添加到该组帐户中。 
 
 
-### <a name="exercise-3-create-a-service-desk-group-containing-the-user-account-of-dylan-williams-as-its-member"></a>练习 3：创建一个服务台组，其中包含 Dylan Williams 用户帐户作为该组的成员。
+### 练习 3：创建一个服务台组，其中包含 Dylan Williams 用户帐户作为该组的成员。
 
-#### <a name="estimated-timing-10-minutes"></a>预计用时：10 分钟
+#### 预计用时：10 分钟
 
 在本练习中，你将完成以下任务：
 
 - 任务 1：使用 Azure CLI 为 Dylan Williams 创建用户帐户。
-- 任务 2：使用 Azure CLI 创建服务台组并在该组织推荐 Dylan 用户帐户。 
+- 任务 2：使用 Azure CLI 创建服务台组并在该组织包含 Dylan 用户帐户。 
 
-#### <a name="task-1-use-azure-cli-to-create-a-user-account-for-dylan-williams"></a>任务 1：使用 Azure CLI 为 Dylan Williams 创建用户帐户。
+#### 任务 1：使用 Azure CLI 为 Dylan Williams 创建用户帐户。
 
 在此任务中要为 Dylan Williams 创建用户帐户。
 
@@ -217,7 +217,7 @@ lab:
     az ad user list --output table
     ```
 
-#### <a name="task-2-use-azure-cli-to-create-the-service-desk-group-and-add-the-user-account-of-dylan-to-the-group"></a>任务 2：使用 Azure CLI 创建服务台组并在该组织推荐 Dylan 用户帐户。 
+#### 任务 2：使用 Azure CLI 创建服务台组并在该组织推荐 Dylan 用户帐户。 
 
 在此任务中，你将创建服务台组并将 Dylan 分配给该组。 
 
@@ -262,16 +262,16 @@ lab:
 > 结果：使用 Azure CLI，你创建了一个用户帐户和一个组帐户，并将该用户帐户添加到了该组中。 
 
 
-### <a name="exercise-4-assign-the-virtual-machine-contributor-role-to-the-service-desk-group"></a>练习 4：将虚拟机参与者角色分配给“服务台”组。
+### 练习 4：将虚拟机参与者角色分配给“服务台”组。
 
-#### <a name="estimated-timing-10-minutes"></a>预计用时：10 分钟
+#### 预计用时：10 分钟
 
 在本练习中，你将完成以下任务：
 
 - 任务 1：创建资源组。 
 - 任务 2：将服务台虚拟机参与者权限分配给该资源组。  
 
-#### <a name="task-1-create-a-resource-group"></a>任务 1：创建资源组
+#### 任务 1：创建资源组
 
 1. 在 Azure 门户页面顶部的“搜索资源、服务和文档”文本框中，键入“资源组”，然后按 Enter 键  。
 
@@ -290,7 +290,7 @@ lab:
 4. 返回“资源组”边栏选项卡，刷新页面并验证新资源组是否出现在资源组列表中。
 
 
-#### <a name="task-2-assign-the-service-desk-virtual-machine-contributor-permissions"></a>任务 2：分配服务台虚拟机参与者权限。 
+#### 任务 2：分配服务台虚拟机参与者权限。 
 
 1. 在“资源组”边栏选项卡上，单击“AZ500LAB01”资源组条目。
 
