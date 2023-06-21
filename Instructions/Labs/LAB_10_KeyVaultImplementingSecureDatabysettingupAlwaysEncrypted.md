@@ -4,10 +4,10 @@ lab:
   module: Module 03 - Secure Data and Applications
 ---
 
-# <a name="lab-10-key-vault-implementing-secure-data-by-setting-up-always-encrypted"></a>实验室 10：密钥保管库（通过设置 Always Encrypted 来实现安全数据）
-# <a name="student-lab-manual"></a>学生实验室手册
+# 实验室 10：密钥保管库（通过设置 Always Encrypted 来实现安全数据）
+# 学生实验室手册
 
-## <a name="lab-scenario"></a>实验室方案
+## 实验室方案
 
 你被要求创建一个概念证明应用程序，该应用程序将利用 Azure SQL 数据库对 Always Encrypted 功能的支持。 此方案中使用的所有机密和密钥应存储在密钥保管库中。 应在 Azure Active Directory（Azure AD）中注册该应用程序，以增强其安全状况。 为了实现这些目标，概念证明应包括：
 
@@ -18,7 +18,7 @@ lab:
 
 为了始终专注于与构建此概念验证相关的 Azure 的安全性，将从自动化 ARM 模板部署开始，使用 Visual Studio 2019 和 SQL Server Management Studio 2018 设置虚拟机。
 
-## <a name="lab-objectives"></a>实验室目标
+## 实验室目标
 
 在本实验室中，你将成功完成以下练习：
 
@@ -27,27 +27,27 @@ lab:
 - 练习 3：配置 Azure SQL 数据库和数据驱动的应用程序
 - 练习 4：演示如何在加密 Azure SQL 数据库的过程中使用 Azure 密钥保管库
 
-## <a name="key-vault-diagram"></a>密钥保管库示意图
+## 密钥保管库示意图
 
 ![image](https://user-images.githubusercontent.com/91347931/157532938-c724cc40-f64f-4d69-9e91-d75344c5e0a2.png)
 
-## <a name="instructions"></a>Instructions
+## Instructions
 
-## <a name="lab-files"></a>实验室文件：
+## 实验室文件：
 
 - \\Allfiles\\Labs\\10\\az-500-10_azuredeploy.json
 
 - \\Allfiles\\Labs\\10\\program.cs
 
-### <a name="total-lab-time-estimate-60-minutes"></a>实验室总时间估算：60 分钟
+### 实验室总时间估算：60 分钟
 
-### <a name="exercise-1-deploy-the-base-infrastructure-from-an-arm-template"></a>练习 1：通过 ARM 模板部署基础基础结构
+### 练习 1：通过 ARM 模板部署基础基础结构
 
 在本练习中，你将完成以下任务：
 
 - 任务 1：部署 Azure VM 和 Azure SQL 数据库
 
-#### <a name="task-1-deploy-an-azure-vm-and-an-azure-sql-database"></a>任务 1：部署 Azure VM 和 Azure SQL 数据库
+#### 任务 1：部署 Azure VM 和 Azure SQL 数据库
 
 在此任务中，你将部署 Azure VM，这将在部署过程中自动安装 Visual Studio 2019 和 SQL Server Management Studio 2018。 
 
@@ -65,7 +65,7 @@ lab:
 
 6. 在“自定义部署”边栏选项卡的“部署范围”下，请确保已配置以下设置（将其他设置保留为默认值）：
 
-   |设置|值|
+   |设置|Value|
    |---|---|
    |订阅|将在此实验室中使用的 Azure 订阅的名称|
    |资源组|单击“新建”并键入名称“AZ500LAB10”|
@@ -83,7 +83,7 @@ lab:
 
     >**注意**：不要等待 ARM 模板部署完成，而是继续下一个练习。 该部署可能需要 20-25 分钟。 
 
-### <a name="exercise-2-configure-the-key-vault-resource-with-a-key-and-a-secret"></a>练习 2：使用密钥和机密配置密钥保管库资源
+### 练习 2：使用密钥和机密配置密钥保管库资源
 
 >**注意**：对于本实验室中的所有资源，我们使用“美国东部”区域。 与你的教师确认这是你上课时使用的区域。 
 
@@ -93,7 +93,7 @@ lab:
 - 任务 2：将密钥添加到密钥保管库
 - 任务 3：向密钥保管库添加机密
 
-#### <a name="task-1-create-and-configure-a-key-vault"></a>任务 1：创建并配置密钥保管库。
+#### 任务 1：创建并配置密钥保管库。
 
 在此任务中，你将创建 Azure 密钥保管库资源， 还将配置 Azure 密钥保管库权限。
 
@@ -128,7 +128,8 @@ lab:
     |设置|值|
     |----|----|
     |从模板配置（可选）|密钥、机密和证书管理|
-    |密钥权限|单击“全选”会选中 12 个权限（确保“轮换策略操作”的权限处于未选中状态）    |
+    |密钥权限|单击“全选”，总共会选中 9 个权限 |
+    |密钥权限/加密操作|单击“签名”，总共会选中 1 个权限 |
     |机密权限|单击“全选”，总共会选中 7 个权限 |
     |证书权限|单击“全选”，总共会选中 15 个权限 |
     |选择主体|单击“未选择”，在“主体”边栏选项卡，选择你的用户帐户，然后单击“下一步”  |
@@ -137,7 +138,7 @@ lab:
     
     >注意：前面的“查看 + 创建”操作将返回到“访问策略”页，其中列出了“应用程序”、“电子邮件”、“密钥权限”、“机密权限”和“证书权限”。
       
-#### <a name="task-2-add-a-key-to-key-vault"></a>任务 2：向密钥保管库中添加密钥
+#### 任务 2：向密钥保管库中添加密钥
 
 在此任务中，你将向密钥保管库添加密钥并查看有关该密钥的信息。 
 
@@ -178,7 +179,7 @@ lab:
     >**注意**：你可以使用密钥标识符来引用任何密钥。 若要获取最新版本，请引用 `https://<key_vault_name>.vault.azure.net/keys/MyLabKey`，或通过 `https://<key_vault_name>.vault.azure.net/keys/MyLabKey/<key_version>` 获取具体版本
 
 
-#### <a name="task-3-add-a-secret-to-key-vault"></a>任务 3：向密钥保管库添加机密
+#### 任务 3：向密钥保管库添加机密
 
 1. 切换回 Cloud Shell 窗格。
 
@@ -213,7 +214,7 @@ lab:
     >**注意**：若要获取最新机密版本，请引用 `https://<key_vault_name>.vault.azure.net/secrets/<secret_name>`，或通过引用 `https://<key_vault_name>.vault.azure.net/secrets/<secret_name>/<secret_version>` 获取具体版本
 
 
-### <a name="exercise-3-configure-an-azure-sql-database-and-a-data-driven-application"></a>练习 3：配置 Azure SQL 数据库和数据驱动的应用程序
+### 练习 3：配置 Azure SQL 数据库和数据驱动的应用程序
 
 在本练习中，你将完成以下任务：
 
@@ -224,7 +225,7 @@ lab:
 - 任务 5：在 SQL 数据库中创建一个表，然后选择要加密的数据列
 
 
-#### <a name="task-1-enable-a-client-application-to-access-the-azure-sql-database-service"></a>任务 1：启用客户端应用程序访问 Azure SQL 数据库服务。 
+#### 任务 1：启用客户端应用程序访问 Azure SQL 数据库服务。 
 
 在此任务中，可启用客户端应用程序访问 Azure SQL 数据库服务。 通过设置所需的身份验证并获取验证应用程序所需的应用程序 ID 和密钥来完成此操作。
 
@@ -234,7 +235,7 @@ lab:
 
 3. 在“注册应用程序”边栏选项卡，指定以下设置（所有其他设置保留为默认值）：
 
-    |设置|值|
+    |设置|Value|
     |----|----|
     |名称|sqlApp|
     |重定向 URI（可选）|Web 和 https://sqlapp |
@@ -253,7 +254,7 @@ lab:
 
 8. 在“添加客户端机密”窗格中，指定以下设置：
 
-    |设置|值|
+    |设置|Value|
     |----|----|
     |说明|**Key1**|
     |Expires|**12 个月**|
@@ -267,7 +268,7 @@ lab:
     >**注意**：请确保在离开边栏选项卡之前复制该值。 完成后，将不再可能检索其明文值。
 
 
-#### <a name="task-2-create-a-policy-allowing-the-application-access-to-the-key-vault"></a>任务 2：创建一个允许应用程序访问密钥保管库的策略。
+#### 任务 2：创建一个允许应用程序访问密钥保管库的策略。
 
 在此任务中，将授予新注册的应用访问存储在密钥保管库中的机密的权限。
 
@@ -296,7 +297,7 @@ lab:
 6. 关闭 Cloud Shell 窗格。 
 
 
-#### <a name="task-3-retrieve-sql-azure-database-adonet-connection-string"></a>任务 3：检索 SQL Azure 数据库 ADO.NET 连接字符串 
+#### 任务 3：检索 SQL Azure 数据库 ADO.NET 连接字符串 
 
 练习 1 中的 ARM 模板部署预配了一个 Azure SQL Server 实例和一个名为“医疗”的 Azure SQL 数据库。 你将使用新的表结构更新空数据库资源，并选择数据列进行加密
 
@@ -310,11 +311,11 @@ lab:
 
     >**注意**：该接口包括 ADO.NET、JDBC、ODBC、PHP 和 Go 的连接字符串。 
    
-4. 记录 ADO.NET 连接字符串。 稍后需要用到此值。
+4. 记录“ADO.NET (SQL 身份验证)”连接字符串。 稍后需要用到此值。
 
     >**注意**：使用连接字符串时，请确保将 `{your_password}` 占位符替换为你在练习 1 中为部署配置的密码。
 
-#### <a name="task-4-log-on-to-the-azure-vm-running-visual-studio-2019-and-sql-management-studio-2018"></a>任务 4：登录到运行 Visual Studio 2019 和 SQL Management Studio 2018 的 Azure VM
+#### 任务 4：登录到运行 Visual Studio 2019 和 SQL Management Studio 2018 的 Azure VM
 
 在此任务中，登录到 Azure VM，这是在练习 1 中启动的部署。 此 Azure VM 托管 Visual Studio 2019 和 SQL Server Management Studio 2018。
 
@@ -324,7 +325,7 @@ lab:
 
 2. 在显示的虚拟机列表中，选择 az500-10-vm1 条目。 在 az500-10-vm1 边栏选项卡上的“基本”窗格上，记下“公共 IP 地址”。 稍后你将用到它。 
 
-#### <a name="task-5-create-a-table-in-the-sql-database-and-select-data-columns-for-encryption"></a>任务 5：在 SQL 数据库中创建一个表，然后选择要加密的数据列
+#### 任务 5：在 SQL 数据库中创建一个表，然后选择要加密的数据列
 
 在此任务中，你将使用 SQL Server Management Studio 连接到 SQL 数据库并创建表， 随后使用 Azure 密钥保管库中自动生成的密钥对两个数据列进行加密。 
 
@@ -332,7 +333,7 @@ lab:
 
     >**注意**：记录服务器名称。 此任务稍后需要服务器名称。
 
-2. 在“防火墙设置”边栏选项卡上，向下滚动到“规则名称”，然后指定以下设置： 
+2. 在“防火墙设置”边栏选项卡上，向下滚动到“规则名称”，单击“+ 添加防火墙规则”，然后指定以下设置 ： 
 
     |设置|值|
     |---|---|
@@ -340,7 +341,7 @@ lab:
     |起始 IP|公共 IP 地址：az500-10-vm1|
     |结束 IP|公共 IP 地址：az500-10-vm1|
 
-3. 单击“保存”，然后单击“确定”，保存更改并关闭确认窗格。 
+3. 单击“保存”保存更改并关闭确认窗格。 
 
     >**注意**：这将修改服务器防火墙设置，从而允许从在本实验室中部署的 Azure VM 的公共 IP 地址连接到医疗数据库。
 
@@ -414,13 +415,13 @@ lab:
     >**注意**：“Always Encrypted 密钥”子节点包含“Column Master Keys”和“Column Encryption Keys”子文件夹。
 
 
-### <a name="exercise-4-demonstrate-the-use-of-azure-key-vault-in-encrypting-the-azure-sql-database"></a>练习 4：演示如何在加密 Azure SQL 数据库的过程中使用 Azure 密钥保管库
+### 练习 4：演示如何在加密 Azure SQL 数据库的过程中使用 Azure 密钥保管库
 
 在本练习中，你将完成以下任务：
 
 - 任务 1：运行数据驱动的应用程序，以演示在加密 Azure SQL 数据库的过程中如何使用 Azure 密钥保管库
 
-#### <a name="task-1-run-a-data-driven-application-to-demonstrate-the-use-of-azure-key-vault-in-encrypting-the-azure-sql-database"></a>任务 1：运行数据驱动的应用程序，以演示在加密 Azure SQL 数据库的过程中如何使用 Azure 密钥保管库
+#### 任务 1：运行数据驱动的应用程序，以演示在加密 Azure SQL 数据库的过程中如何使用 Azure 密钥保管库
 
 使用 Visual Studio 创建一个控制台应用程序，以将数据加载到加密列中，然后使用访问密钥保管库中的密钥的连接字符串安全地访问该数据。
 
@@ -458,7 +459,7 @@ lab:
 
 10. 返回到 RDP 会话，然后在 Visual Studio 控制台的“解决方案资源管理器”窗口，单击“Program.cs”并将其内容替换为复制到剪贴板中的代码 。
 
-11. 在 Visual Studio 窗口的“Program.cs”窗格中的第 15 行，用你之前在本实验室中记录的 Azure SQL 数据库“ADO.NET”连接字符串替换 `<connection string noted earlier>` 占位符。 在连接字符串中，用 `Pa55w.rd1234` 替换 `{your_password}` 占位符。 如果将字符串保存在实验室计算机上，可能需要离开 RDP 会话来复制 ADO 字符串，然后返回到 Azure 虚拟机将其粘贴到其中。
+11. 在 Visual Studio 窗口的“Program.cs”窗格中的第 15 行，用你之前在本实验室中记录的 Azure SQL 数据库“ADO.NET”连接字符串替换 `<connection string noted earlier>` 占位符。 在连接字符串中，将 `{your_password}` 占位符替换为在练习 1 的部署中指定的密码。 如果将字符串保存在实验室计算机上，可能需要离开 RDP 会话来复制 ADO 字符串，然后返回到 Azure 虚拟机将其粘贴到其中。
 
 12. 在 Visual Studio 窗口的“Program.cs”窗格中的第 16 行，用你之前在实验室中记录的注册应用的“应用程序(客户端) ID”值替换 `<client id noted earlier>` 占位符。 
 
@@ -494,7 +495,7 @@ lab:
 
 1. 在 Azure 门户中，通过单击 Azure 门户右上角的第一个图标打开 Cloud Shell。 
 
-2. 在 Cloud Shell 窗格的左上下拉菜单中，选择“PowerShell”，并在出现提示时单击“确认” 。
+2. 在 Cloud Shell 窗格左上方的下拉菜单中，根据需要选择“PowerShell”，并在出现提示时单击“确认” 。
 
 3. 在“Cloud Shell”窗格中的 PowerShell 会话中，运行以下命令以删除你在此实验室中创建的资源组：
   

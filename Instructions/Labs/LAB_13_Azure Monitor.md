@@ -4,10 +4,10 @@ lab:
   module: Module 04 - Manage security operations
 ---
 
-# <a name="lab-13-azure-monitor"></a>实验室 13：Azure Monitor
-# <a name="student-lab-manual"></a>学生实验室手册
+# 实验室 13：Azure Monitor
+# 学生实验室手册
 
-## <a name="lab-scenario"></a>实验室方案
+## 实验室方案
 
 你需要创建监视虚拟机性能的概念证明。 具体来说，你需要：
 
@@ -17,21 +17,21 @@ lab:
 
 > 对于本实验室中的所有资源，我们使用“美国东部”区域。 请与讲师确认这是课堂上所使用的区域。 
 
-## <a name="lab-objectives"></a>实验室目标
+## 实验室目标
 
 在本实验室中，你将完成以下练习：
 
 - 练习 1：使用 Azure Monitor 从 Azure 虚拟机收集数据
 
-## <a name="azure-monitor"></a>Azure Monitor
+## Azure Monitor
 
 ![image](https://user-images.githubusercontent.com/91347931/157536648-0a286514-a7e2-4058-9dea-e42da21eef76.png)
 
-## <a name="instructions"></a>说明
+## 说明
 
-### <a name="exercise-1-collect-data-from-an-azure-virtual-machine-with-azure-monitor"></a>练习 1：使用 Azure Monitor 从 Azure 虚拟机收集数据
+### 练习 1：使用 Azure Monitor 从 Azure 虚拟机收集数据
 
-### <a name="exercise-timing-20-minutes"></a>练习时间：20 分钟
+### 练习时间：20 分钟
 
 在本练习中，你将完成以下任务： 
 
@@ -41,7 +41,7 @@ lab:
 - 任务 4：收集虚拟机事件和性能数据
 - 任务 5：查看和查询收集的数据 
 
-#### <a name="task-1-deploy-an-azure-virtual-machine"></a>任务 1：部署 Azure 虚拟机
+#### 任务 1：部署 Azure 虚拟机
 
 1. 登录到 Azure 门户 `https://portal.azure.com/`。
 
@@ -82,7 +82,7 @@ lab:
 
 8. 关闭 Cloud Shell 窗格。 
 
-#### <a name="task-2-create-a-log-analytics-workspace"></a>任务 2：创建 Log Analytics 工作区
+#### 任务 2：创建 Log Analytics 工作区
 
 此任务将创建一个 Log Analytics 工作区。 
 
@@ -103,7 +103,7 @@ lab:
 
 5. 在“创建 Log Analytics 工作区”边栏选项卡的“查看 + 创建”选项卡中，选择“创建”  。
 
-#### <a name="task-3-enable-the-log-analytics-virtual-machine-extension"></a>任务 3：启用 Log Analytics 虚拟机扩展
+#### 任务 3：启用 Log Analytics 虚拟机扩展
 
 在此任务中，你将启用 Log Analytics 虚拟机扩展。 此扩展在 Windows 和 Linux 虚拟机上安装 Log Analytics 代理。 此代理从虚拟机收集数据，并将其传输到你指定的 Log Analytics 工作区。 安装代理后，它将自动升级，以确保你始终拥有最新的功能和修补程序。 
 
@@ -121,7 +121,7 @@ lab:
 
     >**注意**：这可能需要几分钟的时间。 “myVM”边栏选项卡上显示的“状态”将从“正在连接”变为“此工作区”。 
 
-#### <a name="task-4-collect-virtual-machine-event-and-performance-data"></a>任务 4：收集虚拟机事件和性能数据
+#### 任务 4：收集虚拟机事件和性能数据
 
 在此任务中要配置 Windows 系统日志和几个常见性能计数器的集合。 还将查看其他可用资源。
 
@@ -148,7 +148,7 @@ lab:
   
 7. 在“代理配置”边栏选项卡上，单击“应用”。
 
-#### <a name="task-5-view-and-query-collected-data"></a>任务 5：查看和查询收集的数据
+#### 任务 5：查看和查询收集的数据
 
 此任务将对数据收集运行日志搜索。 
 
@@ -192,5 +192,5 @@ lab:
 
 **清理资源**
 
->**注意**：请勿删除此实验室中的资源，因为 Azure 安全中心实验室和 Azure Sentinel 实验室需要这些资源。
+>注意：请勿移除此实验室中的资源，因为 Microsoft Defender for Cloud 实验室和 Microsoft Sentinel 实验室需要这些资源。
  

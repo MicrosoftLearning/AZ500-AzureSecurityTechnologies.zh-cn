@@ -4,10 +4,10 @@ lab:
   module: Module 03 - Secure data and applications
 ---
 
-# <a name="lab-11-securing-azure-sql-database"></a>实验室 11：保护 Azure SQL 数据库
-# <a name="student-lab-manual"></a>学生实验室手册
+# 实验室 11：保护 Azure SQL 数据库
+# 学生实验室手册
 
-## <a name="lab-scenario"></a>实验室方案
+## 实验室方案
 
 你需要查看 Azure SQL 数据库的安全功能。 具体来说，你感兴趣的是：
 
@@ -17,25 +17,25 @@ lab:
 
 > 对于本实验室中的所有资源，我们使用“美国东部”区域。 请与讲师确认这是课堂上所使用的区域。 
 
-## <a name="lab-objectives"></a>实验室目标
+## 实验室目标
 
 在本实验室中，你将完成以下练习：
 
 - 练习 1：实现 SQL 数据库安全功能
 
-## <a name="securing-azure-sql-database-diagram"></a>保护 Azure SQL 数据库的示意图
+## 保护 Azure SQL 数据库的示意图
 
 ![image](https://user-images.githubusercontent.com/91347931/157533836-7250fa58-a109-4882-a55b-d3fa3baf34ab.png)
 
-## <a name="instructions"></a>Instructions
+## Instructions
 
-## <a name="lab-files"></a>实验室文件：
+## 实验室文件：
 
 - \\Allfiles\\Labs\\11\\azuredeploy.json
 
-### <a name="exercise-1-implement-sql-database-security-features"></a>练习 1：实现 SQL 数据库安全功能
+### 练习 1：实现 SQL 数据库安全功能
 
-### <a name="estimated-timing-30-minutes"></a>预计用时：30 分钟
+### 预计用时：30 分钟
 
 在本练习中，你将完成以下任务：
 
@@ -44,7 +44,7 @@ lab:
 - 任务 3：配置数据分类
 - 任务 4：配置审核
 
-#### <a name="task-1-deploy-an-azure-sql-database"></a>任务 1：部署 Azure SQL 数据库
+#### 任务 1：部署 Azure SQL 数据库
 
 在此任务中，你将使用模板来部署实验室基础结构。 
 
@@ -74,7 +74,7 @@ lab:
 
     >备注：请等待部署完成。 
 
-#### <a name="task-2-configure-advanced-data-protection"></a>任务 2：配置高级数据保护
+#### 任务 2：配置高级数据保护
 
 1. 在 Azure 门户页面顶部的“搜索资源、服务和文档”文本框中，键入“资源组”，然后按 Enter 键  。
 
@@ -82,24 +82,22 @@ lab:
 
 3. 在“AZ500LAB11”边栏选项卡中，单击表示新创建的 SQL Server 的条目。
 
-4. 在“SQL Server”边栏选项卡的“安全性”部分中，单击“Microsoft Defender for Cloud”。 滚动到“开始”页底部，然后选择“升级”。 在“安装代理”选项卡上，选择“安装代理”。
-
-5. 在“SQL Server”边栏选项卡的“安全性”部分中，单击“Microsoft Defender for Cloud”，选择“启用 Microsoft Defender for SQL”。
+4. 在“SQL Server”边栏选项卡的“安全性”部分中，单击“Microsoft Defender for Cloud”，选择“启用 Microsoft Defender for SQL”。
 
       >**注意**：请等待通知指示 Azure Defender SQL 已成功启用。
 
-6. 在“SQL Server”边栏选项卡的“安全性”部分中，在“Microsoft Defender for Cloud”页上的“Microsoft Defender for SQL:在服务器级别启用(配置)”参数中，单击“(配置)”。   
+5. 在“SQL Server”边栏选项卡的“安全性”部分中，在“Microsoft Defender for Cloud”页上的“Microsoft Defender for SQL: 在订阅级别启用(配置)”参数中，单击“(配置)”   。  
 
       >**注意**：如果未显示“(配置)”，请刷新浏览器。
     
-7. 在“服务器设置”边栏选项卡上，查看有关定价和试用期、漏洞评估设置和高级威胁防护设置的信息 。
+6. 在“服务器设置”边栏选项卡上，查看有关定价和试用期、漏洞评估设置和高级威胁防护设置的信息 。
 
-8. 返回到“Microsoft Defender for Cloud”边栏选项卡，查看“建议”和“安全警报”。
+7. 返回到“Microsoft Defender for Cloud”边栏选项卡，查看“建议”和“安全警报”。
 
       >**注意**：建议可能需要 10-15 分钟才能显示在“Microsoft Defender for Cloud”边栏选项卡上。 不要等待，继续下一个任务，完成所有剩余任务后再回到此边栏选项卡。
 
 
-#### <a name="task-3-configure-data-classification"></a>任务 3：配置数据分类
+#### 任务 3：配置数据分类
 
 在本任务中，你将发现 SQL 数据库中的信息并对其进行分类，以实现 GPDR 和数据保护合规性。
 
@@ -129,7 +127,7 @@ lab:
 
 9. 返回到“数据发现和分类”边栏选项卡中的“概述”选项卡，注意它已更新，用于说明最新的分类信息。 
 
-#### <a name="task-4--configure-auditing"></a>任务 4：配置审核 
+#### 任务 4：配置审核 
 
 在此任务中，你将首先配置服务器级审核，然后配置数据库级审核。 
 

@@ -4,10 +4,10 @@ lab:
   module: Module 02 - Implement Platform Protection
 ---
 
-# <a name="lab-07-network-security-groups-and-application-security-groups"></a>实验室 07：网络安全组和应用程序安全组
-# <a name="student-lab-manual"></a>学生实验室手册
+# 实验室 07：网络安全组和应用程序安全组
+# 学生实验室手册
 
-## <a name="lab-scenario"></a>实验室方案
+## 实验室方案
 
 你被要求实现组织的虚拟网络基础结构，并进行测试以确保其正常运行。 具体而言：
 
@@ -19,22 +19,22 @@ lab:
 
 > 对于本实验室中的所有资源，我们使用“美国东部”区域。 请与讲师确认这是课堂上所使用的区域。 
 
-## <a name="lab-objectives"></a>实验室目标
+## 实验室目标
 
 在本实验室中，你将成功完成以下练习：
 
 - 练习 1：创建虚拟网络基础结构
 - 练习 2：部署虚拟机并测试网络筛选器
 
-## <a name="network-and-application-security-groups-diagram"></a>网络和应用程序安全组示意图
+## 网络和应用程序安全组示意图
 
 ![image](https://user-images.githubusercontent.com/91347931/157526438-6da4f68b-db88-4931-a041-8474e66d3fe5.png)
 
-## <a name="instructions"></a>说明
+## 说明
 
-### <a name="exercise-1-create-the-virtual-networking-infrastructure"></a>练习 1：创建虚拟网络基础结构
+### 练习 1：创建虚拟网络基础结构
 
-### <a name="estimated-timing-20-minutes"></a>预计用时：20 分钟
+### 预计用时：20 分钟
 
 > 对于本实验室中的所有资源，我们使用“美国东部”区域。 与你的教师确认这是你上课时使用的区域。 
 
@@ -45,7 +45,7 @@ lab:
 - 任务 3：创建一个网络安全组，并将其与虚拟网络子网关联。
 - 任务 4：为所有到 Web 服务器的流量和到管理服务器的 RDP 创建入站 NSG 安全规则。
 
-#### <a name="task-1--create-a-virtual-network"></a>任务 1：创建虚拟网络
+#### 任务 1：创建虚拟网络
 
 在此任务中，将创建一个虚拟网络，以便与网络和应用程序安全组一起使用。 
 
@@ -77,7 +77,7 @@ lab:
 
 7. 在“创建虚拟网络”边栏选项卡的“查看 + 创建”选项卡中，单击“创建”。
 
-#### <a name="task-2--create-application-security-groups"></a>任务 2：创建应用程序安全组
+#### 任务 2：创建应用程序安全组
 
 在此任务中，将创建一个应用程序安全组。
 
@@ -111,7 +111,7 @@ lab:
 
 7. 依次单击“查看 + 创建”、“创建”。 
 
-#### <a name="task-3--create-a-network-security-group-and-associate-the-nsg-to-the-subnet"></a>任务 3：创建网络安全组并将 NSG 关联到子网
+#### 任务 3：创建网络安全组并将 NSG 关联到子网
 
 在此任务中，将创建一个网络安全组。 
 
@@ -136,12 +136,12 @@ lab:
 
 7. 在“关联子网”边栏选项卡中，指定以下设置，并单击“确定”：
 
-    |设置|值|
+    |设置|Value|
     |---|---|
     |虚拟网络|**myVirtualNetwork**|
     |子网|**default**|
 
-#### <a name="task-4-create-inbound-nsg-security-rules-to-all-traffic-to-web-servers-and-rdp-to-the-servers"></a>任务 4：为所有到 Web 服务器的流量和到服务器的 RDP 创建入站 NSG 安全规则。 
+#### 任务 4：为所有到 Web 服务器的流量和到服务器的 RDP 创建入站 NSG 安全规则。 
 
 1. 在“myNsg”边栏选项卡中的“设置”部分，单击“入站安全规则”。
 
@@ -175,9 +175,9 @@ lab:
 
 > 结果：你已经部署了一个虚拟网络、具有入站安全规则的网络安全和两个应用程序安全组。 
 
-### <a name="exercise-2-deploy-virtual-machines-and-test-network-filters"></a>练习 2：部署虚拟机并测试网络筛选器
+### 练习 2：部署虚拟机并测试网络筛选器
 
-### <a name="estimated-timing-25-minutes"></a>预计用时：25 分钟
+### 预计用时：25 分钟
 
 在本练习中，你将完成以下任务：
 
@@ -186,7 +186,7 @@ lab:
 - 任务 3：将每个虚拟机网络接口与其应用程序安全组相关联。
 - 任务 4：测试网络流量筛选。
 
-#### <a name="task-1-create-a-virtual-machine-to-use-as-a-web-server"></a>任务 1：创建一个用作 Web 服务器的虚拟机。
+#### 任务 1：创建一个用作 Web 服务器的虚拟机。
 
 在此任务中，将创建一个用作 Web 服务器的虚拟机。
 
@@ -196,13 +196,13 @@ lab:
 
 3. 在“创建虚拟机”边栏选项卡的“基本信息”选项卡上，指定以下设置（将其他设置保留为默认值） ：
 
-   |设置|值|
+   |设置|Value|
    |---|---|
    |订阅|将在此实验室中使用的 Azure 订阅的名称|
    |资源组|AZ500LAB07|
    |虚拟机名称|**myVmWeb**|
    |区域|（美国）美国东部|
-   |映像|**Windows Server 2022 Datacenter：Azure 版本 - Gen2**|
+   |映像|Windows Server 2022 Datacenter: Azure Edition- x64 Gen2|
    |大小|Standard D2s v3|
    |用户名|**学生**|
    |密码|请使用在实验室 04 > 练习 1 > 任务 1 > 步骤 9 中创建的个人密码。|
@@ -218,7 +218,7 @@ lab:
 
 6. 在“NIC 网络安全组”下，选择“无”。
 
-7. 单击“下一步:管理 >”，在“创建虚拟机”边栏选项卡的“监控”选项卡上，单击“下一步:监控 >”，验证以下设置   ：
+7. 单击“下一页: 管理 >”，然后单击“创建虚拟机”边栏选项卡的“监视”选项卡上的“下一页: 监视 >”，验证以下设置  ：
 
    |设置|值|
    |---|---|
@@ -226,7 +226,7 @@ lab:
 
 8. 单击“查看 + 创建”，在“查看 + 创建”边栏选项卡上，确保验证成功，然后单击“创建”。
 
-#### <a name="task-2-create-a-virtual-machine-to-use-as-a-management-server"></a>任务 2：创建一个用作管理服务器的虚拟机。 
+#### 任务 2：创建一个用作管理服务器的虚拟机。 
 
 在此任务中，将创建用作管理服务器的虚拟机。
 
@@ -234,13 +234,13 @@ lab:
 
 2. 在“创建虚拟机”边栏选项卡的“基本信息”选项卡上，指定以下设置（将其他设置保留为默认值） ：
 
-   |设置|值|
+   |设置|Value|
    |---|---|
    |订阅|将在此实验室中使用的 Azure 订阅的名称|
    |资源组|AZ500LAB07|
    |虚拟机名称|myVMMgmt|
    |区域|（美国）美国东部|
-   |映像|**Windows Server 2022 Datacenter：Azure 版本 - Gen 2**|
+   |映像|Windows Server 2022 Datacenter: Azure Edition- x64 Gen2|
    |大小|Standard D2s v3|
    |用户名|**学生**|
    |密码|请使用在实验室 04 > 练习 1 > 任务 1 > 步骤 9 中创建的个人密码。|
@@ -255,7 +255,7 @@ lab:
 
 5. 在“NIC 网络安全组”下，选择“无”。
 
-6. 单击“下一步:管理 >”，在“创建虚拟机”边栏选项卡的“监控”选项卡上，单击“下一步:监控 >”，验证以下设置   ：
+6. 单击“下一页: 管理 >”，然后单击“创建虚拟机”边栏选项卡的“监视”选项卡上的“下一页: 监视 >”，验证以下设置  ：
 
    |设置|值|
    |---|---|
@@ -265,7 +265,7 @@ lab:
 
     >**注意**：等待两个虚拟机预配完成，然后再继续。 
 
-#### <a name="task-3-associate-each-virtual-machines-network-interface-to-its-application-security-group"></a>任务 3：将每个虚拟机网络接口与其应用程序安全组相关联。
+#### 任务 3：将每个虚拟机网络接口与其应用程序安全组相关联。
 
 在此任务中，你会将每个虚拟机网络接口与相应的应用程序安全组关联。 myVMWeb 虚拟机接口将与 myAsgWebServers ASG 关联。 myVMMgmt 虚拟机接口将与 myAsgMgmtServers ASG 关联。 
 
@@ -283,7 +283,7 @@ lab:
 
 7. 单击“配置应用程序安全组”，在“应用程序安全组”下拉列表中选择“myAsgMgmtServers”，然后单击“保存”。
 
-#### <a name="task-4-test-the-network-traffic-filtering"></a>任务 4：测试网络流量筛选
+#### 任务 4：测试网络流量筛选
 
 在此任务中，将测试网络流量筛选器。 你应该能够通过 RDP 连接 myVMMgmnt 虚拟机。 应该能够从 Internet 连接到 myVMWeb 虚拟机并查看默认的 IIS 网页。  
 

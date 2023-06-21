@@ -1,23 +1,23 @@
 ---
 lab:
-  title: 04 - MFA、条件访问和 AAD 标识保护
+  title: 04 - MFA 和条件访问
   module: Module 01 - Manage Identity and Access
 ---
 
-# <a name="lab-04-mfa-conditional-access-and-aad-identity-protection"></a>实验室 04：MFA、条件访问和 AAD 标识保护
-# <a name="student-lab-manual"></a>学生实验室手册
+# 实验室 04：MFA 和条件访问
+# 学生实验室手册
 
-## <a name="lab-scenario"></a>实验室方案
+## 实验室方案
 
 你需要创建增强 Azure Active Directory (Azure AD) 身份验证的功能的概念证明。 具体来说，你要评估：
 
 - Azure AD 多重身份验证
 - Azure AD 条件访问
-- Azure AD 标识保护
+- Azure AD 条件访问中基于风险的策略
 
 > 对于本实验室中的所有资源，我们使用“美国东部”区域。 请与讲师确认这是课堂上所使用的区域。 
 
-## <a name="lab-objectives"></a>实验室目标
+## 实验室目标
 
 在本实验室中，你将成功完成以下练习：
 
@@ -26,26 +26,26 @@ lab:
 - 练习 3：实现 Azure AD 条件访问策略 
 - 练习 4：实现 Azure AD 标识保护
 
-## <a name="mfa---conditional-access---identity-protection-diagram"></a>MFA - 条件访问 - 标识保护示意图
+## MFA - 条件访问 - 标识保护示意图
 
 ![image](https://user-images.githubusercontent.com/91347931/157518628-8b4a9efe-0086-4ec0-825e-3d062748fa63.png)
 
-## <a name="instructions"></a>说明
+## Instructions
 
-## <a name="lab-files"></a>实验室文件：
+## 实验室文件：
 
 - \\Allfiles\\Labs\\04\\az-500-04_azuredeploy.json
 - \\Allfiles\\Labs\\04\\az-500-04_azuredeploy.parameters.json 
 
-### <a name="exercise-1-deploy-an-azure-vm-by-using-an-azure-resource-manager-template"></a>练习 1：使用 Azure 资源管理器模板部署 Azure VM
+### 练习 1：使用 Azure 资源管理器模板部署 Azure VM
 
-### <a name="estimated-timing-10-minutes"></a>预计用时：10 分钟
+### 预计用时：10 分钟
 
 在本练习中，你将完成以下任务：
 
 - 任务 1：使用 Azure 资源管理器模板部署 Azure VM。
 
-#### <a name="task-1-deploy-an-azure-vm-by-using-an-azure-resource-manager-template"></a>任务 1：使用 Azure 资源管理器模板部署 Azure VM
+#### 任务 1：使用 Azure 资源管理器模板部署 Azure VM
 
 在本任务中，你将使用 ARM 模板创建一个虚拟机。 该虚拟机将在本实验室的上一个练习中使用。 
 
@@ -77,7 +77,7 @@ lab:
 
 >**注意**：你将需要创建一个唯一的密码，用于在课程的其余部分创建 VM（虚拟机）。 密码长度必须至少为 12 个字符，且符合规定的复杂性要求（密码必须具有以下各项中的 3 项：1 个小写字符、1 个大写字符、1 个数字和 1 个特殊字符）。 [VM 密码要求](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/faq#what-are-the-password-requirements-when-creating-a-vm-)。 请记下此密码。
 
-   |设置|“值”|
+   |设置|值|
    |---|---|
    |订阅|将在此实验室中使用的 Azure 订阅的名称|
    |资源组|单击“新建”并键入名称“AZ500LAB04”|
@@ -97,9 +97,9 @@ lab:
 > 结果：你已启动将在本实验室的下一个练习中使用的 Azure VM az500-vm1 的模板部署。
 
 
-### <a name="exercise-2-implement-azure-mfa"></a>练习 2：实现 Azure MFA
+### 练习 2：实现 Azure MFA
 
-### <a name="estimated-timing-30-minutes"></a>预计用时：30 分钟
+### 预计用时：30 分钟
 
 在本练习中，你将完成以下任务
 
@@ -110,7 +110,7 @@ lab:
 - 任务 5：配置 Azure MFA 设置。
 - 任务 6：验证 MFA 配置
 
-#### <a name="task-1-create-a-new-azure-ad-tenant"></a>任务 1：创建一个新 Azure AD 租户
+#### 任务 1：创建一个新 Azure AD 租户
 
 在此任务中，你将创建新的 Azure AD 租户。 
 
@@ -136,7 +136,7 @@ lab:
     >**注意**：等待新租户完成创建。 使用“通知”图标监视部署状态。 
 
 
-#### <a name="task-2-activate-azure-ad-premium-p2-trial"></a>任务 2：激活 Azure AD Premium P2 试用版
+#### 任务 2：激活 Azure AD Premium P2 试用版
 
 在此任务中，你将注册 Azure AD Premium P2 免费试用版。 
 
@@ -153,19 +153,19 @@ lab:
 5. 在“激活”边栏选项卡上的 Azure AD Premium P2 部分，单击“免费试用版”，然后单击“激活”。
 
 
-#### <a name="task-3-create-azure-ad-users-and-groups"></a>任务 3：创建 Azure AD 用户和组。
+#### 任务 3：创建 Azure AD 用户和组。
 
 在此任务中，你将创建三个用户：aaduser1（全局管理员）、aaduser2（用户）和 aaduser3（用户）。 你将需要每个用户的主体名称和密码来执行后续任务。 
 
 1. 导航回 **AdatumLab500-04** Azure Active Directory 边栏选项卡，然后在“管理”部分，单击“用户”。
 
-2. 在“用户 \| 所有用户”边栏选项卡上，单击“+ 新建用户” 。 
+2. 在“用户 | 所有用户”边栏选项卡上，依次单击“+ 新建用户”和“创建新用户”  。 
 
 3. 在“新建用户”边栏选项卡上，确保选择“创建用户”选项，并指定以下设置（保留所有其他设置的默认值），然后单击“创建”：
 
    |设置|值|
    |---|---|
-   |用户名|aaduser1|
+   |用户主体名称|aaduser1|
    |名称|aaduser1|
    |密码|确保选中“自动生成密码”选项，然后单击“显示密码”|
    |组|**已选择 0 个组**|
@@ -178,37 +178,33 @@ lab:
 
 4. 返回到“用户 \| 所有用户”边栏选项卡上，单击“+ 新建用户” 。 
 
-5. 在“新建用户”边栏选项卡中，确保已选择“创建用户”选项，并指定以下设置（将所有其他设置保留为默认值）：
+5. 在“新建用户”边栏选项卡上，确保选择了“创建新用户”选项，并指定以下设置（所有其他设置都保留其默认值），然后单击“创建”  。
 
    |设置|值|
    |---|---|
-   |用户名|aaduser2|
+   |用户主体名称|aaduser2|
    |名称|aaduser2|
    |密码|确保选中“自动生成密码”选项，然后单击“显示密码”|
-   |组|**已选择 0 个组**|
-   |角色|**用户**|
    |使用位置|**美国**|  
 
     >**注意**：记录完整的用户名和密码。
 
 6. 返回到“用户 \| 所有用户”边栏选项卡上，单击“+ 新建用户” 。 
 
-7. 单击“新建用户”，完成新用户配置设置，然后单击“创建”。
+7. 在“新建用户”边栏选项卡上，确保选择了“创建新用户”选项，并指定以下设置（所有其他设置都保留其默认值），然后单击“创建”  。 
 
    |设置|值|
    |---|---|
-   |用户名|aaduser3|
+   |用户主体名称|aaduser3|
    |名称|aaduser3|
    |密码|确保选中“自动生成密码”选项，然后单击“显示密码”|
-   |组|**已选择 0 个组**|
-   |角色|**用户**|
    |使用位置|**美国**|  
 
     >**注意**：记录完整的用户名和密码。
 
     >**注意**：此时，你应会在“用户”页面上看到列出三名新用户。 
     
-#### <a name="task-4-assign-azure-ad-premium-p2-licenses-to-azure-ad-users"></a>任务 4：将 Azure AD Premium P2 许可证分配给 Azure AD 用户
+#### 任务 4：将 Azure AD Premium P2 许可证分配给 Azure AD 用户
 
 在此任务中，你将为每个用户分配 Azure Active Directory Premium P2 许可证。
 
@@ -230,7 +226,7 @@ lab:
 
     >**注意**：此时，你已将 Azure Active Directory Premium P2 许可证分配给了本实验室中将要使用的所有用户帐户。 请务必先注销，然后再重新登录。 
 
-#### <a name="task-5-configure-azure-mfa-settings"></a>任务 5：配置 Azure MFA 设置。
+#### 任务 5：配置 Azure MFA 设置。
 
 在此任务中，你将配置 MFA 并为 aaduser1 启用 MFA。 
 
@@ -284,7 +280,7 @@ lab:
 
     >**注意**：确保已登录 AdatumLab500-4b Azure AD 租户。 你可以使用“目录 + 订阅”筛选器在 Azure AD 租户之间切换。 确保以在 Azure AD 租户中具有全局管理员角色的用户身份登录。
 
-#### <a name="task-6-validate-mfa-configuration"></a>任务 6：验证 MFA 配置
+#### 任务 6：验证 MFA 配置
 
 在此任务中，你将通过测试 aaduser1 用户帐户的登录来验证 MFA 配置。 
 
@@ -317,16 +313,16 @@ lab:
 > 结果：你已经创建了新的 AD 租户，配置了 AD 用户和 MFA，并为该用户测试了 MFA 体验。 
 
 
-### <a name="exercise-3-implement-azure-ad-conditional-access-policies"></a>练习 3：实现 Azure AD 条件访问策略 
+### 练习 3：实现 Azure AD 条件访问策略 
 
-### <a name="estimated-timing-15-minutes"></a>预计用时：15 分钟
+### 预计用时：15 分钟
 
 在本练习中，你将完成以下任务 
 
 - 任务 1：配置条件访问策略。
 - 任务 2：测试条件访问策略。
 
-#### <a name="task-1---configure-a-conditional-access-policy"></a>任务 1 - 配置条件访问策略。 
+#### 任务 1 - 配置条件访问策略。 
 
 在此任务中，你将查看条件访问策略设置，并创建登录 Azure 门户时需要 MFA 的策略。 
 
@@ -362,7 +358,7 @@ lab:
 
     >**注意**：此时，你已拥有需要 MFA 以登录 Azure 门户的条件访问策略。 
 
-#### <a name="task-2---test-the-conditional-access-policy"></a>任务 2 - 测试条件访问策略。
+#### 任务 2 - 测试条件访问策略。
 
 在此任务中，你将作为 aaduser2 登录 Azure 门户，并验证是否需要 MFA。 在继续下一个练习之前，你还将删除此策略。 
 
@@ -404,9 +400,9 @@ lab:
 
 >结果：你已配置并测试了 Azure AD 条件访问。
 
-### <a name="exercise-4-implement-azure-ad-identity-protection"></a>练习 4：实现 Azure AD 标识保护
+### 练习 4：在条件访问中部署基于风险的策略
 
-### <a name="estimated-timing-30-minutes"></a>预计用时：30 分钟
+### 预计用时：30 分钟
 
 在本练习中，你将完成以下任务 
 
@@ -416,7 +412,7 @@ lab:
 - 任务 4：根据 Azure AD 标识保护策略模拟风险事件 
 - 任务 5：查看 Azure AD 标识保护报告
 
-#### <a name="task-1-enable-azure-ad-identity-protection"></a>任务 1：启用 Azure AD 标识保护
+#### 任务 1：启用 Azure AD 标识保护
 
 在此任务中，你将在 Azure 门户中查看 Azure AD 标识保护选项。 
 
@@ -424,7 +420,7 @@ lab:
 
     >**注意**：确保已登录 AdatumLab500-4b Azure AD 租户。 你可以使用“目录 + 订阅”筛选器在 Azure AD 租户之间切换。 确保以在 Azure AD 租户中具有全局管理员角色的用户身份登录。
 
-#### <a name="task-2-configure-a-user-risk-policy"></a>任务 2：配置用户风险策略
+#### 任务 2：配置用户风险策略
 
 在此任务中，创建一个用户风险策略。 
 
@@ -472,7 +468,7 @@ lab:
 
 22. 单击“创建”以启用策略。
 
-#### <a name="task-3-configure-a-sign-in-risk-policy"></a>任务 3：配置登录风险策略
+#### 任务 3：配置登录风险策略
 
 1. 浏览到 AdatumLab500-04 Azure AD 租户 > 安全 > 条件访问  。
 
@@ -508,7 +504,7 @@ lab:
 
 16. 单击“创建”以启用策略。
 
-#### <a name="task-4-simulate-risk-events-against-the-azure-ad-identity-protection-policies"></a>任务 4：根据 Azure AD 标识保护策略模拟风险事件 
+#### 任务 4：根据 Azure AD 标识保护策略模拟风险事件 
 
 > 在开始此任务之前，请确保已完成在练习 1 中启动的模板部署。 部署包括名为 az500-04-vm1 的 Azure VM。 
 
@@ -559,7 +555,7 @@ lab:
 
     >**注意**：到现在，你已尝试了两种不同的登录。接下来要查看 Azure 标识保护报告。
 
-#### <a name="task-5-review-the-azure-ad-identity-protection-reports"></a>任务 5：查看 Azure AD 标识保护报告
+#### 任务 5：查看 Azure AD 标识保护报告
 
 在此任务中要查看从 ToR 浏览器登录中生成的 Azure AD 标识保护报告。
 
@@ -597,11 +593,11 @@ lab:
 
 4. 在“标识保护 \| 概述”边栏选项卡上，单击“用户风险策略”。
 
-5. 在“标识保护 \| 用户风险策略”边栏选项卡上，将“强制执行策略”设置为“关”，然后单击“保存”。
+5. 在“标识保护 \| 用户风险策略”边栏选项卡上，将“策略强制执行”设置为“禁用”，然后单击“保存”   。
 
 6. 在“标识保护 \| 用户风险策略”边栏选项卡上，单击“登录风险策略”
 
-7. 在“标识保护 \| 登录风险策略”边栏选项卡上，将“强制执行策略”设置为“关”，然后单击“保存”。
+7. 在“标识保护 \| 登录风险策略”边栏选项卡上，将“策略强制执行”设置为“禁用”，然后单击“保存”   。
 
 使用以下步骤停止之前在实验室中预配的 Azure VM。
 
