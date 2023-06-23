@@ -4,10 +4,10 @@ lab:
   module: Module 01 - Manage Identity and Access
 ---
 
-# <a name="lab-06-implement-directory-synchronization"></a>实验室 6：实现目录同步
-# <a name="student-lab-manual"></a>学生实验室手册
+# 实验室 6：实现目录同步
+# 学生实验室手册
 
-## <a name="lab-scenario"></a>实验室方案
+## 实验室方案
 
 你需要创建一个概念证明，以演示如何将本地 Active Directory 域服务 (AD DS) 环境与 Azure Active Directory (Azure AD) 租户集成。 具体来说，你需要：
 
@@ -17,7 +17,7 @@ lab:
 
 > 对于本实验室中的所有资源，我们使用“美国东部”区域。 请与讲师确认这是课堂上所使用的区域。 
 
-## <a name="lab-objectives"></a>实验室目标
+## 实验室目标
 
 在本实验室中，你将成功完成以下练习：
 
@@ -25,22 +25,22 @@ lab:
 - 练习 2：创建和配置 Azure Active Directory 租户
 - 练习 3：同步 Active Directory 林和 Azure Active Directory 租户
 
-## <a name="implement-directory-synchronization"></a>实现目录同步
+## 实现目录同步
 
 ![image](https://user-images.githubusercontent.com/91347931/157525374-8f740f14-c2db-47b3-98f8-7feb9bc122b5.png)
 
-## <a name="instructions"></a>说明
+## 说明
 
-### <a name="exercise-1-deploy-an-azure-vm-hosting-an-active-directory-domain-controller"></a>练习 1：部署托管 Active Directory 域控制器的 Azure VM
+### 练习 1：部署托管 Active Directory 域控制器的 Azure VM
 
-### <a name="estimated-timing-10-minutes"></a>预计用时：10 分钟
+### 预计用时：10 分钟
 
 在本练习中，你将完成以下任务：
 
 - 任务 1：识别 Azure VM 部署的可用 DNS 名称
 - 任务 2：使用 ARM 模板部署托管 Active Directory 域控制器的 Azure VM
 
-#### <a name="task-1-identify-an-available-dns-name-for-an-azure-vm-deployment"></a>任务 1：识别 Azure VM 部署的可用 DNS 名称
+#### 任务 1：识别 Azure VM 部署的可用 DNS 名称
 
 在此任务中，你将为 Azure VM 部署标识 DNS 名称。 
 
@@ -68,13 +68,13 @@ lab:
 
 7. 关闭 Cloud Shell。
 
-#### <a name="task-2-use-an-arm-template-to-deploy-an-azure-vm-hosting-an-active-directory-domain-controller"></a>任务 2：使用 ARM 模板部署托管 Active Directory 域控制器的 Azure VM
+#### 任务 2：使用 ARM 模板部署托管 Active Directory 域控制器的 Azure VM
 
 在此任务中要部署托管 Active Directory 域控制器的 Azure VM
 
 1. 在同一浏览器窗口中，打开另一个浏览器标签页，并导航到 https://github.com/Azure/azure-quickstart-templates/tree/master/application-workloads/active-directory/active-directory-new-domain。
 
-2. 在“新建 Windows VM 并新建 AD 林、域和 DC”页面上，单击“部署到 Azure”。 这会自动将浏览器重定向到 Azure 门户中的“使用新的 AD 林创建 Azure VM”边栏选项卡。
+2. 在“使用新 AD 林创建 Azure VM”页上，单击“部署到 Azure” 。 这会自动将浏览器重定向到 Azure 门户中的“使用新的 AD 林创建 Azure VM”边栏选项卡。 
 
 3. 在“使用新的 AD 林创建 Azure VM”边栏选项卡中，单击“编辑参数”。
 
@@ -100,9 +100,9 @@ lab:
 > 结果：完成此练习后，你已经启动了 Azure VM 的部署，该 Azure VM 将使用 Azure 资源管理器模板来托管 Active Directory 域控制器
 
 
-### <a name="exercise-2-create-and-configure-an-azure-active-directory-tenant"></a>练习 2：创建和配置 Azure Active Directory 租户 
+### 练习 2：创建和配置 Azure Active Directory 租户 
 
-### <a name="estimated-timing-20-minutes"></a>预计用时：20 分钟
+### 预计用时：20 分钟
 
 在本练习中，你将完成以下任务：
 
@@ -110,7 +110,7 @@ lab:
 - 任务 2：将自定义 DNS 名称添加到新的 Azure AD 租户
 - 任务 3：使用全局管理员角色创建 Azure AD 用户
 
-#### <a name="task-1-create-an-azure-active-directory-ad-tenant"></a>任务 1：创建 Azure Active Directory (AD) 租户
+#### 任务 1：创建 Azure Active Directory (AD) 租户
 
 在此任务中，你将新建一个在此实验室中使用的新 Azure AD 租户。 
 
@@ -136,7 +136,7 @@ lab:
 
     >**注意**：等待新租户完成创建。 使用“通知”图标监视部署状态。 
 
-#### <a name="task-2-add-a-custom-dns-name-to-the-new-azure-ad-tenant"></a>任务 2：将自定义 DNS 名称添加到新的 Azure AD 租户
+#### 任务 2：将自定义 DNS 名称添加到新的 Azure AD 租户
 
 在此任务中，你将自定义 DNS 名称添加到新的 Azure AD 租户。 
 
@@ -156,13 +156,13 @@ lab:
 
     >**注意**：由于你没有 adatum.com DNS 域名，因此无法完成验证过程。 这不会阻止你将 adatum.com AD DS 域与 Azure AD 租户同步。 为此，你将使用 Azure AD 租户的初始 DNS 名称（其名称以 **onmicrosoft.com** 后缀结尾），该名称在上一个任务中已标识。 但是，请记住，Active Directory 域的 DNS 域名和 Azure AD 租户的 DNS 名称因此将有所不同。 这意味着，Adatum 用户在登录 AD DS 域和登录 Azure AD 租户时需要使用不同的名称。
 
-#### <a name="task-3-create-an-azure-ad-user-with-the-global-administrator-role"></a>任务 3：使用全局管理员角色创建 Azure AD 用户
+#### 任务 3：使用全局管理员角色创建 Azure AD 用户
 
 在此任务中，你将添加一个新的 Azure AD 用户并将其分配给全局管理员角色。 
 
 1. 在“AdatumSync” Azure AD 租户边栏选项卡中，在“管理”部分，单击“用户”。
 
-2. 在“用户 \| 所有用户”边栏选项卡上，单击“+ 新建用户” 。 
+2. 在“用户 | 所有用户”边栏选项卡上，依次单击“+ 新建用户”和“创建新用户”  。
 
 3. 在“新建用户”边栏选项卡上，确保选择“创建用户”选项，并指定以下设置（保留所有其他设置的默认值），然后单击“创建”：
 
@@ -192,9 +192,9 @@ lab:
 > 结果：完成此练习后，你已创建 Azure AD 租户，了解了如何为新的 Azure AD 租户添加自定义 DNS 名称，并创建了具有全局管理员角色的 Azure AD 用户。
 
 
-### <a name="exercise-3-synchronize-active-directory-forest-with-an-azure-active-directory-tenant"></a>练习 3：同步 Active Directory 林和 Azure Active Directory 租户
+### 练习 3：同步 Active Directory 林和 Azure Active Directory 租户
 
-### <a name="estimated-timing-20-minutes"></a>预计用时：20 分钟
+### 预计用时：20 分钟
 
 在本练习中，你将完成以下任务：
 
@@ -202,7 +202,7 @@ lab:
 - 任务 2：安装 Azure AD Connect
 - 任务 3：验证目录同步
 
-#### <a name="task-1-prepare-ad-ds-for-directory-synchronization"></a>任务 1：准备 AD DS 以进行目录同步
+#### 任务 1：准备 AD DS 以进行目录同步
 
 在此任务中，你将连接到运行 AD DS 域控制器的 Azure VM 并创建目录同步帐户。 
 
@@ -253,7 +253,7 @@ lab:
    |“密码”和“确认密码”|请使用在实验室 04 > 练习 1 > 任务 1 > 步骤 9 中创建的个人密码。|
    |其他密码选项|**密码永不过期**|
 
-#### <a name="task-2-install-azure-ad-connect"></a>任务 2：安装 Azure AD Connect
+#### 任务 2：安装 Azure AD Connect
 
 在此任务中，你将在虚拟机上安装 AD Connect。 
 
@@ -309,7 +309,7 @@ lab:
 21. 查看“配置完成”页面上的信息，并单击“退出”关闭 Microsoft Azure Active Directory Connect 窗口。
 
 
-#### <a name="task-3-verify-directory-synchronization"></a>任务 3：验证目录同步
+#### 任务 3：验证目录同步
 
 在此任务中，你将验证目录同步工作是否正常。 
 
@@ -317,7 +317,7 @@ lab:
 
 2. 在“用户 \| 所有用户”边栏选项卡上，注意用户对象列表包括 aduser1 帐户。 
 
->**注意**：你可能需要等待几分钟，然后选择“刷新”以显示 aduser1 用户帐户。
+   >**注意**：你可能需要等待几分钟，然后选择“刷新”以显示 aduser1 用户帐户。
 
 3. 选择 aduser1 帐户，在“个人资料”>“标识”部分，请注意，“来源”属性设置为“Windows Server AD”。
 
@@ -337,7 +337,7 @@ lab:
     Start-ADSyncSyncCycle -PolicyType Delta
     ```
 
-9. 切换到显示“aduser1 \| 个人资料”边栏选项卡的 Microsoft Edge 窗口，刷新页面，注意“部门”属性已设置为“销售”。
+9. 切换到显示“aduser1”边栏选项卡的 Microsoft Edge 窗口，刷新页面，注意“部门”属性已设置为“销售”。
 
     >**注意**：可能需要再等待一分钟，如果“部门”属性仍未设置，请再次刷新页面。
 
