@@ -48,7 +48,7 @@ lab:
 
 在此任务中，你将使一个用户符合 Azure AD 目录角色的条件。
 
-1. 登录到 Azure 门户 `https://portal.azure.com/`。
+1. 通过 **`https://portal.azure.com/`** 登录到 Azure 门户。
 
     >**注意**：确保已登录 AdatumLab500-4b Azure AD 租户。 你可以使用“目录 + 订阅”筛选器在 Azure AD 租户之间切换。 务必以具有全局管理员角色的用户身份登录。
     
@@ -86,7 +86,7 @@ lab:
 
 3. 在“AdatumLab500-04 \| 角色”边栏选项卡上，单击“全局读取者”角色条目 。 
 
-4. 在“全局读取者 \| 分配”边栏选项卡上，单击边栏选项卡工具栏中的“设置”图标，并查看该角色的配置设置，包括 Azure 多重身份验证要求 。
+4. 在“**全局读取者 \| 分配**”边栏选项卡上，单击边栏选项卡工具栏中的“**角色设置**”图标，并查看该角色的配置设置，包括 Azure 多重身份验证要求。
 
 5. 单击 **“编辑”** 。
 
@@ -132,7 +132,7 @@ lab:
 
 7. 查看“分配类型”设置，并单击“分配”。
 
-8. 在“分配”页的“符合条件的分配”选项卡上，为“aaduser2”分配选择“更新”   。 选择“永久符合条件”，然后选择“保存” 。
+8. 在左侧导航面板中，单击“**分配**”。 在“**符合条件的分配**”选项卡上的“**安全管理员**”下，选择 **aaduser2** 分配所对应的“**更新**”。 选择“永久符合条件”，然后选择“保存” 。
 
     >**注意**：用户 aaduser2 现在永久符合安全管理员角色的条件。
     
@@ -151,7 +151,7 @@ lab:
 
 1. 打开 InPrivate 浏览器窗口。
 
-2. 在 InPrivate 浏览器窗口中，导航到 Azure 门户并使用 aaduser2 用户帐户登录。
+2. 在 InPrivate 浏览器窗口中，通过 **`https://portal.azure.com/`** 导航到 Azure 门户，并使用 **aaduser2** 用户帐户登录。
 
     >**注意**：若要登录，需要提供 aaduser2 用户帐户的完全限定的名称，包括之前在本实验室中记录的 Azure AD 租户 DNS 域名。 该用户名的格式为 aaduser2@`<your_tenant_name>`.onmicrosoft.com，其中 `<your_tenant_name>` 占位符代表你唯一的 Azure AD 租户名称。 
 
@@ -202,49 +202,47 @@ lab:
 
 6. 在“我的角色 \| Azure AD 角色”边栏选项卡上，找到“安全管理员”角色，然后单击“激活”  。 
 
-7. 单击警告“需要附加验证。单击以继续”。 
-
-8. 按照说明验证你的身份。
+7. 根据需要单击警告“需要附加验证。单击以继续”，并按照说明验证你的身份。
 
     >**注意**：每个会话只需进行一次身份验证。 
 
-9. 回到 Azure 门户界面后，在“激活 - 安全管理员”边栏选项卡的“原因”文本框中，键入提供激活理由的文本，然后单击“激活”。
+8. 回到 Azure 门户界面后，在“激活 - 安全管理员”边栏选项卡的“原因”文本框中，键入提供激活理由的文本，然后单击“激活”。
 
     >**注意**：自动审批过程应该会完成。
 
-10. 返回到“我的角色 \| Azure AD 角色”边栏选项卡，单击“活动分配”选项卡，注意“活动分配”列表包括“安全管理员”角色，但不包括“全局读取者”角色    。
+9. 返回到“我的角色 \| Azure AD 角色”边栏选项卡，单击“活动分配”选项卡，注意“活动分配”列表包括“安全管理员”角色，但不包括“全局读取者”角色    。
 
     >**注意**：现在将审批“全局读取者”角色。
 
-11. 以 aaduser2 的身份从 Azure 门户注销。
+10. 以 aaduser2 的身份从 Azure 门户注销。
 
-12. 以 aaduser3 的身份登录 Azure 门户。
+11. 在 InPrivate 浏览器中，以 **aaduser3** 身份通过 **`https://portal.azure.com/`** 登录到 Azure 门户。
 
     >**注意**：如果在使用任何一个用户帐户进行身份验证时遇到问题，可以使用你的用户帐户重置其密码或重新配置其登录选项以登录 Azure AD 租户。
 
-13. 在 Azure 门户中，导航到“Azure AD Privileged Identity Management”（在 Azure 门户页面顶部的“搜索资源、服务和文档”文本框中，键入“Azure AD Privileged Identity Management”，然后按 Enter 键）。
+12. 在 Azure 门户中，导航到“Azure AD Privileged Identity Management”（在 Azure 门户页面顶部的“搜索资源、服务和文档”文本框中，键入“Azure AD Privileged Identity Management”，然后按 Enter 键）。
 
-14. 在“Privileged Identity Management \| 快速启动”边栏选项卡的“任务”部分，单击“批准请求”  。
+13. 在“Privileged Identity Management \| 快速启动”边栏选项卡的“任务”部分，单击“批准请求”  。
 
-15. 在“批准请求 \| Azure AD 角色”边栏选项卡的“请求激活角色”部分中，选择表示由“aaduser2”向“全局读取者”角色发出的角色激活请求的条目的复选框   。
+14. 在“批准请求 \| Azure AD 角色”边栏选项卡的“请求激活角色”部分中，选择表示由“aaduser2”向“全局读取者”角色发出的角色激活请求的条目的复选框   。
 
-16. 单击“批准”。 在“审批请求”边栏选项卡上的“理由”文本框中键入激活原因，记下开始和结束时间，然后单击“确认”。 
+15. 单击“批准”。 在“审批请求”边栏选项卡上的“理由”文本框中键入激活原因，记下开始和结束时间，然后单击“确认”。 
 
     >**注意**：你还可以选择拒绝请求。
 
-17. 以 aaduser3 的身份退出 Azure 门户。
+16. 以 aaduser3 的身份退出 Azure 门户。
 
-18. 以 aaduser2 的身份登录 Azure 门户
+17. 在 InPrivate 浏览器中，以 **aaduser2** 身份通过 **`https://portal.azure.com/`** 登录到 Azure 门户
 
-19. 在 Azure 门户中，导航到“Azure AD Privileged Identity Management”（在 Azure 门户页面顶部的“搜索资源、服务和文档”文本框中，键入“Azure AD Privileged Identity Management”，然后按 Enter 键）。
+18. 在 Azure 门户中，导航到“Azure AD Privileged Identity Management”（在 Azure 门户页面顶部的“搜索资源、服务和文档”文本框中，键入“Azure AD Privileged Identity Management”，然后按 Enter 键）。
 
-20. 在“Privileged Identity Management \| 快速启动”边栏选项卡的“任务”部分，单击“我的角色”  。
+19. 在“Privileged Identity Management \| 快速启动”边栏选项卡的“任务”部分，单击“我的角色”  。
 
-21. 在“我的角色 \| Azure AD 角色”边栏选项卡上，单击“活动分配”选项卡，并验证“全局阅读者”角色现在是否处于活动状态 。
+20. 在“我的角色 \| Azure AD 角色”边栏选项卡上，单击“活动分配”选项卡，并验证“全局阅读者”角色现在是否处于活动状态 。
 
     >**注意**：可能必须刷新页面才能查看活动分配的更新列表。
 
-22. 注销并关闭 InPrivate 浏览器窗口。
+21. 注销并关闭 InPrivate 浏览器窗口。
 
 > 结果：你已经练习过在经过审批和未经审批的情况下激活 PIM 角色。 
 

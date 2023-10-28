@@ -16,7 +16,7 @@ lab:
 
 >**注意**：对于本实验室中的所有资源，我们使用“美国东部”区域。 请与讲师确认这是课堂上所使用的区域。 
 
-为了始终专注于与构建此概念验证相关的 Azure 的安全性，将从自动化 ARM 模板部署开始，使用 Visual Studio 2019 和 SQL Server Management Studio 2018 设置虚拟机。
+为了始终专注于与构建此概念验证相关的 Azure 的安全性，将从自动化 ARM 模板部署开始，使用 Visual Studio 2019 和 SQL Server Management Studio 19 设置虚拟机。
 
 ## 实验室目标
 
@@ -31,7 +31,7 @@ lab:
 
 ![image](https://user-images.githubusercontent.com/91347931/157532938-c724cc40-f64f-4d69-9e91-d75344c5e0a2.png)
 
-## Instructions
+## 说明
 
 ## 实验室文件：
 
@@ -49,7 +49,7 @@ lab:
 
 #### 任务 1：部署 Azure VM 和 Azure SQL 数据库
 
-在此任务中，你将部署 Azure VM，这将在部署过程中自动安装 Visual Studio 2019 和 SQL Server Management Studio 2018。 
+在此任务中，你将部署 Azure VM，这将在部署过程中自动安装 Visual Studio 2019 和 SQL Server Management Studio 19。 
 
 1. 登录到 Azure 门户 `https://portal.azure.com/`。
 
@@ -65,7 +65,7 @@ lab:
 
 6. 在“自定义部署”边栏选项卡的“部署范围”下，请确保已配置以下设置（将其他设置保留为默认值）：
 
-   |设置|Value|
+   |设置|值|
    |---|---|
    |订阅|将在此实验室中使用的 Azure 订阅的名称|
    |资源组|单击“新建”并键入名称“AZ500LAB10”|
@@ -221,7 +221,7 @@ lab:
 - 任务 1：启用客户端应用程序访问 Azure SQL 数据库服务。
 - 任务 2：创建一个允许应用程序访问密钥保管库的策略。
 - 任务 3：检索 SQL Azure 数据库 ADO.NET 连接字符串 
-- 任务 4：登录到运行 Visual Studio 2019 和 SQL Management Studio 2018 的 Azure VM
+- 任务 4：登录到运行 Visual Studio 2019 和 SQL Management Studio 19 的 Azure VM
 - 任务 5：在 SQL 数据库中创建一个表，然后选择要加密的数据列
 
 
@@ -235,7 +235,7 @@ lab:
 
 3. 在“注册应用程序”边栏选项卡，指定以下设置（所有其他设置保留为默认值）：
 
-    |设置|Value|
+    |设置|值|
     |----|----|
     |名称|sqlApp|
     |重定向 URI（可选）|Web 和 https://sqlapp |
@@ -254,7 +254,7 @@ lab:
 
 8. 在“添加客户端机密”窗格中，指定以下设置：
 
-    |设置|Value|
+    |设置|值|
     |----|----|
     |说明|**Key1**|
     |Expires|**12 个月**|
@@ -315,9 +315,9 @@ lab:
 
     >**注意**：使用连接字符串时，请确保将 `{your_password}` 占位符替换为你在练习 1 中为部署配置的密码。
 
-#### 任务 4：登录到运行 Visual Studio 2019 和 SQL Management Studio 2018 的 Azure VM
+#### 任务 4：登录到运行 Visual Studio 2019 和 SQL Management Studio 19 的 Azure VM
 
-在此任务中，登录到 Azure VM，这是在练习 1 中启动的部署。 此 Azure VM 托管 Visual Studio 2019 和 SQL Server Management Studio 2018。
+在此任务中，登录到 Azure VM，这是在练习 1 中启动的部署。 此 Azure VM 托管 Visual Studio 2019 和 SQL Server Management Studio 19。
 
     >**Note**: Before you proceed with this task, ensure that the deployment you initiated in the first exercise has completed successfully. You can validate this by navigating to the blade of the Azure resource group "Az500Lab10" (or other name you chose) and selecting **Deployments** from the Settings pane.  
 
@@ -358,7 +358,7 @@ lab:
 
     >**注意**：本实验室中的其余步骤在 az500-10-vm1 Azure VM 的远程桌面会话中执行。 
 
-6. 单击“开始”，在“开始”菜单中，展开“Microsoft SQL Server Tools 18”文件夹，然后单击“Micosoft SQL Server Management Studio”菜单项。
+6. 单击“**开始**”，在“**开始**”菜单中，展开“**Microsoft SQL Server Tools 19**”文件夹，然后单击“**Micosoft SQL Server Management Studio**”菜单项。
 
 7. 在“连接到服务器”对话框中，指定以下设置： 
 
