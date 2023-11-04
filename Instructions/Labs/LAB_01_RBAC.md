@@ -50,9 +50,9 @@ lab:
 
     >**注意**：使用帐户登录到 Azure 门户，该帐户在你用于此实验室的 Azure 订阅中具有所有者或参与者角色，并且在与该订阅关联的 Azure AD 租户中具有全局管理员角色。
 
-2. 在 Azure 门户页面顶部的“搜索资源、服务和文档”文本框中，键入“Azure Active Directory”并按 Enter 键。
+2. 在 Azure 门户顶部的“搜索资源、服务和文档”文本框中，键入“Microsoft Entra ID”并按 **Enter** 键 。
 
-3. 在 Azure Active Directory 租户的“概述”边栏选项卡中，在“管理”部分选择“用户”，然后选择“+ 新建用户”。
+3. 在 Microsoft Entra ID 租户的“概述”边栏选项卡中，在“管理”部分选择“用户”，然后选择“+ 新建用户”   。
 
 4. 在“新建用户”边栏选项卡中，确保选中“创建用户”选项，并指定以下设置：
 
@@ -73,7 +73,7 @@ lab:
 
 在此任务中，你将创建高级管理员组，并将 Joseph Price 用户帐户添加到该组中，然后将其配置为组所有者。
 
-1. 在 Azure 门户中，导航回显示 Azure Active Directory 租户的边栏选项卡。 
+1. 在 Azure 门户中，导航回到显示“Microsoft Entra ID 租户”的边栏选项卡。 
 
 2. 在“管理”部分，单击“组”，然后选择“+ 新建组”。
  
@@ -123,7 +123,7 @@ lab:
     $passwordProfile.Password = "Pa55w.rd1234"
     ```
 
-5. 在“Cloud Shell”窗格内的 PowerShell 会话中，运行下列命令以连接到 Azure Active Directory：
+5. 在“Cloud Shell”窗格内的 PowerShell 会话中，运行下列命令以连接到 Microsoft Entra ID：
 
     ```powershell
     Connect-AzureAD
