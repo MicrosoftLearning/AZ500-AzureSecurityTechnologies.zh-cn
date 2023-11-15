@@ -27,7 +27,7 @@ lab:
 
 ![image](https://user-images.githubusercontent.com/91347931/157533836-7250fa58-a109-4882-a55b-d3fa3baf34ab.png)
 
-## 说明
+## Instructions
 
 ## 实验室文件：
 
@@ -64,7 +64,7 @@ lab:
 
 6. 在“自定义部署”边栏选项卡上，确保已配置以下设置（其他设置保留默认值）：
 
-   |设置|Value|
+   |设置|值|
    |---|---|
    |订阅|将在此实验室中使用的 Azure 订阅的名称|
    |资源组|单击“新建”并键入名称“AZ500LAB11”|

@@ -361,7 +361,7 @@ lab:
 
 8. 在“许可证 | 概述”边栏选项卡上，单击“所有产品”，选中“Azure Active Directory Premium P2”的复选框并单击以打开  。
 
-    >**注意**：在实验室 4 - 练习 2 - 任务 4 中，“向 Azure AD 用户分配 Azure AD Premium P2 许可证”是向用户“aaduser1”、“aaduser2”和“aaduser3”分配高级许可证，请确保从分配的用户中删除这些许可证 
+    >**注意**：在实验室 4 - 练习 2 - 任务 4 中，“向 Azure AD 用户分配 Azure AD Premium P2 许可证”是向用户“aaduser1”、“aaduser2”和“aaduser3”分配高级许可证，请确保从分配的用户中删除这些许可证
 
 9. 在“Azure Active Directory Premium P2 - 许可用户”边栏选项卡上，选中你为其分配了“Azure Active Directory Premium P2”许可证的用户帐户的复选框 。 单击顶部窗格中的“删除许可证”，在系统提示确认时，选择“是” 。
 

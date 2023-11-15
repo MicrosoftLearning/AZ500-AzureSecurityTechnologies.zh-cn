@@ -123,7 +123,7 @@ lab:
 
 3. 在“创建存储帐户”边栏选项卡的“基本信息”选项卡上，指定以下设置（其他设置保留默认值） ：
 
-    |设置|Value|
+    |设置|值|
     |---|---|
     |订阅|你在此实验室中使用的 Azure 订阅的名称|
     |资源组|AZ500LAB131415|
@@ -134,7 +134,7 @@ lab:
 
 4. 在“创建存储帐户”边栏选项卡的“基本信息”选项卡中，单击“查看”并等待验证过程完成，然后单击“创建”   。
 
-     ![image](https://github.com/MicrosoftLearning/AZ500-AzureSecurityTechnologies/assets/91347931/d443821c-2ddf-4794-87fa-bfc092980eba)
+     ![图像](https://github.com/MicrosoftLearning/AZ500-AzureSecurityTechnologies/assets/91347931/d443821c-2ddf-4794-87fa-bfc092980eba)
 
     >**注意**：请等待存储帐户创建完成。 这大约需要 2 分钟。
 
@@ -159,7 +159,7 @@ lab:
 
 3. 在“创建数据收集规则”边栏选项卡的“基本信息”选项卡中，指定以下设置 ：
   
-    |设置|值|
+    |设置|“值”|
     |---|---|
     |**规则详细信息**|
     |规则名称|**DCR1**|
@@ -182,7 +182,7 @@ lab:
 
 7. 单击“+ 添加数据源”，然后在“添加数据源”页上，更改“数据源类型”下拉菜单以显示“性能计数器”   。 保留以下默认设置：
 
-    |设置|值|
+    |设置|“值”|
     |---|---|
     |**性能计数器**|**采样率（秒）**|
     |CPU|60|
@@ -196,7 +196,7 @@ lab:
   
 9. 更改“目标类型”下拉菜单以显示 Azure Monitor 日志 。 在“订阅”窗口中，确保显示“订阅”，然后更改“帐户命名空间”下拉菜单以反映以前创建的 Log Analytics 工作区。
 
-   ![image](https://github.com/MicrosoftLearning/AZ500-AzureSecurityTechnologies/assets/91347931/481843f5-94c4-4a8f-bf51-a10d49130bf8)
+   ![图像](https://github.com/MicrosoftLearning/AZ500-AzureSecurityTechnologies/assets/91347931/481843f5-94c4-4a8f-bf51-a10d49130bf8)
 
 10. 在页面底部，单击“添加数据源”。
     
@@ -206,7 +206,7 @@ lab:
 
     ![image](https://github.com/MicrosoftLearning/AZ500-AzureSecurityTechnologies/assets/91347931/50dd8407-a106-4540-9e14-ae40a3c04830)
 
-14. 单击“创建”。
+14. 单击 **“创建”** 。
 
 > 结果：你部署了 Azure 虚拟机、Log Analytics 工作区、Azure 存储帐户和数据收集规则，以使用 Azure Monitor 代理从虚拟机收集事件和性能计数器。
 
