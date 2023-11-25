@@ -1,10 +1,10 @@
 ---
 lab:
-  title: 13 - Azure Monitor
+  title: 14 - Azure Monitor
   module: Module 04 - Manage security operations
 ---
 
-# 实验室 13：Azure Monitor
+# 实验室 14：Azure Monitor
 
 # 学生实验室手册
 
@@ -134,7 +134,7 @@ lab:
 
 4. 在“创建存储帐户”边栏选项卡的“基本信息”选项卡中，单击“查看”并等待验证过程完成，然后单击“创建”   。
 
-     ![图像](https://github.com/MicrosoftLearning/AZ500-AzureSecurityTechnologies/assets/91347931/d443821c-2ddf-4794-87fa-bfc092980eba)
+     ![image](https://github.com/MicrosoftLearning/AZ500-AzureSecurityTechnologies/assets/91347931/d443821c-2ddf-4794-87fa-bfc092980eba)
 
     >**注意**：请等待存储帐户创建完成。 这大约需要 2 分钟。
 
@@ -154,8 +154,7 @@ lab:
 
 2. 在“监视设置”边栏选项卡上，单击“数据收集规则” **** 。
 
-  ![image](https://github.com/MicrosoftLearning/AZ500-AzureSecurityTechnologies/assets/91347931/d43e8f94-efb2-4255-9320-210c976fd45e)
-
+    ![图像](https://github.com/MicrosoftLearning/AZ500-AzureSecurityTechnologies/assets/91347931/2184da69-12c2-476b-b2b2-b80620e822a6)
 
 3. 在“创建数据收集规则”边栏选项卡的“基本信息”选项卡中，指定以下设置 ：
   
@@ -176,7 +175,7 @@ lab:
 
 5. 在“资源”选项卡上，选择“+ 添加资源”，然后检查“启用数据收集终结点”  。
 
-    ![image](https://github.com/MicrosoftLearning/AZ500-AzureSecurityTechnologies/assets/91347931/c8388619-c254-4c80-a1ff-dde2f35ed350)
+    ![图像](https://github.com/MicrosoftLearning/AZ500-AzureSecurityTechnologies/assets/91347931/c8388619-c254-4c80-a1ff-dde2f35ed350)
 
 6. 单击标签为“下一步: 收集和传递 >”的按钮以继续操作。
 
@@ -196,7 +195,7 @@ lab:
   
 9. 更改“目标类型”下拉菜单以显示 Azure Monitor 日志 。 在“订阅”窗口中，确保显示“订阅”，然后更改“帐户命名空间”下拉菜单以反映以前创建的 Log Analytics 工作区。
 
-   ![图像](https://github.com/MicrosoftLearning/AZ500-AzureSecurityTechnologies/assets/91347931/481843f5-94c4-4a8f-bf51-a10d49130bf8)
+   ![image](https://github.com/MicrosoftLearning/AZ500-AzureSecurityTechnologies/assets/91347931/481843f5-94c4-4a8f-bf51-a10d49130bf8)
 
 10. 在页面底部，单击“添加数据源”。
     
@@ -204,7 +203,7 @@ lab:
 
 13. 单击“查看 + 创建”。
 
-    ![image](https://github.com/MicrosoftLearning/AZ500-AzureSecurityTechnologies/assets/91347931/50dd8407-a106-4540-9e14-ae40a3c04830)
+    ![图像](https://github.com/MicrosoftLearning/AZ500-AzureSecurityTechnologies/assets/91347931/50dd8407-a106-4540-9e14-ae40a3c04830)
 
 14. 单击 **“创建”** 。
 

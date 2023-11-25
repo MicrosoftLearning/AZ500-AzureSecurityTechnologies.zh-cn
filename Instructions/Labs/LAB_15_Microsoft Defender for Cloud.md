@@ -1,10 +1,10 @@
 ---
 lab:
-  title: 14 - Microsoft Defender for Cloud
+  title: 15 - Microsoft Defender for Cloud
   module: Module 04 - Microsoft Defender for Cloud
 ---
 
-# 实验室 14：Microsoft Defender for Cloud
+# 实验室 15：Microsoft Defender for Cloud
 # 学生实验室手册
 
 ## 实验室方案
@@ -26,7 +26,7 @@ lab:
 
 ## Microsoft Defender for Cloud 示意图
 
-![image](https://github.com/MicrosoftLearning/AZ500-AzureSecurityTechnologies/assets/91347931/c31055cc-de95-41f6-adef-f09d756a68eb)
+![image](https://user-images.githubusercontent.com/91347931/157537800-94a64b6e-026c-41b2-970e-f8554ce1e0ab.png)
 
 ## 说明
 

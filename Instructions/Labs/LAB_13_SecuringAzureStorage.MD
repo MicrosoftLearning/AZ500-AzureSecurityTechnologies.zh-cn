@@ -1,10 +1,10 @@
 ---
 lab:
-  title: ' 12 - 服务终结点和安全存储'
+  title: ' 13 - 服务终结点和保护存储'
   module: Module 03 - Secure data and applications
 ---
 
-# 实验室 12：服务终结点和保护存储
+# 实验室 13：服务终结点和保护存储
 # 学生实验室手册
 
 ## 实验室方案
