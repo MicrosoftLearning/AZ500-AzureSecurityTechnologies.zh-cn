@@ -4,7 +4,7 @@ lab:
   module: Module 01 - Manage Identity and Access
 ---
 
-# 实验室 04：MFA 和条件访问
+# 实验室 05：MFA 和条件访问
 # 学生实验室手册
 
 ## 实验室方案
