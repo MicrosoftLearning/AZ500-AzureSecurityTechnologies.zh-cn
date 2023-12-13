@@ -9,10 +9,10 @@ lab:
 
 ## 实验室方案
 
-你需要创建概念证明，演示如何将本地 Microsoft Entra 域服务环境与 Microsoft Entra 租户集成。 具体来说，你需要：
+你需要创建概念证明，以演示如何将本地 Microsoft Entra 域服务环境与 Microsoft Entra 租户集成。 具体来说，你需要：
 
-- 通过部署托管 Microsoft Entra 域服务域控制器的 Azure VM 来实施单域 Microsoft Entra 域服务林
-- 创建和配置 Microsoft Entra 租户
+- 通过部署托管 Microsoft Entra 域服务域控制器的 Azure VM 来实现单域 Microsoft Entra ID 域服务林
+- 创建并配置 Microsoft Entra 租户
 - 将 Microsoft Entra 域服务林与 Microsoft Entra 租户同步
 
 > 对于本实验室中的所有资源，我们使用“美国东部”区域。 请与讲师确认这是课堂上所使用的区域。 
@@ -22,7 +22,7 @@ lab:
 在本实验室中，你将成功完成以下练习：
 
 - 练习 1：部署托管 Microsoft Entra ID 域控制器的 Azure VM
-- 练习 2：创建和配置 Microsoft Entra 租户
+- 练习 2：创建并配置 Microsoft Entra 租户
 - 练习 3：将 Microsoft Entra ID 林与 Microsoft Entra 租户同步
 
 ## 实现目录同步
@@ -88,7 +88,7 @@ lab:
    |资源组|单击“新建”并键入名称“AZ500LAB06”|
    |区域|你在上一个任务中标识的 Azure 区域|
    |管理员用户名|**学生**|
-   |管理员密码|请使用在实验室 04 > 练习 1 > 任务 1 > 步骤 9 中创建的个人密码。|
+   |管理员密码|请使用在实验室 02 > 练习 1 > 任务 1 > 步骤 9 中创建的个人密码。****|
    |域名|adatum.com|
    |DNS 前缀|在上一个任务中标识的 DNS 主机名|
    |VM 大小|**Standard_D2s_v3**|
@@ -97,24 +97,24 @@ lab:
 
     >**注意**：请勿等待部署完成，而是继续进行下一个练习。 部署可能需要大约 15 分钟。 在本实验室的第三个练习中，你将使用此任务中部署的虚拟机。
 
-> 结果：完成此练习后，你已经启动一个 Azure VM 的部署，该 Azure VM 将使用 Azure 资源管理器模板来托管 Microsoft Entra ID 域控制器
+> 结果：完成本练习后，你已经借助 Azure 资源管理器模板启动了一个 Azure VM 的部署，该 Azure VM 将用于托管 Microsoft Entra ID 域控制器
 
 
-### 练习 2：创建和配置 Microsoft Entra 租户 
+### 练习 2：创建并配置 Microsoft Entra 租户 
 
 ### 预计用时：20 分钟
 
 在本练习中，你将完成以下任务：
 
 - 任务 1：创建 Microsoft Entra 租户
-- 任务 2：将自定义 DNS 名称添加到新的 Microsoft Entra 租户
+- 任务 2：向新的 Microsoft Entra 租户添加自定义 DNS 名称
 - 任务 3：创建具有全局管理员角色的 Microsoft Entra ID 用户
 
 #### 任务 1：创建 Microsoft Entra 租户
 
 在此任务中，你将新建一个要在此实验室中使用的 Microsoft Entra 租户。 
 
-1. 在 Azure 门户中，在 Azure 门户页顶部的“搜索资源、服务和文档”**** 文本框中，键入“Microsoft Entra ID”****，然后按 Enter**** 键。
+1. 在 Azure 门户中，在 Azure 门户页顶部的“搜索资源、服务和文档”**** 文本框中，键入“Microsoft Entra ID”****，然后按 Enter **** 键。
 
 2. 在显示当前 Microsoft Entra 租户的“概述”**** 边栏选项卡上，单击“管理租户”****，然后在下一个屏幕上，单击“+ 创建”****。
 
@@ -146,7 +146,7 @@ lab:
 
     >**注意**：如果 AdatumSync 条目未出现在“目录 +订阅”筛选器列表中，则可能需刷新浏览器窗口。
 
-3. 在“AdatumSync \| Microsoft Entra ID”**** 边栏选项卡上，在“管理”**** 部分中单击“自定义域名”****。
+3. 在“AdatumSync \| Microsoft Entra ID”**** 边栏选项卡上，在“管理”**** 部分中，单击“自定义域名”****。
 
 4. 在“AdatumSync \| 自定义域名”边栏选项卡中，单击“+ 添加自定义域”。
 
@@ -154,13 +154,13 @@ lab:
 
 6. 在“adatum.com”**** 边栏选项卡上，查看执行 Microsoft Entra 域名验证所需的信息，然后选择“删除”**** 两次。 
 
-    >**注意**：由于你没有 adatum.com DNS 域名，因此无法完成验证过程。 这不会阻止你将 Microsoft Entra 域服务域 adatum.com**** 与 Microsoft Entra 租户同步。 为此，你将使用 Microsoft Entra 租户的初始 DNS 名称（以 onmicrosoft.com**** 后缀结尾的名称），该名称在上一个任务中已标识。 但请记住，Microsoft Entra 域服务域的 DNS 域名和 Microsoft Entra 租户的 DNS 名称会因此而有所不同。 这意味着，Adatum 用户在登录到 Microsoft Entra 域服务域和登录到 Microsoft Entra 租户时需要使用不同的名称。
+    >**注意**：由于你没有 adatum.com DNS 域名，因此无法完成验证过程。 这不会阻止你将 adatum.com**** Microsoft Entra 域服务域与 Microsoft Entra 租户同步。 为此，你将使用在上一个任务中标识的 Microsoft Entra 租户的初始 DNS 名称（以 onmicrosoft.com**** 后缀结尾的名称）。 但是请记住，Microsoft Entra 域服务域的 DNS 域名和 Microsoft Entra 租户的 DNS 名称因此将有所不同。 这意味着，Adatum 用户在登录到 Microsoft Entra 域服务域和登录到 Microsoft Entra 租户时需要使用不同的名称。
 
 #### 任务 3：创建具有全局管理员角色的 Microsoft Entra ID 用户
 
-在此任务中，你将添加新的 Microsoft Entra ID 用户并为其分配全局管理员角色。 
+在此任务中，你将添加新的 Microsoft Entra ID 用户，并为其指定全局管理员角色。 
 
-1. 在 Microsoft Entra 租户“AdatumSync”**** 边栏选项卡上，在“管理”**** 部分中单击“用户”****。
+1. 在“AdatumSync”**** Microsoft Entra 租户边栏选项卡上，在“管理”**** 部分中，单击“用户”****。
 
 2. 在“用户 | 所有用户”边栏选项卡上，依次单击“+ 新建用户”和“创建新用户”  。
 
@@ -186,11 +186,11 @@ lab:
 
 7. 导航到 Azure 门户 (`https://portal.azure.com/`)，并使用 syncadmin 用户帐户登录。 出现提示时，请将之前在此任务中记录的密码更改为符合复杂性要求的密码，并记录该密码以供将来参考。 在以后的任务中，系统会提示你输入此密码。
 
-    >**备注**：要登录，需要提供 syncadmin**** 用户帐户的完全限定名称，包括此前在此任务中记录的 Microsoft Entra 租户 DNS 域名。 该用户名的格式为 syncadmin@`<your_tenant_name>`.onmicrosoft.com，其中，`<your_tenant_name>` 占位符代表你的唯一 Microsoft Entra 租户名称。 
+    >**备注**：若要登录，需要提供 syncadmin**** 用户帐户的完全限定名称，包括之前在此任务中记录的 Microsoft Entra 租户 DNS 域名。 此用户名的格式为 syncadmin@`<your_tenant_name>`.onmicrosoft.com，其中 `<your_tenant_name>` 是表示唯一 Microsoft Entra 租户名称的占位符。 
 
 8. 以 syncadmin 用户名注销并关闭 InPrivate 浏览器窗口。
 
-> **结果**：完成此练习后，你已创建 Microsoft Entra 租户，了解到如何将自定义 DNS 名称添加到新的 Microsoft Entra 租户，并创建了具有全局管理员角色的 Azure AD 用户。
+> **结果**：完成此练习后，你已创建 Microsoft Entra 租户，了解如何将自定义 DNS 名称添加到新的 Microsoft Entra 租户，并创建了具有全局管理员角色的 Azure AD 用户。
 
 
 ### 练习 3：将 Microsoft Entra ID 林与 Microsoft Entra 租户同步
@@ -199,17 +199,17 @@ lab:
 
 在本练习中，你将完成以下任务：
 
-- 任务 1：为目录同步准备 Microsoft Entra 域服务
+- 任务 1：准备 Microsoft Entra 域服务以进行目录同步
 - 任务 2：安装 Microsoft Entra Connect
 - 任务 3：验证目录同步
 
-#### 任务 1：为目录同步准备 Microsoft Entra 域服务
+#### 任务 1：准备 Microsoft Entra 域服务以进行目录同步
 
-在此任务中，你将连接到运行 Microsoft Entra 域服务域控制器的 Azure VM 并创建目录同步帐户。 
+在此任务中，你将连接到运行 Microsoft Entra 域服务域控制器的 Azure VM，并创建目录同步帐户。 
 
    > 开始本任务之前，请确保在本实验室第一个练习中开始的模板部署已经完成。
 
-1. 在 Azure 门户中，将“目录 + 订阅”**** 筛选器设置为与在本实验室第一个练习中部署 Azure VM 的 Azure 订阅关联的 Microsoft Entra 租户。
+1. 在 Azure 门户中，将“目录 + 订阅”**** 筛选器设置为与在其中部署 Azure VM 的 Azure 订阅关联的 Microsoft Entra 租户，该部署操作是在本实验室的第一个练习中完成的。
 
 2. 在 Azure 门户页面顶部的“搜索资源、服务和文档”文本框中，键入“虚拟机”，然后按 Enter 键  。
 
@@ -222,7 +222,7 @@ lab:
    |设置|值|
    |---|---|
    |用户名|**学生**|
-   |密码|请使用在实验室 04 > 练习 1 > 任务 1 > 步骤 9 中创建的个人密码。|
+   |密码|请使用在实验室 02 > 练习 1 > 任务 1 > 步骤 9 中创建的个人密码。****|
 
     >**注意**：等待加载远程桌面会话和服务器管理器。  
 
@@ -247,7 +247,7 @@ lab:
     |全名|aduser1|
     |用户 UPN 登录|aduser1|
     |用户 SamAccountName 登录|aduser1|
-    |“密码”和“确认密码”|请使用在实验室 04 > 练习 1 > 任务 1 > 步骤 9 中创建的个人密码。|
+    |“密码”和“确认密码”|请使用在实验室 02 > 练习 1 > 任务 1 > 步骤 9 中创建的个人密码。****|
     |其他密码选项|**密码永不过期**|
 
 
@@ -257,40 +257,40 @@ lab:
 
 1. 在与 adVM 的远程桌面会话中，使用 Microsoft Edge 导航到 Azure 门户 (https://portal.azure.com)，然后使用你在上一个练习中创建的 syncadmin 用户帐户登录。 出现提示时，请指定在上一练习中记录的完整用户主体名称和密码。
 
-2. 在 Azure 门户中，在 Azure 门户页顶部的“搜索资源、服务和文档”**** 文本框中，键入“Microsoft Entra ID”****，然后按 Enter**** 键。
+2. 在 Azure 门户中，在 Azure 门户页顶部的“搜索资源、服务和文档”**** 文本框中，键入“Microsoft Entra ID”****，然后按 Enter **** 键。
 
 3. 在 Azure 门户中的“AdatumSync \| 概述”**** 边栏选项卡上，在左侧导航面板中的“管理”**** 下，单击“Microsoft Entra Connect”****。
 
-4. 在“Microsoft Entra Connect \| 开始使用”**** 边栏选项卡上，单击左侧导航面板中的“Connect Sync”****，然后单击“下载 Microsoft Entra Connect”**** 链接。 你将被重定向到“Microsoft Entra Connect”**** 下载页。
+4. 在“Microsoft Entra Connect \| 开始使用”**** 边栏选项卡上，单击左侧导航面板中的“Connect Sync”****，然后单击“下载 Microsoft Entra Connect”**** 链接。 你将被重定向到 Microsoft Entra Connect**** 下载页。
 
-5. 在“Microsoft Entra Connect”**** 下载页上，单击“下载”****。
+5. 在 Microsoft Entra Connect**** 下载页上，单击“下载”****。
 
-6. 出现提示时，单击“运行”**** 以启动“Microsoft Entra Connect”**** 向导。
+6. 出现提示时，单击“运行”**** 以启动 Microsoft Entra Connect**** 向导。
 
-7. 在“Microsoft Entra Connect”**** 向导中的“欢迎使用 Microsoft Entra Connect”**** 页上，单击复选框“我同意许可条款和隐私声明”****，然后单击“继续”****。
+7. 在 Microsoft Entra Connect**** 向导的“欢迎使用 Microsoft Entra Connect”**** 页上，单击复选框“我同意许可条款和隐私声明”****，然后单击“继续”****。
 
-8. 在“Microsoft Entra Connect”**** 向导中的“快速设置”**** 页上，单击“自定义”**** 选项。
+8. 在 Microsoft Entra Connect**** 向导的“快速设置”**** 页上，单击“自定义”**** 选项。
 
 9. 在“安装所需组件”页面上，取消选择所有可选配置选项，然后单击“安装”。
 
 10. 在“用户登录”页面上，确保仅启用“密码哈希同步”，然后单击“下一步”。
 
-11. 在“连接到 Microsoft Entra ID”**** 页上，使用在上一个练习中创建的 syncadmin**** 用户帐户凭据进行身份验证，然后单击“下一步”****。 
+11. 在“连接到 Microsoft Entra ID”**** 页上，请使用在上一个练习中创建的 syncadmin**** 用户帐户凭据进行身份验证，然后单击“下一步”****。 
 
 12. 在“连接目录”页面上，单击“adatum.com”林条目右侧的“添加目录”按钮。
 
-13. 在“AD 林帐户”**** 窗口中，确保已选择“新建 Microsoft Entra ID 帐户”**** 选项，指定以下凭据，然后单击“确定”****：
+13. 在“AD 林帐户”**** 窗口中，请确保选择“新建 Microsoft Entra ID 帐户”**** 选项，指定以下凭据，然后单击“确定”****：
 
     |设置|值|
     |---|---|
     |用户名|ADATUM\\Student|
-    |密码|请使用在实验室 06 > 练习 1 > 任务 2 中创建的个人密码|
+    |密码|请使用在实验室 04 > 练习 1 > 任务 2 中创建的个人密码****|
 
 14. 返回到“连接目录”页面，确保 adatum.com 条目显示为已配置的目录，然后单击“下一步”
 
-15. 在“Microsoft Entra ID 登录配置”**** 页面，注意以下警告：“如果 UPN 后缀与已验证域名不匹配，则用户将无法使用本地凭据登录 Microsoft Entra ID”****，启用“继续，不将所有 UPN 后缀与已验证域匹配”**** 复选框，然后单击“下一步”****。
+15. 在“Microsoft Entra ID 登录配置”**** 页上，请注意以下警告：**如果 UPN 后缀与已验证域名不匹配，则用户将无法使用本地凭据登录 Microsoft Entra ID**，启用复选框“继续，不将所有 UPN 后缀与已验证域匹配”****，然后单击“下一步”****。
 
-    >**备注**：如前所述，这是预期情况，因为你无法验证自定义的 Microsoft Entra ID DNS 域 adatum.com****。
+    >**备注**：如前所述，这是预料中的，因为无法验证自定义 Microsoft Entra ID DNS 域 adatum.com****。
 
 16. 在“域和 OU 筛选”页上，单击“同步所选域和 OU”选项，并清除域名 adatum.com 旁边的复选框。 单击展开 adatum.com，仅选中“ToSync”OU 旁边的复选框，然后单击“下一步”。
 
@@ -304,14 +304,14 @@ lab:
 
     >**注意**：安装需要约 2 分钟。
 
-21. 查看“配置完成”**** 页上的信息，然后单击“退出”**** 关闭“Microsoft Entra Connect”**** 窗口。
+21. 查看“配置完成”**** 页上的信息，然后单击“退出”**** 以关闭“Microsoft Entra Connect”**** 窗口。
 
 
 #### 任务 3：验证目录同步
 
 在此任务中，你将验证目录同步工作是否正常。 
 
-1. 在与 adVM**** 的远程桌面会话中，在显示 Azure 门户的 Microsoft Edge 窗口中，导航到 Adatum 实验室 Microsoft Entra ID 租户的“用户 - 所有用户(预览)”**** 边栏选项卡。
+1. 在与 adVM**** 的远程桌面会话中，在显示 Azure 门户的 Microsoft Edge 窗口中导航到 Microsoft Entra ID 租户 Adatum Lab A 的“用户 - 所有用户(预览版)”**** 边栏选项卡。
 
 2. 在“用户 \| 所有用户”边栏选项卡上，注意用户对象列表包括 aduser1 帐户。 
 
@@ -321,13 +321,13 @@ lab:
 
 4. 在 aduser1 边栏选项卡中，在“职位信息”部分中，请注意，“部门”属性未设置。
 
-5. 在与 adVM**** 的远程桌面会话中，切换到“Microsoft Entra 管理中心”****，在“ToSync”**** OU 中的对象列表中选择“aduser1”**** 条目，然后在“任务”**** 窗格的“aduser1”**** 部分中选择“属性”****。
+5. 在与 adVM**** 的远程桌面会话中，切换到 Microsoft Entra 管理中心****，在“ToSync”**** OU 的对象列表中选择“aduser1”**** 条目，然后在“任务”**** 窗格的“aduser1”**** 部分中选择“属性”****。
 
 6. 在 aduser1 窗口的“组织”部分，在“部门”文本框中键入“销售”，然后选择“确定”。
 
 7. 在与 adVM 的远程桌面会话中，启动“Windows PowerShell”。
 
-8. 在“管理员：Windows PowerShell”**** 控制台中，运行以下命令以启动 Microsoft Entra Connect 增量同步：
+8. 在“管理员: Windows PowerShell”**** 控制台中，运行以下命令以启动 Microsoft Entra Connect 增量同步：
 
     ```powershell
     Import-Module -Name 'C:\Program Files\Microsoft Azure AD Sync\Bin\ADSync\ADSync.psd1'
@@ -339,7 +339,7 @@ lab:
 
     >注意：可能需要等待最多三分钟，如果“部门”属性仍未设置，请再次刷新页面。
 
-> **结果**：完成本练习后，你已准备好用于进行目录同步的 Microsoft Entra 域服务，安装了 Microsoft Entra Connect，并且验证了目录同步。
+> **结果**：完成本练习后，你已准备好用于进行目录同步的 Microsoft Entra 域服务，安装了 Microsoft Entra Connect，并验证了目录同步。
 
 
 **清理资源**
@@ -356,7 +356,7 @@ lab:
     Install-Module MsOnline -Force
     ```
 
-3. 在 Windows PowerShell 控制台中，运行以下命令以连接到 AdatumSync Microsoft Entra 租户（系统提示时，使用 syncadmin**** 凭据登录）：
+3. 在 Windows PowerShell 控制台中，通过运行以下命令连接到 Microsoft Entra 租户 AdatumSync（出现提示时，请使用 syncadmin**** 凭据登录）：
 
     ```powershell
     Connect-MsolService
@@ -378,7 +378,7 @@ lab:
     >**注意**：接下来，删除 Azure 资源
 6. 关闭远程桌面会话。
 
-7. 在 Azure 门户中，将“目录 + 订阅”**** 筛选器设置为与在其中部署“adVM”**** Azure VM 的 Azure 订阅相关联的 Microsoft Entra 租户。
+7. 在 Azure 门户中，将“目录 + 订阅”**** 筛选器设置为与在其中部署 adVM**** Azure VM 的 Azure 订阅关联的 Microsoft Entra 租户。
 
 8. 在 Azure 门户中，通过单击 Azure 门户右上角的第一个图标打开 Cloud Shell。 
 
@@ -395,7 +395,7 @@ lab:
     
     >备注 2：删除租户将变得非常困难，因此绝不会意外或恶意地完成此过程。  这意味着在本实验室中删除租户通常不起作用。  虽然我们在此处提供了删除租户的步骤，但在完成本实验室时对此不作要求。 如果你在实际中需要删除租户，DOCS.Microsoft.com 上的文章可为你提供帮助。
 
-12. 返回 Azure 门户，使用“目录 + 订阅”**** 筛选器切换到 Microsoft Entra 租户“AdatumSync”****。
+12. 返回 Azure 门户，使用“目录 + 订阅”**** 筛选器切换到“AdatumSync”**** Microsoft Entra 租户。
 
 13. 在 Azure 门户中，导航到“用户 - 所有用户”边栏选项卡，单击代表 syncadmin 用户帐户的条目，在“syncadmin - 个人资料”边栏选项卡中，单击“删除”，然后在提示确认时，单击“是”。
 
