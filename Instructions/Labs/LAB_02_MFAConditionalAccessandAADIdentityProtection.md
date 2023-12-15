@@ -1,10 +1,10 @@
 ---
 lab:
-  title: 04 - MFA 和条件访问
+  title: 02 - MFA 和条件访问
   module: Module 01 - Manage Identity and Access
 ---
 
-# 实验室 04：MFA 和条件访问
+# 实验室 02：MFA 和条件访问
 # 学生实验室手册
 
 ## 实验室方案
@@ -235,7 +235,7 @@ lab:
 
 1. 在 Azure 门户中，导航至“AdatumLab500-04”**** Microsoft Entra ID 租户边栏选项卡。
 
-    >**备注**：请确保使用 Microsoft Entra ID 租户 AdatumLab500-04。
+    >**备注**：请确保使用 Microsoft Entra ID 租户 AdatumLab500-04 。
 
 2. 在“AdatumLab500-04”**** 边栏选项卡上的“管理”**** 部分中，单击“安全”****。
 
@@ -281,7 +281,7 @@ lab:
 
 14. 导航至“AdatumLab500-04”**** Microsoft Entra ID 租户边栏选项卡，在“管理”**** 部分中单击“属性”****，然后单击边栏选项卡底部的“管理安全默认值”**** 链接，在“启用安全默认值”**** 边栏选项卡上，单击“禁用”****。 为“禁用原因”选择“我的组织正在使用条件访问”，单击“保存”，阅读警告，然后单击“禁用”**************。
 
-    >**备注**：确保已登录到 Microsoft Entra ID 租户 AdatumLab500-4b****。 可以使用“目录 + 订阅”**** 筛选器在 Microsoft Entra ID 租户之间切换。 确保以在 Microsoft Entra ID 租户中具有全局管理员角色的用户身份登录。
+    >**备注**：确保已登录到 Microsoft Entra ID 租户 AdatumLab500-4b ****。 可以使用“目录 + 订阅”**** 筛选器在 Microsoft Entra ID 租户之间切换。 确保以在 Microsoft Entra ID 租户中具有全局管理员角色的用户身份登录。
 
 #### 任务 6：验证 MFA 配置
 
@@ -291,7 +291,7 @@ lab:
 
 2. 导航到 Azure 门户 (`https://portal.azure.com/`)，并使用 aaduser1 用户帐户登录********。 
 
-    >**备注**：若要登录，需提供 aaduser1**** 用户帐户的完全限定名称，包括之前在本实验室中记录的 Microsoft Entra ID 租户 DNS 域名。 该用户名的格式为 aaduser1@`<your_tenant_name>`.onmicrosoft.com，其中 `<your_tenant_name>` 占位符代表你的唯一 Microsoft Entra ID 租户名称。 
+    >**备注**：若要登录，需提供 aaduser1 用户帐户的完全限定名称，包括之前在本实验室中记录的 Microsoft Entra ID 租户 DNS 域名。**** 该用户名的格式为 aaduser1@`<your_tenant_name>`.onmicrosoft.com，其中 `<your_tenant_name>` 占位符代表你的唯一 Microsoft Entra ID 租户名称。 
 
 3. 出现提示时，在“需要更多信息”对话框中，单击“下一步”。
 
@@ -421,13 +421,13 @@ lab:
 
 1. 如果需要，登录到 Azure 门户 `https://portal.azure.com/`。
 
-    >**备注**：确保已登录到 Microsoft Entra ID 租户 AdatumLab500-4b****。 可以使用“目录 + 订阅”**** 筛选器在 Microsoft Entra ID 租户之间切换。 确保以在 Microsoft Entra ID 租户中具有全局管理员角色的用户身份登录。
+    >**备注**：确保已登录到 Microsoft Entra ID 租户 AdatumLab500-4b ****。 可以使用“目录 + 订阅”**** 筛选器在 Microsoft Entra ID 租户之间切换。 确保以在 Microsoft Entra ID 租户中具有全局管理员角色的用户身份登录。
 
 #### 任务 2：配置用户风险策略
 
 在此任务中，创建一个用户风险策略。 
 
-1. 浏览到 Microsoft Entra ID 租户“AdatumLab500-04”****>“安全”**** > “条件访问”**** > “策略”****。
+1. 浏览到 Microsoft Entra ID 租户“AdatumLab500-04”>“安全” > “条件访问” > “策略”****************。
 
 2. 单击“+ 新建策略”****。
 
@@ -463,7 +463,7 @@ lab:
 
 #### 任务 3：配置登录风险策略
 
-1. 浏览到 Microsoft Entra ID 租户“AdatumLab500-04”****>“安全”**** > “条件访问”****> “策略”****。
+1. 浏览到 Microsoft Entra ID 租户“AdatumLab500-04”>“安全” > “条件访问”> “策略”****************。
 
 2. 选择“+ 新建策略”。
 
@@ -501,7 +501,7 @@ lab:
 
 > 在开始此任务之前，请确保已完成在练习 1 中启动的模板部署。 部署包括名为 az500-04-vm1 的 Azure VM。 
 
-1. 在 Azure 门户中，将“目录 + 订阅”**** 筛选器设置为与在其中部署名为 az500-04-vm1**** 的 Azure VM 的 Azure 订阅相关联的 Microsoft Entra ID 租户。
+1. 在 Azure 门户中，将“目录 + 订阅”筛选器设置为与在其中部署名为 az500-04-vm1 的 Azure VM 的 Azure 订阅相关联的 Microsoft Entra ID 租户********。
 
 2. 在 Azure 门户页面顶部的“搜索资源、服务和文档”文本框中，键入“虚拟机”，然后按 Enter 键  。
 
@@ -552,7 +552,7 @@ lab:
 
 在此任务中，你将查看根据 ToR 浏览器登录情况生成的 Microsoft Entra ID 标识保护报告。
 
-1. 返回 Azure 门户，使用“目录 + 订阅”**** 筛选器切换到 Microsoft Entra ID 租户 AdatumLab500-04****。
+1. 返回 Azure 门户，使用“目录 + 订阅”筛选器切换到 Microsoft Entra ID 租户 AdatumLab500-04。********
 
 2. 在“AdatumLab500-04”边栏选项卡上的“管理”部分，单击“安全”。
 
@@ -576,7 +576,7 @@ lab:
 
 > 我们需要删除你不再使用的标识保护资源。 
 
-使用以下步骤禁用 Microsoft Entra ID 租户 AdatumLab500-04**** 中的标识保护策略。
+使用以下步骤禁用 Microsoft Entra ID 租户 AdatumLab500-04 中的标识保护策略。****
 
 1. 在 Azure 门户中，导航至“AdatumLab500-04”**** Microsoft Entra ID 租户边栏选项卡。
 
@@ -594,7 +594,7 @@ lab:
 
 使用以下步骤停止之前在实验室中预配的 Azure VM。
 
-1. 在 Azure 门户中，将“目录 + 订阅”**** 筛选器设置为与在其中部署名为 az500-04-vm1**** 的 Azure VM 的 Azure 订阅相关联的 Microsoft Entra ID 租户。
+1. 在 Azure 门户中，将“目录 + 订阅”筛选器设置为与在其中部署名为 az500-04-vm1 的 Azure VM 的 Azure 订阅相关联的 Microsoft Entra ID 租户********。
 
 2. 在 Azure 门户页面顶部的“搜索资源、服务和文档”文本框中，键入“虚拟机”，然后按 Enter 键  。
 

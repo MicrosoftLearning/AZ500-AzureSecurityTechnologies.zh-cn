@@ -484,16 +484,3 @@ lab:
 **清理资源**
 
 > 记得删除所有不再使用的新建 Azure 资源。 删除未使用的资源，确保不产生意外成本。 
-
-1. 单击 Azure 门户右上角的第一个图标，打开 Cloud Shell。 如果出现提示，请选择“PowerShell”和“创建存储” 。
-
-2. 确保在“Cloud Shell”窗格左上角的下拉菜单中选中“PowerShell”。
-
-3. 在“Cloud Shell”窗格中的 PowerShell 会话中，运行以下命令删除在此实验室中创建的资源组：
-  
-    ```powershell
-    Remove-AzResourceGroup -Name "AZ500LAB12" -Force -AsJob
-    ```
-
-4.  关闭 Cloud Shell 窗格。 
-

@@ -1,24 +1,24 @@
 ---
 lab:
-  title: 05 - Azure AD Privileged Identity Management
+  title: 05 - Microsoft Entra Privileged Identity Management
   module: Module 01 - Manage Identity and Access
 ---
 
-# 实验室 05：Azure AD Privileged Identity Management
+# 实验室 05 – Microsoft Entra Privileged Identity Management
 # 学生实验室手册
 
 ## 实验室方案
 
-你需要创建一个概念证明，使用 Azure Privileged Identity Management (PIM) 来实现实时管理，并控制可以执行特权操作的用户数量。 具体要求是：
+你需要创建一个概念证明，以使用 Microsoft Entra Privileged Identity Management (PIM) 来实现实时管理，并控制可以执行特权操作的用户数量。 具体要求是：
 
-- 创建 aaduser2 Azure AD 用户到安全管理员角色的永久分配。 
-- 将 Azure AD 用户 aaduser2 配置为有资格担任计费管理员和全局读取者角色。
-- 配置全局读取器角色激活，以要求审批 aaduser3 Azure AD 用户
+- 创建 Microsoft Entra ID aaduser2 用户到安全管理员角色的永久分配。 
+- 将 Microsoft Entra ID 用户 aaduser2 配置为有资格担任计费管理员和全局读取者角色。
+- 将全局读取者角色激活配置为需要对 Microsoft Entra ID 用户 aaduser3 进行审批。
 - 配置对全局读取者角色的访问评审并审查审核功能。
 
 > 对于本实验室中的所有资源，我们使用“美国东部”区域。 请与讲师确认这是课堂上所使用的区域。 
 
-> 在继续之前，请确保已完成“实验室 04：MFA、条件访问和 AAD 标识保护。 你将需要 Azure AD 租户 AdatumLab500-04 以及用户帐户 aaduser1、aaduser2 和 aaduser3。
+> 继续前，请务必完成实验室 04：MFA、条件访问和 Microsoft Entra 标识保护。 你将需要用到 Microsoft Entra 租户 AdatumLab500-04，以及用户帐户 aaduser1、aaduser2 和 aaduser3。
 
 ## 实验室目标
 
@@ -28,9 +28,9 @@ lab:
 - 练习 2：激活 PIM 角色，无论经过审批与否。
 - 练习 3：创建访问评审并审查 PIM 审核功能。
 
-## Azure AD Privileged Identity Management 示意图
+## Microsoft Entra Privileged Identity Management 示意图
 
-![image](https://user-images.githubusercontent.com/91347931/157522920-264ce57e-5c55-4a9d-8f35-e046e1a1e219.png)
+![image](https://github.com/MicrosoftLearning/AZ500-AzureSecurityTechnologies/assets/91347931/aef34a22-8ebd-4015-a04a-7ac3c357b862)
 
 ## 说明
 
@@ -48,15 +48,15 @@ lab:
 
 在此任务中，你将使一个用户符合 Azure AD 目录角色的条件。
 
-1. 通过 **`https://portal.azure.com/`** 登录到 Azure 门户。
+1. 登录到 Azure 门户：**`https://portal.azure.com/`**。
 
-    >**注意**：确保已登录 AdatumLab500-4b Azure AD 租户。 你可以使用“目录 + 订阅”筛选器在 Azure AD 租户之间切换。 务必以具有全局管理员角色的用户身份登录。
+    >**** 备注：确保已登录到 Microsoft Entra 租户 AdatumLab500-04。**** 可以使用“目录 + 订阅”筛选器在 Microsoft Entra 租户之间切换。**** 务必以具有全局管理员角色的用户身份登录。
     
     >**注意**：如果你仍然未看到 AdatumLab500-04 条目，请单击“切换目录”链接，选择 AdatumLab500-04 行并单击“切换”按钮。
 
-2. 在 Azure 门户页面顶部的“搜索资源、服务和文档”文本框中，键入“Azure AD Privileged Identity Management”，然后按 Enter 键。
+2. 在 Azure 门户中，在 Azure 门户页顶部的“搜索资源、服务和文档”文本框中，键入“Microsoft Entra Privileged Identity Management”，然后按 Enter 键。************
 
-3. 在“Privileged Identity Management”边栏选项卡的“管理”部分，单击“Azure AD 角色”  。
+3. 在“Privileged Identity Management”边栏选项卡上的“管理”部分中，单击“Microsoft Entra ID 角色”。************
 
 4. 在“AdatumLab500-04 \| 快速启动”边栏选项卡上的“管理”部分，单击“角色”  。
 
@@ -80,7 +80,7 @@ lab:
 
 #### 任务 2：配置角色，使其需要审批才能激活和添加符合条件的成员
 
-1. 在 Azure 门户中，导航回“Privileged Identity Management”边栏选项卡，并单击“Azure AD 角色” 。
+1. 在 Azure 门户中，导航至“Privileged Identity Management”边栏选项卡，单击“Microsoft Entra ID 角色”。********
 
 2. 在“AdatumLab500-04 \| 快速启动”边栏选项卡上的“管理”部分，单击“角色”  。
 
@@ -118,7 +118,7 @@ lab:
  
 #### 任务 3：将用户永久分配至角色。
 
-1. 在 Azure 门户中，导航回“Privileged Identity Management”边栏选项卡，并单击“Azure AD 角色” 。
+1. 在 Azure 门户中，导航至“Privileged Identity Management”边栏选项卡，单击“Microsoft Entra ID 角色”。********
 
 2. 在“AdatumLab500-04 \| 快速启动”边栏选项卡上的“管理”部分，单击“角色”  。
 
@@ -153,9 +153,9 @@ lab:
 
 2. 在 InPrivate 浏览器窗口中，通过 **`https://portal.azure.com/`** 导航到 Azure 门户，并使用 **aaduser2** 用户帐户登录。
 
-    >**注意**：若要登录，需要提供 aaduser2 用户帐户的完全限定的名称，包括之前在本实验室中记录的 Azure AD 租户 DNS 域名。 该用户名的格式为 aaduser2@`<your_tenant_name>`.onmicrosoft.com，其中 `<your_tenant_name>` 占位符代表你唯一的 Azure AD 租户名称。 
+    >**** 备注：若要登录，需要提供 aaduser2 用户帐户的完全限定名称，包括之前在本实验室中记录的 Microsoft Entra 租户 DNS 域名。**** 该用户名的格式为 aaduser2@`<your_tenant_name>`.onmicrosoft.com，其中 `<your_tenant_name>` 占位符代表唯一 Microsoft Entra 租户名称。 
 
-3. 在 Azure 门户页面顶部的“搜索资源、服务和文档”文本框中，键入“Azure AD Privileged Identity Management”，然后按 Enter 键。
+3. 在 Azure 门户中，在 Azure 门户页顶部的“搜索资源、服务和文档”文本框中，键入“Microsoft Entra Privileged Identity Management”，然后按 Enter 键。************
 
 4. 在“Privileged Identity Management”边栏选项卡的“任务”部分，单击“我的角色”  。
 
@@ -173,7 +173,7 @@ lab:
 
 9. 导航回“Privileged Identity Management”边栏选项卡，然后在“任务”部分单击“我的角色”  。
 
-10. 在“我的角色 \| Azure AD 角色”边栏选项卡上，切换到“活动分配”选项卡 。注意“计费管理员”角色是“已激活”状态。
+10. 在“我的角色 \| Microsoft Entra ID 角色”边栏选项卡上，切换到“活动分配”选项卡。注意“计费管理员”角色是否为“已激活”状态。****************
 
     >**注意**：角色激活后，当达到“结束时间”（符合条件的持续时间）下的时间限制时，它将自动停用。
 
@@ -192,7 +192,7 @@ lab:
 
 2. 在“Privileged Identity Management \| 快速启动”边栏选项卡的“任务”部分，单击“我的角色”  。
 
-3. 在“我的角色 \| Azure AD 角色”边栏选项卡上，在“符合条件的分配”列表中显示“全局读取者”角色的行中，单击“激活”   。 
+3. 在“我的角色 \| Microsoft Entra ID 角色”边栏选项卡上，在“符合条件的分配”列表中显示“全局读取者”角色的行中，单击“激活”。**************** 
 
 4. 在“激活 - 全局读取者”边栏选项卡的“原因”文本框中，键入提供激活理由的文本，然后单击“激活”。
 
@@ -200,7 +200,7 @@ lab:
 
     >**注意**：作为特权角色管理员，你可以随时查看和取消请求。 
 
-6. 在“我的角色 \| Azure AD 角色”边栏选项卡上，找到“安全管理员”角色，然后单击“激活”  。 
+6. 在“我的角色 \| Microsoft Entra ID 角色”边栏选项卡上，找到“安全管理员”角色，然后单击“激活”。************ 
 
 7. 根据需要单击警告“需要附加验证。单击以继续”，并按照说明验证你的身份。
 
@@ -210,7 +210,7 @@ lab:
 
     >**注意**：自动审批过程应该会完成。
 
-9. 返回到“我的角色 \| Azure AD 角色”边栏选项卡，单击“活动分配”选项卡，注意“活动分配”列表包括“安全管理员”角色，但不包括“全局读取者”角色    。
+9. 返回“我的角色 \| Microsoft Entra ID 角色”边栏选项卡，单击“活动分配”选项卡，注意“活动分配”列表是否包括“安全管理员”角色，但不包括“全局读取者”角色。********************
 
     >**注意**：现在将审批“全局读取者”角色。
 
@@ -218,13 +218,13 @@ lab:
 
 11. 在 InPrivate 浏览器中，以 **aaduser3** 身份通过 **`https://portal.azure.com/`** 登录到 Azure 门户。
 
-    >**注意**：如果在使用任何一个用户帐户进行身份验证时遇到问题，可以使用你的用户帐户重置其密码或重新配置其登录选项以登录 Azure AD 租户。
+    >**** 备注：如果使用任一用户帐户进行身份验证时遇到问题，可以使用你的用户帐户重置其密码或重新配置其登录选项，以登录 Microsoft Entra 租户。
 
-12. 在 Azure 门户中，导航到“Azure AD Privileged Identity Management”（在 Azure 门户页面顶部的“搜索资源、服务和文档”文本框中，键入“Azure AD Privileged Identity Management”，然后按 Enter 键）。
+12. 在 Azure 门户中，导航到“Microsoft Entra Privileged Identity Management”（在 Azure 门户页顶部的“搜索资源、服务和文档”文本框中，键入“Microsoft Entra Privileged Identity Management”，然后按 Enter 键）。****
 
 13. 在“Privileged Identity Management \| 快速启动”边栏选项卡的“任务”部分，单击“批准请求”  。
 
-14. 在“批准请求 \| Azure AD 角色”边栏选项卡的“请求激活角色”部分中，选择表示由“aaduser2”向“全局读取者”角色发出的角色激活请求的条目的复选框   。
+14. 在“批准请求 \| Microsoft Entra ID 角色”边栏选项卡上，在“请求激活角色”部分中，选中表示由“aaduser2”向“全局读取者”角色发出的角色激活请求的条目的复选框。****************
 
 15. 单击“批准”。 在“审批请求”边栏选项卡上的“理由”文本框中键入激活原因，记下开始和结束时间，然后单击“确认”。 
 
@@ -234,11 +234,11 @@ lab:
 
 17. 在 InPrivate 浏览器中，以 **aaduser2** 身份通过 **`https://portal.azure.com/`** 登录到 Azure 门户
 
-18. 在 Azure 门户中，导航到“Azure AD Privileged Identity Management”（在 Azure 门户页面顶部的“搜索资源、服务和文档”文本框中，键入“Azure AD Privileged Identity Management”，然后按 Enter 键）。
+18. 在 Azure 门户中，导航到“Microsoft Entra Privileged Identity Management”（在 Azure 门户页顶部的“搜索资源、服务和文档”文本框中，键入“Microsoft Entra Privileged Identity Management”，然后按 Enter 键）。****
 
 19. 在“Privileged Identity Management \| 快速启动”边栏选项卡的“任务”部分，单击“我的角色”  。
 
-20. 在“我的角色 \| Azure AD 角色”边栏选项卡上，单击“活动分配”选项卡，并验证“全局阅读者”角色现在是否处于活动状态 。
+20. 在“我的角色 \| Microsoft Entra ID 角色”边栏选项卡上，单击“活动分配”选项卡，并验证“全局阅读者”角色现在是否处于活动状态。********
 
     >**注意**：可能必须刷新页面才能查看活动分配的更新列表。
 
@@ -252,24 +252,24 @@ lab:
 
 在本练习中，你将完成以下任务：
 
-- 任务 1：在 PIM 中为 Azure AD 目录角色配置安全警报
+- 任务 1：在 PIM 中为 Microsoft Entra ID 角色配置安全警报
 - 任务 2：查看 PIM 警报、摘要信息和详细的审核信息
 
-#### 任务 1：在 PIM 中为 Azure AD 目录角色配置安全警报
+#### 任务 1：在 PIM 中为 Microsoft Entra ID 角色配置安全警报
 
 在此任务中，将减少与“过期”角色分配相关的风险。 为此，将通过创建 PIM 访问评审来确保分配的角色仍然有效。 具体来说，将审查全局读取者角色。 
 
 1. 使用帐户登录到 Azure 门户 `https://portal.azure.com/`。
 
-    >**注意**：确保已登录 AdatumLab500-4b Azure AD 租户。 你可以使用“目录 + 订阅”筛选器在 Azure AD 租户之间切换。 务必以具有全局管理员角色的用户身份登录。
+    >**** 备注：确保已登录到 Microsoft Entra 租户 AdatumLab500-04。**** 可以使用“目录 + 订阅”筛选器在 Microsoft Entra 租户之间切换。**** 务必以具有全局管理员角色的用户身份登录。
     
     >**注意**：如果你仍然未看到 AdatumLab500-04 条目，请单击“切换目录”链接，选择 AdatumLab500-04 行并单击“切换”按钮。
 
-2. 在 Azure 门户页面顶部的“搜索资源、服务和文档”文本框中，键入“Azure AD Privileged Identity Management”，然后按 Enter 键。
+2. 在 Azure 门户中，在 Azure 门户页顶部的“搜索资源、服务和文档”文本框中，键入“Microsoft Entra Privileged Identity Management”，然后按 Enter 键。************
 
 3. 导航到“Privileged Identity Management”边栏选项卡。 
 
-4. 在“Privileged Identity Management \| 快速启动”边栏选项卡的“管理”部分，单击“Azure AD 角色”  。
+4. 在“Privileged Identity Management \| 快速启动”边栏选项卡上的“管理”部分中，单击“Microsoft Entra 角色”。************
 
 5. 在“AdatumLab500-04 \| 快速启动”边栏选项卡上的“管理”部分，单击“访问评审”  。
 
@@ -307,7 +307,7 @@ lab:
 
 16. 在“原因”文本框中输入审批理由，然后单击“批准”以维持当前角色的成员资格，或单击“拒绝”撤销该资格。 
 
-17. 导航回“Privileged Identity Management”边栏选项卡，然后在“管理”部分，单击“Azure AD 角色”  。
+17. 导航至“Privileged Identity Management”边栏选项卡，然后在“管理”部分中，单击“Microsoft Entra ID 角色”。************
 
 18. 在“AdatumLab500-04 \| 快速启动”边栏选项卡上的“管理”部分，单击“访问评审”  。
 
@@ -317,7 +317,7 @@ lab:
 
 在此任务中，你将查看 PIM 警报、摘要信息和详细的审核信息。 
 
-1. 导航回“Privileged Identity Management”边栏选项卡，然后在“管理”部分，单击“Azure AD 角色”  。
+1. 导航至“Privileged Identity Management”边栏选项卡，然后在“管理”部分中，单击“Microsoft Entra ID 角色”。************
 
 2. 在“AdatumLab500-04 \| 快速入门”边栏选项卡上，在“管理”部分，单击“警报”，然后单击“设置”   。
 
@@ -339,9 +339,9 @@ lab:
 
 > 记得删除所有不再使用的新建 Azure 资源。 删除未使用的资源，确保不产生意外成本。 
 
-1. 在 Azure 门户中，将“目录 + 订阅”筛选器设置为与你在其中部署 az500-04-vm1 Azure VM 的 Azure 订阅相关联的 Azure AD 租户。
+1. 在 Azure 门户中，将“目录 + 订阅”筛选器设置为与在其中部署 az500-04-vm1 Azure VM 的 Azure 订阅相关联的 Microsoft Entra 租户。********
 
-    >**注意**：如果你未看到主 Azure AD 租户条目，请单击“切换目录”链接，选择主租户行并单击“切换”按钮。
+    >**** 备注：如果未看到主 Microsoft Entra 租户条目，请单击“切换目录”链接，选择主租户行并单击“切换”按钮。
 
 2. 在 Azure 门户中，通过单击 Azure 门户右上角的第一个图标打开 Cloud Shell。 如果出现提示，请单击“PowerShell”和“创建存储”。
 
@@ -355,26 +355,26 @@ lab:
 
 5. 关闭 Cloud Shell 窗格。 
 
-6. 返回 Azure 门户，使用“目录 + 订阅”筛选器切换到 AdatumLab500-04 Azure Active Directory 租户。
+6. 返回 Azure 门户，使用“目录 + 订阅”筛选器切换到 Microsoft Entra 租户 AdatumLab500-04。********
 
-7. 导航到“AdatumLab500-04 Azure Active Directory”边栏选项卡的“管理”部分，并单击“许可证”  。
+7. 导航至“AdatumLab500-04 Microsoft Entra”边栏选项卡的“管理”部分，并单击“许可证”。************
 
-8. 在“许可证 | 概述”边栏选项卡上，单击“所有产品”，选中“Azure Active Directory Premium P2”的复选框并单击以打开  。
+8. 在“许可证 | 概述”边栏选项卡上，单击“所有产品”，选中“Microsoft Entra ID P2”复选框，并单击将其打开。************
 
-    >**注意**：在实验室 4 - 练习 2 - 任务 4 中，“向 Azure AD 用户分配 Azure AD Premium P2 许可证”是向用户“aaduser1”、“aaduser2”和“aaduser3”分配高级许可证，请确保从分配的用户中删除这些许可证
+    >**** 备注：在实验室 4 - 练习 2 - 任务 4 中，“为 Microsoft Entra 用户分配 Microsoft Entra ID P2 许可证”是为用户 aaduser1、aaduser2 和 aaduser3 分配高级许可证，请确保从分配的用户中删除这些许可证********
 
-9. 在“Azure Active Directory Premium P2 - 许可用户”边栏选项卡上，选中你为其分配了“Azure Active Directory Premium P2”许可证的用户帐户的复选框 。 单击顶部窗格中的“删除许可证”，在系统提示确认时，选择“是” 。
+9. 在“Microsoft Entra ID P2 - 许可用户****”边栏选项卡上，选择向其分配了 Microsoft Entra ID P2**** 许可证的用户帐户的选框。 单击顶部窗格中的“删除许可证”，在系统提示确认时，选择“是” 。
 
 10. 在 Azure 门户中，导航到“用户”-“所有用户”边栏选项卡，单击表示 aaduser1 用户帐户的条目，在“aaduser1”-“个人资料”边栏选项卡上，单击“删除”，然后在提示确认时，选择“是”。
 
 11. 重复相同的步骤以删除你创建的其余用户帐户。
 
-12. 导航到 Azure AD 租户的“AdatumLab500-04 - 概述”边栏选项卡，选择“管理租户”，然后在下一个屏幕上，选中“AdatumLab500-04”旁边的复选框，然后选择“删除”   。 在“删除租户‘AdatumLab500-04’”边栏选项卡上，选择“获取删除 Azure 资源的权限”链接，在 Azure Active Directory 的“属性”边栏选项卡上，将“Azure 资源的访问管理”设置为“是”，然后选择“保存”     。
+12. 导航至 Microsoft Entra 租户的“AdatumLab500-04 - 概述”边栏选项卡，选择“管理租户”，然后在下一个屏幕上，选中“AdatumLab500-04”旁边的复选框并选择“删除”。**************** 在“删除租户‘AdatumLab500-04’”边栏选项卡上，选择“获取删除 Azure 资源的权限”链接，在 Microsoft Entra ID 的“属性”边栏选项卡上，将“Azure 资源的访问管理”设置为“是”，然后选择“保存”。************************
 
 13. 从 Azure 门户注销并重新登录。 
 
 14. 导航回“删除目录‘AdatumLab500-04’”边栏选项卡，然后单击“删除” 。
 
-    >**注意**：仍然无法删除租户，并引发错误“删除所有基于许可证和订阅”，这可能是由于已链接到租户的任何订阅所导致的。 此处，“免费高级 P2 许可证”可能会引发验证错误。 为解决此问题，可以从 M365 管理员>>“你的产品”中，以及从“业务应用商店”门户中，使用全局管理员 ID 删除 Premium P2 许可证的试用订阅 。 另请注意，删除租户需要更多时间。 检查订阅的结束日期，试用期结束后，重新访问 Azure Active Directory，然后尝试删除租户。    
+    >**注意**：仍然无法删除租户，并引发错误“删除所有基于许可证和订阅”，这可能是由于已链接到租户的任何订阅所导致的。 此处，“免费 P2 许可证”可能会引发验证错误。**** 为解决此问题，可以从 M365 管理中心 >>“你的产品”中，以及从“业务应用商店”门户中，使用全局管理员 ID 删除 P2 许可证的试用版订阅。******** 另请注意，删除租户需要更多时间。 检查订阅的结束日期，试用期结束后，重新访问 Microsoft Entra ID，然后尝试删除该租户。    
 
 > 有关此任务的任何其他信息，请参阅 [https://docs.microsoft.com/en-us/azure/active-directory/users-groups-roles/directory-delete-howto](https://docs.microsoft.com/en-us/azure/active-directory/users-groups-roles/directory-delete-howto)
