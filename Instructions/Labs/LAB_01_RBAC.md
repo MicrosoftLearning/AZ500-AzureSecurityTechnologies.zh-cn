@@ -29,7 +29,7 @@ lab:
 
 ## 基于角色的访问控制体系结构示意图
 
-![image](https://user-images.githubusercontent.com/91347931/157751243-5aa6e521-9bc1-40af-839b-4fd9927479d7.png)
+![image](https://github.com/MicrosoftLearning/AZ500-AzureSecurityTechnologies/assets/91347931/506cde9c-5242-4438-a793-f88a5434a2b2)
 
 ## Instructions
 
@@ -48,7 +48,7 @@ lab:
 
 1. 启动浏览器会话并登录到 Azure 门户 `https://portal.azure.com/`。
 
-    >**注意**：使用帐户登录到 Azure 门户，该帐户在你用于此实验室的 Azure 订阅中具有所有者或参与者角色，并且在与该订阅关联的 Azure AD 租户中具有全局管理员角色。
+    >备注****：使用符合以下条件的帐户登录到 Azure 门户：在用于此实验室的 Azure 订阅中具有所有者或参与者角色，并且在与该订阅关联的 Azure AD 租户中具有全局管理员角色。
 
 2. 在 Azure 门户顶部的“搜索资源、服务和文档”文本框中，键入“Microsoft Entra ID”并按 **Enter** 键 。
 
@@ -65,9 +65,9 @@ lab:
 
 6. 确保选中“自动生成密码”，然后选择“显示密码”复选框以识别自动生成的密码。 需要将此密码以及用户名提供给 Joseph。 
 
-7. 单击“创建”。
+7. 单击 **“创建”** 。
 
-8. 刷新“用户 \| 全部用户”边栏选项卡，验证新用户是否已在 Azure AD 租户中创建。
+8. 刷新“用户 \| 所有用户”边栏选项卡，验证在 Microsoft Entra 租户中创建的新用户。****
 
 #### 任务 2：使用 Azure 门户创建高级管理员组，并将 Joseph Price 用户帐户添加到该组。
 
@@ -129,7 +129,7 @@ lab:
     Connect-AzureAD
     ```
       
-6. 在“Cloud Shell”窗格内的 PowerShell 会话中，运行以下命令以识别 Azure AD 租户的名称： 
+6. 在“Cloud Shell”窗格内的 PowerShell 会话中，运行以下命令以标识 Microsoft Entra 租户名称： 
 
     ```powershell
     $domainName = ((Get-AzureAdTenantDetail).VerifiedDomains)[0].Name
@@ -141,7 +141,7 @@ lab:
     New-AzureADUser -DisplayName 'Isabel Garcia' -PasswordProfile $passwordProfile -UserPrincipalName "Isabel@$domainName" -AccountEnabled $true -MailNickName 'Isabel'
     ```
 
-8. 在“Cloud Shell”窗格内的 PowerShell 会话中，运行以下命令以列出 Azure AD 用户（Joseph 和 Isabel 帐户应显示在列表中）： 
+8. 在“Cloud Shell”窗格内的 PowerShell 会话中，运行以下命令以列出 Microsoft Entra ID 用户（Joseph 和 Isabel 帐户应出现在列表中）： 
 
     ```powershell
     Get-AzureADUser 
@@ -157,7 +157,7 @@ lab:
     New-AzureADGroup -DisplayName 'Junior Admins' -MailEnabled $false -SecurityEnabled $true -MailNickName JuniorAdmins
     ```
 
-2. 在“Cloud Shell”窗格内的 PowerShell 会话中，运行以下命令以列出 Azure AD 租户中的组（该列表应包括高级管理员和初级管理员组）：
+2. 在“Cloud Shell”窗格内的 PowerShell 会话中，运行以下命令以列出 Microsoft Entra 租户中的组（该列表应包括高级管理员和初级管理员组）：
 
     ```powershell
     Get-AzureADGroup
@@ -199,7 +199,7 @@ lab:
 
 1. 在“Cloud Shell”窗格左上角的下拉菜单中，选择“Bash”，然后在出现提示时，单击“确认”。 
 
-2. 在“Cloud Shell”窗格内的 Bash 会话中，运行以下命令以识别 Azure AD 租户的名称：
+2. 在“Cloud Shell”窗格内的 Bash 会话中，运行以下命令以标识 Microsoft Entra 租户名称：
 
     ```cli
     DOMAINNAME=$(az ad signed-in-user show --query 'userPrincipalName' | cut -d '@' -f 2 | sed 's/\"//')
@@ -211,7 +211,7 @@ lab:
     az ad user create --display-name "Dylan Williams" --password "Pa55w.rd1234" --user-principal-name Dylan@$DOMAINNAME
     ```
       
-4. 在“Cloud Shell”窗格内的 Bash 会话中，运行以下命令以列出 Azure AD 用户帐户（该列表应包含 Joseph、Isabel 和 Dylan 用户帐户）
+4. 在“Cloud Shell”窗格内的 Bash 会话中，运行以下命令以列出 Microsoft Entra ID 用户帐户（该列表应包含 Joseph、Isabel 和 Dylan 用户帐户）
     
     ```cli
     az ad user list --output table
@@ -227,7 +227,7 @@ lab:
     az ad group create --display-name "Service Desk" --mail-nickname "ServiceDesk"
     ```
  
-2. 在“Cloud Shell”窗格内的 Bash 会话中，运行以下命令以列出 Azure AD 组（该列表应包含服务台、高级管理员和初级管理员组）：
+2. 在“Cloud Shell”窗格内的 Bash 会话中，运行以下命令以列出 Microsoft Entra 组（该列表应包含服务台、高级管理员和初级管理员组）：
 
     ```cli
     az ad group list -o table
