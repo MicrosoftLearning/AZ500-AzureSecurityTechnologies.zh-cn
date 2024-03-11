@@ -126,25 +126,25 @@ lab:
 5. 在“Cloud Shell”窗格内的 PowerShell 会话中，运行下列命令以连接到 Microsoft Entra ID：
 
     ```powershell
-    Connect-AzureAD
+    Connect-MgGraph
     ```
       
 6. 在“Cloud Shell”窗格内的 PowerShell 会话中，运行以下命令以标识 Microsoft Entra 租户名称： 
 
     ```powershell
-    $domainName = ((Get-AzureAdTenantDetail).VerifiedDomains)[0].Name
+    $domainName = ((Get-MgOrganization).VerifiedDomains)[0].Name
     ```
 
 7. 在“Cloud Shell”窗格的 PowerShell 会话中，运行以下命令为 Isabel Garcia 创建一个用户帐户： 
 
     ```powershell
-    New-AzureADUser -DisplayName 'Isabel Garcia' -PasswordProfile $passwordProfile -UserPrincipalName "Isabel@$domainName" -AccountEnabled $true -MailNickName 'Isabel'
+    New-MgUser -DisplayName 'Isabel Garcia' -PasswordProfile $passwordProfile -UserPrincipalName "Isabel@$domainName" -AccountEnabled $true -MailNickName 'Isabel'
     ```
 
 8. 在“Cloud Shell”窗格内的 PowerShell 会话中，运行以下命令以列出 Microsoft Entra ID 用户（Joseph 和 Isabel 帐户应出现在列表中）： 
 
     ```powershell
-    Get-AzureADUser 
+    Get-MgUser 
     ```
 
 #### 任务 2：使用 PowerShell 创建初级管理员组，并将 Isabel Garcia 用户帐户添加到该组。
