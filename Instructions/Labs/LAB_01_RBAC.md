@@ -120,13 +120,17 @@ lab:
 
 4. 在“Cloud Shell”窗格内的 PowerShell 会话中，运行以下命令以在配置文件对象中设置密码的值：
     ```powershell
-    $passwordProfile.Password = "Pa55w.rd1234"
+    $PasswordProfile = @{
+      Password = 'Helo123!'
+      ForceChangePasswordNextSignIn = $true
+      ForceChangePasswordNextSignInWithMfa = $true
+    }
     ```
 
 5. 在“Cloud Shell”窗格内的 PowerShell 会话中，运行下列命令以连接到 Microsoft Entra ID：
 
     ```powershell
-    Connect-MgGraph
+    Connect-MgGraph -Scopes "User.ReadWrite.All", "AuditLog.Read.All", "RoleManagement.Read.Directory"
     ```
       
 6. 在“Cloud Shell”窗格内的 PowerShell 会话中，运行以下命令以标识 Microsoft Entra 租户名称： 
@@ -138,7 +142,7 @@ lab:
 7. 在“Cloud Shell”窗格的 PowerShell 会话中，运行以下命令为 Isabel Garcia 创建一个用户帐户： 
 
     ```powershell
-    New-MgUser -DisplayName 'Isabel Garcia' -PasswordProfile $passwordProfile -UserPrincipalName "Isabel@$domainName" -AccountEnabled $true -MailNickName 'Isabel'
+    New-MgUser -DisplayName 'Isabel Garcia' -PasswordProfile $passwordProfile -UserPrincipalName "Isabel@$domainName" -MailNickName 'Isabel' -AccountEnabled
     ```
 
 8. 在“Cloud Shell”窗格内的 PowerShell 会话中，运行以下命令以列出 Microsoft Entra ID 用户（Joseph 和 Isabel 帐户应出现在列表中）： 
