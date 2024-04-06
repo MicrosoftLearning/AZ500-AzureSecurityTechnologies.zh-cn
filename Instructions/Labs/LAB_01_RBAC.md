@@ -130,7 +130,7 @@ lab:
 5. 在“Cloud Shell”窗格内的 PowerShell 会话中，运行下列命令以连接到 Microsoft Entra ID：
 
     ```powershell
-    Connect-MgGraph -Scopes "User.ReadWrite.All", "AuditLog.Read.All", "RoleManagement.Read.Directory"
+    Connect-MgGraph -Scopes "User.ReadWrite.All", "Group.ReadWrite.All", "AuditLog.Read.All", "RoleManagement.Read.Directory"
     ```
       
 6. 在“Cloud Shell”窗格内的 PowerShell 会话中，运行以下命令以标识 Microsoft Entra 租户名称： 
@@ -155,46 +155,42 @@ lab:
 
 在此任务中，你将创建初级管理员组，并使用 PowerShell 将 Isabel Garcia 用户帐户添加到该组。
 
-1. 在“Cloud Shell”窗格内的同一 PowerShell 会话中，运行以下命令以创建名为初级管理员的新安全组：
-   ```powershell
-   $group = Get-MgGroup -Filter "DisplayName eq 'Junior Admins'"
-   ```
+1. 在“Cloud Shell”窗格内的同一 PowerShell 会话中，运行以下命令创建名为初级管理员的新安全组：****
    
    ```powershell
-   $group = Get-MgGroup -Filter "DisplayName eq 'Junior Admins'"
-    New-MgGroupMemeber -GroupId $group.Id -DirectoryObjectId $user.Id  
+   New-MgGroup -DisplayName "Junior Admins" -MailEnabled:$false -SecurityEnabled:$true -MailNickName JuniorAdmins
+   ```
+   
+2. 在“Cloud Shell”窗格内的 PowerShell 会话中，运行以下命令列出 Microsoft Entra 租户中的组（该列表应包括高级管理员和初级管理员组）****
+   
+   ```powershell
+   Get-MgGroup
    ```
 
+3. 在“Cloud Shell”窗格内的 PowerShell 会话中，运行以下命令获取对 Isabel Garcia 用户帐户的引用：****
+
    ```powershell
-    New-MgGroup -DisplayName 'Junior Admins' -MailEnabled $false -SecurityEnabled $true -MailNickName JuniorAdmins
+   $user =Get-MgUser -Filter "MailNickName eq 'Isabel'"
+   ```
+
+4. 在 Cloud Shell 窗格中的 PowerShell 会话中，运行以下命令以**获取对初级管理员组的引用**：
+   ```powershell
+   $targetGroup = Get-MgGroup -ConsistencyLevel eventual -Search '"DisplayName:Junior Admins"'
+   ```
+
+5. 在“Cloud Shell”窗格内的 PowerShell 会话中，运行以下命令将 Isabel 用户帐户添加到初级管理员组：****
+   
+   ```powershell
+    New-MgGroupMember -DirectoryObjectId $user.id -GroupId $targetGroup.id
     ```
-
-3. 在“Cloud Shell”窗格内的 PowerShell 会话中，运行以下命令以列出 Microsoft Entra 租户中的组（该列表应包括高级管理员和初级管理员组）：
-
+   
+5. 在“Cloud Shell”窗格内的 PowerShell 会话中，运行以下命令验证初级管理员组是否含有 Isabel 用户帐户：****
+   
     ```powershell
-    Get-MgGroup
+    Get-MgGroupMember -GroupId $targetGroup.id
     ```
-
-4. 在“Cloud Shell”窗格内的 PowerShell 会话中，运行以下命令以获得对 Isabel Garcia 用户帐户的引用：
-
-    ```powershell
-    $user = Get-MgUser -Filter "MailNickName eq 'Isabel'"
-    ```
-
-5. 在“Cloud Shell”窗格内的 PowerShell 会话中，运行以下命令将 Isabel 用户帐户添加到初级管理员组：
-    
-    ```powershell
-    New-MgGroupMember -MemberUserPrincipalName $user.userPrincipalName -TargetGroupDisplayName "Junior Admins" 
-    ```
-
-6. 在“Cloud Shell”窗格内的 PowerShell 会话中，运行以下命令以验证初级管理员组是否含有 Isabel 用户帐户：
-
-    ```powershell
-    Get-MgGroupMember -GroupDisplayName "Junior Admins"
-    ```
-
+ 
 > 结果：你使用 PowerShell 创建了一个用户帐户和一个组帐户，并将该用户帐户添加到该组帐户中。 
-
 
 ### 练习 3：创建一个服务台组，其中包含 Dylan Williams 用户帐户作为该组的成员。
 
