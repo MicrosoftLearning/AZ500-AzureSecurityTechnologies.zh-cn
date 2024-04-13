@@ -173,7 +173,7 @@ lab:
    $user =Get-MgUser -Filter "MailNickName eq 'Isabel'"
    ```
 
-4. 在 Cloud Shell 窗格中的 PowerShell 会话中，运行以下命令以**获取对初级管理员组的引用**：
+4. 在 Cloud Shell 窗格中的 PowerShell 会话中，运行以下命令以获取对初级管理员组的引用****：
    ```powershell
    $targetGroup = Get-MgGroup -ConsistencyLevel eventual -Search '"DisplayName:Junior Admins"'
    ```
