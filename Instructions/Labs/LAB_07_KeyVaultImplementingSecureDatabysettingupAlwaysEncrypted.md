@@ -105,11 +105,7 @@ lab:
 3. 在“Cloud Shell”窗格的 PowerShell 会话中，运行以下命令，以在资源组 AZ500LAB10 中创建 Azure 密钥保管库。 （如果在任务 1 中为此实验室的资源组选择了另一个名称，则也要对此任务使用该名称）。 密钥保管库名称必须是唯一的。 记住所选择的名称。 整个实验室都需要它。  
 
     ```powershell
-    $kvName = 'az500kv' + $(Get-Random)
-
-    $location = (Get-AzResourceGroup -ResourceGroupName 'AZ500LAB10').Location
-
-    New-AzKeyVault -VaultName $kvName -ResourceGroupName 'AZ500LAB10' -Location $location
+    New-AzKeyVault -VaultName $kvName -ResourceGroupName 'AZ500LAB10-lod41132372' -Location $location -DisableRbacAuthorization
     ```
 
     >**注意**：最后一条命令的输出将显示保管库名称和保管库 URI。 保管库 URI 的格式为 `https://<vault_name>.vault.azure.net/`
