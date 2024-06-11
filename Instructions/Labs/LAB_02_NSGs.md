@@ -302,7 +302,7 @@ lab:
 
 4. 在 Azure 门户中，导航到“myVMWeb”虚拟机边栏选项卡。
 
-5. 在“myVMWeb”边栏选项卡上的“有效负载”部分中，单击“运行命令”，然后单击“RunPowerShellScript”。****************
+5. 在“myVMWeb”边栏选项卡的“操作”部分，单击“运行命令”，然后单击“RunPowerShellScript”。
 
 6. 在“运行命令脚本”窗格中运行以下命令，将 Web 服务器角色安装到“myVmWeb”上：
 
