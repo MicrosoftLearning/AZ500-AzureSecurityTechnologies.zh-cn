@@ -109,7 +109,7 @@ lab:
 
     $location = (Get-AzResourceGroup -ResourceGroupName 'AZ500LAB10').Location
 
-    New-AzKeyVault -VaultName $kvName -ResourceGroupName 'AZ500LAB10' -Location $location
+    New-AzKeyVault -VaultName $kvName -ResourceGroupName 'AZ500LAB10' -Location $location -DisableRbacAuthorization
     ```
 
     >**注意**：最后一条命令的输出将显示保管库名称和保管库 URI。 保管库 URI 的格式为 `https://<vault_name>.vault.azure.net/`
