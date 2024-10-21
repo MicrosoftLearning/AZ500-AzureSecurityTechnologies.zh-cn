@@ -120,35 +120,31 @@ lab:
 
 4. 在“Cloud Shell”窗格内的 PowerShell 会话中，运行以下命令以在配置文件对象中设置密码的值：
     ```powershell
-    $PasswordProfile = @{
-      Password = 'Helo123!'
-      ForceChangePasswordNextSignIn = $true
-      ForceChangePasswordNextSignInWithMfa = $true
-    }
+    $passwordProfile.Password = "Pa55w.rd1234"
     ```
 
 5. 在“Cloud Shell”窗格内的 PowerShell 会话中，运行下列命令以连接到 Microsoft Entra ID：
 
     ```powershell
-    Connect-MgGraph -Scopes "User.ReadWrite.All", "Group.ReadWrite.All", "AuditLog.Read.All", "RoleManagement.Read.Directory"
+    Connect-AzureAD
     ```
       
 6. 在“Cloud Shell”窗格内的 PowerShell 会话中，运行以下命令以标识 Microsoft Entra 租户名称： 
 
     ```powershell
-    $domainName = ((Get-MgOrganization).VerifiedDomains)[0].Name
+    $domainName = ((Get-AzureAdTenantDetail).VerifiedDomains)[0].Name
     ```
 
 7. 在“Cloud Shell”窗格的 PowerShell 会话中，运行以下命令为 Isabel Garcia 创建一个用户帐户： 
 
     ```powershell
-    New-MgUser -DisplayName 'Isabel Garcia' -PasswordProfile $passwordProfile -UserPrincipalName "Isabel@$domainName" -MailNickName 'Isabel' -AccountEnabled
+    New-AzureADUser -DisplayName 'Isabel Garcia' -PasswordProfile $passwordProfile -UserPrincipalName "Isabel@$domainName" -AccountEnabled $true -MailNickName 'Isabel'
     ```
 
 8. 在“Cloud Shell”窗格内的 PowerShell 会话中，运行以下命令以列出 Microsoft Entra ID 用户（Joseph 和 Isabel 帐户应出现在列表中）： 
 
     ```powershell
-    Get-MgUser 
+    Get-AzureADUser -All $true | Where-Object {$_.UserPrincipalName -like "*43846135@LOD*"} 
     ```
 
 #### 任务 2：使用 PowerShell 创建初级管理员组，并将 Isabel Garcia 用户帐户添加到该组。
@@ -158,38 +154,32 @@ lab:
 1. 在“Cloud Shell”窗格内的同一 PowerShell 会话中，运行以下命令创建名为初级管理员的新安全组：****
    
    ```powershell
-   New-MgGroup -DisplayName "Junior Admins" -MailEnabled:$false -SecurityEnabled:$true -MailNickName JuniorAdmins
+   New-AzureADGroup -DisplayName 'Junior Admins43846135' -MailEnabled $false -SecurityEnabled $true -MailNickName JuniorAdmins
    ```
    
 2. 在“Cloud Shell”窗格内的 PowerShell 会话中，运行以下命令列出 Microsoft Entra 租户中的组（该列表应包括高级管理员和初级管理员组）****
    
    ```powershell
-   Get-MgGroup
+   Get-AzureADGroup
    ```
 
 3. 在“Cloud Shell”窗格内的 PowerShell 会话中，运行以下命令获取对 Isabel Garcia 用户帐户的引用：****
 
    ```powershell
-   $user =Get-MgUser -Filter "MailNickName eq 'Isabel'"
+   $user = Get-AzureADUser -Filter "UserPrincipalName eq 'Isabel-43846135@LODSPRODMCA.onmicrosoft.com'"
    ```
 
-4. 在 Cloud Shell 窗格中的 PowerShell 会话中，运行以下命令以**获取对初级管理员组的引用**：
+4. 在“Cloud Shell”窗格内的 PowerShell 会话中，运行以下命令将 Isabel 用户帐户添加到初级管理员 43846135 组：
    ```powershell
-   $targetGroup = Get-MgGroup -ConsistencyLevel eventual -Search '"DisplayName:Junior Admins"'
+   Add-AzADGroupMember -MemberUserPrincipalName $user.userPrincipalName -TargetGroupDisplayName "Junior Admins43846135"
    ```
 
-5. 在“Cloud Shell”窗格内的 PowerShell 会话中，运行以下命令将 Isabel 用户帐户添加到初级管理员组：****
+5. 在“Cloud Shell”窗格内的 PowerShell 会话中，运行以下命令以验证初级管理员 43846135 组是否含有 Isabel 用户帐户：
    
    ```powershell
-    New-MgGroupMember -DirectoryObjectId $user.id -GroupId $targetGroup.id
+    Get-AzADGroupMember -GroupDisplayName "Junior Admins43846135"
     ```
    
-5. 在“Cloud Shell”窗格内的 PowerShell 会话中，运行以下命令验证初级管理员组是否含有 Isabel 用户帐户：****
-   
-    ```powershell
-    Get-MgGroupMember -GroupId $targetGroup.id
-    ```
- 
 > 结果：你使用 PowerShell 创建了一个用户帐户和一个组帐户，并将该用户帐户添加到该组帐户中。 
 
 ### 练习 3：创建一个服务台组，其中包含 Dylan Williams 用户帐户作为该组的成员。
