@@ -9,7 +9,7 @@ lab:
 
 ## 实验室方案
 
-**注意：** Azure Sentinel 现更名为 Microsoft Sentinel 
+**备注：****Azure Sentinel** 现更名为 **Microsoft Sentinel** 
 
 你需要创建基于 Microsoft Sentinel 的威胁检测和响应的概念证明。 具体来说，你需要：
 
@@ -48,7 +48,7 @@ lab:
 - 任务 5：创建自定义警报，并将 Playbook 配置为自动响应。
 - 任务 6：调用事件并查看关联操作。
 
-#### 任务 1：加入 Azure Sentinel
+#### 任务 1：加入 Microsoft Sentinel
 
 在此任务中，你将加入 Microsoft Sentinel 并连接 Log Analytics 工作区。 
 
@@ -64,7 +64,7 @@ lab:
 
 4. 在“将 Microsoft Sentinel 添加到工作区”边栏选项卡上，选择你在 Azure Monitor 实验室中创建的 Log Analytics 工作区，然后单击“添加”。
 
-    >**注意**：Microsoft Sentinel 对工作区有非常具体的要求。 例如，不能使用由 Microsoft Defender for Cloud 创建的工作区。 有关更多内容，请访问[快速入门：加入 Azure Sentinel](https://docs.microsoft.com/en-us/azure/sentinel/quickstart-onboard)
+    >**注意**：Microsoft Sentinel 对工作区有非常具体的要求。 例如，不能使用由 Microsoft Defender for Cloud 创建的工作区。 有关更多内容，请参阅[快速入门：加入 Microsoft Sentinel](https://docs.microsoft.com/en-us/microsoft/sentinel/quickstart-onboard)
     
 #### 任务 2：配置 Microsoft Sentinel 以使用 Azure 活动数据连接器。 
 
