@@ -11,7 +11,7 @@ lab:
 
 你需要创建基于 Microsoft Defender for Cloud 的环境的概念证明。 具体来说，你需要：
 
-- 配置 Microsoft Defender for Cloud 以监视虚拟机。
+- 针对服务器配置 Microsoft Defender for Cloud 增强的安全性功能以监视虚拟机。
 - 查看适用于虚拟机的 Microsoft Defender for Cloud 建议。
 - 实现有关来宾配置和实时 VM 访问的建议。 
 - 查看如何使用安全功能分数来确定创建更安全的基础结构的进度。
@@ -38,35 +38,23 @@ lab:
 - 任务 2：查看 Microsoft Defender for Cloud 建议
 - 任务 3：实施 Microsoft Defender for Cloud 建议，以启用“实时 VM 访问”
 
-#### 任务 1：配置 Microsoft Defender for Cloud
+#### 任务 1：为服务器配置 Microsoft Defender for Cloud 增强安全功能
 
-在此任务中，你将载入和配置 Microsoft Defender for Cloud。
+在此任务中，你将为服务器载入和配置 Microsoft Defender for Cloud 增强安全功能。
 
-1. 登录到 Azure 门户 `https://portal.azure.com/`。
+1. 启动浏览器会话并登录 [Azure 订阅](https://azure.microsoft.com/en-us/free/?azure-portal=true) 其中您拥有管理权限。
 
-    >**注意**：使用此实验室使用的 Azure 订阅中具有所有者或参与者角色的帐户登录 Azure 门户。
+2. 在 Azure 门户中，在 Azure 门户页面顶部的搜索资源、服务和文档文本框中，键入 Microsoft Defender for Cloud，然后按 Enter 键。
 
-2. 在 Azure 门户中，在 Azure 门户页面顶部的“搜索资源、服务和文档”文本框中，键入“Microsoft Defender for Cloud”，然后按 Enter 键  。
+3. 在 Microsoft Defender for Cloud 的“管理边栏选项卡”上，转到“环境设置”。 展开环境设置文件夹，直到显示订阅部分，然后单击“订阅”以查看详细信息。
 
-3. 在左侧导航面板中，单击“**开始**”。 在“Microsoft Defender for Cloud \| 入门”边栏选项卡上，单击“升级” 。
-     
-4. 在“**Microsoft Defender for Cloud \| 开始**”边栏选项卡上，在“安装代理”选项卡中，向下滚动并单击“**安装代理**”。 
+4. 在“设置”边栏选项卡中的“Defender 计划”下，展开云工作负荷保护 (CWP) 。
+  
+5. 从云工作负荷保护 (CWP) 计划列表中，选择“服务器”。 在页面右侧，将状态从“关”更改为“开”，然后单击“保存”。
+  
+6. 若要查看 Microsoft Defender for Servers 计划 2 的详细信息，请选择“更改计划 >”。
 
-5. 在“Microsoft Defender for Cloud \| 入门”边栏选项卡的“升级”选项卡上，向下滚动直到“选择具有增强安全功能的工作区”部分可见 >> 通过选择 Log Analytics 工作区启用 Microsoft Defender 计划，然后单击蓝色的大“升级”按钮   。  
-
-    >**注意**：查看 Microsoft Defender 计划中提供的所有功能。 
-
-6. 导航到“**Microsoft Defender for Cloud**”，然后在左侧导航面板中的“管理”部分下，单击“**环境设置**”。
-
-7. 在“**Microsoft Defender for Cloud \| 环境设置**”边栏选项卡上，向下滚动并展开，直到出现你的订阅，然后单击相关订阅。 
-
-8. 在“**设置 \| Defender 计划**”边栏选项卡上，选择“**启用所有计划**”，并根据需要单击“**保存**”。
-
-9. 导航回“**Microsoft Defender for Cloud \| 环境设置**”边栏选项卡，不断展开，直到你的订阅出现，然后单击表示在上一个实验室中创建的 Log Analytics 工作区的条目。
-
-10. 在“**设置 \| Defender 计划**”边栏选项卡上，确保所有选项均为“打开”。 如果需要，请单击“**启用所有计划**”，然后单击“**保存**”。
-
-11. 从“**设置 \| Defender 计划**”边栏选项卡中选择“**数据收集**”。 依次单击“**所有事件**”和“**保存**”。
+>**备注**：将云工作负载保护 (CWP) 服务器计划从“关”启用为“开”，可启用 Microsoft Defender for Servers 计划 2。
 
 #### 任务 2：查看 Microsoft Defender for Cloud 建议
 
