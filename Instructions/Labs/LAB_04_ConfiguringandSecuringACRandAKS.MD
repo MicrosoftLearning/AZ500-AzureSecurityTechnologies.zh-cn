@@ -158,7 +158,7 @@ lab:
 
     |设置|值|
     |----|----|
-    |网络配置|**Azure CNI**|
+    |网络配置|**Azure CNI 覆盖**|
     |DNS 名称前缀|**保留默认值**|
 
     >**注意**：可将 AKS 配置为专用群集。 这会将专用 IP 分配给 API 服务器，以确保 API 服务器与节点池之间的网络流量仅保留在专用网络上。 有关更多信息，请访问[创建专用 Azure Kubernetes 服务群集](https://docs.microsoft.com/en-us/azure/aks/private-clusters)页。
