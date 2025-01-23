@@ -14,13 +14,13 @@ lab:
 
 ## 实验室目标
 
-- 配置适用于服务器的 Microsoft Defender for Cloud 增强安全功能
+- 配置适用于服务器的 Microsoft Defender for Cloud 增强的安全性功能
   
 - 查看适用于 Microsoft Defender for Servers 计划 2 的增强安全功能
 
 ## 练习说明
 
-### 配置适用于服务器的 Microsoft Defender for Cloud 增强安全功能
+### 配置适用于服务器的 Microsoft Defender for Cloud 增强的安全性功能
 
 1. 在 Azure 门户中，在 Azure 门户页面顶部的搜索资源、服务和文档文本框中，键入 **Microsoft Defender for Cloud**，然后按 **Enter** 键。
 
