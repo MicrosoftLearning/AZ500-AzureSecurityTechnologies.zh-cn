@@ -106,42 +106,44 @@ lab:
 
 在此任务中，你将使用 PowerShell 为 Isabel Garcia 创建一个用户帐户。
 
-1. 单击 Azure 门户右上角的第一个图标，打开 Cloud Shell。 如果出现提示，请选择“PowerShell”和“创建存储” 。
+1. 单击 Azure 门户右上角的 **Cloud Shell 图标**，**打开 Cloud Shell**。
 
-2. 确保在“Cloud Shell”窗格左上角的下拉菜单中选中“PowerShell”。
+2. **如果系统提示，请通过创建存储帐户来设置 Cloud Shell**。 **仅在首次**启动 Cloud Shell 时需要这样做。
+
+3. 在 Cloud Shell 窗格中，**确保从左上角的下拉菜单中选中“PowerShell”**。
 
    >**注意**：要将复制文本粘贴到 Cloud Shell 中，请在窗格窗口中右键单击并选择“粘贴”。 或者，可以使用 Shift + Insert 组合键。
 
-3. 在“Cloud Shell”窗格内的 PowerShell 会话中，运行以下命令以创建密码配置文件对象：
+4. 在“Cloud Shell”窗格内的 PowerShell 会话中，运行以下命令以创建密码配置文件对象：
 
     ```powershell
     $passwordProfile = New-Object -TypeName Microsoft.Open.AzureAD.Model.PasswordProfile
     ```
 
-4. 在“Cloud Shell”窗格内的 PowerShell 会话中，运行以下命令以在配置文件对象中设置密码的值：
+5. 在“Cloud Shell”窗格内的 PowerShell 会话中，运行以下命令以在配置文件对象中设置密码的值：
     ```powershell
     $passwordProfile.Password = "Pa55w.rd1234"
     ```
 
-5. 在“Cloud Shell”窗格内的 PowerShell 会话中，运行下列命令以连接到 Microsoft Entra ID：
+6. 在“Cloud Shell”窗格内的 PowerShell 会话中，运行下列命令以连接到 Microsoft Entra ID：
 
     ```powershell
     Connect-AzureAD
     ```
       
-6. 在“Cloud Shell”窗格内的 PowerShell 会话中，运行以下命令以标识 Microsoft Entra 租户名称： 
+7. 在“Cloud Shell”窗格内的 PowerShell 会话中，运行以下命令以标识 Microsoft Entra 租户名称： 
 
     ```powershell
     $domainName = ((Get-AzureAdTenantDetail).VerifiedDomains)[0].Name
     ```
 
-7. 在“Cloud Shell”窗格的 PowerShell 会话中，运行以下命令为 Isabel Garcia 创建一个用户帐户： 
+8. 在“Cloud Shell”窗格的 PowerShell 会话中，运行以下命令为 Isabel Garcia 创建一个用户帐户： 
 
     ```powershell
     New-AzureADUser -DisplayName 'Isabel Garcia' -PasswordProfile $passwordProfile -UserPrincipalName "Isabel@$domainName" -AccountEnabled $true -MailNickName 'Isabel'
     ```
 
-8. 在“Cloud Shell”窗格内的 PowerShell 会话中，运行以下命令以列出 Microsoft Entra ID 用户（Joseph 和 Isabel 帐户应出现在列表中）： 
+9. 在“Cloud Shell”窗格内的 PowerShell 会话中，运行以下命令以列出 Microsoft Entra ID 用户（Joseph 和 Isabel 帐户应出现在列表中）： 
 
     ```powershell
     Get-AzureADUser -All $true | Where-Object {$_.UserPrincipalName -like "*43846135@LOD*"} 
@@ -296,7 +298,9 @@ lab:
 
 3. 在“AZ500Lab01 \| 访问控制(IAM)”边栏选项卡上，单击“+ 添加”，然后在下拉菜单中单击“添加角色分配”。
 
-4. 在“添加角色分配”边栏选项卡上，指定以下设置，并在每个步骤后单击“下一步” ：
+4. 在“**添加角色分配**”边栏选项卡上，完成以下每个设置，并在每个设置后单击“下一步”：
+
+   **备注：** 完成所有步骤后，单击“ **下一步**”。
 
    |设置|值|
    |---|---|
@@ -304,17 +308,17 @@ lab:
    |分配访问权限（在“成员”窗格下）|用户、组或服务主体|
    |选择（+ 选择成员）|服务台|
 
-5. 单击“查看 + 分配”两次以创建角色分配。
+6. 单击“查看 + 分配”两次以创建角色分配。
 
-6. 在“访问控制(IAM)”边栏选项卡上，选择“角色分配”。
+7. 在“访问控制(IAM)”边栏选项卡上，选择“角色分配”。
 
-7. 在“AZ500Lab01 \| 访问控制(IAM)”边栏选项卡的“检查访问”选项卡上，在“按名称或电子邮件地址搜索”文本框中，键入“Dylan Williams”。
+8. 在“AZ500Lab01 \| 访问控制(IAM)”边栏选项卡的“检查访问”选项卡上，在“按名称或电子邮件地址搜索”文本框中，键入“Dylan Williams”。
 
-8. 在搜索结果列表中，选择 Dylan Williams 用户帐户，然后在“Dylan Williams 分配 - AZ500Lab01”边栏选项卡上，查看新创建的分配工作。
+9. 在搜索结果列表中，选择 Dylan Williams 用户帐户，然后在“Dylan Williams 分配 - AZ500Lab01”边栏选项卡上，查看新创建的分配工作。
 
-9. 关闭“Dylan Williams 分配 - AZ500Lab01”边栏选项卡。
+10. 关闭“Dylan Williams 分配 - AZ500Lab01”边栏选项卡。
 
-10. 重复最后两个相同步骤，检查“Joseph Price”的访问权限。 
+11. 重复最后两个相同步骤，检查“Joseph Price”的访问权限。 
 
 > 结果：已分配并检查了 RBAC 权限。 
 
