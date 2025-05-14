@@ -33,19 +33,23 @@ lab:
 
 在本练习中，你将完成以下任务： 
 
-- 任务 1：部署 Azure 虚拟机 
-
 #### 任务 1：部署 Azure 虚拟机
 
 1. 登录到 Azure 门户 `https://portal.azure.com/`。
 
     >**注意**：使用此实验室使用的 Azure 订阅中具有所有者或参与者角色的帐户登录 Azure 门户。
 
-2. 单击 Azure 门户右上角的第一个图标，打开 Cloud Shell。 如果出现提示，请选择“PowerShell”和“创建存储” 。
+2. 单击 Azure 门户右上角的第一个图标，打开 Cloud Shell。 如果出现提示，请选择 **PowerShell**。
 
 3. 确保在“Cloud Shell”窗格左上角的下拉菜单中选中“PowerShell”。
 
-4. 在 Cloud Shell 窗格内的 PowerShell 会话中运行以下命令，创建一个将在本实验室中使用的资源组：
+4. 在“**入门**”窗口中，保留默认设置：**选择要开始使用的订阅。你可选挂载存储帐户，以在会话之间保留文件。无需提供存储帐户。**
+
+5. 在“**订阅**”下拉菜单中，选择你的**订阅。**
+
+6. 保留“**使用现有专用虚拟网络**”未选中状态，然后点击“**应用**”。
+
+7. 在 Cloud Shell 窗格内的 PowerShell 会话中运行以下命令，创建一个将在本实验室中使用的资源组：
   
     ```powershell
     New-AzResourceGroup -Name AZ500LAB131415 -Location 'EastUS'
@@ -53,7 +57,7 @@ lab:
 
     >**备注**：此资源组将用于实验室 8、9 和 10。
 
-5. 在“Cloud Shell”窗格的 PowerShell 会话中，运行以下命令以在主机上启用加密 (EAH)：
+8. 在“Cloud Shell”窗格的 PowerShell 会话中，运行以下命令以在主机上启用加密 (EAH)：
    
    ```powershell
     Register-AzProviderFeature -FeatureName "EncryptionAtHost" -ProviderNamespace Microsoft.Compute 
@@ -88,8 +92,6 @@ lab:
 
 在本练习中，你将完成以下任务： 
 
-- 任务 1：创建 Log Analytics 工作区。
-
 #### 任务 1：创建 Log Analytics 工作区
 
 此任务将创建一个 Log Analytics 工作区。 
@@ -117,8 +119,6 @@ lab:
 
 在本练习中，你将完成以下任务：
 
-- 任务 1：创建 Azure 存储帐户
-
 #### 任务 1：创建 Azure 存储帐户
 
 在此任务中，你将创建存储帐户。
@@ -127,22 +127,18 @@ lab:
 
 2. 在 Azure 门户的“存储帐户”边栏选项卡上，单击“+ 创建”按钮以创建新的存储帐户 。
 
-    ![image](https://github.com/MicrosoftLearning/AZ500-AzureSecurityTechnologies/assets/91347931/73eb9241-d642-455a-a1ff-b504670395c0)
-
 3. 在“创建存储帐户”边栏选项卡的“基本信息”选项卡上，指定以下设置（其他设置保留默认值） ：
 
     |设置|值|
     |---|---|
     |订阅|你在此实验室中使用的 Azure 订阅的名称|
     |资源组|AZ500LAB131415|
-    |存储帐户名称|由字母和数字组成、长度介于 3 到 24 个字符之间的任意全局唯一名称|
-    |位置|（美国）美国东部|
-    |性能|标准（常规用途 v2 帐户）|
+    **实例详细信息**|存储帐户名称|长度介于 3 到 24 之间的任意全局唯一名称（由字母和数字组成）|  |区域|**（美国）美国东部**|
+    |主服务|**Azure Blob 存储或 Azure Data Lake Storage Gen2**|
+    |性能|**标准（常规用途 v2 帐户）**|
     |冗余|**本地冗余存储 (LRS)**|
 
-4. 在“创建存储帐户”边栏选项卡的“基本信息”选项卡中，单击“查看”并等待验证过程完成，然后单击“创建”   。
-
-     ![image](https://github.com/MicrosoftLearning/AZ500-AzureSecurityTechnologies/assets/91347931/d443821c-2ddf-4794-87fa-bfc092980eba)
+5. 在“**创建存储帐户**”边栏选项卡的“**基本信息**”选项卡上，单击“**查看 + 创建**”。 验证过程完成后，单击“**创建**”。
 
     >**注意**：请等待存储帐户创建完成。 这大约需要 2 分钟。
 
@@ -152,8 +148,6 @@ lab:
 
 在本练习中，你将完成以下任务：
 
-- 任务 1：创建数据收集规则。
-
 #### 任务 1：创建数据收集规则。
 
 在此任务中，你将创建数据收集规则。
@@ -162,19 +156,14 @@ lab:
 
 2. 在“监视设置”边栏选项卡上，单击“数据收集规则” **** 。
 
-  ![image](https://github.com/MicrosoftLearning/AZ500-AzureSecurityTechnologies/assets/91347931/d43e8f94-efb2-4255-9320-210c976fd45e)
-
-
 3. 单击“**+ 创建**”按钮，创建新的数据收集规则。
 
 4. 在“**创建数据收集规则**”边栏选项卡的“**基本信息**”选项卡中，指定以下设置：
   
     |设置|“值”|
     |---|---|
-    |**规则详细信息**|
-    |规则名称|**DCR1**|
-    |订阅|你在此实验室中使用的 Azure 订阅的名称|
-    |资源组|AZ500LAB131415|
+    **规则详细信息** |规则名称|**DCR1**|
+    |订阅|在本实验室中正在使用的 Azure 订阅的名称|  |资源组|**AZ500LAB131415**|
     |区域|**美国东部**|
     |平台类型|**Windows**|
     |数据收集终结点|*留空*|
@@ -182,17 +171,17 @@ lab:
     ![image](https://github.com/MicrosoftLearning/AZ500-AzureSecurityTechnologies/assets/91347931/9b58c4ce-b7a8-4acf-8289-d95b270a6083)
 
 
-4. 单击标签为“下一步: 资源 >”的按钮以继续操作。
+5. 单击标签为“下一步: 资源 >”的按钮以继续操作。
    
-6. 在“资源”选项卡上，选择“+ 添加资源”****，然后选中“启用数据收集终结点”****。 在“选择范围模板”中，选中“AZ500LAB131415”****，然后单击“应用”****。
+6. 在“**资源**”页上，选择“**+ 添加资源**”。
 
-    ![image](https://github.com/MicrosoftLearning/AZ500-AzureSecurityTechnologies/assets/91347931/d4191115-11bc-43ec-9bee-e84b9b95a821)
+7. 在“**选择范围**”模板中，选中“**范围**”中的“**订阅**”框。
 
-10. 单击标签为“下一步: 收集和传递 >”的按钮以继续操作。
+8. 在“**选择范围**”模板底部，单击“**应用**”。
 
-    ![image](https://github.com/MicrosoftLearning/AZ500-AzureSecurityTechnologies/assets/91347931/8294d300-f910-4757-ad52-43c7594ac822)
+9. 在“**资源**”页底部，选择“**下一步：收集和传递 >**”。
 
-11. 单击“+ 添加数据源”，然后在“添加数据源”页上，更改“数据源类型”下拉菜单以显示“性能计数器”   。 保留以下默认设置：
+10. 单击“+ 添加数据源”，然后在“添加数据源”页上，更改“数据源类型”下拉菜单以显示“性能计数器”   。 保留以下默认设置：
 
     |设置|“值”|
     |---|---|
@@ -208,17 +197,15 @@ lab:
   
 12. 点击“**+ 添加目标**”，更改“**目标类型**”下拉菜单以显示 **Azure Monitor 日志。** 在“订阅”窗口中，确保显示“订阅”，然后更改“帐户命名空间”下拉菜单以反映以前创建的 Log Analytics 工作区。
 
-   ![image](https://github.com/MicrosoftLearning/AZ500-AzureSecurityTechnologies/assets/91347931/481843f5-94c4-4a8f-bf51-a10d49130bf8)
-
-11. 在页面底部，单击“添加数据源”。
+13. 在页面底部，单击“添加数据源”。
     
     ![image](https://github.com/MicrosoftLearning/AZ500-AzureSecurityTechnologies/assets/91347931/964091e7-bbbc-4ca8-8383-bb2871a1e7f0)
 
-13. 单击“查看 + 创建”。
+14. 单击“查看 + 创建”。
 
     ![图像](https://github.com/MicrosoftLearning/AZ500-AzureSecurityTechnologies/assets/91347931/50dd8407-a106-4540-9e14-ae40a3c04830)
 
-14. 单击 **“创建”** 。
+15. 单击 **“创建”** 。
 
 > 结果：你部署了 Azure 虚拟机、Log Analytics 工作区、Azure 存储帐户和数据收集规则，以使用 Azure Monitor 代理从虚拟机收集事件和性能计数器。
 
