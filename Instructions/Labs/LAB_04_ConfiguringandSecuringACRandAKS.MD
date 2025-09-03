@@ -26,7 +26,7 @@ lab:
 
 ## 配置和保护 ACR 和 AKS 的示意图
 
-![image](https://user-images.githubusercontent.com/91347931/157532250-1104a829-792a-4b6d-beff-fe976e2d5d4b.png)
+![显示此实验室中任务流程流的示意图。](../media/configuring-and-securing-acr-and-aks-diagram.png)
 
 ## 说明
 
@@ -81,6 +81,11 @@ lab:
     ```sh
     az acr create --resource-group AZ500LAB09 --name az500$RANDOM$RANDOM --sku Basic
     ```
+    > **注意** 注册 Azure 容器注册表资源提供程序。 如果在运行 `az acr create` 时遇到错误，可能是因为尚未为订阅注册 Azure 容器注册表服务****。 要修复此错误，可以在一个命令中注册此服务并创建注册表：
+    
+    > ```sh
+    > az provider register --namespace Microsoft.ContainerRegistry
+    > ```
 
 7. 在“Cloud Shell”窗格的 Bash 会话中，运行以下命令以确认新的 ACR 已创建：
 
