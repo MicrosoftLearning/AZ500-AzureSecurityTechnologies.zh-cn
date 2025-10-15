@@ -27,9 +27,9 @@ lab:
 
 ## Azure 防火墙示意图
 
-![image](https://user-images.githubusercontent.com/91347931/157529954-a1bc434b-2eca-41c1-b875-1f0c977d5e20.png)
+![显示此实验室中任务流程流的示意图。](../media/azure-firewall-diagram.png)
 
-## Instructions
+## 说明
 
 ## 实验室文件：
 

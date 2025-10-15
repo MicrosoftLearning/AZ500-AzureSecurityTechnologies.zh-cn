@@ -25,9 +25,9 @@ lab:
 
 ## 保护 Azure SQL 数据库的示意图
 
-![image](https://user-images.githubusercontent.com/91347931/157533836-7250fa58-a109-4882-a55b-d3fa3baf34ab.png)
+![显示此实验室中任务流程流的示意图。](../media/securing-azure-sql-database-diagram.png)
 
-## Instructions
+## 说明
 
 ## 实验室文件：
 
