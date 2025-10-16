@@ -25,7 +25,7 @@ lab:
 
 ## 服务终结点和安全存储示意图
 
-![image](https://user-images.githubusercontent.com/91347931/157534883-29664a05-85d1-4c70-99a7-f16d2360755d.png)
+![显示实验室任务流程图的示意图。](../media/service-endpoints-and-securing-storage-diagram.png)
 
 ## 说明
 

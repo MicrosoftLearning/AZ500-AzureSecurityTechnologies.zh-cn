@@ -76,18 +76,24 @@ lab:
     az group list --query "[?name=='AZ500LAB09']" -o table
     ```
 
-6. 在“Cloud Shell”窗格中的 Bash 会话中，运行以下命令以创建新的 Azure 容器注册表 (ACR) 实例（ACR 的名称必须是全局唯一的）： 
+6. 在 Bash 会话中运行以下命令，以在实验室环境中注册容器注册表。****
+
+   ```sh
+   az provider register --namespace Microsoft.Kubernetes
+   az provider register --namespace Microsoft.KubernetesConfiguration
+   az provider register --namespace Microsoft.OperationsManagement
+   az provider register --namespace Microsoft.OperationalInsights
+   az provider register --namespace Microsoft.ContainerService
+   az provider register --namespace Microsoft.ContainerRegistry
+   ```
+
+7. 在“Cloud Shell”窗格中的 Bash 会话中，运行以下命令以创建新的 Azure 容器注册表 (ACR) 实例（ACR 的名称必须是全局唯一的）： 
 
     ```sh
     az acr create --resource-group AZ500LAB09 --name az500$RANDOM$RANDOM --sku Basic
     ```
-    > **注意** 注册 Azure 容器注册表资源提供程序。 如果在运行 `az acr create` 时遇到错误，可能是因为尚未为订阅注册 Azure 容器注册表服务****。 要修复此错误，可以在一个命令中注册此服务并创建注册表：
-    
-    > ```sh
-    > az provider register --namespace Microsoft.ContainerRegistry
-    > ```
 
-7. 在“Cloud Shell”窗格的 Bash 会话中，运行以下命令以确认新的 ACR 已创建：
+8. 在“Cloud Shell”窗格的 Bash 会话中，运行以下命令以确认新的 ACR 已创建：
 
     ```sh
     az acr list --resource-group AZ500LAB09
@@ -135,7 +141,7 @@ lab:
 
 在此任务中，你将创建 Azure Kubernetes 服务并查看已部署的资源。 
 
-1. 在 Azure 门户页面顶部的“搜索资源、服务和文档”文本框中，键入“Kubernetes 服务”，然后按“Enter”键。
+1. 在 Azure 门户中，在 Azure 门户页面顶部的“搜索资源、服务和文档”文本框中，键入“+++Kubernetes 服务+++”并按 Enter 键********。
 
 2. 在“Kubernetes 服务”边栏选项卡上，单击“+ 创建”，然后在下拉菜单中单击“+ 创建 Kubernetes 群集”
 
@@ -143,32 +149,45 @@ lab:
 
     |设置|值|
     |----|----|
-    |订阅|你在此实验室中使用的 Azure 订阅的名称|
-    |资源组|AZ500LAB09|
-    |Kubernetes 群集名称|MyKubernetesCluster|
-    |区域|**（美国）美国东部**|
-    |可用性区域 |无|
-    |缩放方法|**手动**|
-    |节点计数|**1**|
+    | 订阅 | 使用你在本实验室中使用的 Azure 订阅名称** |
+    | 资源组 | AZ500LAB09 |
+    | 群集预设配置 | 开发/测试 |
+    | Kubernetes 群集名称 | +++MyKubernetesCluster+++ |
+    | 区域 | **（美国）美国东部** |
+    | 舰队管理器 | **无** |
+    | 可用性区域 | **无** |
+    | AKS 定价层 | **免费** |
+    | 启用长期支持 | **未选中** |
+    | Kubernetes 版本 | *使用默认值* |
+    | 自动升级 | *保留默认值* |
+    | 节点安全通道类型 | 保留默认值** |
+    | 身份验证和授权 | **使用 Kubernetes RBAC 本地帐户** |
 
-4. 单击“下一步:节点池 >”，然后在“创建 Kubernetes 群集”边栏选项卡的“节点池”选项卡上，指定以下设置（将其他设置保留为默认值）：
+4. 单击“下一步”，然后在“创建 Kubernetes 群集”边栏选项卡的“节点池”选项卡上，指定以下设置（其他设置保留默认值）：************
 
-    |设置|值|
+    |设置|“值”|
     |----|----|
-    |启用虚拟节点|清除复选框|
-    
-5. 单击“下一步:**访问权限 >”，在“创建 Kubernetes 群集”边栏选项卡的“访问权限”选项卡上，接受默认设置，然后单击“下一步:**   网络 >”。 
+    | 启用节点自动预配 | 取消选中复选框**** |
+    | 启用虚拟节点 | 取消选中复选框**** |
+    | 其他值 | 保留默认值** |
+
+5. 单击“下一步”以访问“网络”********。 
+
+  >注意 - 你将看到一个弹出项，提示针对你的虚拟机大小有建议。****  接受建议以继续****。
 
 6. 在“创建 Kubernetes 群集”边栏选项卡的“网络”选项卡中，指定以下设置（其他设置保留默认值） ：
 
-    |设置|值|
+    |设置|“值”|
     |----|----|
-    |网络配置|**Azure CNI 覆盖**|
-    |DNS 名称前缀|**保留默认值**|
+    | 启用专用群集 | **未选中** |
+    | 设置已授权 IP 范围 | **未选中** |
+    | 网络配置 | **Azure CNI 覆盖** |
+    | DNS 名称前缀 | **保留默认值** |
+    | 网络策略 | **无** |
 
     >**注意**：可将 AKS 配置为专用群集。 这会将专用 IP 分配给 API 服务器，以确保 API 服务器与节点池之间的网络流量仅保留在专用网络上。 有关更多信息，请访问[创建专用 Azure Kubernetes 服务群集](https://docs.microsoft.com/en-us/azure/aks/private-clusters)页。
 
-7. 单击“下一步:集成 >”，然后在“创建 Kubernetes 群集”边栏选项卡的“集成”选项卡上，将“容器监视”设置为“禁用”。 
+7. 单击“下一步”，然后在“创建 Kubernetes 群集”页面的“集成”选项卡上，将所有值保留为默认值。**************** 
 
     >**注意**：在生产方案中，你需要启用监视。 在这种情况下，由于实验室未涵盖监视，因此禁用监视。 
 

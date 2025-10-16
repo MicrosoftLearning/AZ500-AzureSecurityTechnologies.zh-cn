@@ -30,9 +30,9 @@ lab:
 
 ## 基于角色的访问控制体系结构示意图
 
-![image](https://github.com/MicrosoftLearning/AZ500-AzureSecurityTechnologies/assets/91347931/506cde9c-5242-4438-a793-f88a5434a2b2)
+![显示本实验室系统布局和实验室流程图的示意图](../media/role-based-access-control-architecture-diagram.png)
 
-## Instructions
+## 说明
 
 ### 练习 1：创建高级管理员组，以用户帐户 Joseph Price 作为其组成员。 
 
@@ -66,9 +66,9 @@ lab:
 
 6. 确保选中“自动生成密码”，然后选择“显示密码”复选框以识别自动生成的密码。 需要将此密码以及用户名提供给 Joseph。 
 
-7. 单击“创建”。
+7. 单击 **“创建”** 。
 
-8. 刷新“用户 \| 所有用户”边栏选项卡，验证在 Microsoft Entra 租户中创建的新用户。****
+8. 刷新“用户 | 所有用户”边栏选项卡，验证在 Microsoft Entra 租户中创建的新用户。****
 
 #### 任务 2：使用 Azure 门户创建高级管理员组，并将 Joseph Price 用户帐户添加到该组。
 
