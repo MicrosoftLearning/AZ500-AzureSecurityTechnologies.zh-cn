@@ -53,7 +53,7 @@ lab:
 
    - 在**已配置**选项卡上，右键单击要向其添加端口的 VM，然后选择编辑。
 
-   ![image](https://github.com/user-attachments/assets/aa4ded55-c5b1-4d40-b5a0-a4c33b9eb81b)
+   ![虚拟机配置屏幕的即时访问的屏幕截图。](../media/just-in-time-vm-access.png)
    
    - 在**JIT VM 访问配置**下，可以编辑已保护的端口的现有设置，也可以添加新的自定义端口。
    - 编辑完端口后，选择**保存**。   
@@ -72,6 +72,6 @@ lab:
     
         - 如果启用了 JIT，则选择**请求访问**，以便传递访问请求，其中包含已为该 VM 配置的请求 IP、时间范围和端口。
     
-   ![image](https://github.com/user-attachments/assets/f5d0b67c-7731-4261-b0eb-a56c505dadd4)
+   ![使用 JIT 连接到虚拟机的屏幕截图。](../media/vm-connection-for-vm1.png)
 
 > **结果**：你已探索了有关如何在 VM 上启用 JIT 的各种方法，以及如何请求访问在 Microsoft Defender for Cloud 中启用了 JIT 的 VM。

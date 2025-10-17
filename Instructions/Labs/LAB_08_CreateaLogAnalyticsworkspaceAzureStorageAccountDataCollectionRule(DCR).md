@@ -168,7 +168,7 @@ lab:
     |平台类型|**Windows**|
     |数据收集终结点|*留空*|
 
-    ![image](https://github.com/MicrosoftLearning/AZ500-AzureSecurityTechnologies/assets/91347931/9b58c4ce-b7a8-4acf-8289-d95b270a6083)
+    ![“创建数据收集规则”基础信息选项卡的屏幕截图。](../media/crete-a-data-collection-rule-basics-tab.png)
 
 
 5. 单击标签为“下一步: 资源 >”的按钮以继续操作。
@@ -191,7 +191,7 @@ lab:
     |磁盘|60|
     |网络|60|
 
-   ![image](https://github.com/MicrosoftLearning/AZ500-AzureSecurityTechnologies/assets/91347931/a24e44ad-1d10-4533-80e2-bae1b3f6564d)
+   ![“数据收集规则”的“收集和传送”选项卡的屏幕截图。](../media/crete-a-data-collection-rule-collectanddeliver-tab.png)
 
 11. 单击标签为“下一步: 目标 >”的按钮以继续操作。
   
@@ -199,11 +199,11 @@ lab:
 
 13. 在页面底部，单击“添加数据源”。
     
-    ![image](https://github.com/MicrosoftLearning/AZ500-AzureSecurityTechnologies/assets/91347931/964091e7-bbbc-4ca8-8383-bb2871a1e7f0)
+    ![“数据收集规则”页面上“添加数据源”页面的屏幕截图。](../media/crete-a-data-collection-rule-add-datasource.png)
 
-14. 单击“查看 + 创建”。
+14. 单击“查看 + 创建”****。
 
-    ![图像](https://github.com/MicrosoftLearning/AZ500-AzureSecurityTechnologies/assets/91347931/50dd8407-a106-4540-9e14-ae40a3c04830)
+    ![“数据收集规则”向导的“查看 + 创建”选项卡的屏幕截图。](../media/crete-a-data-collection-rule-reviewcreate-tab.png)
 
 15. 单击 **“创建”** 。
 
